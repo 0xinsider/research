@@ -1,0 +1,143 @@
+            run_at             
+-------------------------------
+ 2026-09-12 03:29:35.553296+00
+(1 row)
+
+CREATE VIEW
+CREATE VIEW
+ trades | wallets | markets | notional_musd | pre_kickoff | in_play | in_play_pct | in_play_notional_pct 
+--------+---------+---------+---------------+-------------+---------+-------------+----------------------
+ 396830 |   13674 |   33497 |        7893.3 |      204021 |  192809 |        48.6 |                 47.7
+(1 row)
+
+         bucket          |   n   | share_pct | notional_musd | avg_stake_usd | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+-------------------------+-------+-----------+---------------+---------------+-------------+---------+----------+----------------
+ a. 7d+ before           |   515 |       0.1 |           5.7 |         11020 |        58.0 |    52.4 |    -5.55 |         -13.40
+ b. 1-7d before          |  9389 |       2.4 |         151.1 |         16088 |        59.7 |    56.5 |    -3.21 |          -1.85
+ c. 6-24h before         | 40100 |      10.1 |         699.1 |         17434 |        57.9 |    57.0 |    -0.95 |          -2.65
+ d. 1-6h before          | 63485 |      16.0 |        1237.5 |         19493 |        57.0 |    56.6 |    -0.34 |          -0.93
+ e. last hour            | 90532 |      22.8 |        2034.1 |         22468 |        55.6 |    55.8 |     0.16 |           1.58
+ f. in-play, first hour  | 89010 |      22.4 |        1554.5 |         17464 |        62.3 |    62.8 |     0.46 |           0.60
+ g. in-play, second hour | 67836 |      17.1 |        1366.4 |         20142 |        66.8 |    67.4 |     0.57 |           0.24
+ h. in-play, 2h+         | 35963 |       9.1 |         845.0 |         23496 |        67.1 |    67.2 |     0.11 |           2.94
+(8 rows)
+
+ category |    phase    |   n   | avg_price_c | edge_pts | dollar_roi_pct 
+----------+-------------+-------+-------------+----------+----------------
+ Baseball | in-play     | 17536 |        60.7 |    -0.19 |           1.13
+ Baseball | pre-kickoff | 27784 |        51.4 |    -0.65 |          -0.87
+ Cricket  | in-play     |  5442 |        68.8 |     1.95 |           2.02
+ Esports  | in-play     | 45558 |        63.3 |     0.55 |           1.46
+ Esports  | pre-kickoff | 23463 |        58.2 |    -0.80 |           0.25
+ Hockey   | in-play     |  4182 |        59.5 |    -0.50 |          -2.24
+ Hockey   | pre-kickoff |  9364 |        51.6 |    -0.76 |          -1.74
+ MMA      | in-play     |  3913 |        57.9 |    -4.03 |          -3.94
+ MMA      | pre-kickoff |  1419 |        57.8 |   -10.36 |          -9.02
+ NBA      | in-play     | 26380 |        63.5 |     0.31 |           1.73
+ NBA      | pre-kickoff | 31947 |        55.1 |    -0.25 |           0.99
+ Soccer   | in-play     | 53406 |        66.8 |     0.82 |           1.60
+ Soccer   | pre-kickoff | 94269 |        58.3 |     0.39 |           0.98
+ Tennis   | in-play     | 34790 |        67.4 |     0.39 |          -0.40
+ Tennis   | pre-kickoff | 12845 |        61.6 |    -3.21 |          -5.09
+ WNBA     | pre-kickoff |  1056 |        54.1 |    -1.20 |          -1.50
+(16 rows)
+
+  category  |   n    | in_play_pct 
+------------+--------+-------------
+ Cricket    |   6111 |        89.1
+ MMA        |   5332 |        73.4
+ Tennis     |  47635 |        73.0
+ Esports    |  69021 |        66.0
+ Basketball |   1865 |        46.8
+ NBA        |  58327 |        45.2
+ Baseball   |  45320 |        38.7
+ Soccer     | 147675 |        36.2
+ Hockey     |  13546 |        30.9
+ WNBA       |   1453 |        27.3
+(10 rows)
+
+         bucket          |   n   | pct_80plus | pct_under20 | pct_40_60 
+-------------------------+-------+------------+-------------+-----------
+ a. 7d+ before           |   515 |       15.7 |         0.2 |      61.9
+ b. 1-7d before          |  9389 |       17.7 |         1.0 |      42.8
+ c. 6-24h before         | 40100 |       13.5 |         1.0 |      51.1
+ d. 1-6h before          | 63485 |       11.9 |         1.1 |      54.1
+ e. last hour            | 90532 |        9.5 |         1.1 |      55.1
+ f. in-play, first hour  | 89010 |       21.6 |         1.1 |      35.9
+ g. in-play, second hour | 67836 |       33.2 |         1.5 |      27.1
+ h. in-play, 2h+         | 35963 |       33.9 |         1.2 |      29.2
+(8 rows)
+
+    phase    |     band     |   n    | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+-------------+--------------+--------+-------------+---------+----------+----------------
+ in-play     | a. under 30c |   8685 |        22.3 |    22.4 |     0.08 |         -10.40
+ in-play     | b. 30-70c    | 102019 |        52.9 |    53.4 |     0.52 |           1.50
+ in-play     | c. 70c+      |  82105 |        84.1 |    84.5 |     0.37 |           1.57
+ pre-kickoff | a. under 30c |   8440 |        22.6 |    22.3 |    -0.33 |           2.58
+ pre-kickoff | b. 30-70c    | 152331 |        51.5 |    51.3 |    -0.28 |          -0.50
+ pre-kickoff | c. 70c+      |  43250 |        81.6 |    80.8 |    -0.78 |           1.29
+(6 rows)
+
+CREATE VIEW
+  cohort  |   n   | pct_day_plus_before | pct_same_day_before | pct_in_play 
+----------+-------+---------------------+---------------------+-------------
+ C        | 36382 |                 3.6 |                51.8 |        44.7
+ D/F      | 41854 |                 4.1 |                59.0 |        37.0
+ S/A/B    | 46993 |                 3.5 |                45.2 |        51.3
+ no grade | 25058 |                 2.3 |                54.2 |        43.5
+(4 rows)
+
+         bucket          |  cohort  |   n   | edge_pts | dollar_roi_pct 
+-------------------------+----------+-------+----------+----------------
+ a. 7d+ before           | D/F      |    71 |    -0.76 |          -8.49
+ a. 7d+ before           | S/A/B    |    23 |    -3.23 |          11.80
+ a. 7d+ before           | no grade |    67 |    -3.08 |           7.61
+ b. 1-7d before          | D/F      |  1627 |    -0.48 |           3.37
+ b. 1-7d before          | S/A/B    |  1623 |     1.71 |           0.35
+ b. 1-7d before          | no grade |   519 |    -0.22 |          17.10
+ c. 6-24h before         | D/F      |  4885 |    -0.30 |          -0.39
+ c. 6-24h before         | S/A/B    |  4324 |     0.66 |           0.99
+ c. 6-24h before         | no grade |  2119 |    -2.09 |           1.79
+ d. 1-6h before          | D/F      |  8336 |    -0.96 |          -1.63
+ d. 1-6h before          | S/A/B    |  7341 |     0.64 |          -1.97
+ d. 1-6h before          | no grade |  4446 |    -2.55 |          -3.47
+ e. last hour            | D/F      | 11462 |    -0.30 |           6.90
+ e. last hour            | S/A/B    |  9592 |    -0.42 |          -0.36
+ e. last hour            | no grade |  7010 |     1.62 |           5.20
+ f. in-play, first hour  | D/F      |  7996 |    -3.03 |         -11.97
+ f. in-play, first hour  | S/A/B    | 11767 |     3.07 |           9.59
+ f. in-play, first hour  | no grade |  4800 |    -1.81 |          -4.37
+ g. in-play, second hour | D/F      |  5498 |    -1.42 |          -3.51
+ g. in-play, second hour | S/A/B    |  9313 |     0.36 |          -3.12
+ g. in-play, second hour | no grade |  3673 |    -0.70 |           1.20
+ h. in-play, 2h+         | D/F      |  1979 |    -3.80 |          -1.42
+ h. in-play, 2h+         | S/A/B    |  3010 |     2.44 |           6.85
+ h. in-play, 2h+         | no grade |  2424 |    -0.12 |           4.12
+(24 rows)
+
+         bucket          | n_quoted | median_spread_c | mean_spread_c 
+-------------------------+----------+-----------------+---------------
+ a. 7d+ before           |      289 |             1.0 |          18.3
+ b. 1-7d before          |     5654 |             1.0 |           2.0
+ c. 6-24h before         |    23652 |             1.0 |           1.1
+ d. 1-6h before          |    36483 |             1.0 |           1.1
+ e. last hour            |    51300 |             1.0 |           1.1
+ f. in-play, first hour  |    51550 |             1.0 |           1.4
+ g. in-play, second hour |    38486 |             1.0 |           1.5
+ h. in-play, 2h+         |    18388 |             1.0 |           1.7
+(8 rows)
+
+  category  | n_quoted | median_spread_c | p90_spread_c 
+------------+----------+-----------------+--------------
+ Baseball   |    14631 |             1.0 |          1.0
+ Basketball |      528 |             1.0 |          2.0
+ Esports    |    11787 |             1.0 |          2.0
+ Hockey     |     5116 |             1.0 |          1.0
+ MMA        |      755 |             1.0 |          2.0
+ NBA        |    17883 |             1.0 |          1.0
+ Soccer     |    58119 |             1.0 |          1.0
+ Tennis     |     7540 |             1.0 |          2.0
+ WNBA       |      646 |             1.0 |          2.0
+(9 rows)
+
+COPY 71709
