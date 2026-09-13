@@ -1,4 +1,4 @@
-# Polymarket sports markets: five studies
+# Polymarket sports markets: six studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -34,6 +34,16 @@ summed). The fade study uses the sharp-money universe restricted to buys before 
 on a moneyline, child moneyline, spread or total; the side price is what the D/F buyers paid on the side
 they leaned to, and the fade is priced at its complement (query 11 measures the half-cent gap to what the
 other side's buyers actually paid).
+
+Part 2 (issue 0xinsider/0xinsider#13691): https://0xinsider.com/research/over-under-polymarket-sports.
+Game totals (`sports_market_type = 'totals'`, Over/Under), April 2 to September 13, run 16:51 UTC:
+45,662 buys of $1,000+ on 7,120 markets, $810.0M, and 82,080 settled totals counted once. The Under
+settled 52.7% (+/- 0.34 pts; soccer 54.3%, esports 55.3%, NBA 44.7%, MMA 37.8%); every lined total is
+a half point. Under buyers paid 58.4c and won 57.9% (-0.50 [-3.17, +2.23]); Over buyers 56.4c, 55.8%
+(-0.61 [-3.37, +2.21]). No sport, soccer line, phase or grade cohort clears zero (soccer Over -2.11
+[-6.49, +2.36]; soccer 3.5 Over -4.92 [-15.97, +6.94]). S/A/B wallets put 60.5% of totals buys on the
+Under (D/F 50.7%); S/A/B Under +2.12 [-2.78, +6.91]. Files: `over-under.sql`, `over-under-output.txt`,
+`over-under-market-edge.csv` (32,916 rows), `over-under-bootstrap-output.txt`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with
