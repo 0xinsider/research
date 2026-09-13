@@ -1,0 +1,155 @@
+            run_at             
+-------------------------------
+ 2026-09-13 20:45:48.827568+00
+(1 row)
+
+SELECT 79769
+  category  | markets | games | lines_per_game | not_half_point_lines | first_game | last_game  
+------------+---------+-------+----------------+----------------------+------------+------------
+            |   79769 | 23765 |            3.4 |                    6 | 2025-03-26 | 2026-09-13
+ Soccer     |   40361 | 12402 |            3.3 |                    0 | 2025-10-18 | 2026-09-13
+ Baseball   |   12198 |  2597 |            4.7 |                    0 | 2025-09-02 | 2026-09-13
+ Basketball |    9478 |  4398 |            2.2 |                    0 | 2025-11-03 | 2026-08-31
+ NCAAF      |    7473 |  1015 |            7.4 |                    6 | 2025-09-02 | 2026-09-13
+ NBA        |    5770 |  1381 |            4.2 |                    0 | 2025-03-26 | 2026-06-14
+ NFL        |    2023 |   342 |            5.9 |                    0 | 2025-09-05 | 2026-09-13
+ Hockey     |    1713 |  1338 |            1.3 |                    0 | 2025-10-08 | 2026-06-15
+ WNBA       |     753 |   292 |            2.6 |                    0 | 2026-05-13 | 2026-08-31
+(9 rows)
+
+   sport    | games | both_teams_listed | both_teams_pct 
+------------+-------+-------------------+----------------
+ Soccer     | 12402 |              9957 |           80.3
+ Basketball |  6071 |               405 |            6.7
+ Baseball   |  2597 |              1925 |           74.1
+ Football   |  1357 |               209 |           15.4
+ Hockey     |  1338 |               289 |           21.6
+(5 rows)
+
+  category  | prefix | games 
+------------+--------+-------
+ Basketball | cbb    |  4231
+ Baseball   | mlb    |  2597
+ NBA        | nba    |  1381
+ Hockey     | nhl    |  1332
+ NCAAF      | cfb    |  1015
+ Soccer     | elc    |   404
+ Soccer     | mls    |   376
+ NFL        | nfl    |   342
+ Soccer     | arg    |   319
+ Soccer     | bra    |   314
+(10 rows)
+
+SELECT 30160
+   sport    | joined | covered | covered_and_won 
+------------+--------+---------+-----------------
+ Basketball |  15784 |    7712 |            7712
+ Baseball   |  11860 |    4358 |            4358
+ Football   |   9175 |    4939 |            4939
+ Hockey     |   1688 |     562 |             562
+(4 rows)
+
+SELECT 17533
+   sport    | games | neither_covered | decided_by_one_pct | half_width_pts | both_covered_check | first_game | last_game  
+------------+-------+-----------------+--------------------+----------------+--------------------+------------+------------
+ Soccer     |  9132 |            5908 |               64.7 |           0.98 |                  0 | 2026-02-06 | 2026-09-13
+ Baseball   |  1882 |             548 |               29.1 |           2.05 |                  0 | 2025-10-08 | 2026-09-13
+ Hockey     |   288 |             123 |               42.7 |           5.71 |                  0 | 2025-10-12 | 2026-06-15
+ Basketball |   206 |              14 |                6.8 |           3.44 |                  0 | 2025-05-17 | 2026-06-14
+ Football   |   136 |               5 |                3.7 |           3.16 |                  0 | 2025-10-04 | 2026-09-13
+(5 rows)
+
+ game_month | games | one_run_pct 
+------------+-------+-------------
+ 2025-10    |     2 |        50.0
+ 2026-03    |     7 |        57.1
+ 2026-04    |   259 |        26.3
+ 2026-05    |   369 |        29.3
+ 2026-06    |   335 |        29.9
+ 2026-07    |   324 |        29.6
+ 2026-08    |   418 |        27.3
+ 2026-09    |   168 |        33.9
+(8 rows)
+
+SELECT 14440
+SELECT 12402
+ matches | draw_pct | one_goal_win_pct | two_goal_win_pct | three_plus_win_pct | check_draw_but_covered 
+---------+----------+------------------+------------------+--------------------+------------------------
+    7528 |     25.7 |             38.6 |             20.2 |               15.6 |                      0
+(1 row)
+
+ matches | draw_pct | one_goal_win_pct | two_plus_win_pct 
+---------+----------+------------------+------------------
+    9016 |     25.8 |             38.8 |             35.3
+(1 row)
+
+SELECT 30158
+ buys  | markets | wallets | notional_musd | in_play_pct | first_buy  |  last_buy  
+-------+---------+---------+---------------+-------------+------------+------------
+ 30158 |    2972 |    2392 |         565.9 |        28.6 | 2026-04-02 | 2026-09-13
+(1 row)
+
+   sport    | prefix | buys  | markets 
+------------+--------+-------+---------
+ Basketball | nba    | 13314 |     651
+ Soccer     | fifwc  | 10568 |     355
+ Baseball   | mlb    |  2492 |     952
+ Soccer     | epl    |   572 |     109
+ Soccer     | ucl    |   542 |      53
+ Hockey     | nhl    |   443 |     110
+ Basketball | wnba   |   316 |     147
+ Soccer     | lal    |   292 |      68
+ Basketball | cbb    |   256 |      17
+ Soccer     | sea    |   182 |      49
+(10 rows)
+
+   sport    |     side      | buys  | markets | notional_musd | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+------------+---------------+-------+---------+---------------+-------------+---------+----------+----------------
+ Baseball   | Laying points |  1280 |     666 |          17.7 |        50.6 |    50.0 |    -0.64 |          -0.75
+ Baseball   | Taking points |  1212 |     642 |          14.0 |        57.6 |    54.5 |    -3.13 |          -2.91
+ Baseball   |               |  2492 |     952 |          31.7 |        54.0 |    52.2 |    -1.85 |          -1.70
+ Basketball | Laying points |  7408 |     714 |         167.7 |        52.3 |    57.6 |     5.32 |          11.76
+ Basketball | Taking points |  6478 |     695 |         146.7 |        51.7 |    46.2 |    -5.41 |         -10.18
+ Basketball |               | 13886 |     815 |         314.4 |        52.0 |    52.3 |     0.31 |           1.53
+ Football   | Laying points |    55 |      30 |           1.4 |        51.3 |    36.4 |   -14.89 |         -43.24
+ Football   | Taking points |    39 |      30 |           0.7 |        50.9 |    71.8 |    20.85 |          51.65
+ Football   |               |    94 |      54 |           2.2 |        51.1 |    51.1 |    -0.06 |         -10.93
+ Hockey     | Laying points |   209 |      78 |           4.3 |        42.9 |    52.2 |     9.21 |          23.56
+ Hockey     | Taking points |   234 |      95 |           4.5 |        62.3 |    54.7 |    -7.65 |         -14.45
+ Hockey     |               |   443 |     110 |           8.8 |        53.2 |    53.5 |     0.31 |           4.15
+ Soccer     | Laying points |  4950 |     542 |          75.9 |        49.9 |    55.1 |     5.11 |           8.67
+ Soccer     | Taking points |  8293 |     899 |         133.0 |        67.6 |    66.9 |    -0.74 |           0.95
+ Soccer     |               | 13243 |    1041 |         208.9 |        61.0 |    62.5 |     1.45 |           3.75
+            |               | 30158 |    2972 |         565.9 |        56.1 |    56.8 |     0.63 |           2.16
+(16 rows)
+
+      phase       |     side      | buys  | markets | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+------------------+---------------+-------+---------+-------------+---------+----------+----------------
+ Before the start | Laying points | 10202 |    1538 |        48.7 |    52.9 |     4.20 |           9.81
+ Before the start | Taking points | 11319 |    1729 |        58.5 |    55.5 |    -3.03 |          -5.79
+ In-play          | Laying points |  3700 |    1054 |        57.9 |    63.9 |     6.00 |          10.36
+ In-play          | Taking points |  4937 |    1392 |        64.7 |    62.4 |    -2.35 |          -2.21
+(4 rows)
+
+     side      |     band     | buys | markets | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+---------------+--------------+------+---------+-------------+---------+----------+----------------
+ Laying points | a. under 30c |  444 |     197 |        22.3 |    20.5 |    -1.83 |         -10.11
+ Laying points | b. 30-50c    | 5313 |    1154 |        43.9 |    49.5 |     5.64 |          13.59
+ Laying points | c. 50-70c    | 7250 |    1022 |        54.3 |    58.8 |     4.53 |           9.00
+ Laying points | d. 70c+      |  895 |     274 |        83.4 |    86.7 |     3.35 |           0.97
+ Taking points | a. under 30c |   74 |      32 |        25.1 |    21.6 |    -3.49 |          17.48
+ Taking points | b. 30-50c    | 4150 |     675 |        45.9 |    41.9 |    -4.02 |          -0.73
+ Taking points | c. 50-70c    | 8039 |    1340 |        56.5 |    51.7 |    -4.78 |         -10.39
+ Taking points | d. 70c+      | 3993 |     887 |        83.9 |    86.2 |     2.36 |           4.69
+(8 rows)
+
+SELECT 13072
+   cohort   |     side      | buys | markets | avg_price_c | win_pct | edge_pts 
+------------+---------------+------+---------+-------------+---------+----------
+ D and F    | Laying points | 1796 |     368 |        49.7 |    55.0 |     5.28
+ D and F    | Taking points | 1927 |     397 |        62.1 |    55.9 |    -6.11
+ S, A and B | Laying points | 1258 |     272 |        56.5 |    61.9 |     5.46
+ S, A and B | Taking points | 3684 |     532 |        70.0 |    70.8 |     0.84
+(4 rows)
+
+COPY 21645

@@ -1,4 +1,4 @@
-# Polymarket sports markets: ten studies
+# Polymarket sports markets: eleven studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -76,6 +76,17 @@ Series 4 (issue 0xinsider/0xinsider#13718):
   flagged from the listing (Set 4/5 markets, -2.5 set handicap, Total Sets 3.5/4.5, games total 30+);
   query 7 lists the tournaments behind it. A title is not a format flag: Australian Open qualifying is
   filed under "Australian Open Men's". Files: `tennis-sets.sql`, `tennis-sets-output.txt`.
+
+Series 5 (issue 0xinsider/0xinsider#13754):
+
+- https://0xinsider.com/research/point-spreads-polymarket (run 20:45 UTC). 79,769 settled spread markets
+  titled "Spread: <team> (-X.5)" on 23,765 games; outcome 0 is the named team covering (17,571 of 17,571
+  covered teams also won their moneyline). Polymarket lists ladders of lines for both teams, so no favorite
+  is assumed. Large buys April 2 to September 13 (30,158, $565.9M): laying the points +4.68 [+0.25, +9.12],
+  taking -2.82 [-6.84, +1.28]; NBA laying +5.32, taking -5.41; in-play laying +6.00 [+2.01, +9.93]. Games
+  listing both teams at -1.5: MLB one-run games 29.1% of 1,882; soccer 7,528 matches drew 25.7%, were won by
+  one goal 38.6%, two 20.2%, three or more 15.6%. Files: `spreads.sql`, `spreads-output.txt`,
+  `spreads-market-edge.csv`, `spreads-bootstrap-output.txt`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with
