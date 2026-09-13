@@ -1,0 +1,95 @@
+            run_at             
+-------------------------------
+ 2026-09-13 19:46:38.144147+00
+(1 row)
+
+SELECT 28064
+SELECT 16640
+SELECT 16640
+SELECT 28064
+SELECT 13222
+ matches_with_set_markets | with_set1_mapped | set1_unmapped | best_of_5 | best_of_5_with_set1 | first_match | last_match 
+--------------------------+------------------+---------------+-----------+---------------------+-------------+------------
+                    13222 |            12640 |             0 |       530 |                 522 | 2025-11-09  | 2026-09-13
+(1 row)
+
+ matches | set1_winner_won_pct | half_width_pts 
+---------+---------------------+----------------
+   12640 |                80.7 |           0.69
+(1 row)
+
+ tour |    fmt    | matches | set1_winner_won_pct | half_width_pts |                                  latest_match                                   
+------+-----------+---------+---------------------+----------------+---------------------------------------------------------------------------------
+ atp  | best of 3 |    6039 |                80.0 |           1.01 | Seville: Facundo Acosta vs Dusan Lajovic
+ atp  | best of 5 |     522 |                74.3 |           3.75 | US Open ATP: Frances Tiafoe vs Ben Shelton
+ atp  |           |    6561 |                79.6 |           0.98 | Seville: Facundo Acosta vs Dusan Lajovic
+ itf  | best of 3 |    2235 |                83.1 |           1.55 | M15 Wuning: Jaesung Choe vs Hiromasa Koyama
+ itf  |           |    2235 |                83.1 |           1.55 | M15 Wuning: Jaesung Choe vs Hiromasa Koyama
+ wta  | best of 3 |    3844 |                81.1 |           1.24 | Guadalajara Open Akron, Qualification: Sara Sorribes Tormo vs Caroline Dolehide
+ wta  |           |    3844 |                81.1 |           1.24 | Guadalajara Open Akron, Qualification: Sara Sorribes Tormo vs Caroline Dolehide
+      |           |   12640 |                80.7 |           0.69 | Seville: Facundo Acosta vs Dusan Lajovic
+(8 rows)
+
+ matches | same_player_won_sets_1_and_2_pct | straight_sets_half_width_pts | of_those_won_match_pct | went_to_decider | set1_winner_won_decider_match_pct | decider_half_width_pts | decider_with_set3_market | set3_winner_won_match_pct 
+---------+----------------------------------+------------------------------+------------------------+-----------------+-----------------------------------+------------------------+--------------------------+---------------------------
+    2880 |                             60.1 |                         1.79 |                  100.0 |            1148 |                              46.1 |                   2.88 |                        0 |                          
+(1 row)
+
+ matches | set1_winner_won_pct | won_sets_1_and_2_then_match_pct | won_first_two | split_first_two_set1_winner_won_pct | split_first_two 
+---------+---------------------+---------------------------------+---------------+-------------------------------------+-----------------
+     226 |                67.3 |                            91.8 |           122 |                                38.5 |             104
+(1 row)
+
+  quarter   | matches | set1_winner_won_pct 
+------------+---------+---------------------
+ 2025-10-01 |      29 |                79.3
+ 2026-01-01 |    3092 |                81.9
+ 2026-04-01 |    4796 |                80.3
+ 2026-07-01 |    4723 |                80.3
+(4 rows)
+
+                 tournament                 | matches | first_match | last_match 
+--------------------------------------------+---------+-------------+------------
+ Wimbledon ATP                              |     126 | 2026-06-29  | 2026-07-12
+ Roland Garros ATP                          |     123 | 2026-05-24  | 2026-06-07
+ Australian Open Men's                      |     122 | 2026-01-18  | 2026-02-01
+ US Open ATP                                |     118 | 2026-08-30  | 2026-09-11
+ Wimbledon, Qualification ATP               |      14 | 2026-06-25  | 2026-06-25
+ Next Gen ATP Finals, Group B               |       8 | 2025-12-17  | 2025-12-19
+ Next Gen ATP Finals, Group A               |       6 | 2025-12-17  | 2025-12-19
+ Next Gen ATP Finals, Final Stage           |       3 | 2025-12-20  | 2025-12-21
+ ATP World Tour Finals, Jimmy Connors Group |       1 | 2025-11-11  | 2025-11-11
+ ATP World Tour Finals, Bjorn Borg Group    |       1 | 2025-11-12  | 2025-11-12
+(10 rows)
+
+ best_of_5 | first_match | last_match | matches 
+-----------+-------------+------------+---------
+ f         | 2026-01-11  | 2026-01-15 |     104
+ t         | 2026-01-18  | 2026-02-01 |     122
+ f         | 2026-01-24  | 2026-02-01 |      96
+(3 rows)
+
+SELECT 12981
+ line |    fmt    | markets | over_pct | half_width_pts 
+------+-----------+---------+----------+----------------
+ 2.5  | best of 3 |   12087 |     36.9 |           0.86
+ 2.5  | best of 5 |     128 |    100.0 |           0.00
+ 3.5  | best of 5 |     501 |     55.1 |           4.36
+ 4.5  | best of 5 |     258 |     29.1 |           5.54
+      | best of 3 |       3 |      0.0 |           0.00
+      | best of 5 |       4 |     25.0 |          42.43
+(6 rows)
+
+ tour | markets | over_pct | half_width_pts 
+------+---------+----------+----------------
+ atp  |    5510 |     38.1 |           1.28
+ itf  |    2981 |     35.2 |           1.71
+ wta  |    3596 |     36.5 |           1.57
+      |   12087 |     36.9 |           0.86
+(4 rows)
+
+ matches | agreement_pct 
+---------+---------------
+    2437 |         100.0
+(1 row)
+

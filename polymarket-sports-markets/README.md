@@ -1,4 +1,4 @@
-# Polymarket sports markets: eight studies
+# Polymarket sports markets: ten studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -58,6 +58,24 @@ Series 3 (issue 0xinsider/0xinsider#13713):
   sign (won minus price). Pre-kickoff 80c+ sells +6.15 [+0.26, +12.70]; pre-kickoff under 20c -12.29
   [-23.20, -1.63]; the 10-20c band is World Cup futures, Spain above all. Files: `cash-out.sql`,
   `cash-out-output.txt`, `cash-out-market-edge.csv`, `cash-out-bootstrap-output.txt`.
+
+Series 4 (issue 0xinsider/0xinsider#13718):
+
+- https://0xinsider.com/research/both-teams-to-score-polymarket (run 19:41 UTC). 13,071 settled both teams
+  to score markets since 2025-10-24: 54.4% Yes (+/- 0.85); MLS 63.4% of 382, Bundesliga 62.9%, Premier
+  League 56.6%, Serie A 46.6%, Argentina 44.6%. Over 2.5 hit 77.9% when both teams scored and 22.4% when
+  not (12,704 matches). Draw 34.4% when both scored, 15.5% when not. Level at halftime 43.1% of 5,741; all
+  4,435 complete halftime sets resolved exactly one Yes (level 41.8%, home ahead 32.7%, away 25.4%). A
+  halftime leader won 75.4% of 3,530. Large buys: Yes +2.91 [-7.12, +12.43], No -0.49 [-10.71, +8.83].
+  Side markets live under `<match slug>-more-markets` and `<match slug>-halftime-result`. Files:
+  `btts-halftime.sql`, `btts-halftime-output.txt`, `btts-market-edge.csv`, `btts-bootstrap-output.txt`.
+- https://0xinsider.com/research/tennis-first-set-winner-polymarket (run 19:46 UTC). 12,640 settled
+  singles matches since 2025-11-09 with a first-set market: the first-set winner won 80.7% (+/- 0.69);
+  ITF 83.1%, WTA 81.1%, ATP best of three 80.0%, best of five 74.3% (522). Best-of-three Total Sets O/U 2.5
+  went Over 36.9% of 12,087. In 1,148 deciders the set-1 winner won 46.1% (+/- 2.88). Best of five is
+  flagged from the listing (Set 4/5 markets, -2.5 set handicap, Total Sets 3.5/4.5, games total 30+);
+  query 7 lists the tournaments behind it. A title is not a format flag: Australian Open qualifying is
+  filed under "Australian Open Men's". Files: `tennis-sets.sql`, `tennis-sets-output.txt`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with

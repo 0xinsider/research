@@ -1,0 +1,5 @@
+
+== btts-market-edge.csv  (5000 draws, seed 20260913, resampled over markets)
+group                       trades  markets  edge_pts   95% CI
+No                            1852      260     -0.49   [-10.71, +8.83]
+Yes                           1739      296      2.91   [-7.12, +12.43]
