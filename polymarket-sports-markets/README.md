@@ -1,4 +1,4 @@
-# Polymarket sports markets: six studies
+# Polymarket sports markets: eight studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -44,6 +44,20 @@ a half point. Under buyers paid 58.4c and won 57.9% (-0.50 [-3.17, +2.23]); Over
 [-6.49, +2.36]; soccer 3.5 Over -4.92 [-15.97, +6.94]). S/A/B wallets put 60.5% of totals buys on the
 Under (D/F 50.7%); S/A/B Under +2.12 [-2.78, +6.91]. Files: `over-under.sql`, `over-under-output.txt`,
 `over-under-market-edge.csv` (32,916 rows), `over-under-bootstrap-output.txt`.
+
+Series 3 (issue 0xinsider/0xinsider#13713):
+
+- https://0xinsider.com/research/soccer-draws-polymarket (run 18:32 UTC). 17,953 settled Polymarket soccer
+  draw markets since 2024-08-24 drew 25.9% (+/- 0.64); Premier League 26.2% of 770, Champions League 18.4%
+  of 484, Argentina 31.0% of 500. All 10,057 complete three-market matches since April 2 resolved exactly
+  one Yes. Large buys: draw Yes +4.00 [-3.48, +11.24], team-to-win No +3.25 [-0.91, +7.06]; nothing clears
+  zero. Files: `soccer-draws.sql`, `soccer-draws-output.txt`, `soccer-draws-market-edge.csv`,
+  `soccer-draws-bootstrap-output.txt`.
+- https://0xinsider.com/research/cashing-out-polymarket-sports (run 18:24 UTC). 38,578 large sells: exit
+  64.0c, sold outcome won 64.2%, exit edge -0.21 [-1.49, +1.01]. The query and export report the opposite
+  sign (won minus price). Pre-kickoff 80c+ sells +6.15 [+0.26, +12.70]; pre-kickoff under 20c -12.29
+  [-23.20, -1.63]; the 10-20c band is World Cup futures, Spain above all. Files: `cash-out.sql`,
+  `cash-out-output.txt`, `cash-out-market-edge.csv`, `cash-out-bootstrap-output.txt`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with
