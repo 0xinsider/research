@@ -1,4 +1,4 @@
-# Polymarket sports markets: twelve studies
+# Polymarket sports markets: thirteen studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -100,6 +100,24 @@ Series 6 (issue 0xinsider/0xinsider#13781):
   underdogs +1.05 [-3.53, +5.44]. Files: `home-advantage.sql`, `home-advantage-output.txt`,
   `home-advantage-market-edge.csv`, `home-advantage-bootstrap-output.txt`, `home-ordering.py`,
   `home-ordering-sample.tsv`, `home-ordering-output.txt`, `soccer-prefix-series.tsv`.
+
+Series 7 (issue 0xinsider/0xinsider#13812):
+
+- https://0xinsider.com/research/nrfi-polymarket (query run 22:28 UTC). Every MLB first-inning run market
+  settled Yes or No for a game before September 13, 2026: 2,237 games, read by each market's own rules (until
+  April 2, 2026 the market was "NRFI: <away> vs. <home>" and Yes paid on no run; since then Yes pays on a
+  run). `nrfi-linescores.py` matches every market to MLB's official linescore through the public MLB Stats API:
+  2,237 of 2,237 agree. No run in the first inning 49.4% +/- 2.07; away team scored in the top 26.4%, home
+  team in the bottom 32.7%. Team no-run rates spread no wider than 5,000 simulated seasons with no team
+  differences (36.5% as wide). `nrfi-prices.py` reads the no-run share's last price before first pitch from
+  Polymarket's public `/prices-history`: mean 51.42c against 49.3% no run, edge -2.14 [-4.20, +0.04]; $1 on
+  NRFI every game -6.38% after the sports taker fee [-10.40, -2.07], on YRFI +2.28% [-2.28, +6.61].
+  `nrfi-analysis.py` reproduces every table from the three CSVs with no database. Files: `nrfi.sql`,
+  `nrfi-output.txt`, `nrfi-markets.csv`, `nrfi-linescores.py`, `nrfi-linescores.csv`,
+  `nrfi-linescores-output.txt`, `nrfi-prices.py`, `nrfi-prices.csv`, `nrfi-prices-output.txt`,
+  `nrfi-analysis.py`, `nrfi-analysis-output.txt`, `nrfi-games.csv`.
+- The MLB guide's market families, volume and rules (https://0xinsider.com/learn/how-to-bet-on-mlb-polymarket):
+  `mlb-markets.sql`, `mlb-markets-output.txt`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with

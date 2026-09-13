@@ -1,0 +1,83 @@
+== 1. First-inning outcomes, all games (MLB linescores)
+away team scored in the top        591 of 2237   26.4% +/- 1.83
+home team scored in the bottom     731 of 2237   32.7% +/- 1.94
+both teams scored                  189 of 2237    8.4% +/- 1.15
+no run (NRFI)                     1104 of 2237   49.4% +/- 2.07
+agreement: linescore no-run equals market no-run on 2237 of 2237
+first-inning runs  0:  1104 games   49.4%
+first-inning runs  1:   507 games   22.7%
+first-inning runs  2:   312 games   13.9%
+first-inning runs  3:   168 games    7.5%
+first-inning runs 4+:   146 games    6.5%
+games with a first-inning run 1133, average runs in those games 2.08
+season 2025: games 136  away scored 27.2%  home scored 31.6%
+season 2026: games 2101  away scored 26.4%  home scored 32.7%
+
+== 2. Teams, every game a team played (MLB team names)
+team                     games scored_1st allowed_1st  no_run half_w home_games home_no_run
+Miami Marlins              151      26.5%       24.5%   58.3%   7.86         79       53.2%
+San Diego Padres           151      25.2%       25.2%   57.6%   7.88         80       57.5%
+Cleveland Guardians        150      28.0%       25.3%   55.3%   7.96         74       50.0%
+Baltimore Orioles          153      26.8%       30.1%   53.6%   7.90         81       63.0%
+Tampa Bay Rays             147      31.3%       25.2%   52.4%   8.07         75       50.7%
+Atlanta Braves             149      29.5%       27.5%   52.3%   8.02         82       51.2%
+Milwaukee Brewers          151      30.5%       23.8%   51.7%   7.97         78       47.4%
+Chicago Cubs               151      27.2%       26.5%   51.7%   7.97         76       42.1%
+New York Yankees           148      27.7%       25.7%   51.4%   8.05         71       49.3%
+St. Louis Cardinals        148      31.8%       28.4%   51.4%   8.05         76       56.6%
+Washington Nationals       150      28.7%       26.7%   51.3%   8.00         72       54.2%
+Los Angeles Dodgers        150      28.7%       29.3%   51.3%   8.00         80       51.2%
+Pittsburgh Pirates         152      32.2%       25.0%   51.3%   7.95         71       47.9%
+Los Angeles Angels         149      31.5%       24.2%   51.0%   8.03         72       48.6%
+Toronto Blue Jays          150      25.3%       30.0%   50.0%   8.00         74       45.9%
+New York Mets              148      29.1%       31.1%   49.3%   8.05         72       51.4%
+Detroit Tigers             149      33.6%       27.5%   48.3%   8.02         75       58.7%
+Philadelphia Phillies      151      33.8%       24.5%   47.7%   7.97         78       42.3%
+Houston Astros             147      32.0%       30.6%   47.6%   8.07         75       50.7%
+Arizona Diamondbacks       147      28.6%       32.0%   47.6%   8.07         73       47.9%
+San Francisco Giants       145      30.3%       29.7%   47.6%   8.13         66       54.5%
+Kansas City Royals         152      34.2%       32.2%   47.4%   7.94         76       46.1%
+Seattle Mariners           149      30.2%       31.5%   46.3%   8.01         76       47.4%
+Boston Red Sox             148      26.4%       34.5%   45.9%   8.03         70       44.3%
+Cincinnati Reds            147      26.5%       36.7%   45.6%   8.05         76       51.3%
+Chicago White Sox          148      32.4%       34.5%   44.6%   8.01         72       47.2%
+Athletics                  149      28.9%       37.6%   44.3%   7.98         73       39.7%
+Texas Rangers              144      26.4%       33.3%   43.1%   8.09         73       42.5%
+Colorado Rockies           151      29.8%       37.1%   43.0%   7.90         70       35.7%
+Minnesota Twins            149      33.6%       36.9%   40.9%   7.90         71       49.3%
+team spread, scored in the first         : observed sd 2.61 pts, chance sd median 3.63 pts, share of simulations at least as wide 0.9844
+team spread, allowed a run in the first  : observed sd 4.25 pts, chance sd median 3.63 pts, share of simulations at least as wide 0.1020
+team spread, no run in the first         : observed sd 4.10 pts, chance sd median 3.92 pts, share of simulations at least as wide 0.3650
+
+== 3. First-pitch prices
+games 2237, postponed left out 3, last price more than 60 minutes before the start left out 0, priced 2234
+no-run price at first pitch: mean 51.42c, median 51.50c, 10th pct 46.00c, 90th pct 57.00c, between 45c and 60c 90.8%
+all priced games             games  2234  avg_price  51.42c  no_run  49.3% +/-  2.07  edge  -2.14 [-4.20, +0.04]  no_run_return  -3.95% [-7.97, +0.37]  run_return  +4.85% [+0.29, +9.17]  fee_per_$1_no_run 2.43c  fee_per_$1_run 2.57c
+                             after the taker fee: no_run_return  -6.38% [-10.40, -2.07]  run_return  +2.28% [-2.28, +6.61]
+season 2025                  games   136  avg_price  52.65c  no_run  47.8% +/-  8.40  edge  -4.85 [-13.47, +3.73]  no_run_return  -7.07% [-23.69, +9.32]  run_return +14.31% [-4.29, +33.88]  fee_per_$1_no_run 2.37c  fee_per_$1_run 2.63c
+                             after the taker fee: no_run_return  -9.44% [-26.05, +6.95]  run_return +11.67% [-6.88, +31.24]
+season 2026                  games  2098  avg_price  51.34c  no_run  49.4% +/-  2.14  edge  -1.96 [-4.10, +0.15]  no_run_return  -3.75% [-7.96, +0.39]  run_return  +4.23% [-0.18, +8.68]  fee_per_$1_no_run 2.43c  fee_per_$1_run 2.57c
+                             after the taker fee: no_run_return  -6.18% [-10.39, -2.04]  run_return  +1.67% [-2.75, +6.12]
+
+== 4. By first-pitch no-run price
+under 45c                    games   140  avg_price  41.88c  no_run  38.6% +/-  8.06  edge  -3.30 [-11.23, +4.94]  no_run_return  -6.71% [-26.22, +13.32]  run_return  +6.03% [-8.11, +19.73]  fee_per_$1_no_run 2.91c  fee_per_$1_run 2.09c
+                             after the taker fee: no_run_return  -9.61% [-29.13, +10.40]  run_return  +3.93% [-10.20, +17.64]
+45c to 50c                   games   608  avg_price  47.73c  no_run  45.7% +/-  3.96  edge  -2.01 [-6.11, +2.06]  no_run_return  -4.23% [-12.87, +4.34]  run_return  +3.84% [-3.93, +11.68]  fee_per_$1_no_run 2.61c  fee_per_$1_run 2.39c
+                             after the taker fee: no_run_return  -6.84% [-15.48, +1.73]  run_return  +1.46% [-6.32, +9.29]
+50c to 55c                   games  1011  avg_price  52.13c  no_run  51.0% +/-  3.08  edge  -1.09 [-4.15, +2.01]  no_run_return  -1.99% [-7.90, +3.97]  run_return  +2.41% [-4.07, +8.81]  fee_per_$1_no_run 2.39c  fee_per_$1_run 2.61c
+                             after the taker fee: no_run_return  -4.38% [-10.29, +1.58]  run_return  -0.20% [-6.68, +6.21]
+55c to 60c                   games   410  avg_price  56.56c  no_run  53.2% +/-  4.83  edge  -3.39 [-8.23, +1.48]  no_run_return  -5.92% [-14.51, +2.65]  run_return  +7.92% [-3.28, +19.08]  fee_per_$1_no_run 2.17c  fee_per_$1_run 2.83c
+                             after the taker fee: no_run_return  -8.09% [-16.68, +0.48]  run_return  +5.09% [-6.10, +16.25]
+60c and up                   games    65  avg_price  62.97c  no_run  53.8% +/- 12.12  edge  -9.12 [-22.00, +3.29]  no_run_return -13.48% [-33.86, +6.28]  run_return +30.21% [-5.32, +67.19]  fee_per_$1_no_run 1.85c  fee_per_$1_run 3.15c
+                             after the taker fee: no_run_return -15.33% [-35.75, +4.42]  run_return +27.06% [-8.42, +64.02]
+
+== 5. Does the price know more than the league rate?
+brier: first-pitch price 0.24957, one league rate 0.24995 (49.3%), improvement 0.00038 [-0.00198, 0.00238], skill 0.15%
+priced under 50c: 748 games, no run 44.4% +/- 3.56; priced 50c and up: 1486 games, no run 51.7% +/- 2.54
+
+== 6. The price move over the 24 hours before first pitch
+no-run price fell 3c or more   games   358  earliest  53.87c  first_pitch  48.22c  no_run  47.5% +/-  5.17  edge_at_earliest  -6.39 [-11.60, -1.37]  edge_at_first_pitch  -0.73 [-5.92, +4.31]
+moved less than 3c             games  1431  earliest  50.92c  first_pitch  51.01c  no_run  48.5% +/-  2.59  edge_at_earliest  -2.42 [-4.94, +0.17]  edge_at_first_pitch  -2.51 [-5.05, +0.08]
+no-run price rose 3c or more   games   445  earliest  49.61c  first_pitch  55.32c  no_run  53.3% +/-  4.64  edge_at_earliest  +3.65 [-0.96, +8.24]  edge_at_first_pitch  -2.06 [-6.70, +2.55]
+
+wrote nrfi-games.csv (2237 rows)

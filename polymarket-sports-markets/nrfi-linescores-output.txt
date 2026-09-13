@@ -1,0 +1,13 @@
+run_at 2026-09-13T22:30:42+00:00
+markets 2237  matched_to_a_final_mlb_game 2237  unmatched 0
+settlement_agrees_with_linescore 2237  disagrees 0
+first_named_team_is_away 2237  first_named_team_is_home 0
+distinct_mlb_games 2237  games_matched_by_two_or_more_markets 0
+postponed_games_followed_to_their_makeup 3
+polymarket_start_later_than_mlb_listed_start 10
+matched_game_started_more_than_6h_from_the_listed_start 3
+format yes_is_no_run: matched 208, agree 208
+format yes_is_run: matched 2029, agree 2029
+check mlb-chc-nym-2026-06-22 Chicago Cubs vs. New York Mets 823613 42.0 1 0 1
+check mlb-pit-cle-2026-07-17 Pittsburgh Pirates vs. Cleveland Guardians 824414 18.0 1 0 1
+check mlb-lad-nyy-2026-07-18 Los Angeles Dodgers vs. New York Yankees 823523 16.45 1 0 1
