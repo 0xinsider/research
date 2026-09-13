@@ -1,0 +1,16 @@
+cfb {'second_outcome_home_by_name': 42, 'no_ordering': 8}
+mlb {'second_outcome_home_by_name': 50}
+nba {'second_outcome_home_by_name': 49, 'no_ordering': 1}
+nfl {'second_outcome_home_by_name': 40, 'no_ordering': 10}
+nhl {'second_outcome_home_by_name': 50}
+soccer:arg {'second_outcome_home_by_name': 20}
+soccer:bun {'second_outcome_home_by_name': 20}
+soccer:col {'second_outcome_home_by_name': 20}
+soccer:elc {'second_outcome_home_by_name': 20}
+soccer:epl {'second_outcome_home_by_name': 20}
+soccer:es2 {'second_outcome_home_by_name': 20}
+soccer:fl1 {'second_outcome_home_by_name': 20}
+soccer:lal {'second_outcome_home_by_name': 20}
+soccer:mls {'second_outcome_home_by_name': 20}
+soccer:sea {'second_outcome_home_by_name': 20}
+wnba {'second_outcome_home_by_name': 50}

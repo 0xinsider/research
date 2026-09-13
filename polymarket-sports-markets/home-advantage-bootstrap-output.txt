@@ -1,0 +1,23 @@
+
+== home-advantage-market-edge.csv  (5000 draws, seed 20260913, resampled over markets)
+group                       trades  markets  edge_pts   95% CI
+All leagues | Away           47464     3369     -0.66   [-3.94, +2.83]
+All leagues | Home           57239     3936     -0.28   [-3.59, +3.00]
+Away priced as favorite      26265     2298     -2.06   [-6.39, +2.10]
+Away priced as underdog      21199     2346      1.07   [-3.32, +5.47]
+Home priced as favorite      44260     3205     -0.67   [-4.53, +3.13]
+Home priced as underdog      12979     1901      1.05   [-3.53, +5.44]
+cfb | Away                      51       22     -3.32   [-37.07, +20.31]
+cfb | Home                      90       38     -5.61   [-20.96, +9.37]
+mlb | Away                   15862     1849     -0.26   [-3.31, +2.69]
+mlb | Home                   16999     1889     -0.24   [-3.16, +2.74]
+nba | Away                   16331      183     -0.22   [-8.25, +7.61]
+nba | Home                   20512      183     -0.29   [-8.04, +7.18]
+nfl | Away                      87       31      9.12   [-12.66, +27.59]
+nfl | Home                      96       25    -12.74   [-35.36, +11.84]
+nhl | Away                    5787      204     -0.30   [-8.24, +7.76]
+nhl | Home                    5889      204     -0.90   [-8.62, +6.50]
+soccer | Away                 8945      939     -2.68   [-10.08, +4.86]
+soccer | Home                13241     1462      0.20   [-5.64, +6.11]
+wnba | Away                    401      141      3.48   [-5.45, +11.56]
+wnba | Home                    412      135     -3.93   [-13.78, +5.38]

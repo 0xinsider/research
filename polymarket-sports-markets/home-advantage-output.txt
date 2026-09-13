@@ -1,0 +1,114 @@
+            run_at             
+-------------------------------
+ 2026-09-13 21:44:20.812989+00
+(1 row)
+
+SELECT 12293
+ league | games | home_win_pct | half_width_pts | first_game | last_game  
+--------+-------+--------------+----------------+------------+------------
+ mlb    |  4778 |         53.4 |           1.41 | 2024-07-29 | 2026-09-13
+ nba    |  2770 |         55.2 |           1.85 | 2024-04-20 | 2026-06-09
+ nhl    |  2425 |         54.2 |           1.98 | 2024-10-08 | 2026-06-15
+ cfb    |  1050 |         64.7 |           2.89 | 2025-09-11 | 2026-09-13
+ nfl    |   687 |         52.1 |           3.74 | 2024-08-08 | 2026-09-13
+ wnba   |   583 |         54.4 |           4.04 | 2025-05-16 | 2026-08-31
+(6 rows)
+
+ league | game_year | games | home_win_pct 
+--------+-----------+-------+--------------
+ cfb    |      2025 |   700 |         58.9
+ cfb    |      2026 |   350 |         76.3
+ mlb    |      2025 |  2358 |         53.3
+ mlb    |      2026 |  2417 |         53.5
+ nba    |      2024 |   473 |         55.8
+ nba    |      2025 |  1465 |         54.7
+ nba    |      2026 |   832 |         55.8
+ nfl    |      2024 |   304 |         51.3
+ nfl    |      2025 |   296 |         53.7
+ nhl    |      2024 |   185 |         53.5
+ nhl    |      2025 |  1497 |         55.2
+ nhl    |      2026 |   743 |         52.5
+ wnba   |      2025 |   276 |         56.2
+ wnba   |      2026 |   307 |         52.8
+(14 rows)
+
+SELECT 14461
+SELECT 29288
+SELECT 14192
+SELECT 13327
+ matches | exactly_one_yes | home_win_pct | draw_pct | away_win_pct | home_half_width_pts | first_match | last_match 
+---------+-----------------+--------------+----------+--------------+---------------------+-------------+------------
+   13327 |           13327 |         43.6 |     26.2 |         30.2 |                0.84 | 2025-11-21  | 2026-09-13
+(1 row)
+
+ league | matches | home_win_pct | draw_pct | away_win_pct | home_half_width_pts |                   latest_fixture                    
+--------+---------+--------------+----------+--------------+---------------------+-----------------------------------------------------
+ elc    |     379 |         40.6 |     27.4 |         31.9 |                4.94 | Sheffield United FC vs. Wolverhampton Wanderers FC
+ arg    |     379 |         42.7 |     30.3 |         26.9 |                4.98 | CA Tigre vs. CA Rosario Central
+ mls    |     364 |         47.5 |     25.0 |         27.5 |                5.13 | Los Angeles Galaxy vs. Seattle Sounders FC
+ col    |     337 |         45.1 |     24.9 |         30.0 |                5.31 | Hibernian FC vs. KAA Gent
+ es2    |     331 |         44.1 |     23.9 |         32.0 |                5.35 | RCD Mallorca vs. CE Sabadell FC
+ j2100  |     291 |         35.1 |     29.9 |         35.1 |                5.48 | Ōita Trinita vs. Montedio Yamagata
+ itsb   |     286 |         44.4 |     29.0 |         26.6 |                5.76 | Mantova 1911 vs. UC Sampdoria
+ spl    |     285 |         43.9 |     23.9 |         32.3 |                5.76 | NEOM SC vs. Al Fateh Saudi Club
+ sea    |     284 |         40.1 |     22.2 |         37.7 |                5.70 | US Sassuolo Calcio vs. Juventus FC
+ lal    |     281 |         49.1 |     24.9 |         26.0 |                5.85 | Real Sociedad de Fútbol vs. Club Atlético de Madrid
+ epl    |     275 |         37.5 |     32.4 |         30.2 |                5.72 | Manchester United FC vs. Manchester City FC
+ bra2   |     256 |         43.0 |     29.7 |         27.3 |                6.06 | SC Recife vs. AA Ponte Preta
+ bra    |     255 |         46.3 |     28.2 |         25.5 |                6.12 | Santos FC vs. Cruzeiro EC
+ col1   |     247 |         44.9 |     32.0 |         23.1 |                6.20 | Alianza FC vs. CDP Junior FC
+ mex    |     244 |         45.1 |     24.2 |         30.7 |                6.24 | CF Cruz Azul vs. CF América
+ por    |     233 |         44.2 |     27.5 |         28.3 |                6.38 | FC Arouca vs. CD Santa Clara
+ fr2    |     232 |         37.1 |     32.8 |         30.2 |                6.22 | USL Dunkerque vs. AS Saint-Étienne
+ bl2    |     222 |         44.1 |     28.4 |         27.5 |                6.53 | 1. FC Heidenheim vs. Holstein Kiel
+ bun    |     221 |         43.9 |     25.8 |         30.3 |                6.54 | SV 07 Elversberg vs. FC Bayern München
+ egy1   |     213 |         36.6 |     34.3 |         29.1 |                6.47 | Sharkia ENPPI vs. ZED FC
+ fl1    |     212 |         40.6 |     28.3 |         31.1 |                6.61 | Stade Brestois 29 vs. Paris Saint-Germain FC
+ ere    |     212 |         36.8 |     28.8 |         34.4 |                6.49 | PEC Zwolle vs. Feyenoord Rotterdam
+ tur    |     206 |         48.5 |     24.8 |         26.7 |                6.82 | Amed Sportif vs. Rams Başakşehir FK
+ per1   |     205 |         51.7 |     22.9 |         25.4 |                6.84 | CD Moquegua vs. CS Cristal
+ ucl    |     204 |         50.5 |     20.1 |         29.4 |                6.86 | FC Bayern München vs. FK Bodø/Glimt
+ chi    |     202 |         45.5 |     26.7 |         27.7 |                6.87 | Wuhan San Zhen FC vs. Henan FC
+(26 rows)
+
+SELECT 104703
+  buys  | markets | notional_musd | in_play_pct | first_buy  |  last_buy  
+--------+---------+---------------+-------------+------------+------------
+ 104703 |    5108 |        2428.5 |        44.2 | 2026-04-02 | 2026-09-13
+(1 row)
+
+ league | side |  buys  | markets | notional_musd | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+--------+------+--------+---------+---------------+-------------+---------+----------+----------------
+ cfb    | Away |     51 |      22 |           1.2 |        58.2 |    54.9 |    -3.32 |         -19.15
+ cfb    | Home |     90 |      38 |           2.2 |        70.1 |    64.4 |    -5.61 |         -14.23
+ cfb    |      |    141 |      48 |           3.5 |        65.8 |    61.0 |    -4.78 |         -15.99
+ mlb    | Away |  15862 |    1849 |         279.3 |        53.9 |    53.7 |    -0.26 |          -2.32
+ mlb    | Home |  16999 |    1889 |         316.7 |        57.8 |    57.5 |    -0.24 |           1.93
+ mlb    |      |  32861 |    2044 |         596.1 |        55.9 |    55.7 |    -0.25 |          -0.06
+ nba    | Away |  16331 |     183 |         415.8 |        56.4 |    56.2 |    -0.22 |          -2.45
+ nba    | Home |  20512 |     183 |         527.9 |        67.9 |    67.6 |    -0.29 |           4.52
+ nba    |      |  36843 |     185 |         943.8 |        62.8 |    62.6 |    -0.26 |           1.45
+ nfl    | Away |     87 |      31 |           2.0 |        58.7 |    67.8 |     9.12 |          14.52
+ nfl    | Home |     96 |      25 |           2.6 |        58.6 |    45.8 |   -12.74 |         -42.95
+ nfl    |      |    183 |      38 |           4.7 |        58.6 |    56.3 |    -2.35 |         -17.91
+ nhl    | Away |   5787 |     204 |         139.7 |        51.3 |    51.0 |    -0.30 |          -6.43
+ nhl    | Home |   5889 |     204 |         149.8 |        57.1 |    56.2 |    -0.90 |           1.71
+ nhl    |      |  11676 |     204 |         289.5 |        54.2 |    53.6 |    -0.60 |          -2.22
+ soccer | Away |   8945 |     939 |         226.8 |        54.9 |    52.3 |    -2.68 |          -4.17
+ soccer | Home |  13241 |    1462 |         354.7 |        60.1 |    60.3 |     0.20 |           2.49
+ soccer |      |  22186 |    2401 |         581.5 |        58.0 |    57.1 |    -0.96 |          -0.11
+ wnba   | Away |    401 |     141 |           4.4 |        62.4 |    65.8 |     3.48 |          24.83
+ wnba   | Home |    412 |     135 |           5.0 |        67.8 |    63.8 |    -3.93 |         -13.21
+ wnba   |      |    813 |     188 |           9.4 |        65.1 |    64.8 |    -0.28 |           4.58
+        |      | 104703 |    5108 |        2428.5 |        58.7 |    58.2 |    -0.45 |           0.22
+(22 rows)
+
+ side | priced_as | buys  | markets | avg_price_c | win_pct | edge_pts | dollar_roi_pct 
+------+-----------+-------+---------+-------------+---------+----------+----------------
+ Away | favorite  | 26265 |    2298 |        67.6 |    65.6 |    -2.06 |          -5.40
+ Away | underdog  | 21199 |    2346 |        38.7 |    39.8 |     1.07 |          -0.14
+ Home | favorite  | 44260 |    3205 |        68.4 |    67.7 |    -0.67 |           1.41
+ Home | underdog  | 12979 |    1901 |        40.3 |    41.3 |     1.05 |           8.63
+(4 rows)
+
+COPY 24360

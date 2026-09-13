@@ -1,4 +1,4 @@
-# Polymarket sports markets: eleven studies
+# Polymarket sports markets: twelve studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -87,6 +87,19 @@ Series 5 (issue 0xinsider/0xinsider#13754):
   listing both teams at -1.5: MLB one-run games 29.1% of 1,882; soccer 7,528 matches drew 25.7%, were won by
   one goal 38.6%, two 20.2%, three or more 15.6%. Files: `spreads.sql`, `spreads-output.txt`,
   `spreads-market-edge.csv`, `spreads-bootstrap-output.txt`.
+
+Series 6 (issue 0xinsider/0xinsider#13781):
+
+- https://0xinsider.com/research/home-field-advantage-polymarket (run 21:44 UTC). Home team from Polymarket's
+  event data: US leagues title games "<away> vs. <home>" (Gamma `teams[].ordering` agreed on 281 of 300
+  sampled games, 19 unmarked), soccer names the home team first in the draw market (200 of 200). Home win
+  rate: NBA 55.2% (2,770 games), NHL 54.2%, WNBA 54.4%, MLB 53.4% (4,778), NFL 52.1% +/- 3.74 (687),
+  college football 64.7%. Club soccer, 13,327 matches: home 43.6%, draw 26.2%, away 30.2%; national-team
+  matches, friendlies and one-match super cups excluded by series title (`soccer-prefix-series.tsv`).
+  Pricing, 104,703 large buys from April 2: home -0.28 [-3.59, +3.00], away -0.66 [-3.94, +2.83]; home
+  underdogs +1.05 [-3.53, +5.44]. Files: `home-advantage.sql`, `home-advantage-output.txt`,
+  `home-advantage-market-edge.csv`, `home-advantage-bootstrap-output.txt`, `home-ordering.py`,
+  `home-ordering-sample.tsv`, `home-ordering-output.txt`, `soccer-prefix-series.tsv`.
 
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with

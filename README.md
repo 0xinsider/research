@@ -24,7 +24,7 @@ day it traded.
 
 Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
 
-### [polymarket-sports-markets](polymarket-sports-markets) — eleven studies on sports
+### [polymarket-sports-markets](polymarket-sports-markets) — twelve studies on sports
 
 411,770 sports buys of $1,000 or more between 2026-04-02 and 2026-09-11, $8.21B.
 
@@ -43,7 +43,7 @@ Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
   <https://0xinsider.com/research/when-large-sports-bets-land>
 
 The later sports studies (the wallet census, fading the crowd, over/under totals, soccer draws, cashing
-out, both teams to score, the first set in tennis and point spreads) are listed with their files in the directory's
+out, both teams to score, the first set in tennis, point spreads and home advantage) are listed with their files in the directory's
 README.
 
 ## Reproducing
