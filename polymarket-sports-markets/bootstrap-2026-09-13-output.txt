@@ -1,0 +1,11 @@
+
+== fade-crowd-market-edge.csv  (5000 draws, seed 20260913, resampled over markets)
+group                       trades  markets  edge_pts   95% CI
+df_70_90                       506      506     -1.43   [-5.68, +2.75]
+df_90plus                      844      844     -3.68   [-6.71, -0.69]
+df_90plus_favorite             694      694     -4.20   [-7.45, -1.05]
+df_90plus_underdog             150      150     -1.25   [-9.05, +6.71]
+df_under70                     645      645      0.77   [-2.97, +4.55]
+sab_70_90                      347      347      0.07   [-4.92, +5.15]
+sab_90plus                    1060     1060     -0.28   [-2.81, +2.34]
+sab_under70                    382      382     -2.08   [-6.74, +2.60]
