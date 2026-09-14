@@ -1,0 +1,3 @@
+series 9504  priced 9314  no_price 190
+minutes_before: median 0.8  max 1103.8
+complement sample n=100 min=0.9950 max=1.0000 mean=0.9999

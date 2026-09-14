@@ -1,4 +1,4 @@
-# Polymarket sports markets: thirteen studies
+# Polymarket sports markets: fifteen studies
 
 Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 
@@ -167,6 +167,32 @@ Series 8 (issue 0xinsider/0xinsider#13906):
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with
 no database.
+
+Series 9 (issue 0xinsider/0xinsider#13943):
+
+- https://0xinsider.com/research/esports-first-map-winner-polymarket (query run 16:10 UTC, prices 16:22 UTC,
+  analysis 16:24 UTC). CS2, Valorant, Dota 2 and League of Legends best-of-three series moneylines
+  (`title ~ '\(BO3\)'`) with a settled Map/Game 1 winner, Map/Game 2 winner and Games Total market on the
+  same event: 9,504 series. A three-market settlement cross-check (a team winning both maps must hold the
+  series and mean the Games Total settled Under 2.5, and the reverse) finds 3 disagreements (99.97% agree);
+  they are listed by `event_slug` and left out everywhere. Counted universe: 9,501 series (CS2 4,954, Dota 2
+  1,490, LoL 1,532, Valorant 1,525), November 2025 to September 2026, $1.82B moneyline volume. The Map/Game 1
+  winner took the series 79.5% +/- 0.81 (a coin-flip map 1 winner would take it 75% of the time); swept 2-0
+  58.7% +/- 0.99 (50% even-teams baseline); the favorite also won Map/Game 1 63.8% +/- 0.98.
+  `esports-map1-prices.py` reads each series' starting price (team0's) from Polymarket's public
+  `/prices-history`: 9,161 of 9,501 priced after excluding stale (>60 min from kickoff) and exact 50-50
+  reads. Favorites averaged 67.98c and won 68.1%, edge +0.08 [-0.85, +0.98]; underdogs averaged 32.02c and
+  won 31.9%. $1 on every favorite after the sports taker fee: -1.62% [-3.11, -0.17]; every underdog: -6.16%
+  [-9.48, -2.75]. By price band only 90c+ clears zero, edge +2.23 [+0.39, +3.95]; by game only Valorant's
+  favorite edge excludes zero, -2.77 [-5.07, -0.42]. `esports-map1-analysis.py` reproduces every table from
+  the two CSVs with no database. Files: `esports-map1.sql`, `esports-map1-output.txt`,
+  `esports-map1-series.csv`, `esports-map1-prices.py`, `esports-map1-prices.csv`,
+  `esports-map1-prices-output.txt`, `esports-map1-analysis.py`, `esports-map1-analysis-output.txt`.
+- The esports guide's market families and volume
+  (https://0xinsider.com/learn/how-to-bet-on-esports-polymarket): $2.81B across 21,270 settled esports
+  moneylines of any series length since January 2025; the four-game family breakdown (160,183 settled
+  markets, $5.55B) is series moneyline 50.4%, map/game winner 45.0%, map handicap 2.7%, games total 1.0%.
+  Files: `esports-markets.sql`, `esports-markets-output.txt`.
 
 ## Window traps
 
