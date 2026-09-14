@@ -43,7 +43,18 @@ a half point. Under buyers paid 58.4c and won 57.9% (-0.50 [-3.17, +2.23]); Over
 (-0.61 [-3.37, +2.21]). No sport, soccer line, phase or grade cohort clears zero (soccer Over -2.11
 [-6.49, +2.36]; soccer 3.5 Over -4.92 [-15.97, +6.94]). S/A/B wallets put 60.5% of totals buys on the
 Under (D/F 50.7%); S/A/B Under +2.12 [-2.78, +6.91]. Files: `over-under.sql`, `over-under-output.txt`,
-`over-under-market-edge.csv` (32,916 rows), `over-under-bootstrap-output.txt`.
+`over-under-market-edge.csv` (39,815 rows), `over-under-bootstrap-output.txt`.
+
+Corrected 2026-09-14 (issue 0xinsider/0xinsider#13926). The settled share counted every totals market as one trial,
+but most games list a ladder of lines (3.82 a game) that settle on the same final score, and the buy-level
+intervals resampled markets. The rerun (01:11 UTC) keeps each line's game. Every line: 52.6% Under
+[52.1, 53.1] on 83,465 lines and 21,863 games, resampling games. That average depends on the lines listed. Soccer
+by line, each match once: 0.5 goals 7.6% Under, 1.5 24.2%, 2.5 47.2% of 9,731 (+/- 0.99), 3.5 68.7%, 4.5 83.8%,
+5.5 91.7%. Esports 2.5 games 56.4% of 6,962. Baseball by game 49.7% [48.2, 51.2]. Buy-level points are unchanged
+and the game-resampled intervals are wider (Over -0.61 [-4.12, +2.88], Under -0.50 [-3.88, +2.78], soccer Over
+-2.11 [-7.68, +3.20]); none excludes zero. Files: `over-under-by-game.sql`, `over-under-by-game-output.txt`,
+`over-under-by-game.csv`, `over-under-game-edge.csv`, `over-under-by-game.py`,
+`over-under-by-game-analysis-output.txt`. The first run's files stay for the record.
 
 Series 3 (issue 0xinsider/0xinsider#13713):
 

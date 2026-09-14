@@ -1,0 +1,52 @@
+== Settled game totals by game, kickoff 2026-04-02 to 2026-09-13
+All sports        games  21863  lines  83465  per_game  3.82  every_line  52.6% [ 52.1,  53.1] (binomial +/- 0.34)  main_line  52.0% +/- 0.66 [ 51.3,  52.7] of 21715  middle_rung  55.2% [ 54.6,  55.8] of 21681
+Soccer            games  10046  lines  50039  per_game  4.98  every_line  54.3% [ 53.7,  54.9] (binomial +/- 0.44)  main_line  50.5% +/- 0.98 [ 49.6,  51.5] of 10024  middle_rung  57.2% [ 56.3,  58.0] of 10013
+Esports           games   8127  lines   8918  per_game  1.10  every_line  55.4% [ 54.3,  56.4] (binomial +/- 1.04)  main_line  54.7% +/- 1.09 [ 53.6,  55.8] of 8017  middle_rung  55.4% [ 54.4,  56.6] of 7998
+Baseball          games   2149  lines  14633  per_game  6.81  every_line  49.7% [ 48.2,  51.2] (binomial +/- 0.81)  main_line  51.7% +/- 2.11 [ 49.6,  53.8] of 2149  middle_rung  51.3% [ 49.2,  53.3] of 2149
+MMA               games    299  lines    942  per_game  3.15  every_line  37.8% [ 33.5,  42.2] (binomial +/- 3.19)  main_line  47.2% +/- 5.66 [ 41.5,  52.5] of 299  middle_rung  42.5% [ 37.0,  48.0] of 299
+NCAAF             games    293  lines   4518  per_game 15.42  every_line  46.2% [ 42.1,  50.2] (binomial +/- 1.46)  main_line  47.0% +/- 5.81 [ 41.3,  53.0] of 283  middle_rung  45.7% [ 40.1,  51.4] of 293
+WNBA              games    292  lines   1109  per_game  3.80  every_line  48.0% [ 42.1,  53.9] (binomial +/- 2.94)  main_line  49.0% +/- 5.73 [ 43.2,  54.8] of 292  middle_rung  49.1% [ 43.2,  54.8] of 292
+Hockey            games    207  lines    889  per_game  4.29  every_line  49.8% [ 44.8,  54.9] (binomial +/- 3.29)  main_line  49.3% +/- 6.81 [ 42.5,  56.0] of 207  middle_rung  49.0% [ 42.5,  55.6] of 207
+NBA               games    184  lines   1388  per_game  7.54  every_line  44.7% [ 37.7,  51.5] (binomial +/- 2.63)  main_line  44.6% +/- 7.18 [ 37.5,  51.6] of 184  middle_rung  44.0% [ 37.0,  51.1] of 184
+Other basketball  games    160  lines    255  per_game  1.59  every_line  52.2% [ 41.5,  62.4] (binomial +/- 6.14)  main_line  50.6% +/- 7.85 [ 42.3,  58.3] of 156  middle_rung  51.3% [ 43.0,  58.9] of 158
+left out of the sport rows (under 150 games): CFL 26, NFL 63, Sports 17
+
+== Soccer main lines
+main line    2.5  games   3978  share  39.7%  under  50.2% +/- 1.55
+main line    1.5  games   1980  share  19.8%  under  43.2% +/- 2.18
+main line    3.5  games   1927  share  19.2%  under  56.2% +/- 2.22
+main line    4.5  games    986  share   9.8%  under  65.9% +/- 2.96
+main line    0.5  games    668  share   6.7%  under  24.3% +/- 3.25
+
+== Checks
+games with no reported volume on any line (left out of the main line): 148
+games without a laddered line (left out of the middle rung): 182
+games with a one-line middle rung whose main line settled the same way: 17606 of 19302
+
+== The first run's buy-level edges, intervals resampling games instead of markets
+Reads over-under-game-edge.csv (query 4). Same draws and seed as bootstrap-2026-09-13.py.
+group                       trades  games  edge_pts   95% CI
+Baseball Over                 4834   1307      1.03   [-2.77, +4.89]
+Baseball Under                5104   1340     -2.30   [-6.17, +1.67]
+D/F Over                      3490    542     -4.10   [-11.49, +3.22]
+D/F Under                     3582    526     -3.18   [-9.59, +3.25]
+Hockey Over                    730    159      0.63   [-9.13, +10.00]
+Hockey Under                   638    154     -4.55   [-14.54, +5.96]
+NBA Over                      4078    184      2.75   [-5.80, +11.08]
+NBA Under                     3727    184     -0.75   [-9.09, +7.53]
+Over                         21938   3113     -0.61   [-4.12, +2.88]
+S/A/B Over                    3032    491     -1.54   [-8.28, +5.50]
+S/A/B Under                   4640    524      2.12   [-3.98, +8.01]
+Soccer 1.5 Over               2345    489     -2.44   [-9.67, +4.64]
+Soccer 1.5 Under              1181    303      1.63   [-7.22, +10.00]
+Soccer 2.5 Over               5642    803     -1.08   [-8.31, +6.38]
+Soccer 2.5 Under              5704    671      0.51   [-7.68, +8.77]
+Soccer 3.5 Over               2168    415     -4.92   [-15.67, +6.37]
+Soccer 3.5 Under              3583    612     -0.87   [-8.11, +6.23]
+Soccer Over                  11693   1156     -2.11   [-7.68, +3.20]
+Soccer Under                 13614   1202      0.14   [-5.11, +5.35]
+Under                        23724   3196     -0.50   [-3.88, +2.78]
+in-play Over                  6765   1537     -0.04   [-3.81, +3.65]
+in-play Under                 9594   1844      0.22   [-3.50, +3.69]
+pre-kickoff Over             15173   2616     -0.86   [-4.65, +3.00]
+pre-kickoff Under            14130   2386     -0.99   [-4.56, +2.75]
