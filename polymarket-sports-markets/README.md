@@ -131,6 +131,28 @@ Series 7 (issue 0xinsider/0xinsider#13812):
 - The MLB guide's market families, volume and rules (https://0xinsider.com/learn/how-to-bet-on-mlb-polymarket):
   `mlb-markets.sql`, `mlb-markets-output.txt`.
 
+Series 8 (issue 0xinsider/0xinsider#13906):
+
+- https://0xinsider.com/research/football-underdogs-polymarket (query run 2026-09-13 23:30 UTC). One settled
+  full-game moneyline per NFL and college football game, 1,728 games. `football-scoreboard.py` matches every game
+  to ESPN's public scoreboard: NFL 679 of 679 matched, college 1,043 of 1,049, and settlement names ESPN's winner
+  on all but one tied preseason game. The export calls outcome 0 `away`, but 111 NFL titles and 3 college titles
+  (at neutral sites) name ESPN's home team first, so the home team comes from ESPN. `football-prices.py` reads
+  each game's last price before kickoff from Polymarket's public `/prices-history`. Counted: regular-season and
+  postseason games whose moneyline traded $10,000 or more, 1,391 games. NFL underdogs at 33.10c won 31.8%
+  +/- 3.83 of 569, edge -1.29 [-4.99, +2.64]; college underdogs at 25.84c won 25.9% +/- 3.00 of 822, edge +0.08
+  [-2.64, +2.80]. $1 on every underdog after the sports taker fee: NFL -9.20% [-21.13, +3.36], college -6.09%
+  [-21.39, +11.36]. Without the $10,000 floor, college road underdogs lost 23.44% after the fee [-41.80, -2.41],
+  most of it in 167 games that traded under $10,000; with it, -12.81% [-34.20, +12.72]. The analysis prints both.
+  `football-upsets-analysis.py` reproduces every table from the three CSVs with no database. Files:
+  `football-upsets.sql`, `football-upsets-output.txt`, `football-games.csv`, `football-scoreboard.py`,
+  `football-scoreboard.csv`, `football-scoreboard-output.txt`, `football-prices.py`, `football-prices.csv`,
+  `football-prices-output.txt`, `football-upsets-analysis.py`, `football-upsets-analysis-output.txt`,
+  `football-upsets-games.csv`.
+- The college football guide's market families, volume, rules and spread widths
+  (https://0xinsider.com/learn/how-to-bet-on-college-football-polymarket): `cfb-markets.sql`,
+  `cfb-markets-output.txt`.
+
 `fade-crowd-market-edge.csv` is committed (one row per market, 66-character condition ids, no
 wallets), so `python3 bootstrap-2026-09-13.py fade-crowd-market-edge.csv` reproduces the intervals with
 no database.

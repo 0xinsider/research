@@ -1,0 +1,71 @@
+== Left out, by league and reason
+cfb  moneyline volume under $10,000             213
+cfb  no ESPN match                                6
+cfb  priced exactly 50-50                         8
+nfl  preseason                                  109
+nfl  priced exactly 50-50                         1
+
+== Sample
+NFL               games   569  postseason  25  neutral_site  14  2024-09-06 to 2026-09-11
+College football  games   822  postseason  44  neutral_site  53  2025-09-11 to 2026-09-13
+
+== Underdogs won, by league
+NFL: all games                     games   569  underdog price  33.10c  won  31.8% +/-  3.83  edge  -1.29 [-4.99, +2.64]  flat   -5.85% [-17.78, +6.69]  after_fee   -9.20% [-21.13, +3.36]
+NFL: all games                     games   569  favorite price  66.90c  won  68.2% +/-  3.83  edge  +1.29 [-2.64, +4.99]  flat   +1.88% [-4.20, +7.78]  after_fee   +0.23% [-5.85, +6.12]
+College football: all games        games   822  underdog price  25.84c  won  25.9% +/-  3.00  edge  +0.08 [-2.64, +2.80]  flat   -2.38% [-17.70, +15.14]  after_fee   -6.09% [-21.39, +11.36]
+College football: all games        games   822  favorite price  74.16c  won  74.1% +/-  3.00  edge  -0.08 [-2.80, +2.64]  flat   -0.09% [-4.36, +4.15]  after_fee   -1.38% [-5.67, +2.85]
+
+== By the favorite's kickoff price
+NFL: favorite 50c to 60c           games   168  favorite price  55.34c  won  56.0% +/-  7.51  edge  +0.62 [-6.76, +7.89]  flat   +0.96% [-12.48, +14.18]  after_fee   -1.28% [-14.73, +11.95]
+NFL: favorite 60c to 70c           games   185  favorite price  64.69c  won  66.5% +/-  6.80  edge  +1.80 [-5.06, +8.45]  flat   +2.74% [-7.94, +13.00]  after_fee   +0.98% [-9.69, +11.23]
+NFL: favorite 70c to 80c           games   152  favorite price  74.55c  won  75.0% +/-  6.88  edge  +0.45 [-6.67, +7.07]  flat   +1.03% [-8.42, +9.89]  after_fee   -0.24% [-9.70, +8.62]
+NFL: favorite 80c to 90c           games    54  favorite price  84.41c  won  87.0% +/-  8.96  edge  +2.63 [-6.19, +10.46]  flat   +2.80% [-7.88, +12.41]  after_fee   +2.02% [-8.69, +11.62]
+NFL: favorite 90c and up           games    10  favorite price  91.35c  won 100.0% +/-  0.00  edge  +8.65 [+7.80, +9.30]  flat   +9.49% [+8.50, +10.26]  after_fee   +9.06% [+8.11, +9.79]
+College football: favorite 50c to 60c games   166  favorite price  55.33c  won  56.6% +/-  7.54  edge  +1.30 [-6.27, +8.74]  flat   +2.26% [-11.41, +15.63]  after_fee   +0.02% [-13.64, +13.41]
+College football: favorite 60c to 70c games   193  favorite price  64.88c  won  62.2% +/-  6.84  edge  -2.70 [-9.42, +3.92]  flat   -3.91% [-14.27, +6.36]  after_fee   -5.67% [-16.03, +4.60]
+College football: favorite 70c to 80c games   168  favorite price  74.82c  won  75.0% +/-  6.55  edge  +0.18 [-6.42, +6.59]  flat   +0.21% [-8.67, +8.86]  after_fee   -1.05% [-9.92, +7.60]
+College football: favorite 80c to 90c games   138  favorite price  84.47c  won  87.7% +/-  5.48  edge  +3.21 [-2.58, +8.43]  flat   +3.79% [-3.12, +10.07]  after_fee   +3.01% [-3.90, +9.29]
+College football: favorite 90c and up games   157  favorite price  95.74c  won  94.3% +/-  3.64  edge  -1.47 [-5.23, +1.83]  flat   -1.60% [-5.63, +1.93]  after_fee   -1.81% [-5.85, +1.71]
+
+== Home and road underdogs (neutral sites left out)
+NFL: home underdog                 games   222  underdog price  35.36c  won  32.0% +/-  6.14  edge  -3.38 [-9.38, +2.89]  flat  -10.91% [-28.83, +8.02]  after_fee  -14.14% [-32.05, +4.84]
+NFL: road underdog                 games   333  underdog price  31.43c  won  31.5% +/-  4.99  edge  +0.10 [-4.81, +5.14]  flat   -2.52% [-19.01, +14.83]  after_fee   -5.95% [-22.45, +11.40]
+College football: home underdog    games   278  underdog price  29.60c  won  30.2% +/-  5.40  edge  +0.62 [-4.72, +5.97]  flat  +10.46% [-15.13, +38.79]  after_fee   +6.94% [-18.65, +35.27]
+College football: road underdog    games   491  underdog price  22.89c  won  22.8% +/-  3.71  edge  -0.08 [-3.47, +3.42]  flat   -8.96% [-30.30, +16.58]  after_fee  -12.81% [-34.20, +12.72]
+
+== What the $10,000 floor changes: college road underdogs with and without the thin markets
+College: road underdogs, first cut games   658  underdog price  20.42c  won  19.3% +/-  3.02  edge  -1.12 [-3.92, +1.66]  flat  -19.46% [-37.82, +1.57]  after_fee  -23.44% [-41.80, -2.41]
+College: road underdogs, thin only games   167  underdog price  13.15c  won   9.0% +/-  4.34  edge  -4.17 [-8.27, +0.24]  flat  -50.35% [-78.62, -9.27]  after_fee  -54.69% [-82.99, -13.67]
+College: all underdogs, first cut  games  1035  underdog price  23.75c  won  23.1% +/-  2.57  edge  -0.66 [-2.99, +1.73]  flat  -11.03% [-24.67, +4.95]  after_fee  -14.84% [-28.50, +1.15]
+
+== Price move in the 24 hours before kickoff, from the favorite's side
+NFL: favorite price fell 3c or more   games    30  earliest  66.60c  kickoff  62.73c  favorite_won  56.7% +/- 17.73  edge_at_earliest  -9.93 [-27.58, +8.00]  edge_at_kickoff  -6.07 [-23.67, +11.77]
+NFL: moved less than 3c               games   461  earliest  67.17c  kickoff  67.22c  favorite_won  69.4% +/-  4.21  edge_at_earliest  +2.24 [-1.77, +6.33]  edge_at_kickoff  +2.19 [-1.83, +6.29]
+NFL: favorite price rose 3c or more   games    78  earliest  61.98c  kickoff  66.59c  favorite_won  65.4% +/- 10.56  edge_at_earliest  +3.41 [-6.52, +13.20]  edge_at_kickoff  -1.21 [-11.26, +8.62]
+College football: favorite price fell 3c or more   games    52  earliest  67.67c  kickoff  63.13c  favorite_won  63.5% +/- 13.09  edge_at_earliest  -4.20 [-16.84, +7.76]  edge_at_kickoff  +0.34 [-12.23, +12.42]
+College football: moved less than 3c               games   691  earliest  75.88c  kickoff  76.04c  favorite_won  76.0% +/-  3.19  edge_at_earliest  +0.09 [-2.94, +3.13]  edge_at_kickoff  -0.07 [-3.08, +2.97]
+College football: favorite price rose 3c or more   games    79  earliest  60.41c  kickoff  64.98c  favorite_won  64.6% +/- 10.55  edge_at_earliest  +4.15 [-5.96, +14.48]  edge_at_kickoff  -0.42 [-10.66, +10.03]
+
+== The biggest upsets: lowest kickoff price for the team that won, moneylines that traded $50,000 or more
+NFL               2025-11-02  Panthers beat Packers  underdog price 13.5c  score 16-13  volume $1,264,602  nfl-car-gb-2025-11-02
+NFL               2024-11-24  Cowboys beat Commanders  underdog price 16.0c  score 34-26  volume $306,815  nfl-dal-was-2024-11-24
+NFL               2025-01-19  Commanders beat Lions  underdog price 18.5c  score 45-31  volume $4,503,717  nfl-was-det-2025-01-18
+NFL               2025-01-05  Bears beat Packers  underdog price 19.0c  score 24-22  volume $462,530  nfl-chi-gb-2025-01-05
+NFL               2024-09-15  Raiders beat Ravens  underdog price 19.5c  score 26-23  volume $87,643  nfl-bal-las-2024-09-15
+NFL               2025-11-30  Panthers beat LAR  underdog price 19.5c  score 31-28  volume $4,295,920  nfl-la-car-2025-11-30
+NFL               2025-11-02  Vikings beat Lions  underdog price 19.5c  score 27-24  volume $3,425,120  nfl-min-det-2025-11-02
+NFL               2024-09-29  Broncos beat Jets  underdog price 21.5c  score 10-9  volume $115,988  nfl-nyj-den-2024-09-29
+NFL               2024-11-24  Titans beat Texans  underdog price 21.5c  score 32-27  volume $315,454  nfl-ten-hou-2024-11-24
+NFL               2025-10-03  49ers beat Rams  underdog price 21.5c  score 26-23  volume $4,641,710  nfl-sf-la-2025-10-02
+College football  2026-09-03  UMass beat Rutgers  underdog price 2.6c  score 37-21  volume $120,477  cfb-umass-rutger-2026-09-03
+College football  2025-10-04  UCLA beat Penn State  underdog price 5.0c  score 42-37  volume $240,777  cfb-pennst-ucla-2025-10-04
+College football  2026-09-12  Oklahoma State beat Oregon  underdog price 5.5c  score 39-31  volume $632,798  cfb-ore-okst-2026-09-12
+College football  2025-11-09  Sam Houston Bearkats beat Oregon State  underdog price 7.5c  score 21-17  volume $209,138  cfb-smho-oregst-2025-11-08
+College football  2025-10-11  Northwestern beat Penn State  underdog price 8.5c  score 22-21  volume $81,216  cfb-nw-pennst-2025-10-11
+College football  2025-10-18  UAB Blazers beat Memphis  underdog price 8.5c  score 31-24  volume $848,678  cfb-mphs-uab-2025-10-18
+College football  2026-09-05  The Citadel beat Charlotte  underdog price 8.5c  score 43-41  volume $55,071  cfb-cita-charlt-2026-09-05
+College football  2025-11-01  Fresno State beat Boise State  underdog price 9.5c  score 30-7  volume $187,507  cfb-frest-boise-2025-11-01
+College football  2025-11-09  California beat Louisville  underdog price 11.0c  score 29-26  volume $220,259  cfb-cah-lou-2025-11-08
+College football  2025-10-19  Stanford beat Florida State  underdog price 12.5c  score 20-13  volume $1,026,614  cfb-flst-stan-2025-10-19
+
+wrote football-upsets-games.csv (1391 games)

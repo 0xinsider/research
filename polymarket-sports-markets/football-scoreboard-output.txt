@@ -1,0 +1,10 @@
+run_at 2026-09-14T00:17:16+00:00
+nfl: games 679  matched 679  unmatched 0  winner_agrees 678  disagrees 1  away_listed_away 568  espn_games_matched_twice 1  season_types ['1', '2', '3']  neutral 16  polymarket_start_later_than_espn 3
+  disagree nfl-las-sf-2024-08-23 Raiders 49ers 0 24 24
+cfb: games 1049  matched 1043  unmatched 6  winner_agrees 1043  disagrees 0  away_listed_away 1040  espn_games_matched_twice 0  season_types ['2', '3']  neutral 59  polymarket_start_later_than_espn 2
+  unmatched cfb-loulaf-del-2025-12-17 | Louisiana-Lafayette | Delaware Fightin' Blue Hens
+  unmatched cfb-uconn-army-2025-12-27 | Connecticut | Army
+  unmatched cfb-gsc-elon-2026-08-27 | Glenville State College | Elon
+  unmatched cfb-gcba4009-but-2026-08-29 | Georgetown College | Butler
+  unmatched cfb-wssu-norfst-2026-08-29 | Winston-Salem State | Norfolk State
+  unmatched cfb-utpb-utrgv-2026-08-29 | Texas Permian Basin | UT Rio Grande Valley

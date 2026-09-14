@@ -1,0 +1,61 @@
+            run_at             
+-------------------------------
+ 2026-09-14 00:41:42.370987+00
+(1 row)
+
+SELECT 29740
+ games | markets | volume_usd 
+-------+---------+------------
+   339 |   29740 |   40388332
+(1 row)
+
+         family          | games | markets | markets_per_game | volume_usd | share_pct 
+-------------------------+-------+---------+------------------+------------+-----------
+ moneyline               |   339 |     339 |              1.0 |   26395224 |      65.4
+ spreads                 |   295 |    6361 |             21.6 |    8443384 |      20.9
+ totals                  |   294 |    4802 |             16.3 |    4691504 |      11.6
+ team_totals             |   264 |    3991 |             15.1 |     254263 |       0.6
+ first_half_spreads      |   263 |    1283 |              4.9 |     211599 |       0.5
+ q4_moneyline            |   121 |     121 |              1.0 |     195797 |       0.5
+ first_half_moneyline    |   183 |     183 |              1.0 |      68871 |       0.2
+ second_half_moneyline   |   267 |     267 |              1.0 |      35639 |       0.1
+ second_half_spreads     |   184 |    1283 |              7.0 |      30224 |       0.1
+ q1_moneyline            |   111 |     111 |              1.0 |      26964 |       0.1
+ q1_spreads              |   154 |     839 |              5.4 |      11477 |       0.0
+ first_half_team_totals  |   173 |    1252 |              7.2 |       8801 |       0.0
+ q1_totals               |    84 |     420 |              5.0 |       3426 |       0.0
+ q3_spreads              |   143 |     836 |              5.8 |       2701 |       0.0
+ first_half_totals       |    84 |     420 |              5.0 |       2378 |       0.0
+ q4_spreads              |   147 |     823 |              5.6 |       1688 |       0.0
+ team_touchdowns         |    81 |     185 |              2.3 |       1499 |       0.0
+ q2_spreads              |   149 |     808 |              5.4 |       1233 |       0.0
+ anytime_touchdowns      |    88 |    1550 |             17.6 |        740 |       0.0
+ second_half_team_totals |   128 |     954 |              7.5 |        523 |       0.0
+ q2_moneyline            |   119 |     119 |              1.0 |        123 |       0.0
+ q3_moneyline            |   122 |     122 |              1.0 |        118 |       0.0
+ q2_totals               |    84 |     420 |              5.0 |        102 |       0.0
+ second_half_totals      |    84 |     420 |              5.0 |         30 |       0.0
+ team_rush_touchdowns    |   124 |     991 |              8.0 |         23 |       0.0
+ q3_totals               |    84 |     420 |              5.0 |          0 |       0.0
+ q4_totals               |    84 |     420 |              5.0 |          0 |       0.0
+(27 rows)
+
+        family        |                  title                  |                                                                                                                                                                                                                                                                                                                                             description                                                                                                                                                                                                                                                                                                                                              
+----------------------+-----------------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ anytime_touchdowns   | Jordan Marshall: Anytime Touchdown      | In the upcoming college football game between Oklahoma and Michigan, scheduled for September 12 at 12:00 PM ET: This market will resolve to "Yes" if Jordan Marshall score 1 or more touchdowns (rushing or receiving) in this game. Otherwise, this market will resolve to "No". Where multiple lines are offered as a group, each line resolves independently. Overtime is included if played. For the standard anytime-touchdown market, the line is 1 — "Yes" if Jordan Marshall score at least one touchdown. If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ first_half_moneyline | Alabama vs. Kentucky: 1H Moneyline      | In the first half of the college football game between Alabama and Kentucky, scheduled for September 12 at 3:30 PM ET:  This market will resolve to "Alabama" if Alabama outscore Kentucky in the first half.  This market will resolve to "Kentucky" if Kentucky outscore Alabama in the first half.  If both teams score the same number of points in the first half, this market will resolve 50-50.  Only points scored during that period count; overtime is not included.  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ first_half_spreads   | 1H Spread: Georgia (-23.5)              | In the first half of the college football game between Western Kentucky and Georgia, scheduled for September 12 at 12:45 PM ET:  This market will resolve to "Georgia" if Georgia outscore Western Kentucky by 24 or more points in the first half.  Otherwise, this market will resolve to "Western Kentucky".  Only points scored during that period count; overtime is not included.  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ moneyline            | Ohio State vs. Texas                    | In the upcoming college football game between Ohio State and Texas, scheduled for September 12 at 7:30PM ET: This market will resolve to "Ohio State" if Ohio State win the game. This market will resolve to "Texas" if Texas win the game. Overtime is included if played. If the game ends in a tie, this market will resolve 50-50. If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ q1_spreads           | 1Q Spread: Kansas State (-7.5)          | In the first quarter of the college football game between Washington State and Kansas State, scheduled for September 12 at 12:00 PM ET:  This market will resolve to "Kansas State" if Kansas State outscore Washington State by 8 or more points in the first quarter.  Otherwise, this market will resolve to "Washington State".  Only points scored during that period count; overtime is not included.  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ q4_moneyline         | Wake Forest vs. Purdue: 4Q Moneyline    | In the fourth quarter of the college football game between Wake Forest and Purdue, scheduled for September 12 at 12:00 PM ET:  This market will resolve to "Wake Forest" if Wake Forest outscore Purdue in the fourth quarter.  This market will resolve to "Purdue" if Purdue outscore Wake Forest in the fourth quarter.  If both teams score the same number of points in the fourth quarter, this market will resolve 50-50.  Only points scored during that period count; overtime is not included.  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ spreads              | Spread: Oklahoma (-4.5)                 | In the upcoming college football game, scheduled for September 12 at 12:00 PM ET:  This market will resolve to "Oklahoma" if Oklahoma win the game by 5 or more points.  Otherwise, this market will resolve to "Michigan".  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ team_totals          | Jacksonville State Team Total: O/U 23.5 | In the upcoming college football game between Jacksonville State and Ohio, scheduled for September 12 at 6:00 PM ET:  This market will resolve to "Over" if Jacksonville State score 24 or more points in this game.  If Jacksonville State score less than 24 points in this game, this market will resolve to "Under".  This market is based solely on Jacksonville State's score, not the combined score of both teams.  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ team_touchdowns      | Ohio State Total Touchdowns: O/U 2.5    | In the upcoming college football game between Ohio State and Texas, scheduled for September 12 at 7:30 PM ET: This market will resolve to "Over" if Ohio State record more than 2.5 total touchdowns in this game. This market will resolve to "Under" if Ohio State record 2.5 or fewer total touchdowns in this game. Where multiple lines are offered as a group, each line resolves independently. Overtime is included if played. If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+ totals               | Missouri vs. Kansas: O/U 51.5           | In the upcoming college football game, scheduled for September 11 at 8:00 PM ET:  This market will resolve to "Over" if Missouri and Kansas combine to score 52 or more points in this game.  If the combined total is less than 52, this market will resolve to "Under".  If the game is postponed, this market will remain open until the game has been completed. If the game is canceled entirely, with no make-up game, this market will resolve 50-50.
+(10 rows)
+
+ widest_line | p10_line | lines_30_or_more | spread_lines 
+-------------+----------+------------------+--------------
+       -76.5 |    -37.5 |             1276 |         6361
+(1 row)
+

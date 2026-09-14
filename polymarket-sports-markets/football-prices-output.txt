@@ -1,0 +1,5 @@
+run_at 2026-09-14T00:21:04+00:00
+games 1728  cutoff_moved_earlier_to_espn_listed_start 5
+with_a_price_at_or_before_the_cutoff 1727  without 1
+minutes_before_cutoff: median 0.9  p90 1.0  max 1.0  over_60 0
+complement_sample 100: sum min 1.0000  median 1.0000  max 1.0000
