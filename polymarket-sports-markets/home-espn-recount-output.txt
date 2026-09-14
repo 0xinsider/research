@@ -1,0 +1,56 @@
+== Left out, by league and reason
+cfb   neutral site                                            59
+cfb   no ESPN match                                            6
+mlb   nearest ESPN game is another game of the series         21
+mlb   neutral site                                             6
+mlb   no ESPN match                                            1
+mlb   preseason or spring training                           221
+mlb   second market for the same ESPN game                     6
+mlb   settlement disagrees with ESPN's score                   4
+nba   nearest ESPN game is another game of the series          1
+nba   neutral site                                            11
+nba   no ESPN match                                           78
+nba   preseason or spring training                            64
+nba   second market for the same ESPN game                    33
+nfl   neutral site                                            14
+nfl   preseason or spring training                           109
+nhl   neutral site                                             7
+nhl   no ESPN match                                            8
+nhl   preseason or spring training                            58
+wnba  neutral site                                             2
+wnba  no ESPN match                                            1
+wnba  preseason or spring training                             6
+
+== Home win rate by league (ESPN home team, regular season and postseason, no neutral sites)
+nba   games  2583  home_win  55.6% +/- 1.92  first_named_was_home    7  2024-04-20 to 2026-06-09
+nhl   games  2352  home_win  54.4% +/- 2.01  first_named_was_home    6  2024-10-08 to 2026-06-15
+mlb   games  4521  home_win  53.7% +/- 1.45  first_named_was_home  108  2024-07-29 to 2026-09-13
+wnba  games   574  home_win  54.9% +/- 4.07  first_named_was_home    0  2025-05-16 to 2026-08-31
+nfl   games   566  home_win  53.7% +/- 4.11  first_named_was_home   61  2024-09-06 to 2026-09-13
+cfb   games   985  home_win  64.4% +/- 2.99  first_named_was_home    0  2025-09-11 to 2026-09-13
+
+== By calendar year, 100 or more games
+cfb   2025  games   660  home_win  58.2% +/- 3.76
+cfb   2026  games   325  home_win  76.9% +/- 4.58
+mlb   2025  games  2331  home_win  54.1% +/- 2.02
+mlb   2026  games  2188  home_win  53.2% +/- 2.09
+nba   2024  games   467  home_win  56.3% +/- 4.50
+nba   2025  games  1291  home_win  55.3% +/- 2.71
+nba   2026  games   825  home_win  55.6% +/- 3.39
+nfl   2024  games   251  home_win  52.2% +/- 6.18
+nfl   2025  games   276  home_win  54.0% +/- 5.88
+nhl   2024  games   185  home_win  53.5% +/- 7.19
+nhl   2025  games  1427  home_win  55.5% +/- 2.58
+nhl   2026  games   740  home_win  52.6% +/- 3.60
+wnba  2025  games   275  home_win  56.4% +/- 5.86
+wnba  2026  games   299  home_win  53.5% +/- 5.65
+
+== The study's first reading (second outcome = home) on the same counted games, for comparison
+nba   second_outcome_won  55.5%
+nhl   second_outcome_won  54.4%
+mlb   second_outcome_won  53.2%
+wnba  second_outcome_won  54.9%
+nfl   second_outcome_won  53.5%
+cfb   second_outcome_won  64.4%
+
+wrote home-advantage-counted-games.csv (11581 games)

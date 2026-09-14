@@ -1,0 +1,28 @@
+            run_at             
+-------------------------------
+ 2026-09-13 23:57:18.846423+00
+(1 row)
+
+SELECT 12297
+SELECT 14491
+SELECT 29349
+SELECT 14218
+SELECT 13353
+SELECT 104722
+ league | games 
+--------+-------
+ cfb    |  1050
+ mlb    |  4780
+ nba    |  2770
+ nfl    |   689
+ nhl    |  2425
+ wnba   |   583
+(6 rows)
+
+COPY 12297
+  buys  | markets | notional_musd 
+--------+---------+---------------
+ 104722 |    5114 |        2428.9
+(1 row)
+
+COPY 104722

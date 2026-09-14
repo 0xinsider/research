@@ -101,6 +101,18 @@ Series 6 (issue 0xinsider/0xinsider#13781):
   `home-advantage-market-edge.csv`, `home-advantage-bootstrap-output.txt`, `home-ordering.py`,
   `home-ordering-sample.tsv`, `home-ordering-output.txt`, `soccer-prefix-series.tsv`.
 
+  Corrected 2026-09-14 (issue 0xinsider/0xinsider#13887). Matching all 12,297 US games to ESPN's public
+  schedule showed 239 titles naming the home team first (111 NFL, 110 of them in 2024; 109 MLB, 103 in April
+  2025) and a universe carrying 458 preseason and spring training games, 94 exhibitions ESPN does not list, 99
+  neutral-site games and 39 duplicate markets. The recount takes ESPN's home team and venue and counts
+  regular-season, postseason and play-in games once: NBA 55.6% of 2,583, NHL 54.4% of 2,352, WNBA 54.9% of 574,
+  NFL 53.7% of 566, MLB 53.7% of 4,521, college football 64.4% of 985. Pricing, 104,445 buys: home -0.28
+  [-3.65, +3.06], away -0.63 [-4.15, +2.80]; no counted buy changes side. Files: `home-advantage-recount.sql`,
+  `home-advantage-recount-output.txt`, `home-espn-check.py`, `home-espn-check.csv`,
+  `home-espn-check-output.txt`, `home-espn-recount.py`, `home-espn-recount-output.txt`,
+  `home-advantage-pricing.py`, `home-advantage-pricing-output.txt`, `home-advantage-recount-market-edge.csv`.
+  The first run's files stay for the record.
+
 Series 7 (issue 0xinsider/0xinsider#13812):
 
 - https://0xinsider.com/research/nrfi-polymarket (query run 22:28 UTC). Every MLB first-inning run market

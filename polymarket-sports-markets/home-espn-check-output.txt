@@ -1,0 +1,50 @@
+run_at 2026-09-14T00:00:29+00:00
+nba: games 2770  matched 2692  unmatched 78  winner_agrees 2691  disagrees 1  away_listed_away 2682  espn_games_matched_twice 34  season_types ['1', '2', '3', '5']  neutral 25  polymarket_start_later_than_espn 18
+  disagree nba-chi-mia-2026-01-30 Bulls Heat 0 113 116
+  unmatched nba-kys-cgs-2025-02-16 | Kenny's Young Stars | Chuck's Global Stars
+  unmatched nba-sog-crs-2025-02-16 | Shaq's OGs | Candace's Rising Stars
+  unmatched nba-lal-mia-2025-07-06 | Lakers | Heat
+  unmatched nba-sas-gsw-2025-07-06 | Spurs | Warriors
+  unmatched nba-mem-uta-2025-07-07 | Grizzlies | Jazz
+  unmatched nba-mem-phi-2025-07-08 | Grizzlies | 76ers
+  unmatched nba-mia-gsw-2025-07-08 | Heat | Warriors
+  unmatched nba-lal-sas-2025-07-08 | Lakers | Spurs
+  unmatched nba-nop-min-2025-07-10 | Pelicans | Timberwolves
+  unmatched nba-cle-ind-2025-07-10 | Cavaliers | Pacers
+  unmatched nba-orl-sac-2025-07-10 | Magic | Kings
+  unmatched nba-lal-dal-2025-07-10 | Lakers | Mavericks
+  unmatched nba-den-mil-2025-07-10 | Nuggets | Bucks
+  unmatched nba-sas-phi-2025-07-10 | Spurs | 76ers
+  unmatched nba-mem-bos-2025-07-11 | Grizzlies | Celtics
+nhl: games 2425  matched 2417  unmatched 8  winner_agrees 2417  disagrees 0  away_listed_away 2411  espn_games_matched_twice 0  season_types ['1', '2', '3']  neutral 9  polymarket_start_later_than_espn 11
+  unmatched nhl-was-bos-2025-09-21 | WAS | Bruins
+  unmatched nhl-pit-mon-2025-09-22 | Penguins | MON
+  unmatched nhl-phi-mon-2025-09-23 | Flyers | MON
+  unmatched nhl-la-veg-2025-09-23 | Kings | VEG
+  unmatched nhl-tor-mon-2025-09-25 | Maple Leafs | MON
+  unmatched nhl-uta-veg-2025-09-25 | Utah | VEG
+  unmatched nhl-veg-sj-2025-09-26 | VEG | Sharks
+  unmatched nhl-lak-cbj-2026-01-26 | Kings | Blue Jackets
+mlb: games 4780  matched 4779  unmatched 1  winner_agrees 4768  disagrees 11  away_listed_away 4670  espn_games_matched_twice 18  season_types ['1', '2', '3']  neutral 6  polymarket_start_later_than_espn 86
+  disagree mlb-wsh-col-2025-04-18 Washington Nationals Colorado Rockies 1 12 11
+  disagree mlb-tor-nyy-2025-04-26 Blue Jays Yankees 1 4 2
+  disagree mlb-nym-stl-2025-05-03 Mets Cardinals 1 9 3
+  disagree mlb-stl-phi-2025-05-14 Cardinals Phillies 1 14 7
+  disagree mlb-atl-wsh-2025-05-21 Braves Nationals 0 3 5
+  disagree mlb-pit-det-2025-06-18 Pirates Tigers 0 2 9
+  disagree mlb-pit-det-2025-06-19 Pirates Tigers 1 8 4
+  disagree mlb-sd-phi-2025-07-01 Padres Phillies 1 6 4
+  disagree mlb-hou-lad-2025-07-04 Astros Dodgers 1 18 1
+  disagree mlb-stl-tb-2025-08-23 Cardinals Rays 0 2 7
+  unmatched mlb-atl-mia-2025-04-06 | Atlanta Braves | Miami Marlins
+wnba: games 583  matched 582  unmatched 1  winner_agrees 582  disagrees 0  away_listed_away 582  espn_games_matched_twice 0  season_types ['1', '2', '3']  neutral 3  polymarket_start_later_than_espn 3
+  unmatched wnba-nyl-dal-2026-07-16 | New York Liberty | Dallas Wings
+nfl: games 689  matched 689  unmatched 0  winner_agrees 688  disagrees 1  away_listed_away 578  espn_games_matched_twice 1  season_types ['1', '2', '3']  neutral 16  polymarket_start_later_than_espn 3
+  disagree nfl-las-sf-2024-08-23 Raiders 49ers 0 24 24
+cfb: games 1050  matched 1044  unmatched 6  winner_agrees 1044  disagrees 0  away_listed_away 1041  espn_games_matched_twice 0  season_types ['2', '3']  neutral 59  polymarket_start_later_than_espn 4
+  unmatched cfb-loulaf-del-2025-12-17 | Louisiana-Lafayette | Delaware Fightin' Blue Hens
+  unmatched cfb-uconn-army-2025-12-27 | Connecticut | Army
+  unmatched cfb-gsc-elon-2026-08-27 | Glenville State College | Elon
+  unmatched cfb-gcba4009-but-2026-08-29 | Georgetown College | Butler
+  unmatched cfb-wssu-norfst-2026-08-29 | Winston-Salem State | Norfolk State
+  unmatched cfb-utpb-utrgv-2026-08-29 | Texas Permian Basin | UT Rio Grande Valley
