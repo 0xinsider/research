@@ -1,0 +1,125 @@
+capture 2026-09-18T17:35:31Z to 2026-09-18T17:35:36Z
+
+1. Funnel (games)
+  league            family   scheduled  DK line  +Polymarket
+  College football  Spread          74       73            8
+  College football  Total           74       73           11
+  MLB               Spread          48       15            8
+  MLB               Total           48       15           15
+  NFL               Spread          15       15           15
+  NFL               Total           15       15           15
+
+2. Spread: Polymarket's even line against the DraftKings line, 31 games
+  same number               26 of 31
+  within half a point       29 of 31
+  within one point          29 of 31
+  gap in points            median=0.00  mean=0.16  max=2.00
+  DraftKings on a whole number 4 of 31 (Polymarket lists half-point lines only); Polymarket lists the DraftKings number in 26
+  busiest Polymarket line  same as DraftKings in 21, within half a point in 24
+  price at the DraftKings number, Polymarket minus DraftKings fair, 29 games: median|gap|=0.58  mean=0.85  p90=1.60  max=3.58  within2=96.6%  within3=96.6%
+  cost of both sides       DraftKings overround median=4.71  Polymarket even line, ask plus taker fee median=3.50  Polymarket cheaper in 30 of 31
+  Polymarket ladder        median 5 tight lines a game, even-line book 1.00c wide, $865,376 traded
+   College football   n=  8  same=  5  within half=  6  line gap mean=0.50  price gap median=0.54  DK overround=4.75  PM both sides=3.50
+   MLB                n=  8  same=  8  within half=  8  line gap mean=0.00  price gap median=0.35  DK overround=4.54  PM both sides=3.47
+   NFL                n= 15  same= 13  within half= 15  line gap mean=0.07  price gap median=1.07  DK overround=4.71  PM both sides=3.50
+
+2. Total: Polymarket's even line against the DraftKings line, 41 games
+  same number               27 of 41
+  within half a point       32 of 41
+  within one point          39 of 41
+  gap in points            median=0.00  mean=0.33  max=2.00
+  DraftKings on a whole number 5 of 41 (Polymarket lists half-point lines only); Polymarket lists the DraftKings number in 28
+  busiest Polymarket line  same as DraftKings in 19, within half a point in 23
+  price at the DraftKings number, Polymarket minus DraftKings fair, 35 games: median|gap|=0.50  mean=0.66  p90=1.34  max=1.50  within2=100.0%  within3=100.0%
+  cost of both sides       DraftKings overround median=4.75  Polymarket even line, ask plus taker fee median=3.50  Polymarket cheaper in 40 of 41
+  Polymarket ladder        median 3 tight lines a game, even-line book 1.00c wide, $360,549 traded
+   College football   n= 11  same=  4  within half=  4  line gap mean=0.82  price gap median=0.43  DK overround=4.75  PM both sides=3.50
+   MLB                n= 15  same= 10  within half= 15  line gap mean=0.17  price gap median=0.45  DK overround=4.68  PM both sides=3.50
+   NFL                n= 15  same= 13  within half= 13  line gap mean=0.13  price gap median=0.50  DK overround=4.75  PM both sides=3.50
+
+3. How the Polymarket book thins away from the even line (every quoted line)
+ All leagues
+  The even line      lines=  72  median width=  1.00c  5c or tighter=100.0%  traded= 90.3%  share of volume= 67.9%
+  1 point away       lines= 100  median width=  1.00c  5c or tighter= 98.0%  traded= 80.0%  share of volume= 25.7%
+  2 points away      lines=  71  median width=  1.00c  5c or tighter= 91.5%  traded= 52.1%  share of volume=  3.3%
+  3 or more away     lines= 914  median width=  4.00c  5c or tighter= 52.7%  traded= 25.1%  share of volume=  3.0%
+ NFL
+  The even line      lines=  30  median width=  1.00c  5c or tighter=100.0%  traded= 96.7%  share of volume= 71.1%
+  1 point away       lines=  59  median width=  1.00c  5c or tighter=100.0%  traded= 83.1%  share of volume= 20.0%
+  2 points away      lines=  54  median width=  1.00c  5c or tighter= 98.1%  traded= 59.3%  share of volume=  4.2%
+  3 or more away     lines= 814  median width=  3.00c  5c or tighter= 56.8%  traded= 26.4%  share of volume=  4.7%
+
+4. Every game
+  lg  fam    game                                     DK line    DK odds DK fair PM even PM busy  PM@DK    gap lines
+  cfb spread Miami at Wake Forest                        20.5  -108/-112    49.6    20.5    19.5   51.5  +1.93     5
+  cfb spread Houston at Texas Tech                       -7.5  -112/-108    50.4    -7.5   -14.5   50.5  +0.07     3
+  cfb spread Florida St at Alabama                      -19.5  -112/-108    50.4   -17.5   -17.5                   1
+  cfb spread SMU at Louisville                           -1.5  -110/-110    50.0    -1.5    -1.5   50.5  +0.50     1
+  cfb spread Florida at Auburn                            2.5  -115/-105    51.1     2.5     2.5   50.5  -0.58     2
+  cfb spread LSU at Ole Miss                              3.0  -112/-108    50.4     3.5     3.5   49.5  -0.93     3
+  cfb spread Michigan St at Notre Dame                  -29.5  -108/-112    49.6   -29.5   -29.5   49.5  -0.07     1
+  cfb spread Virginia Tech at Maryland                    3.0  -115/-105    51.1     1.5     1.5                   1
+  mlb spread Cubs at Reds                                 1.5  -142/+118    56.1     1.5     1.5   56.5  +0.38     4
+  mlb spread Royals at Pirates                           -1.5  +113/-136    44.9    -1.5    -1.5   44.5  -0.39     4
+  mlb spread Brewers at Orioles                           1.5  -132/+109    54.3     1.5     1.5   55.5  +1.18     4
+  mlb spread Athletics at Guardians                      -1.5  -107/-112    49.5    -1.5    -1.5   49.5  +0.05     4
+  mlb spread Blue Jays at Rangers                         1.5  -149/+124    57.3     1.5     1.5   57.5  +0.23     4
+  mlb spread Mariners at Rockies                          1.5  +102/-122    47.4     1.5     1.5   46.5  -0.89     4
+  mlb spread Marlins at Padres                           -1.5  +105/-126    46.7    -1.5    -1.5   46.5  -0.17     4
+  mlb spread Giants at Dodgers                           -1.5  -137/+113    55.2    -1.5     2.5   55.5  +0.32     4
+  nfl spread Panthers at Falcons                          2.5  +100/-120    47.8     2.5     2.5   47.5  -0.33    25
+  nfl spread Bengals at Texans                           -2.5  -118/-102    51.7    -2.5    -2.5   51.5  -0.24    26
+  nfl spread Browns at Buccaneers                        -8.5  -108/-112    49.6    -8.5    -6.5   48.5  -1.07    26
+  nfl spread Packers at Jets                              3.5  -105/-115    48.9     3.5     3.5   52.5  +3.58    25
+  nfl spread Vikings at Bears                            -4.5  -110/-110    50.0    -4.5    -4.5   48.5  -1.50    27
+  nfl spread Saints at Ravens                            -8.5  -108/-112    49.6    -8.5    -8.5   48.5  -1.07    26
+  nfl spread Eagles at Titans                             7.0  -110/-110    50.0     7.5     7.5   49.5  -0.50    28
+  nfl spread Steelers at Patriots                        -5.5  -105/-115    48.9    -5.5    -5.5   48.5  -0.42    27
+  nfl spread Jaguars at Broncos                          -2.5  -118/-102    51.7    -2.5    -2.5   52.5  +0.76    25
+  nfl spread Raiders at Chargers                         -6.5  -118/-102    51.7    -6.5    -6.5   50.5  -1.24    26
+  nfl spread Dolphins at 49ers                          -12.5  -115/-105    51.1   -12.5   -12.5   51.5  +0.42    27
+  nfl spread Seahawks at Cardinals                        3.5  +100/-120    47.8     3.5     3.5   49.5  +1.67    25
+  nfl spread Commanders at Cowboys                       -4.5  -105/-115    48.9    -4.5    -3.5   47.5  -1.42    26
+  nfl spread Colts at Chiefs                             -6.5  -115/-105    51.1    -6.5    -6.5   49.5  -1.58     6
+  nfl spread Giants at Rams                              -7.0  -118/-102    51.7    -7.5    -7.5   50.5  -1.24     5
+  cfb total  Miami at Wake Forest                        55.5  -108/-112    49.6    54.5    53.5   49.8  +0.18     5
+  cfb total  Houston at Texas Tech                       52.5  -108/-112    49.6    51.5    51.5                   1
+  cfb total  Georgia at Arkansas                         54.5  -118/-102    51.7    52.5    52.5                   1
+  cfb total  North Carolina at Clemson                   44.5  -105/-115    48.9    44.5    44.5   48.5  -0.42     1
+  cfb total  Florida St at Alabama                       49.5  -108/-112    49.6    50.5    50.5                   1
+  cfb total  SMU at Louisville                           58.5  -112/-108    50.4    58.5    58.5   50.0  -0.43     1
+  cfb total  Florida at Auburn                           53.5  -102/-118    48.3    51.5    51.5                   2
+  cfb total  LSU at Ole Miss                             58.5  -108/-112    49.6    58.5    58.5   50.5  +0.93     1
+  cfb total  Michigan St at Notre Dame                   51.5  -115/-105    51.1    52.5    52.5                   2
+  cfb total  Virginia Tech at Maryland                   53.5  -112/-108    50.4    53.5    53.5   49.5  -0.93     3
+  cfb total  West Virginia at Virginia                   53.5  -110/-110    50.0    52.5    52.5                   1
+  mlb total  Cubs at Reds                                 8.5  -116/-104    51.3     8.5     8.5   50.5  -0.80     3
+  mlb total  Royals at Pirates                            8.5  -107/-112    49.5     8.5     8.5   48.5  -0.95     3
+  mlb total  Brewers at Orioles                           8.5  -108/-112    49.6     8.5     8.5   49.5  -0.07     3
+  mlb total  Athletics at Guardians                       8.5  -108/-112    49.6     8.5     8.5   49.5  -0.07     3
+  mlb total  Red Sox at Rays                              7.0  -112/-108    50.4     6.5     7.5   50.0  -0.43     3
+  mlb total  Phillies at Mets                             8.5  -115/-105    51.1     8.5     8.5   51.5  +0.42     3
+  mlb total  Tigers at White Sox                          8.5  -112/-107    50.5     8.5     9.5   49.5  -1.05     3
+  mlb total  Blue Jays at Rangers                         7.5  -107/-113    49.4     7.5     7.5   49.5  +0.15     3
+  mlb total  Braves at Astros                             8.0  -119/-101    52.0     8.5     7.5   51.5  -0.45     3
+  mlb total  Mariners at Rockies                         10.5  -114/-105    51.0    10.5    10.5   50.5  -0.48     3
+  mlb total  Nationals at Cardinals                       7.5  -115/-105    51.1     7.5     7.5   51.5  +0.42     3
+  mlb total  Twins at Angels                              8.0  -111/-108    50.3     7.5     8.5   49.5  -0.83     3
+  mlb total  Marlins at Padres                            7.5  -111/-109    50.2     7.5     7.5   50.5  +0.28     3
+  mlb total  Yankees at Diamondbacks                      8.0  -102/-118    48.3     7.5     9.5   49.5  +1.24     3
+  mlb total  Giants at Dodgers                            8.0  -109/-110    49.9     8.5     7.5   50.5  +0.61     3
+  nfl total  Panthers at Falcons                         43.5  -108/-112    49.6    43.5    43.5   51.0  +1.43    14
+  nfl total  Bengals at Texans                           45.5  -110/-110    50.0    45.5    45.5   49.5  -0.50    22
+  nfl total  Browns at Buccaneers                        41.5  -110/-110    50.0    41.5    41.5   49.5  -0.50    21
+  nfl total  Packers at Jets                             44.5  -110/-110    50.0    44.5    45.5   49.5  -0.50    12
+  nfl total  Vikings at Bears                            47.5  -115/-105    51.1    47.5    49.5   51.5  +0.42    20
+  nfl total  Saints at Ravens                            46.5  -110/-110    50.0    46.5    45.5   48.5  -1.50    21
+  nfl total  Eagles at Titans                            39.5  -110/-110    50.0    39.5    41.5   50.5  +0.50    19
+  nfl total  Steelers at Patriots                        41.5  -112/-108    50.4    41.5    41.5   49.5  -0.93    15
+  nfl total  Jaguars at Broncos                          45.5  -108/-112    49.6    45.5    44.5   50.5  +0.93    21
+  nfl total  Raiders at Chargers                         43.5  -110/-110    50.0    43.5    44.5   49.5  -0.50    15
+  nfl total  Dolphins at 49ers                           44.5  -115/-105    51.1    44.5    46.5   51.5  +0.42    19
+  nfl total  Seahawks at Cardinals                       40.5  -115/-105    51.1    41.5    40.5   52.5  +1.42    14
+  nfl total  Commanders at Cowboys                       50.5  -112/-108    50.4    50.5    68.5   50.5  +0.07    12
+  nfl total  Colts at Chiefs                             46.5  -110/-110    50.0    46.5    46.5   48.5  -1.50    14
+  nfl total  Giants at Rams                              48.5  -105/-115    48.9    47.5    49.5   48.0  -0.92    15

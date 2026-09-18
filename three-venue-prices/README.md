@@ -53,3 +53,34 @@ price, |odds| / (|odds| + 100) for a minus price); the two sides sum to more tha
 the overround. The fair price divides each side by the sum; the equal-cents variant subtracts half the
 overround from each side. A doubleheader, where one date holds the same two teams twice, is dropped
 rather than guessed.
+
+## Spreads and totals (added 2026-09-18, issue 0xinsider/0xinsider#14901)
+
+- https://0xinsider.com/research/polymarket-spreads-totals-vs-draftkings
+
+A second capture, 17:35:31 to 17:35:36 UTC the same day, of Polymarket's spread and total ladders and the
+DraftKings spread, total and price on each side from ESPN's scoreboard. NFL, college football and MLB.
+
+| Measure | Spreads | Totals |
+|---|---|---|
+| Games on both venues | 31 | 41 |
+| Polymarket's even line is the DraftKings number | 26 | 27 |
+| Within half a point / one point | 29 / 29 | 32 / 39 |
+| Median price gap at the DraftKings number | 0.58 pts | 0.50 pts |
+| DraftKings overround, median | 4.71 pts | 4.75 pts |
+| Polymarket even line, both sides at the ask plus the taker fee | 3.50 cents | 3.50 cents |
+
+The even line held 67.9% of spread and total volume and the lines one point either side another 25.7%. Three
+or more points away there were 914 quoted lines with a median book 4 cents wide; 25.1% had ever traded.
+
+The unit is the game: every line on a ladder settles on one final score. The even line is the line priced
+nearest 50 cents among lines with a book 5 cents wide or tighter and a price from 40 to 60 cents; a game with
+no such line is left out, which is most of college football a day before kickoff.
+
+Files: `spread-total-capture.py`, `spread-total-capture.json`, `spread-total-analysis.py`,
+`spread-total-analysis-output.txt`, `spread-total-games.csv`. The two scripts load `capture.py` and
+`analysis.py` from this directory for the ESPN reader, the team matching and the odds arithmetic.
+
+```
+python3 spread-total-analysis.py spread-total-capture.json | diff - spread-total-analysis-output.txt
+```
