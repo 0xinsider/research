@@ -46,6 +46,16 @@ The later sports studies (the wallet census, fading the crowd, over/under totals
 out, both teams to score, the first set in tennis, point spreads, home advantage, NRFI, football
 underdogs and esports first-map winners) are listed with their files in the directory's README.
 
+### [three-venue-prices](three-venue-prices) — the same games on Polymarket, Kalshi and DraftKings
+
+81 games priced on all three venues in one eight-second capture on 2026-09-18. Polymarket and Kalshi
+showed the identical midpoint on 57 and never differed by more than 2 points. DraftKings' moneyline
+with the margin removed sat a median of 0.99 points from Polymarket, and its overround was a median of
+4.25 points against 3.16 cents for both sides on Polymarket with the taker fee. Public sources only:
+`python3 analysis.py capture.json` reproduces every figure with no database.
+
+Published: <https://0xinsider.com/research/use-0xinsider-for-kalshi-draftkings>
+
 ## Reproducing
 
 Each study directory holds its SQL, the raw `psql` output of the run the figures
