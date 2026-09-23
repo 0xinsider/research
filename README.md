@@ -54,6 +54,12 @@ with the margin removed sat a median of 0.99 points from Polymarket, and its ove
 4.25 points against 3.16 cents for both sides on Polymarket with the taker fee. Public sources only:
 `python3 analysis.py capture.json` reproduces every figure with no database.
 
+All 81 have since been played and are scored against their results: Brier 0.1502 on Polymarket, 0.1504
+on Kalshi and 0.1510 on DraftKings with its margin out, against 0.2414 for the sample's own home rate.
+All three beat a no-information price by a wide margin and none is separable from the others -- every
+pairwise interval spans zero on 81 games. `python3 scoring.py --games games.csv --results results.csv`
+reproduces that too.
+
 Published: <https://0xinsider.com/research/use-0xinsider-for-kalshi-draftkings>
 
 ## Reproducing

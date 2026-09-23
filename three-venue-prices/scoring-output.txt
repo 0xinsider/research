@@ -1,0 +1,188 @@
+#14900. Scoring the 81 games captured at 16:01:03 UTC on 2026-09-18.
+Finals from ESPN's scoreboard, read at 2026-09-23T07:44:43Z by the capture's own event ids.
+Games 81, home wins 48, away wins 33, ties 0.
+Game-resampled intervals: 20,000 resamples, seed 14900, 2.5th to 97.5th percentile.
+
+1. Score per venue, home-team probability
+  venue                        n   mean p    Brier  log loss
+  Polymarket                  81   61.40%   0.1502    0.4571
+  Kalshi                      81   61.42%   0.1504    0.4573
+  DraftKings                  81   60.80%   0.1510    0.4618
+  DraftKings (equal cents)    81   61.23%   0.1499    0.4567
+  (the home rate, 59.3%, every game)  81   59.26%   0.2414    0.6759
+  (a coin, 50% every game)    81   50.00%   0.2500    0.6931
+
+2. Pairwise difference, A minus B, per game, with a game-resampled interval
+  a negative difference means A scored better; the interval is on these 81 games only
+  Polymarket minus DraftKings
+    Brier     -0.00084  [-0.00271, +0.00115]  A better in  80.7% of resamples
+    log loss  -0.00472  [-0.00993, +0.00115]  A better in  94.9% of resamples
+    a gap this size stops spanning zero at about 425 games on Brier and 112 on log loss, at this per-game spread
+  Kalshi minus DraftKings
+    Brier     -0.00064  [-0.00254, +0.00144]  A better in  74.0% of resamples
+    log loss  -0.00447  [-0.00979, +0.00161]  A better in  93.2% of resamples
+    a gap this size stops spanning zero at about 787 games on Brier and 132 on log loss, at this per-game spread
+  Polymarket minus Kalshi
+    Brier     -0.00020  [-0.00110, +0.00074]  A better in  68.3% of resamples
+    log loss  -0.00025  [-0.00214, +0.00170]  A better in  60.8% of resamples
+    a gap this size stops spanning zero at about 1,658 games on Brier and 4,715 on log loss, at this per-game spread
+  Polymarket minus DraftKings (equal cents)
+    Brier     +0.00028  [-0.00128, +0.00183]  A better in  36.1% of resamples
+    log loss  +0.00042  [-0.00338, +0.00418]  A better in  40.6% of resamples
+    a gap this size stops spanning zero at about 2,414 games on Brier and 6,510 on log loss, at this per-game spread
+
+3. The favorite's record, banded by the favorite's price at that venue
+ Polymarket
+  band           n  mean fav price  favorites won   actual  vs price  std errs
+  50 to 60%     23          55.13%       15 of 23    65.2%     +10.1     +0.97
+  60 to 75%     26          66.79%       21 of 26    80.8%     +14.0     +1.51
+  75 to 90%     14          83.71%       11 of 14    78.6%      -5.1     -0.52
+  90% and up    18          94.23%       18 of 18   100.0%      +5.8     +1.05
+ Kalshi
+  band           n  mean fav price  favorites won   actual  vs price  std errs
+  50 to 60%     23          55.17%       16 of 23    69.6%     +14.4     +1.39
+  60 to 75%     26          66.62%       21 of 26    80.8%     +14.2     +1.53
+  75 to 90%     13          83.35%       10 of 13    76.9%      -6.4     -0.62
+  90% and up    19          94.08%       19 of 19   100.0%      +5.9     +1.09
+ DraftKings
+  band           n  mean fav price  favorites won   actual  vs price  std errs
+  50 to 60%     25          55.36%       17 of 25    68.0%     +12.6     +1.27
+  60 to 75%     24          66.53%       19 of 24    79.2%     +12.6     +1.31
+  75 to 90%     18          84.08%       15 of 18    83.3%      -0.7     -0.09
+  90% and up    14          93.49%       14 of 14   100.0%      +6.5     +0.99
+  DraftKings favorites won 65 of 81 (80.2%)
+
+4. The games where DraftKings and the exchanges disagreed most
+  the exchange price minus the DraftKings fair price, largest absolute gaps first
+  top 10 by |Polymarket - DraftKings|  gap 2.25 to 3.20 pts  Polymarket's lean was the winning side in 10 of 10
+      Brier    Polymarket 0.0281  DraftKings 0.0358  (-0.0077)
+      log loss Polymarket 0.1481  DraftKings 0.1798  (-0.0316)
+      of those, the lean was toward the DraftKings favorite in 10 (right 10) and toward the underdog in 0 (right 0)
+  top 20 by |Polymarket - DraftKings|  gap 1.81 to 3.20 pts  Polymarket's lean was the winning side in 16 of 20
+      Brier    Polymarket 0.0897  DraftKings 0.0907  (-0.0010)
+      log loss Polymarket 0.2930  DraftKings 0.3055  (-0.0125)
+      of those, the lean was toward the DraftKings favorite in 18 (right 16) and toward the underdog in 2 (right 0)
+  top 27 by |Polymarket - DraftKings|  gap 1.42 to 3.20 pts  Polymarket's lean was the winning side in 22 of 27
+      Brier    Polymarket 0.1139  DraftKings 0.1154  (-0.0015)
+      log loss Polymarket 0.3638  DraftKings 0.3733  (-0.0095)
+      of those, the lean was toward the DraftKings favorite in 25 (right 22) and toward the underdog in 2 (right 0)
+  top 20 by |Kalshi - DraftKings|          gap 1.81 to 3.20 pts  Kalshi's lean was the winning side in 15 of 20
+      Brier    Kalshi 0.0983  DraftKings 0.0965  (+0.0018)
+  across all 81 games, Polymarket's lean away from DraftKings named the winning side in 56 of 81 with a gap
+  the confound: that lean pointed at the DraftKings favorite in 64 of 81 games, and DraftKings favorites won 65 of 81, so a lean toward the favorite is right more often than not before any venue shows skill
+
+4b. The same disagreement read against the equal-cents DraftKings price
+  removing the DraftKings margin as equal cents instead of proportionally takes most
+  of the favorite-side tilt out of the gap, so the lean is closer to a free direction
+  top 10 by |Polymarket - DraftKings equal cents|  gap 1.56 to 2.78 pts  Polymarket's lean was the winning side in 6 of 10
+      toward the favorite in 6 (right 6), toward the underdog in 4 (right 0)
+  top 20 by |Polymarket - DraftKings equal cents|  gap 1.09 to 2.78 pts  Polymarket's lean was the winning side in 11 of 20
+      toward the favorite in 10 (right 9), toward the underdog in 10 (right 2)
+  top 27 by |Polymarket - DraftKings equal cents|  gap 0.92 to 2.78 pts  Polymarket's lean was the winning side in 15 of 27
+      toward the favorite in 14 (right 12), toward the underdog in 13 (right 3)
+  across all 81 games, that lean named the winning side in 36 of 81, and pointed at the favorite in 40 of 81
+
+5. The one game the three venues did not agree on a favorite
+  cfb Wyoming Cowboys at Central Michigan Chippewas  DK 49.57%  Polymarket 48.50%  Kalshi 50.50%  final 24-10, home won
+
+6. Score by league
+ College football  n=49
+  Polymarket    Brier 0.1107  log loss 0.3576
+  Kalshi        Brier 0.1108  log loss 0.3574
+  DraftKings    Brier 0.1124  log loss 0.3655
+ MLB  n=14
+  Polymarket    Brier 0.1917  log loss 0.5731
+  Kalshi        Brier 0.1910  log loss 0.5718
+  DraftKings    Brier 0.1935  log loss 0.5770
+ NFL  n=15
+  Polymarket    Brier 0.2375  log loss 0.6720
+  Kalshi        Brier 0.2392  log loss 0.6756
+  DraftKings    Brier 0.2346  log loss 0.6666
+ WNBA  n=3
+  Polymarket    Brier 0.1653  log loss 0.4665
+  Kalshi        Brier 0.1646  log loss 0.4628
+  DraftKings    Brier 0.1659  log loss 0.4736
+
+7. Every game, scored
+  leaguegame                                              final  home      DK      PM  Kalshi   B(DK)   B(PM)    B(K)
+  cfb  Miami Hurricanes at Wake Forest Demon Deacon      20-33  lost    9.60    7.50    7.50  0.0092  0.0056  0.0056
+  cfb  Houston Cougars at Texas Tech Red Raiders         28-26   won   73.35   74.50   73.50  0.0710  0.0650  0.0702
+  cfb  Coastal Carolina Chanticleers at Delaware Bl      22-14   won   63.69   65.50   64.50  0.1318  0.1190  0.1260
+  cfb  Akron Zips at Minnesota Golden Gophers             41-7   won   93.57   94.50   94.50  0.0041  0.0030  0.0030
+  cfb  Arizona State Sun Devils at Kansas Jayhawks       17-24  lost   35.53   34.50   34.50  0.1262  0.1190  0.1190
+  cfb  Bowling Green Falcons at Iowa State Cyclones       55-7   won   92.58   94.50   94.50  0.0055  0.0030  0.0030
+  cfb  Georgia Bulldogs at Arkansas Razorbacks           17-45  lost    6.89    4.50    4.50  0.0047  0.0020  0.0020
+  cfb  North Carolina Tar Heels at Clemson Tigers        28-20   won   59.96   60.50   59.50  0.1603  0.1560  0.1640
+  cfb  North Texas Mean Green at Texas State Bobcat      49-35   won   56.35   57.00   57.50  0.1905  0.1849  0.1806
+  cfb  Tulane Green Wave at Kansas State Wildcats        31-20   won   89.89   91.50   91.50  0.0102  0.0072  0.0072
+  cfb  Eastern Michigan Eagles at Wisconsin Badgers      54-10   won   92.58   94.50   94.50  0.0055  0.0030  0.0030
+  cfb  NC State Wolfpack at Vanderbilt Commodores        35-31   won   59.34   60.50   60.50  0.1653  0.1560  0.1560
+  cfb  Wyoming Cowboys at Central Michigan Chippewa      24-10   won   49.57   48.50   50.50  0.2543  0.2652  0.2450
+  cfb  Temple Owls at Toledo Rockets                     49-48   won   65.75   67.00   67.50  0.1173  0.1089  0.1056
+  cfb  Florida State Seminoles at Alabama Crimson T      50-36   won   89.34   91.50   91.50  0.0114  0.0072  0.0072
+  cfb  Kentucky Wildcats at Texas A&M Aggies             21-31  lost   85.79   87.50   87.50  0.7361  0.7656  0.7656
+  cfb  Miami (OH) RedHawks at Cincinnati Bearcats        35-31   won   84.65   85.50   85.50  0.0236  0.0210  0.0210
+  cfb  SMU Mustangs at Louisville Cardinals              41-31   won   51.74   53.50   52.50  0.2329  0.2162  0.2256
+  cfb  USC Trojans at Rutgers Scarlet Knights            35-42  lost    8.03    6.50    6.50  0.0064  0.0042  0.0042
+  cfb  Ball State Cardinals at Liberty Flames            51-15   won   83.71   84.50   84.50  0.0265  0.0240  0.0240
+  cfb  Louisiana Tech Bulldogs at Baylor Bears           36-19   won   89.34   90.50   90.50  0.0114  0.0090  0.0090
+  cfb  Stanford Cardinal at Duke Blue Devils              35-7   won   76.59   76.50   76.50  0.0548  0.0552  0.0552
+  cfb  Mississippi State Bulldogs at South Carolina      34-41  lost   61.64   62.50   62.50  0.3800  0.3906  0.3906
+  cfb  East Carolina Pirates at Old Dominion Monarc      17-20  lost   57.21   56.50   56.50  0.3273  0.3192  0.3192
+  cfb  Florida International Panthers at Florida At      16-10   won   68.06   69.50   69.50  0.1020  0.0930  0.0930
+  cfb  Marshall Thundering Herd at Missouri State B      24-30  lost   36.91   37.50   38.50  0.1362  0.1406  0.1482
+  cfb  Florida Gators at Auburn Tigers                   39-44  lost   45.73   45.50   44.50  0.2091  0.2070  0.1980
+  cfb  Georgia Southern Eagles at Jacksonville Stat      31-27   won   59.96   59.50   60.50  0.1603  0.1640  0.1560
+  cfb  Georgia State Panthers at UCF Knights             44-30   won   87.62   88.50   89.50  0.0153  0.0132  0.0110
+  cfb  Nevada Wolf Pack at Middle Tennessee Blue Ra      27-20   won   38.36   37.50   37.50  0.3800  0.3906  0.3906
+  cfb  Ohio Bobcats at South Alabama Jaguars             41-36   won   69.08   69.50   69.50  0.0956  0.0930  0.0930
+  cfb  Troy Trojans at Missouri Tigers                   27-17   won   94.63   96.60   96.50  0.0029  0.0012  0.0012
+  cfb  UConn Huskies at Southern Miss Golden Eagles      20-48  lost   40.66   41.50   41.50  0.1653  0.1722  0.1722
+  cfb  Western Michigan Broncos at Rice Owls             21-28  lost   24.92   23.50   23.50  0.0621  0.0552  0.0552
+  cfb  North Dakota Fighting Hawks at Nebraska Corn       34-7   won   93.57   94.00   94.50  0.0041  0.0036  0.0030
+  cfb  BYU Cougars at Colorado State Rams                23-41  lost   12.38   11.50   11.50  0.0153  0.0132  0.0132
+  cfb  Colorado Buffaloes at Northwestern Wildcats        41-7   won   60.92   62.50   61.50  0.1527  0.1406  0.1482
+  cfb  LSU Tigers at Ole Miss Rebels                     32-24   won   41.70   40.50   41.00  0.3399  0.3540  0.3481
+  cfb  Michigan State Spartans at Notre Dame Fighti      27-10   won   94.91   97.50   97.50  0.0026  0.0006  0.0006
+  cfb  New Mexico Lobos at Oklahoma Sooners               14-6   won   91.97   93.00   93.50  0.0064  0.0049  0.0042
+  cfb  Virginia Tech Hokies at Maryland Terrapins        26-35  lost   42.79   42.50   42.50  0.1831  0.1806  0.1806
+  cfb  Arkansas State Red Wolves at TCU Horned Frog       31-7   won   89.34   90.50   90.50  0.0114  0.0090  0.0090
+  cfb  UAB Blazers at Louisiana Ragin' Cajuns            21-14   won   72.58   72.50   72.50  0.0752  0.0756  0.0756
+  cfb  UTSA Roadrunners at Texas Longhorns                30-6   won   94.91   97.40   97.50  0.0026  0.0007  0.0006
+  cfb  James Madison Dukes at San Diego State Aztec      13-26  lost   53.25   52.50   53.50  0.2835  0.2756  0.2862
+  cfb  South Dakota Coyotes at Boise State Broncos       38-24   won   93.57   94.50   94.50  0.0041  0.0030  0.0030
+  cfb  North Dakota State Bison at Sacramento State      10-31  lost    4.22    4.35    4.50  0.0018  0.0019  0.0020
+  cfb  Northern Illinois Huskies at Arizona Wildcat      42-17   won   95.39   98.50   98.50  0.0021  0.0002  0.0002
+  cfb  Purdue Boilermakers at UCLA Bruins                52-38   won   83.17   85.50   85.50  0.0283  0.0210  0.0210
+  mlb  Chicago Cubs at Cincinnati Reds                     1-9  lost   43.69   43.50   43.50  0.1909  0.1892  0.1892
+  mlb  Kansas City Royals at Pittsburgh Pirates            4-3   won   62.96   63.50   63.50  0.1372  0.1332  0.1332
+  mlb  Milwaukee Brewers at Baltimore Orioles              0-3  lost   43.62   43.50   42.50  0.1903  0.1892  0.1806
+  mlb  Boston Red Sox at Tampa Bay Rays                    5-1   won   55.11   55.50   55.50  0.2015  0.1980  0.1980
+  mlb  Philadelphia Phillies at New York Mets              2-7  lost   50.98   51.50   51.50  0.2599  0.2652  0.2652
+  mlb  Detroit Tigers at Chicago White Sox                 8-1   won   54.32   54.50   54.50  0.2087  0.2070  0.2070
+  mlb  Toronto Blue Jays at Texas Rangers                  2-7  lost   44.70   44.50   44.50  0.1998  0.1980  0.1980
+  mlb  Atlanta Braves at Houston Astros                    2-4  lost   47.83   47.50   47.50  0.2287  0.2256  0.2256
+  mlb  Seattle Mariners at Colorado Rockies                1-2  lost   37.04   36.50   36.50  0.1372  0.1332  0.1332
+  mlb  Washington Nationals at St. Louis Cardinals         5-3   won   49.67   49.50   49.50  0.2533  0.2550  0.2550
+  mlb  Minnesota Twins at Los Angeles Angels               0-8  lost   48.92   49.50   49.50  0.2393  0.2450  0.2450
+  mlb  Miami Marlins at San Diego Padres                   7-3   won   65.70   65.50   65.50  0.1177  0.1190  0.1190
+  mlb  New York Yankees at Arizona Diamondbacks            8-4   won   48.17   49.50   49.50  0.2687  0.2550  0.2550
+  mlb  San Francisco Giants at Los Angeles Dodgers         3-1   won   72.51   73.50   73.50  0.0756  0.0702  0.0702
+  nfl  Carolina Panthers at Atlanta Falcons               3-34  lost   40.66   42.50   43.50  0.1653  0.1806  0.1892
+  nfl  Cincinnati Bengals at Houston Texans               6-20  lost   56.35   57.50   58.50  0.3175  0.3306  0.3422
+  nfl  Cleveland Browns at Tampa Bay Buccaneers          19-23  lost   78.67   78.50   78.50  0.6190  0.6162  0.6162
+  nfl  Green Bay Packers at New York Jets                17-20  lost   36.31   38.50   38.50  0.1318  0.1482  0.1482
+  nfl  Minnesota Vikings at Chicago Bears                  3-9  lost   63.69   65.50   65.50  0.4056  0.4290  0.4290
+  nfl  New Orleans Saints at Baltimore Ravens            17-24  lost   76.59   78.50   78.50  0.5866  0.6162  0.6162
+  nfl  Philadelphia Eagles at Tennessee Titans           20-24  lost   27.42   24.50   24.50  0.0752  0.0600  0.0600
+  nfl  Pittsburgh Steelers at New England Patriots        20-3   won   65.75   68.50   68.50  0.1173  0.0992  0.0992
+  nfl  Jacksonville Jaguars at Denver Broncos            20-13   won   57.21   58.50   58.50  0.1831  0.1722  0.1722
+  nfl  Las Vegas Raiders at Los Angeles Chargers         14-26  lost   72.21   72.50   72.50  0.5214  0.5256  0.5256
+  nfl  Miami Dolphins at San Francisco 49ers             35-13   won   86.30   89.50   89.50  0.0188  0.0110  0.0110
+  nfl  Seattle Seahawks at Arizona Cardinals              7-31  lost   34.25   34.50   34.50  0.1173  0.1190  0.1190
+  nfl  Washington Commanders at Dallas Cowboys           37-20   won   65.75   65.50   65.50  0.1173  0.1190  0.1190
+  nfl  Indianapolis Colts at Kansas City Chiefs          33-30   won   70.95   73.50   72.50  0.0844  0.0702  0.0756
+  nfl  New York Giants at Los Angeles Rams                28-6   won   75.72   74.50   74.50  0.0590  0.0650  0.0650
+  wnba Indiana Fever at Toronto Tempo                   85-103  lost   11.30   10.50    9.50  0.0128  0.0110  0.0090
+  wnba New York Liberty at Minnesota Lynx                81-93  lost   68.06   68.50   68.50  0.4632  0.4692  0.4692
+  wnba Portland Fire at Golden State Valkyries           82-66   won   85.25   87.50   87.50  0.0218  0.0156  0.0156
