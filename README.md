@@ -39,15 +39,17 @@ Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
   at -3.52 points and -60.6% on the dollar. Non-sports buys over the same window
   miss by 6 to 10 points in most buckets.
   <https://0xinsider.com/research/favorite-longshot-bias-polymarket-sports>
-- **Sharp money.** (The grade cohorts here use the lookup grade-vs-price corrected
-  on 2026-10-07 and are being re-measured at the trade; measured that day, sports
-  S/A/B comes to +0.50 graded at the trade, a point estimate.) S/A/B +1.25 pts [+0.20, +2.31] against D/F -1.21
-  [-2.72, +0.33], holding in all five price buckets and four market types. The
-  gap is an in-play gap: +1.95 against -2.56 after the start, +0.27 against -0.52
-  before it. <https://0xinsider.com/research/sharp-money-polymarket-sports>
+- **Sharp money.** Corrected 2026-10-07 with each buy graded at the trade
+  (`grade-at-trade-2026-10-07*`): S/A/B +0.50 pts [-0.58, +1.59] against D/F -0.18
+  [-1.73, +1.36] on 161,128 buys; across all buys the grade does not separate
+  sports buyers. In play it does: +1.22 against -1.23, a gap of +2.45 [+0.50,
+  +4.40]; before kickoff -0.48 against +0.37. The September version (+1.25
+  against -1.21) read ranking rows rewritten after the trade.
+  <https://0xinsider.com/research/sharp-money-polymarket-sports>
 - **Timing.** 48.6% of large sports buys land after the start. Bought 1 to 7 days
   early, they lose 3.21 points [-5.09, -1.35]; from 6 hours out through in-play
-  they are calibrated.
+  they are calibrated. Graded at the trade, S/A/B wallets beat D/F wallets by
+  3.93 points [+1.06, +6.80] in the first hour of play.
   <https://0xinsider.com/research/when-large-sports-bets-land>
 
 The later sports studies (the wallet census, fading the crowd, over/under totals, soccer draws, cashing

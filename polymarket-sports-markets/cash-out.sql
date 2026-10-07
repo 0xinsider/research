@@ -7,6 +7,14 @@
 -- the average exit price, in points. Positive = the seller let go of an outcome worth more than the exit price.
 -- The dollar figure is what holding the same shares to settlement would have returned on the cash received:
 -- sum(cash * (won / p - 1)) / sum(cash). Nothing here knows the seller's entry price.
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view sells as
@@ -64,7 +72,7 @@ from sells where phase <> 'unknown' group by 1,2 order by 1,2;
 -- 5. Grade cohort x exit price group, June 1 onward.
 with g as (
   select s.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade = 'C' then 'C' when gr.grade in ('D','F') then 'D/F' else 'no grade' end cohort
-  from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date order by tr.date desc limit 1) gr on true
+  from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date and tr.computed_at <= s.traded_at order by tr.date desc limit 1) gr on true
   where s.traded_at >= date '2026-06-01')
 select cohort, case when price_num < 0.20 then 'a. under 20c' when price_num < 0.80 then 'b. 20-80c' else 'c. 80c+' end grp,
        count(*) n, round(avg(price_num)*100,1) avg_price_c, round(avg(won)::numeric*100,1) sold_outcome_won_pct,
@@ -102,4 +110,4 @@ select date_trunc('month', traded_at)::date mo, count(*) n, round(avg(price_num)
 from sells group by 1 order by 1;
 
 -- 11. Market-level export for the clustered bootstrap: all, exit band, phase x group, cohort x group.
-\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select 'all sells' grp, condition_id, won, price_num from sells union all select 'band ' || case when price_num < 0.10 then 'a. under 10c' when price_num < 0.20 then 'b. 10-20c' when price_num < 0.40 then 'c. 20-40c' when price_num < 0.60 then 'd. 40-60c' when price_num < 0.80 then 'e. 60-80c' when price_num < 0.90 then 'f. 80-90c' else 'g. 90-98c' end, condition_id, won, price_num from sells union all select phase || ' ' || case when price_num < 0.20 then 'under 20c' when price_num < 0.80 then '20-80c' else '80c+' end, condition_id, won, price_num from sells where phase <> 'unknown' union all select g.cohort || ' ' || case when g.price_num < 0.20 then 'under 20c' when g.price_num < 0.80 then '20-80c' else '80c+' end, g.condition_id, g.won, g.price_num from (select s.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date order by tr.date desc limit 1) gr on true where s.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './cash-out-market-edge.csv' with (format csv, header true)
+\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select 'all sells' grp, condition_id, won, price_num from sells union all select 'band ' || case when price_num < 0.10 then 'a. under 10c' when price_num < 0.20 then 'b. 10-20c' when price_num < 0.40 then 'c. 20-40c' when price_num < 0.60 then 'd. 40-60c' when price_num < 0.80 then 'e. 60-80c' when price_num < 0.90 then 'f. 80-90c' else 'g. 90-98c' end, condition_id, won, price_num from sells union all select phase || ' ' || case when price_num < 0.20 then 'under 20c' when price_num < 0.80 then '20-80c' else '80c+' end, condition_id, won, price_num from sells where phase <> 'unknown' union all select g.cohort || ' ' || case when g.price_num < 0.20 then 'under 20c' when g.price_num < 0.80 then '20-80c' else '80c+' end, g.condition_id, g.won, g.price_num from (select s.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date and tr.computed_at <= s.traded_at order by tr.date desc limit 1) gr on true where s.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './cash-out-market-edge.csv' with (format csv, header true)

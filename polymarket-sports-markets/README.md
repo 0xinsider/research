@@ -10,6 +10,41 @@ One dataset: every `whale_alerts` buy of $1,000 or more on a sports-category Pol
 market, joined to `market_outcomes` with `resolved_at > traded_at`, price 2c to 98c.
 Read-only runs against production, 03:27 to 03:29 UTC.
 
+## Correction, 2026-10-07: grades at the trade (issue 0xinsider/0xinsider#22191)
+
+Every study below that splits by grade took each buy's grade from the latest `trader_rankings` row dated on
+or before the trade day. 0xinsider updates a wallet's latest ranking row in place when it recomputes the
+grade and sets `computed_at = NOW()`, so that row usually held a grade written after the trade: 99.4% of the
+S, A and B buys in the sharp-money universe used a row last written after the buy. 1,462 buys it counted as
+S/A/B were D/F at the trade (+8.80 pts); 1,037 it counted as D/F were S/A/B at the trade (-12.35 pts).
+
+The corrected run grades each buy as the wallet stood at the trade (from 2026-09-20 the grade shown at the
+fill, `grade_forward_at`; before that the latest ranking row dated on or before the trade day AND last
+written at or before the trade), keeps only yes-or-no outcomes (`winning_outcome IN (0, 1)`), and reports
+95% intervals as 1.96 cluster-robust standard errors, the widest of market, wallet and game clustering. It
+ran on a Neon child branch of production forked at 14:18 UTC: `grade-at-trade-2026-10-07.sql`,
+`grade-at-trade-2026-10-07-output.txt`, and every per-cut statistic in `grade-at-trade-2026-10-07-stats.csv`.
+The grade lookups in the September files now carry the `computed_at` bound; their committed outputs stay as
+the record of what was published.
+
+| Study | Published | Graded at the trade |
+|---|---|---|
+| Sharp money, S/A/B (Jun 1 to Sep 11) | +1.25 [+0.20, +2.31], 48,255 buys | +0.50 [-0.58, +1.59], 51,797 buys (same lookup today: +1.27 on 54,499) |
+| Sharp money, S / A / B | +1.13 / +1.08 / +1.63 | +1.20 [-0.41, +2.80] / +0.45 / -0.80 [-2.30, +0.70] |
+| Sharp money, D/F | -1.21 [-2.72, +0.33] | -0.18 [-1.73, +1.36] |
+| Sharp money, S/A/B minus D/F | +2.46 | +0.69 [-1.11, +2.48]; in-play +2.45 [+0.50, +4.40]; pre-kickoff -0.85 [-3.11, +1.41] |
+| Sharp money through Oct 6 | n/a | S/A/B +0.64 [-0.37, +1.65]; S +1.31 [-0.20, +2.81]; B -0.74 [-2.15, +0.68] |
+| Timing, first hour of play | S/A/B +3.07, D/F -3.03 | +2.23 [+0.10, +4.35], -1.70 [-3.52, +0.12]; gap +3.93 [+1.06, +6.80] |
+| Fading the crowd, D/F 90%+ side | -3.68 [-6.71, -0.69], 844 markets | -2.25 [-5.11, +0.60], 1,150 markets |
+| Fading the crowd, crowd on favorite | -4.20 [-7.45, -1.05] | -1.59 [-4.80, +1.61] |
+| Over/under, S/A/B Under | +2.12, 60.5% of their totals buys | +1.85 [-3.92, +7.61], 60.0% |
+| Spreads, S/A/B laying | +5.46 | +2.67 [-7.17, +12.52] |
+| Cashing out, S/A/B exit edge | -2.31 | -2.10 [-5.04, +0.84] |
+| Soccer draws, S/A/B draw Yes | +3.46 | +3.18 [-9.02, +15.38] |
+
+Across all buys the grade no longer separates sports buyers; in play it does. B, published above the price,
+lost to it. The grade figures in the sections below are the September run and are superseded by this table.
+
 ## Headlines
 
 | Study | Sample | Finding |

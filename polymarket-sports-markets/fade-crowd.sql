@@ -5,6 +5,14 @@
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market, settled after the
 -- trade, 2c-98c, on a moneyline, child moneyline, spread or total (or an untyped market), placed BEFORE the
 -- market's game start time. Grade is point-in-time: the latest daily ranking dated on or before the trade day.
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view sb as
@@ -26,7 +34,7 @@ where w.platform = 'polymarket' and w.side = 0
 create temp view g as
 select b.*, case when gr.grade in ('S','A','B') then 'sab' when gr.grade in ('D','F') then 'df' else 'other' end cohort
 from sb b
-left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date order by tr.date desc limit 1) gr on true;
+left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date and tr.computed_at <= b.traded_at order by tr.date desc limit 1) gr on true;
 
 -- 1. Sample.
 select count(*) buys, count(distinct trader_id) wallets, count(distinct condition_id) markets, round(sum(usdc_notional_num)/1e6,1) notional_musd,
