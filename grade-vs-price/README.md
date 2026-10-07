@@ -1,166 +1,136 @@
 # Do wallet grades predict Polymarket outcomes?
 
-67,531 large buys, checked against settlement.
+79,580 large buys, each graded as of the trade, checked against settlement.
 
-One run against production at **2026-09-12T02:25:45Z**. Window 2026-06-01 to 2026-09-11.
+Corrected run against production on **2026-10-07** (headline export 13:39 UTC). Window 2026-06-01 to
+2026-10-06. Published at https://0xinsider.com/research/do-wallet-grades-predict-outcomes.
 
-## The question
+## Correction, 2026-10-07
 
-0xinsider grades every Polymarket wallet S through F from its past record. The
-grade is only worth anything if it says something about trades the wallet has
-not made yet. So: take every large buy in the last three months, look up the
-grade the wallet already held on the day it traded, and check the settled
-outcome of the market.
+The first version of this study, run on 2026-09-12, reported that wallets graded S, A or B beat the
+price they paid by 1.57 points (bootstrap interval +0.32 to +2.82) and that D and F wallets lost
+2.06. Both numbers were wrong, and so was the claim that B wallets beat the price.
+
+Its query took each buy's grade from the latest `trader_rankings` row dated on or before the trade
+day. 0xinsider updates a wallet's latest ranking row in place when it recomputes the grade and sets
+`computed_at = NOW()`, so that row could carry a grade decided after the trade, partly by the trades
+being scored. Re-run on 2026-10-07, 99.3% of the S, A and B buys it scored used a row last written
+after the trade (`results.md`, query 2). It also scored 318 buys on void or unresolved markets as
+losses.
+
+The rewrites moved winners up. 1,190 buys the September lookup counted as S, A or B came from
+wallets that were D or F at the trade; those beat the price by 8.89 points. 852 buys it counted as
+D or F came from wallets that were S, A or B at the trade; those lost 15.06 (`results.md`, query 3).
+
+The same window, graded at the trade (`results.md`, query 1):
+
+| Grade | Published 2026-09-12 | Graded at the trade | Buys |
+|---|---:|---:|---:|
+| S, A and B | +1.57 | +0.34 ± 1.07 | 28,963 |
+| S | +1.32 | +1.54 ± 1.49 | 12,105 |
+| A | +1.53 | +0.54 ± 1.79 | 5,816 |
+| B | +1.94 | -1.09 ± 1.62 | 11,042 |
+| D and F | -2.06 | -0.37 ± 1.34 | 21,007 |
+
+S, A and B together show no measurable edge. The September files are kept, unchanged, in
+`2026-09-12-superseded/`.
 
 ## Why win rate is the wrong measure
 
-A wallet that only buys at 85c wins about 85% of the time and has learned
-nothing. Win rate measures which prices someone likes, not whether they are
-right.
-
-The measure that survives is the gap between how often the side won and the
-price paid for it. Buy at 65c and win 66.5% of the time and you are 1.5 points
-better than the market that sold to you. Buy at 58.7c and win 56.6% and you are
-2.1 points worse. That gap is what a grade has to predict.
+A wallet that only buys at 85c wins about 85% of the time and has learned nothing. Win rate
+measures which prices someone likes, not whether they are right. The measure that survives is the
+gap between how often the side won and the price paid for it. That gap is what a grade has to
+predict.
 
 ## Method
 
-Universe: every buy of $10,000 or more on Polymarket between 2026-06-01 and
-2026-09-11, on a market that settled after the trade, at a price between 2c and
-98c. Buys only, because a buy at a price on a named outcome is a clean
-directional bet. 67,531 trades, 4,313 wallets, 11,370 settled markets, $2.10B
-notional.
+Universe: every Polymarket buy of $10,000 or more from 2026-06-01 to 2026-10-06, at a price between
+2c and 98c, on a market with a yes-or-no result (`winning_outcome IN (0, 1)`) recorded after the
+trade. Buys only.
 
-Grade assignment is point-in-time. For each trade the query takes the most
-recent `trader_rankings` row dated on or before the day of the trade. A grade
-computed after the market settled never touches the trade it would have
-predicted.
+Grade at the trade:
 
-The window starts 2026-06-01 because grade coverage widened that month, from a
-few hundred wallets scored per day in May to about 18,500 in June. Earlier than
-that, "no grade" mostly means we had not scored anyone yet.
+- From 2026-09-20 04:46 UTC, when the baseline of 0xinsider's grade history completed, the grade the
+  wallet showed when the order filled (`grade_forward_at`, `known = true`). A buy the history cannot
+  prove (113 of 6,915 in that window) falls back to the ranking row below.
+- Before that, the latest `trader_rankings` row dated on or before the trade day **and** last
+  written at or before the trade (`computed_at <= traded_at`). Every current grade writer moves
+  `computed_at`, so such a row held the same grade at the trade. Dropping that bound brings the
+  look-ahead back.
 
-Confidence intervals are bootstrapped over markets rather than trades. Four
-wallets buying the same side of the same market are not four independent
-observations, and treating them as such is how you manufacture significance.
-5,000 resamples, seed 20260912.
+A wallet whose only ranking row was rewritten after its trades has no row written before them, so
+its buys count as ungraded.
+
+The window starts on 2026-06-01 because grade coverage widened that month, from a few hundred
+wallets scored per day in May to about 18,500 in June.
+
+Intervals: 1.96 cluster-robust standard errors of the edge, computed once clustering by market and
+once by wallet; the wider is reported. Buys on the same market, or from the same wallet, are not
+independent.
 
 ## Result
 
-Grade cohorts, by the gap between realized win rate and price paid:
+Graded at the trade, letter by letter:
 
-| Cohort | Trades | Wallets | Markets | Notional | Won | Price paid | Edge | 95% CI |
-|---|---:|---:|---:|---:|---:|---:|---:|---|
-| S/A/B | 24,610 | 1,207 | 5,946 | $717.3M | 66.5% | 65.0% | **+1.57 pts** | [+0.32, +2.82] |
-| C | 9,223 | 1,275 | 1,986 | $288.3M | 61.8% | 61.3% | +0.53 pts | [-1.93, +2.81] |
-| D/F | 17,106 | 1,557 | 4,476 | $520.2M | 56.6% | 58.7% | **-2.06 pts** | [-3.61, -0.45] |
-| No grade yet | 16,592 | 2,148 | 5,250 | $573.1M | 59.2% | 59.3% | -0.13 pts | [-1.81, +1.57] |
+| Grade | Buys | Wallets | Won | Price paid | Edge | 95% interval |
+|---|---:|---:|---:|---:|---:|---|
+| S | 14,048 | 167 | 69.24% | 67.51c | **+1.73** | +0.41 to +3.06 |
+| A | 7,167 | 532 | 66.25% | 65.13c | +1.12 | -0.44 to +2.67 |
+| B | 12,254 | 1,190 | 60.21% | 61.12c | -0.91 | -2.39 to +0.56 |
+| C | 10,083 | 1,407 | 61.52% | 61.63c | -0.12 | -2.13 to +1.89 |
+| D | 3,235 | 652 | 57.47% | 61.60c | -4.14 | -7.34 to -0.93 |
+| F | 21,926 | 1,390 | 58.14% | 57.99c | +0.15 | -1.05 to +1.35 |
+| No grade | 10,867 | 2,133 | 58.47% | 57.14c | +1.34 | -1.40 to +4.07 |
 
-S, A and B wallets beat the price they paid. D and F wallets lost to it. Both
-intervals clear zero. C wallets and wallets with no record yet are
-indistinguishable from the market, which is the answer you would expect if the
-grade were doing its job at the ends and nothing in the middle.
+Pooled: S and A +1.52 (+0.43 to +2.62) on 21,215 buys; S, A and B +0.63 (-0.32 to +1.58); D and F
+-0.40 (-1.58 to +0.78).
 
-By individual grade:
+S clears zero. A sits above zero with an interval that crosses it. B sits below zero. Below A the
+letters do not line up: D lost, F, C and the ungraded came out near the price.
 
-| Grade | Trades | Wallets | Notional | Won | Price paid | Edge | Dollar ROI |
-|---|---:|---:|---:|---:|---:|---:|---:|
-| S | 11,230 | 133 | $318.9M | 69.7% | 68.4% | +1.32 | +0.60% |
-| A | 4,984 | 400 | $129.0M | 67.6% | 66.0% | +1.53 | +4.02% |
-| B | 8,396 | 941 | $269.4M | 61.8% | 59.8% | +1.94 | +3.27% |
-| C | 9,223 | 1,275 | $288.3M | 61.8% | 61.3% | +0.53 | +4.76% |
-| D | 2,598 | 604 | $100.3M | 56.5% | 60.9% | -4.32 | -3.87% |
-| F | 14,508 | 1,180 | $419.9M | 56.7% | 58.3% | -1.65 | +0.68% |
-| none | 16,592 | 2,148 | $573.1M | 59.2% | 59.3% | -0.13 | +1.54% |
+B certifies a profitable settled record: positive realized P&L across at least 10 resolved
+markets. This study finds no price edge behind it.
 
-The ordering inside S/A/B does not run the way the letters do. B posts the
-largest edge and S the smallest, and F outperforms D. At these sample sizes
-those differences sit inside the noise, so the honest reading is that the grade
-separates the top three letters from the bottom two and does not finely rank
-within them.
+## Three designs
 
-Dollar ROI and edge disagree for S, and the reason is size. S wallets put
-$318.9M through 11,230 trades and concentrate it in fewer, larger positions, so
-one settled market moves the dollar figure much more than it moves the per-trade
-edge.
+| Grade read | Buys from | S | A | B | Buys |
+|---|---|---:|---:|---:|---:|
+| At the trade (headline) | 2026-06-01 to 10-06 | +1.73 ± 1.32 | +1.12 ± 1.55 | -0.91 ± 1.48 | 79,580 |
+| At the fill only | 2026-09-20 to 10-06 | +3.63 ± 3.07 | +3.42 ± 3.66 | -0.24 ± 4.60 | 6,802 |
+| At month start, next 30 days | Jul 1, Aug 1, Sep 1 origins | +2.67 ± 1.57 | +2.60 ± 1.97 | -0.44 ± 1.78 | 47,439 |
 
-## The obvious objection
+The ranking rows alone, 2026-06-01 to 09-19: S +1.54 (+0.10 to +2.97), A +0.72, B -0.94, on 72,665
+buys. S is above zero in every design and clears it in each. A is above zero in every design and
+clears it at month start. B is below zero in every design.
 
-Good wallets might just buy favorites, and favorites win. Splitting by the price
-paid answers it:
+## Favorites, and categories
 
-| Price paid | S/A/B edge | D/F edge |
-|---|---:|---:|
-| under 20c | +3.18 (n=340) | +1.92 (n=395) |
-| 20c to 40c | +0.93 (n=2,082) | +0.01 (n=1,897) |
-| 40c to 60c | +0.42 (n=8,169) | -1.60 (n=7,589) |
-| 60c to 80c | +3.27 (n=6,969) | -1.93 (n=4,267) |
-| 80c and up | +1.35 (n=7,050) | -5.27 (n=2,958) |
+By price paid, S and A came in above the price in every band (+3.00 under 20c, +0.46 at 20-40c,
++1.47 at 40-60c, +1.67 at 60-80c, +1.63 at 80c and up); only the top band clears zero on its own,
+± 1.38. B came in below the price in every band from 20c up.
 
-S/A/B beats D/F in all five buckets. The separation is not a favorite-longshot
-artifact. It is widest at 80c and up, where a well-graded wallet paying 87c is
-right more often than a poorly graded one paying the same 87c by more than six
-points. The ungraded cohort is not in this table; it is a separate row in the
-result above.
-
-By category, S/A/B trades where the sample reaches 300:
-
-| Category | Trades | Edge |
-|---|---:|---:|
-| Politics | 593 | +6.94 |
-| Esports | 2,185 | +2.85 |
-| Soccer | 15,527 | +1.77 |
-| Tennis | 2,692 | +0.44 |
-| Baseball | 2,557 | -1.10 |
-
-Soccer is 63% of the S/A/B sample, so the headline number is mostly a soccer
-number. Baseball runs the other way.
+S and A by category, 500 or more buys: soccer +1.42 on 11,419, tennis +0.27 on 2,731, esports
++3.92 on 2,205, baseball -0.18 on 1,922, NFL +1.98 on 1,000, politics +6.06 on 642, college
+football +3.48 on 518. Soccer is 53.8% of the S and A buys. Esports clears zero (± 2.17), politics
+narrowly (± 5.40).
 
 ## What this does not show
 
-The edge is measured at the trade's own price against settlement. It ignores
-fees and slippage, and it treats every position as held to resolution. A wallet
-that bought at 60c and sold at 75c before the market settled is scored on the
-settlement, not on what it actually made.
+The edge is measured at each buy's own price against settlement. It ignores fees and slippage and
+treats every position as held to resolution. Grades come from a wallet's own earlier settled trades,
+so this is point-in-time, not a held-out universe. Only settled markets are in the sample. The
+at-the-fill design covers 17 days.
 
-Grades are computed from a wallet's own past resolved trades. The lookup is
-point-in-time, so no trade is scored by a grade that saw its own outcome, but
-this is not a held-out universe in the strict sense.
-
-The scored population thinned after July, from about 18,500 wallets a day in
-June and July to about 3,900 in August and September. The August and September
-slices are smaller and noisier than the June and July ones.
-
-Only settled markets are in the sample. Markets that were open on 2026-09-11 are
-excluded, which tilts the sample toward shorter-dated events, and sport is most
-of that.
-
-1.57 points is a real edge and a small one. It is the size you should expect
-from a market that mostly works. Nobody should read this as a reason to copy a
-trade without knowing why it was made.
-
-## The sample is not fixed
-
-Every trade in it sits on a market that has settled, so the universe grows each
-time an open market resolves. Three runs of the unchanged query on 2026-09-12,
-about ninety minutes apart, returned 67,516, then 67,517, then 67,531 trades.
-
-Bounding on `resolved_at` does not freeze it. The same nominal 02:00 UTC cutoff
-returned 67,525 rather than 67,516, because rows gain an outcome after the fact
-carrying a timestamp that predates the bound, and `market_outcomes` has no
-ingestion clock to bound instead.
-
-The conclusions held while the counts moved. S/A/B came out at +1.57 in all
-three runs, D/F at -2.05, -2.05 and -2.06, and S/A/B beat D/F in all five price
-buckets every time. A reproduction landing within a few hundredths of a point on
-a slightly larger sample is the study reproducing.
-
-Every figure above is the 02:25:45Z run, which is also what `results.md` and
-`market_edge.csv` hold.
+1.73 points for S is a small edge. Nobody should read this as a reason to copy a trade.
 
 ## Reproduce it
 
-`queries.sql` holds the exact SQL, including the temp views. It reads
-`whale_alerts`, `market_outcomes` and `trader_rankings` and writes nothing.
-`bootstrap.py` reads the market-level export and produces the intervals.
-`results.md` holds the raw output of every query in this writeup.
+- `queries.sql`: the exact SQL of this run. Queries 1 to 3 aggregate on the server. Queries 4 and 5
+  export per-(grade, wallet, market) sums.
+- `aggregate.py`: pools the exports into every table in `results.md` and writes `cluster_stats.csv`.
+  The exports carry internal wallet ids and are not committed.
+- `cluster_stats.csv` and `intervals.py`: the sums each interval is built from. `python3
+  intervals.py` recomputes every interval in `results.md` from them with no database access.
+- `results.md`: raw output of this run.
+
+The sample grows as markets settle, so a re-run lands on more buys.

@@ -11,16 +11,22 @@ page has a bug worth an issue.
 
 ### [grade-vs-price](grade-vs-price) — do wallet grades predict outcomes?
 
-67,531 Polymarket buys of $10,000 or more between 2026-06-01 and 2026-09-11, each
-scored against the settled outcome using the grade the wallet already held on the
-day it traded.
+79,580 Polymarket buys of $10,000 or more between 2026-06-01 and 2026-10-06, each
+scored against the settled outcome using the grade the wallet held at the trade.
+Run 2026-10-07.
 
-| Cohort | Trades | Markets | Won | Price paid | Edge | 95% CI |
-|---|---:|---:|---:|---:|---:|---|
-| S/A/B | 24,610 | 5,946 | 66.5% | 65.0c | **+1.57 pts** | [+0.32, +2.82] |
-| C | 9,223 | 1,986 | 61.8% | 61.3c | +0.53 pts | [-1.93, +2.81] |
-| D/F | 17,106 | 4,476 | 56.6% | 58.7c | **-2.06 pts** | [-3.61, -0.45] |
-| No grade | 16,592 | 5,250 | 59.2% | 59.3c | -0.13 pts | [-1.81, +1.57] |
+| Grade | Buys | Won | Price paid | Edge | 95% interval |
+|---|---:|---:|---:|---:|---|
+| S | 14,048 | 69.24% | 67.51c | **+1.73 pts** | +0.41 to +3.06 |
+| A | 7,167 | 66.25% | 65.13c | +1.12 pts | -0.44 to +2.67 |
+| B | 12,254 | 60.21% | 61.12c | -0.91 pts | -2.39 to +0.56 |
+| D and F | 25,161 | 58.05% | 58.45c | -0.40 pts | -1.58 to +0.78 |
+
+**Corrected 2026-10-07.** The 2026-09-12 run reported S/A/B +1.57 [+0.32, +2.82]. Its
+query took the ranking row dated on or before the trade day, which the backend
+updates in place after the trade; 99.3% of the S, A and B buys it scored used a row
+last written after the trade. On the same window, graded at the trade, S/A/B comes
+to +0.34 ± 1.07. The September files are in `grade-vs-price/2026-09-12-superseded/`.
 
 Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
 
@@ -33,7 +39,9 @@ Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
   at -3.52 points and -60.6% on the dollar. Non-sports buys over the same window
   miss by 6 to 10 points in most buckets.
   <https://0xinsider.com/research/favorite-longshot-bias-polymarket-sports>
-- **Sharp money.** S/A/B +1.25 pts [+0.20, +2.31] against D/F -1.21
+- **Sharp money.** (The grade cohorts here use the lookup grade-vs-price corrected
+  on 2026-10-07 and are being re-measured at the trade; measured that day, sports
+  S/A/B comes to +0.50 graded at the trade, a point estimate.) S/A/B +1.25 pts [+0.20, +2.31] against D/F -1.21
   [-2.72, +0.33], holding in all five price buckets and four market types. The
   gap is an in-play gap: +1.95 against -2.56 after the start, +0.27 against -0.52
   before it. <https://0xinsider.com/research/sharp-money-polymarket-sports>
@@ -69,19 +77,19 @@ come from, and a market-clustered bootstrap.
 
 ```
 cd grade-vs-price
-psql "$DATABASE_URL" -X -f queries.sql          # the printed tables
-python3 bootstrap.py                            # the confidence intervals
+python3 intervals.py                            # every interval, no database
 ```
 
-`grade-vs-price/market_edge.csv` is committed, so the bootstrap runs without
-database access and reproduces the published intervals exactly:
+`grade-vs-price/cluster_stats.csv` holds the cluster sums each interval is built
+from, so `intervals.py` reproduces every published interval without database
+access. `aggregate.py` is the script that pooled the run's exports into those sums
+and into `results.md`:
 
 ```
-cohort      trades  markets  edge_pts   95% CI
-S/A/B        24610     5946      1.57   [+0.32, +2.82]
-C             9223     1986      0.53   [-1.93, +2.81]
-D/F          17106     4476     -2.06   [-3.61, -0.45]
-no grade     16592     5250     -0.13   [-1.81, +1.57]
+design|bucket|buys|edge_pts|ci_half|lo|hi
+headline|S|14048|+1.73|1.32|+0.41|+3.06
+headline|A|7167|+1.12|1.55|-0.44|+2.67
+headline|B|12254|-0.91|1.48|-2.39|+0.56
 ```
 
 The sports bootstrap takes the market-level CSVs the `\copy` lines in each
@@ -99,13 +107,19 @@ points. Buy at 65c and win 66.5% of the time and you are 1.5 points better than
 the market that sold to you. Win rate alone measures which prices someone likes,
 not whether they are right.
 
-**Confidence intervals resample markets, not trades.** Four wallets buying the
-same side of the same market are one observation, not four, and treating them as
-four is how a result gets manufactured. 5,000 draws, seed 20260912.
+**Confidence intervals respect clustering.** Four wallets buying the same side of
+the same market are one observation, not four, and treating them as four is how a
+result gets manufactured. The sports studies resample markets (5,000 draws, seed
+20260912). grade-vs-price reports cluster-robust intervals, computed once by
+market and once by wallet, the wider shown.
 
-**Grades are point-in-time.** Each trade takes the most recent grade dated on or
-before the day of the trade. A grade computed after a market settled never
-touches the trade it would have predicted.
+**A grade is taken at the trade.** From 2026-09-20 the grade the wallet showed
+when the order filled; before that, the latest ranking row dated on or before the
+trade day and last written at or before the trade (`computed_at <= traded_at`).
+The date on a ranking row is not when its grade was decided: the backend updates
+a wallet's latest row in place, and a study that ignores `computed_at` scores
+trades with grades written after them. grade-vs-price made that mistake until
+2026-10-07; the sports studies still use that lookup and are being re-measured.
 
 ## Things that will bite you
 
@@ -118,6 +132,11 @@ answer once.
   on `resolved_at` does not freeze it: rows gain an outcome after the fact
   carrying a timestamp that predates the bound. Pin a run timestamp and say so.
   The conclusions held across all three runs.
+- **A ranking row dated before a trade can be written after it.** Measured
+  2026-10-07: for 99.3% of the S, A and B buys in the first grade-vs-price run,
+  the ranking row the query used had been rewritten after the trade, and buys it
+  counted as S, A or B from wallets that were D or F at the trade beat the price
+  by 8.89 points. Bound on `computed_at`, or read the grade at the fill.
 - **Grade coverage widened in June 2026**, from a few hundred wallets scored per
   day in May to about 18,500 in June. A window reaching further back reads "no
   grade" as a fact about the wallet when it is a fact about us. An earlier pass
