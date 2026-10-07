@@ -5,6 +5,14 @@
 -- and "Will <home> vs. <away> end in a draw?". Legs are sports_market_type 'moneyline' with Yes/No outcomes;
 -- the draw leg is identified by its group item title "Draw (...)" or a title ending "end in a draw?".
 -- Outcome 0 is Yes and outcome 1 is No on every leg. Grades from 2026-06-01, point-in-time.
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view legs as
@@ -122,7 +130,7 @@ from buys where phase = 'in-play' and leg = 'draw' and side = 'Yes' group by 1 o
 -- 11. Grade cohort x leg x side, June 1 onward.
 with g as (
   select b.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort
-  from buys b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date order by tr.date desc limit 1) gr on true
+  from buys b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date and tr.computed_at <= b.traded_at order by tr.date desc limit 1) gr on true
   where b.traded_at >= date '2026-06-01')
 select cohort, leg, side, count(*) buys, round(avg(price_num)*100,1) avg_price_c, round(avg(won)::numeric*100,1) win_pct,
        round((avg(won)::numeric - avg(price_num))*100,2) edge_pts,
@@ -142,4 +150,4 @@ select (select count(*) from t) markets, (select sum(n) from t) buys,
        (select sum(drew) from (select drew, n from t order by n desc limit 10) x) top10_drew;
 
 -- 14. Market-level export for the clustered bootstrap: leg x side, phase x leg x side, pre-kickoff draw Yes by price, cohort x leg x side (June 1 onward).
-\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select leg || ' ' || side as grp, condition_id, won, price_num from buys union all select phase || ' ' || leg || ' ' || side, condition_id, won, price_num from buys union all select 'pre-kickoff draw Yes ' || case when price_num < 0.25 then 'under 25c' when price_num < 0.30 then '25-30c' else '30c+' end, condition_id, won, price_num from buys where phase = 'pre-kickoff' and leg = 'draw' and side = 'Yes' union all select g.cohort || ' ' || g.leg || ' ' || g.side, g.condition_id, g.won, g.price_num from (select b.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from buys b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date order by tr.date desc limit 1) gr on true where b.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './soccer-draws-market-edge.csv' with (format csv, header true)
+\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select leg || ' ' || side as grp, condition_id, won, price_num from buys union all select phase || ' ' || leg || ' ' || side, condition_id, won, price_num from buys union all select 'pre-kickoff draw Yes ' || case when price_num < 0.25 then 'under 25c' when price_num < 0.30 then '25-30c' else '30c+' end, condition_id, won, price_num from buys where phase = 'pre-kickoff' and leg = 'draw' and side = 'Yes' union all select g.cohort || ' ' || g.leg || ' ' || g.side, g.condition_id, g.won, g.price_num from (select b.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from buys b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date and tr.computed_at <= b.traded_at order by tr.date desc limit 1) gr on true where b.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './soccer-draws-market-edge.csv' with (format csv, header true)

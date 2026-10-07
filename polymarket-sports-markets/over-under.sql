@@ -4,6 +4,14 @@
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market whose
 -- sports_market_type is 'totals' with outcomes Over/Under (the game total), settled after the trade, 2c-98c.
 -- Outcome 0 is Over and outcome 1 is Under on these markets (outcome_yes = 'Over', outcome_no = 'Under').
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view tot as
@@ -85,7 +93,7 @@ from tot where category = 'Soccer' and line is not null group by 1,2 having coun
 -- 8. Grade cohort x side, June 1 onward (grade coverage), point-in-time grade.
 with g as (
   select t.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort
-  from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date order by tr.date desc limit 1) gr on true
+  from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date and tr.computed_at <= t.traded_at order by tr.date desc limit 1) gr on true
   where t.traded_at >= date '2026-06-01')
 select cohort, side, count(*) buys, round(100.0*count(*)/sum(count(*)) over (partition by cohort),1) share_of_cohort_pct,
        round(avg(price_num)*100,1) avg_price_c, round(avg(won)::numeric*100,1) win_pct,
@@ -120,4 +128,4 @@ where w.platform = 'polymarket' and w.side = 0
 group by 1,2 having count(*) >= 300 order by 1,2;
 
 -- 11. Market-level export for the clustered bootstrap: side; sport x side; phase x side; soccer line x side; cohort x side (June 1 onward).
-\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select side as grp, condition_id, won, price_num from tot union all select category || ' ' || side, condition_id, won, price_num from tot where category in ('Soccer','Baseball','NBA','Hockey') union all select (case when traded_at < game_start_time then 'pre-kickoff ' else 'in-play ' end) || side, condition_id, won, price_num from tot where game_start_time is not null union all select 'Soccer ' || line::text || ' ' || side, condition_id, won, price_num from tot where category = 'Soccer' and line in (1.5, 2.5, 3.5) union all select g.cohort || ' ' || g.side, g.condition_id, g.won, g.price_num from (select t.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date order by tr.date desc limit 1) gr on true where t.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './over-under-market-edge.csv' with (format csv, header true)
+\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select side as grp, condition_id, won, price_num from tot union all select category || ' ' || side, condition_id, won, price_num from tot where category in ('Soccer','Baseball','NBA','Hockey') union all select (case when traded_at < game_start_time then 'pre-kickoff ' else 'in-play ' end) || side, condition_id, won, price_num from tot where game_start_time is not null union all select 'Soccer ' || line::text || ' ' || side, condition_id, won, price_num from tot where category = 'Soccer' and line in (1.5, 2.5, 3.5) union all select g.cohort || ' ' || g.side, g.condition_id, g.won, g.price_num from (select t.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date and tr.computed_at <= t.traded_at order by tr.date desc limit 1) gr on true where t.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './over-under-market-edge.csv' with (format csv, header true)

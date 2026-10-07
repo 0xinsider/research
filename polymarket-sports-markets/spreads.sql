@@ -7,6 +7,14 @@
 -- never assumes it is. Margin figures use games where both teams carry the same
 -- line, so no favorite has to be known. Soccer spreads live under the match slug plus "-more-markets"; base_slug strips
 -- it to reach the match's draw market. Pricing uses large-trade alert buys from 2026-04-02. Temp tables.
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp table sp as
@@ -121,7 +129,7 @@ from bb group by 1, 2 order by 1, 2;
 -- 9. Graded wallets from June 1, 2026: the grade each wallet held on the trade day.
 create temp table bbg as
 select b.*, case when gr.grade in ('S', 'A', 'B') then 'S, A and B' when gr.grade in ('D', 'F') then 'D and F' else 'other' end cohort
-from bb b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date
+from bb b left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date and tr.computed_at <= b.traded_at
                              order by tr.date desc limit 1) gr on true
 where b.traded_at >= date '2026-06-01';
 select cohort, side, count(*) buys, count(distinct condition_id) markets, round(avg(price_num)*100, 1) avg_price_c,

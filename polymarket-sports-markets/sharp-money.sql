@@ -1,6 +1,14 @@
 -- Study 2: do graded wallets beat the price on Polymarket sports markets?
 -- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f 02_grades.sql
 -- Window 2026-06-01 .. 2026-09-11: grade coverage widened in June 2026 (238 wallets/day in May, 18,464 in June).
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view sports_buys as
@@ -25,7 +33,7 @@ select b.*, coalesce(g.grade,'(none)') grade,
 from sports_buys b
 left join lateral (
   select tr.grade from trader_rankings tr
-  where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date
+  where tr.trader_id = b.trader_id and tr.date <= b.traded_at::date and tr.computed_at <= b.traded_at
   order by tr.date desc limit 1
 ) g on true;
 

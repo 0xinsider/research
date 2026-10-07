@@ -1,6 +1,14 @@
 -- Study 3: when large sports bets land relative to kickoff, and which timing wins.
 -- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f 03_timing.sql
 -- Window 2026-04-02 .. 2026-09-11 (see study 1 for why April 2). Grades from 2026-06-01.
+-- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
+-- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
+-- place when it recomputes the grade and sets computed_at = NOW(), so that row usually held a grade written
+-- after the trade (99.4% of the S, A and B buys in the sharp-money universe). Every grade lookup below now
+-- also requires tr.computed_at <= the trade time. The grade rows of the committed output beside this file
+-- are the September run WITH the look-ahead, kept as the record of what was published; the corrected
+-- grade splits, which also keep only yes-or-no outcomes (winning_outcome IN (0, 1)), are in grade-at-trade-2026-10-07.sql.
+-- Queries that do not read a grade are unchanged.
 select now() as run_at;
 
 create temp view sports_buys as
@@ -80,7 +88,7 @@ create temp view timed_graded as
 select t.*, case when g.grade in ('S','A','B') then 'S/A/B' when g.grade='C' then 'C'
                  when g.grade in ('D','F') then 'D/F' else 'no grade' end cohort
 from timed t
-left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date order by tr.date desc limit 1) g on true
+left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date and tr.computed_at <= t.traded_at order by tr.date desc limit 1) g on true
 where t.traded_at >= date '2026-06-01';
 
 select cohort, count(*) n,
