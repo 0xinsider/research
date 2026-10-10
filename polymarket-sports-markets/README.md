@@ -45,6 +45,37 @@ the record of what was published.
 Across all buys the grade no longer separates sports buyers; in play it does. B, published above the price,
 lost to it. The grade figures in the sections below are the September run and are superseded by this table.
 
+## Correction, 2026-10-10: void markets are not losses (issue 0xinsider/0xinsider#22294)
+
+The September queries kept a market once it had any settlement row (`winning_outcome IS NOT NULL`) and scored
+`won = (outcome_index = winning_outcome)`. A void market (-1) or one Polymarket could not resolve (-2) matches no
+outcome, so every buy on it counted as a loss at its price (1,625 buys in the calibration window, mostly tennis and
+esports). The re-runs keep `winning_outcome IN (0, 1)`; nothing else changed. They ran on one Neon child branch of
+production forked at 11:19:48 UTC on 2026-10-10, so markets that settled since September are in. The September files
+carry a superseded note and keep their outputs as the published record.
+
+Files: `calibration-2026-10-10.sql`, `timing-2026-10-10.sql`, their outputs and market-level exports, and
+`bootstrap-2026-10-10-output.txt` (`bootstrap.py`, seed 20260912); `cash-out-2026-10-10.sql`, output, export and
+`-bootstrap-output.txt` (`bootstrap-2026-09-13.py`); `over-under-2026-10-10.sql`, output and export, with game-clustered
+intervals from `over-under-game-edge-2026-10-10.sql` and `over-under-game-bootstrap-2026-10-10.py`.
+
+| Study | Published | Corrected (2026-10-10) | Old rule, same data |
+|---|---|---|---|
+| Calibration, all buys | 411,770 buys, +0.02 pts | 416,548 buys, +0.23 pts | 418,173 buys, +0.01 |
+| Calibration, under 10c | -3.52 [-5.50, -0.28] | -2.97 [-5.22, +0.81] | |
+| Calibration, tennis / MMA | -0.57 / -5.71 | +0.21 / -4.33 | -0.61 / -5.70 |
+| Calibration, non-sports 90-98c | -9.69 | -1.90 | -8.63 |
+| Timing, 1-7 days out | -3.21 [-5.09, -1.35] | -2.19 [-4.01, -0.43] | -3.04 |
+| Timing, 7+ days out | -5.55 | -2.03 | -4.42 |
+| Timing, tennis pre-kickoff | -3.21 | -0.83 | -3.34 |
+| Cash-out, exit edge (all sells) | -0.21 | -0.87 [-2.15, +0.33] | -0.15 |
+| Cash-out, pre-kickoff favorite sells | +6.15 [+0.26, +12.70] | +5.81 [-0.28, +12.45] | |
+| Over/under, Over / Under | -0.61 / -0.50 | -0.89 / -0.21 | -0.90 / -0.23 |
+
+The sports market is still calibrated to within a quarter of a point; the longshot penalty under 10 cents is a lean
+whose interval now reaches zero; early money still loses one to seven days out; and the rest of Polymarket's
+"six to ten points against the buyer" was mostly void markets.
+
 ## Headlines
 
 | Study | Sample | Finding |

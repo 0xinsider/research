@@ -1,9 +1,19 @@
+-- #22294: the corrected re-run of over-under.sql.
+--
+-- WHY. The September query kept a market once it had any settlement row (`winning_outcome IS NOT NULL`) and
+-- scored won = (outcome_index = winning_outcome). A void market (-1) or one Polymarket could not resolve (-2)
+-- matches no outcome, so every buy on it counted as a loss at its price. This file is the September query with
+-- `winning_outcome IN (0, 1)` in each of its 2 scored universes; nothing else changed. Void and unresolvable
+-- markets are neither wins nor losses: they are left out.
+--
+-- WHERE IT RAN. On a Neon child branch of production forked at 11:19:48 UTC on 2026-10-10
+-- (claude17-22294-research, deleted after the runs), through ./scripts/neon-child-branch.sh query -f <this file>.
+-- The committed -output.txt beside this file is one end-to-end run; its run_at line is the start. Markets that
+-- settled after the September run are in, so the sample is larger than September's. The September file and its
+-- output stay beside this one as the record of what was published.
+--
 -- Study 6: over/under. Do Polymarket bettors overpay for the Over, and which way do totals settle?
--- SUPERSEDED FOR OUTCOME SCORING (0xinsider/0xinsider#22294, 2026-10-10). This file keeps a market once it has any
--- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
--- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is over-under-2026-10-10.sql.
--- The output beside this file is the record of what was first published.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f over-under.sql
+-- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f over-under-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2). Grades from 2026-06-01.
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market whose
 -- sports_market_type is 'totals' with outcomes Over/Under (the game total), settled after the trade, 2c-98c.
@@ -32,7 +42,7 @@ where w.platform = 'polymarket' and w.side = 0
                      'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
                      'NBA Summer League','CFL','Sports','Big Game','Pickleball')
   and m.sports_market_type = 'totals' and m.outcome_yes = 'Over' and m.outcome_no = 'Under'
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
   and w.price_num between 0.02 and 0.98;
 
 -- 1. Sample.
@@ -127,9 +137,9 @@ where w.platform = 'polymarket' and w.side = 0
   and m.sports_market_type in ('first_half_totals','second_half_totals','team_totals','soccer_team_totals','total_corners',
                                'tennis_match_totals','table_tennis_match_totals','kill_over_under_game','soccer_first_half_team_totals')
   and m.outcome_yes = 'Over' and m.outcome_no = 'Under'
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
   and w.price_num between 0.02 and 0.98
 group by 1,2 having count(*) >= 300 order by 1,2;
 
 -- 11. Market-level export for the clustered bootstrap: side; sport x side; phase x side; soccer line x side; cohort x side (June 1 onward).
-\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select side as grp, condition_id, won, price_num from tot union all select category || ' ' || side, condition_id, won, price_num from tot where category in ('Soccer','Baseball','NBA','Hockey') union all select (case when traded_at < game_start_time then 'pre-kickoff ' else 'in-play ' end) || side, condition_id, won, price_num from tot where game_start_time is not null union all select 'Soccer ' || line::text || ' ' || side, condition_id, won, price_num from tot where category = 'Soccer' and line in (1.5, 2.5, 3.5) union all select g.cohort || ' ' || g.side, g.condition_id, g.won, g.price_num from (select t.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date and tr.computed_at <= t.traded_at order by tr.date desc limit 1) gr on true where t.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './over-under-market-edge.csv' with (format csv, header true)
+\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select side as grp, condition_id, won, price_num from tot union all select category || ' ' || side, condition_id, won, price_num from tot where category in ('Soccer','Baseball','NBA','Hockey') union all select (case when traded_at < game_start_time then 'pre-kickoff ' else 'in-play ' end) || side, condition_id, won, price_num from tot where game_start_time is not null union all select 'Soccer ' || line::text || ' ' || side, condition_id, won, price_num from tot where category = 'Soccer' and line in (1.5, 2.5, 3.5) union all select g.cohort || ' ' || g.side, g.condition_id, g.won, g.price_num from (select t.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from tot t left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = t.trader_id and tr.date <= t.traded_at::date and tr.computed_at <= t.traded_at order by tr.date desc limit 1) gr on true where t.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './over-under-2026-10-10-market-edge.csv' with (format csv, header true)
