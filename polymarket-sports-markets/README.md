@@ -195,6 +195,20 @@ Series 8 (issue 0xinsider/0xinsider#13906):
   `football-scoreboard.csv`, `football-scoreboard-output.txt`, `football-prices.py`, `football-prices.csv`,
   `football-prices-output.txt`, `football-upsets-analysis.py`, `football-upsets-analysis-output.txt`,
   `football-upsets-games.csv`.
+  **Re-cut 2026-10-10 (issue 0xinsider/0xinsider#22229).** The $10,000 floor above read `volume_usd`, which is
+  `markets.volume`: Polymarket's final volume, counted in shares (Gamma `volumeNum` is the sum of taker `size`)
+  and including in-play trading that nobody choosing a game before kickoff can see. `football-pregame-volume-2026-10-10.py`
+  sums the dollars (size x price) of every taker trade on each moneyline at or before the cutoff (the earlier of
+  Polymarket's and ESPN's listed start) from the public data API, `/trades?market=<condition_id>&takerOnly=true&end=<cutoff>`,
+  paged by time: 2,335 requests, 1,077,471 trades, 11:44 to 11:51 UTC. On 40 sampled games the whole history's
+  taker shares match the export's final volume to 0.06% (median 0.000%). `football-upsets-analysis-2026-10-10.py`
+  is the September analysis with the floor on dollars traded before kickoff: 1,193 games (NFL 562, college 631),
+  198 dropped and none added. NFL underdogs at 33.00c won 32.2% +/- 3.86 of 562, edge -0.80 [-4.59, +2.95];
+  college underdogs at 27.92c won 26.9% +/- 3.46 of 631, edge -0.98 [-4.25, +2.34]. After the fee: NFL -8.03%
+  [-20.06, +4.65], college -8.59% [-25.30, +11.23]. The 191 college games only the September rule kept had
+  underdogs at 18.94c winning 22.5%. Files: `football-pregame-volume-2026-10-10.py`, `.csv`, `-output.txt`;
+  `football-upsets-analysis-2026-10-10.py`, `-output.txt`; `football-upsets-games-2026-10-10.csv`. The September
+  files stay as the record of what was published.
 - The college football guide's market families, volume, rules and spread widths
   (https://0xinsider.com/learn/how-to-bet-on-college-football-polymarket): `cfb-markets.sql`,
   `cfb-markets-output.txt`.

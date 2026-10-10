@@ -1,0 +1,6 @@
+run_at 2026-10-10T11:44:48+00:00  finished 2026-10-10T11:51:37+00:00
+games 1728  requests 2335  taker_trades_before_cutoff 1077471
+pregame_usd: median 42,125.65  p10 470.90  p90 665,331.17
+pregame_usd >= 10,000: 1247  final_shares >= 10,000: 1494
+pregame_usd >= 50,000: 806  final_shares >= 50,000: 1269
+check 40 games: all-time taker shares within 1% of final_shares 40; gap median 0.000%  max 0.055%
