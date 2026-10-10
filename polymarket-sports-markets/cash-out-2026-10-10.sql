@@ -1,9 +1,19 @@
+-- #22294: the corrected re-run of cash-out.sql.
+--
+-- WHY. The September query kept a market once it had any settlement row (`winning_outcome IS NOT NULL`) and
+-- scored won = (outcome_index = winning_outcome). A void market (-1) or one Polymarket could not resolve (-2)
+-- matches no outcome, so every buy on it counted as a loss at its price. This file is the September query with
+-- `winning_outcome IN (0, 1)` in each of its 2 scored universes; nothing else changed. Void and unresolvable
+-- markets are neither wins nor losses: they are left out.
+--
+-- WHERE IT RAN. On a Neon child branch of production forked at 11:19:48 UTC on 2026-10-10
+-- (claude17-22294-research, deleted after the runs), through ./scripts/neon-child-branch.sh query -f <this file>.
+-- The committed -output.txt beside this file is one end-to-end run; its run_at line is the start. Markets that
+-- settled after the September run are in, so the sample is larger than September's. The September file and its
+-- output stay beside this one as the record of what was published.
+--
 -- Study 8: cashing out. When a large Polymarket sports bettor sells before settlement, is the exit price fair?
--- SUPERSEDED FOR OUTCOME SCORING (0xinsider/0xinsider#22294, 2026-10-10). This file keeps a market once it has any
--- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
--- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is cash-out-2026-10-10.sql.
--- The output beside this file is the record of what was first published.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f cash-out.sql
+-- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f cash-out-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2). Grades from 2026-06-01, point-in-time.
 -- Universe: every large-trade alert for a Polymarket SELL (side = 1) on a sports-category market, 2c-98c,
 -- on a market that settled after the trade. A sell of outcome X at price p gives up a share that pays $1 if X
@@ -34,7 +44,7 @@ where w.platform = 'polymarket' and w.side = 1
   and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
                      'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
                      'NBA Summer League','CFL','Sports','Big Game','Pickleball')
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
   and w.price_num between 0.02 and 0.98;
 
 -- 1. Sample.
@@ -54,7 +64,7 @@ select 'buys', count(*), round(avg(w.price_num)*100,1), round(avg((w.outcome_ind
 from whale_alerts w join market_outcomes mo on mo.condition_id = w.condition_id
 where w.platform = 'polymarket' and w.side = 0 and w.traded_at >= date '2026-04-02' and w.traded_at < date '2026-09-14'
   and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball')
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at and w.price_num between 0.02 and 0.98;
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at and w.price_num between 0.02 and 0.98;
 
 -- 3. By exit price.
 select case when price_num < 0.10 then 'a. under 10c' when price_num < 0.20 then 'b. 10-20c' when price_num < 0.40 then 'c. 20-40c'
@@ -114,4 +124,4 @@ select date_trunc('month', traded_at)::date mo, count(*) n, round(avg(price_num)
 from sells group by 1 order by 1;
 
 -- 11. Market-level export for the clustered bootstrap: all, exit band, phase x group, cohort x group.
-\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select 'all sells' grp, condition_id, won, price_num from sells union all select 'band ' || case when price_num < 0.10 then 'a. under 10c' when price_num < 0.20 then 'b. 10-20c' when price_num < 0.40 then 'c. 20-40c' when price_num < 0.60 then 'd. 40-60c' when price_num < 0.80 then 'e. 60-80c' when price_num < 0.90 then 'f. 80-90c' else 'g. 90-98c' end, condition_id, won, price_num from sells union all select phase || ' ' || case when price_num < 0.20 then 'under 20c' when price_num < 0.80 then '20-80c' else '80c+' end, condition_id, won, price_num from sells where phase <> 'unknown' union all select g.cohort || ' ' || case when g.price_num < 0.20 then 'under 20c' when g.price_num < 0.80 then '20-80c' else '80c+' end, g.condition_id, g.won, g.price_num from (select s.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date and tr.computed_at <= s.traded_at order by tr.date desc limit 1) gr on true where s.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './cash-out-market-edge.csv' with (format csv, header true)
+\copy (select grp, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from (select 'all sells' grp, condition_id, won, price_num from sells union all select 'band ' || case when price_num < 0.10 then 'a. under 10c' when price_num < 0.20 then 'b. 10-20c' when price_num < 0.40 then 'c. 20-40c' when price_num < 0.60 then 'd. 40-60c' when price_num < 0.80 then 'e. 60-80c' when price_num < 0.90 then 'f. 80-90c' else 'g. 90-98c' end, condition_id, won, price_num from sells union all select phase || ' ' || case when price_num < 0.20 then 'under 20c' when price_num < 0.80 then '20-80c' else '80c+' end, condition_id, won, price_num from sells where phase <> 'unknown' union all select g.cohort || ' ' || case when g.price_num < 0.20 then 'under 20c' when g.price_num < 0.80 then '20-80c' else '80c+' end, g.condition_id, g.won, g.price_num from (select s.*, case when gr.grade in ('S','A','B') then 'S/A/B' when gr.grade in ('D','F') then 'D/F' else 'other' end cohort from sells s left join lateral (select tr.grade from trader_rankings tr where tr.trader_id = s.trader_id and tr.date <= s.traded_at::date and tr.computed_at <= s.traded_at order by tr.date desc limit 1) gr on true where s.traded_at >= date '2026-06-01') g where g.cohort in ('S/A/B','D/F')) x group by 1,2) to './cash-out-2026-10-10-market-edge.csv' with (format csv, header true)

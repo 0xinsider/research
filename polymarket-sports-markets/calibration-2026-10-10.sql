@@ -1,12 +1,22 @@
+-- #22294: the corrected re-run of calibration.sql.
+--
+-- WHY. The September query kept a market once it had any settlement row (`winning_outcome IS NOT NULL`) and
+-- scored won = (outcome_index = winning_outcome). A void market (-1) or one Polymarket could not resolve (-2)
+-- matches no outcome, so every buy on it counted as a loss at its price. This file is the September query with
+-- `winning_outcome IN (0, 1)` in each of its 2 scored universes; nothing else changed. Void and unresolvable
+-- markets are neither wins nor losses: they are left out.
+--
+-- WHERE IT RAN. On a Neon child branch of production forked at 11:19:48 UTC on 2026-10-10
+-- (claude17-22294-research, deleted after the runs), through ./scripts/neon-child-branch.sh query -f <this file>.
+-- The committed -output.txt beside this file is one end-to-end run; its run_at line is the start. Markets that
+-- settled after the September run are in, so the sample is larger than September's. The September file and its
+-- output stay beside this one as the record of what was published.
+--
 -- Study 1: favorite-longshot bias on Polymarket sports markets.
--- SUPERSEDED FOR OUTCOME SCORING (0xinsider/0xinsider#22294, 2026-10-10). This file keeps a market once it has any
--- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
--- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is calibration-2026-10-10.sql.
--- The output beside this file is the record of what was first published.
 -- Window starts 2026-04-02: before that day whale_alerts.outcome_index was a defaulted 0 for a large
 -- share of buys (80c+ buys tagged outcome 0 won 53-56% in Feb-Mar, outcome 1 won 84-89%; both ~88% from Apr 2).
--- Read-only. Runs against production through a read-only role.
---   psql "$DATABASE_URL" -X -f 01_calibration.sql
+-- Read-only; where this run ran is in the header above.
+--   psql "$CONN" -X -f calibration-2026-10-10.sql
 select now() as run_at;
 
 create temp view sports_buys as
@@ -24,7 +34,7 @@ where w.platform = 'polymarket'
   and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
                      'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
                      'NBA Summer League','CFL','Sports','Big Game','Pickleball')
-  and mo.winning_outcome is not null
+  and mo.winning_outcome in (0, 1)
   and mo.resolved_at > w.traded_at
   and w.price_num between 0.02 and 0.98;
 
@@ -115,7 +125,7 @@ select width_bucket(w.price_num, 0, 1, 10) as b, count(*) n,
 from whale_alerts w join market_outcomes mo on mo.condition_id = w.condition_id
 where w.platform='polymarket' and w.side=0 and w.traded_at >= date '2026-04-02' and w.traded_at < date '2026-09-12'
   and w.category in ('Politics','Crypto','Geopolitics','Culture','Finance','World','Business')
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at and w.price_num between 0.02 and 0.98
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at and w.price_num between 0.02 and 0.98
 group by 1 order by 1;
 
 -- 9. Monthly stability of the tails: under 20c and 80c+ edge by month.
@@ -133,4 +143,17 @@ select date_trunc('month', traded_at)::date mo, count(*) n, round(min(usdc_notio
 from whale_alerts where platform='polymarket' and side=0 and traded_at >= date '2026-02-01' group by 1 order by 1;
 
 -- 11. Market-level export for clustered bootstrap: bucket, condition_id, n, sum_edge.
-\copy (select width_bucket(price_num,0,1,10) as b, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from sports_buys group by 1,2) to './01_market_bucket_edge.csv' with (format csv, header true)
+\copy (select width_bucket(price_num,0,1,10) as b, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from sports_buys group by 1,2) to './calibration-2026-10-10-market-edge.csv' with (format csv, header true)
+
+-- 12. (#22294, first committed here) The markets behind the 10-20c bucket's dollar P&L, top five by P&L.
+select m.title, count(*) buys, round(avg(b.price_num)*100, 1) avg_price_c, round(sum(b.usdc_notional_num)/1e6, 2) notional_musd,
+       round(sum(b.usdc_notional_num*(b.won/b.price_num - 1))/1e6, 2) pnl_musd
+from sports_buys b join markets m on m.condition_id = b.condition_id
+where width_bucket(b.price_num, 0, 1, 10) = 2
+group by 1 order by 5 desc limit 5;
+
+-- 13. (#22294, first committed here) MMA favorites at 70c and up that lost: the fights by notional, top five.
+select m.title, count(*) buys, round(avg(b.price_num)*100, 1) avg_price_c, round(sum(b.usdc_notional_num)/1e6, 2) notional_musd
+from sports_buys b join markets m on m.condition_id = b.condition_id
+where b.category = 'MMA' and b.price_num >= 0.7 and b.won = 0
+group by 1 order by 4 desc limit 5;

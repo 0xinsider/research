@@ -1,4 +1,8 @@
 -- Study 2: do graded wallets beat the price on Polymarket sports markets?
+-- SUPERSEDED FOR OUTCOME SCORING (0xinsider/0xinsider#22294, 2026-10-10). This file keeps a market once it has any
+-- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
+-- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is grade-at-trade-2026-10-07.sql (attribution pit).
+-- The output beside this file is the record of what was first published.
 -- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f 02_grades.sql
 -- Window 2026-06-01 .. 2026-09-11: grade coverage widened in June 2026 (238 wallets/day in May, 18,464 in June).
 -- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest

@@ -1,9 +1,19 @@
+-- #22294: the corrected re-run of timing.sql.
+--
+-- WHY. The September query kept a market once it had any settlement row (`winning_outcome IS NOT NULL`) and
+-- scored won = (outcome_index = winning_outcome). A void market (-1) or one Polymarket could not resolve (-2)
+-- matches no outcome, so every buy on it counted as a loss at its price. This file is the September query with
+-- `winning_outcome IN (0, 1)` in each of its 1 scored universes; nothing else changed. Void and unresolvable
+-- markets are neither wins nor losses: they are left out.
+--
+-- WHERE IT RAN. On a Neon child branch of production forked at 11:19:48 UTC on 2026-10-10
+-- (claude17-22294-research, deleted after the runs), through ./scripts/neon-child-branch.sh query -f <this file>.
+-- The committed -output.txt beside this file is one end-to-end run; its run_at line is the start. Markets that
+-- settled after the September run are in, so the sample is larger than September's. The September file and its
+-- output stay beside this one as the record of what was published.
+--
 -- Study 3: when large sports bets land relative to kickoff, and which timing wins.
--- SUPERSEDED FOR OUTCOME SCORING (0xinsider/0xinsider#22294, 2026-10-10). This file keeps a market once it has any
--- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
--- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is timing-2026-10-10.sql.
--- The output beside this file is the record of what was first published.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f 03_timing.sql
+-- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f timing-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-11 (see study 1 for why April 2). Grades from 2026-06-01.
 -- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
 -- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in
@@ -29,7 +39,7 @@ where w.platform = 'polymarket' and w.side = 0
   and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
                      'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
                      'NBA Summer League','CFL','Sports','Big Game','Pickleball')
-  and mo.winning_outcome is not null and mo.resolved_at > w.traded_at
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
   and w.price_num between 0.02 and 0.98
   and m.game_start_time is not null;
 
@@ -120,4 +130,4 @@ from timed where best_bid_num is not null and best_ask_num is not null and best_
 group by 1 having count(best_bid_num) >= 500 order by 3;
 
 -- 10. Market-level export for clustered bootstrap by bucket.
-\copy (select bucket, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from timed group by 1,2) to './03_market_bucket_edge.csv' with (format csv, header true)
+\copy (select bucket, condition_id, count(*) n, sum(won::numeric - price_num) sum_edge from timed group by 1,2) to './timing-2026-10-10-market-edge.csv' with (format csv, header true)
