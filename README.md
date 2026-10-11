@@ -32,7 +32,8 @@ Published: <https://0xinsider.com/research/do-wallet-grades-predict-outcomes>
 
 ### [polymarket-sports-markets](polymarket-sports-markets) — fifteen studies on sports
 
-411,770 sports buys of $1,000 or more between 2026-04-02 and 2026-09-11, $8.21B.
+411,770 large sports buys between 2026-04-02 and 2026-09-11, $8.21B; the smallest recorded was $2,996
+until 2026-07-02 and $10,000 after (corrected 2026-10-11 from "$1,000 or more").
 
 - **Calibration.** Average price paid 60.6c, the side bought won 60.7% of the
   time. The market is off by 0.02 points. Only the under-10c bucket clears zero,
