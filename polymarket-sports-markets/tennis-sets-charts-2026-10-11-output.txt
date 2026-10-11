@@ -1,0 +1,89 @@
+            run_at             
+-------------------------------
+ 2026-10-11 13:34:22.310886+00
+(1 row)
+
+SELECT 450281
+ANALYZE
+SET
+SELECT 446573
+RESET
+SELECT 450281
+ANALYZE
+SELECT 37231
+SELECT 45780
+SELECT 37179
+SELECT 29662
+SELECT 27345
+SELECT 27345
+ singles_match_markets | matches_with_set_markets | with_set1 | set1_winner_won_pct | half_width_pts 
+-----------------------+--------------------------+-----------+---------------------+----------------
+                 30192 |                    21222 |     20777 |                82.3 |           0.52
+(1 row)
+
+     win      | matches | set1_winner_won_pct | half_width_pts | first_match | last_match 
+--------------+---------+---------------------+----------------+-------------+------------
+ since        |    6123 |                85.1 |           0.89 | 2026-09-14  | 2026-10-10
+ study window |   20777 |                82.3 |           0.52 | 2025-11-09  | 2026-09-13
+              |   26900 |                82.9 |           0.45 | 2025-11-09  | 2026-10-10
+(3 rows)
+
+ tour |    fmt    | matches | set1_winner_won_pct | half_width_pts 
+------+-----------+---------+---------------------+----------------
+ atp  | best of 3 |    7197 |                80.5 |           0.92
+ atp  | best of 5 |     532 |                74.6 |           3.70
+ itf  | best of 3 |    8672 |                84.6 |           0.76
+ wta  | best of 3 |    4376 |                81.6 |           1.15
+(4 rows)
+
+ matches | set1_winner_won_pct | set1_half_width_pts | set2_winner_won_pct | set2_half_width_pts | third_set_pct | third_set_half_width_pts 
+---------+---------------------+---------------------+---------------------+---------------------+---------------+--------------------------
+   11852 |                82.6 |                0.68 |                84.8 |                0.65 |          32.5 |                     0.84
+(1 row)
+
+           set1_class            | matches | best_of_5 | set1_winner_won_pct | half_width_pts 
+---------------------------------+---------+-----------+---------------------+----------------
+ (lines missing or inconsistent) |    1667 |        69 |                81.1 |           1.88
+ a. 6-0, 6-1 or 6-2              |    6357 |       111 |                87.6 |           0.81
+ b. 6-3                          |    4243 |       111 |                82.4 |           1.14
+ c. 6-4                          |    4225 |       103 |                79.9 |           1.21
+ d. 7-5 or 7-6                   |    4285 |       138 |                77.1 |           1.26
+                                 |   20777 |       532 |                82.3 |           0.52
+(6 rows)
+
+               split                | matches | set1_winner_won_pct | half_width_pts 
+------------------------------------+---------+---------------------+----------------
+ a. 9 games or fewer (6-3 or wider) |   10575 |                85.6 |           0.67
+ b. 10 or more (6-4, 7-5, 7-6)      |    8575 |                78.4 |           0.87
+ c. no settled 9.5 line             |    1627 |                81.2 |           1.90
+(3 rows)
+
+ tour |     set1_class     | matches | share_pct | set1_winner_won_pct 
+------+--------------------+---------+-----------+---------------------
+ atp  | a. 6-0, 6-1 or 6-2 |    1759 |      26.4 |                85.1
+ atp  | b. 6-3             |    1516 |      22.8 |                81.2
+ atp  | c. 6-4             |    1599 |      24.0 |                79.4
+ atp  | d. 7-5 or 7-6      |    1783 |      26.8 |                76.6
+ itf  | a. 6-0, 6-1 or 6-2 |    3045 |      38.3 |                90.0
+ itf  | b. 6-3             |    1748 |      22.0 |                84.5
+ itf  | c. 6-4             |    1624 |      20.5 |                81.5
+ itf  | d. 7-5 or 7-6      |    1524 |      19.2 |                77.8
+ wta  | a. 6-0, 6-1 or 6-2 |    1442 |      35.6 |                86.4
+ wta  | b. 6-3             |     868 |      21.4 |                81.0
+ wta  | c. 6-4             |     899 |      22.2 |                79.2
+ wta  | d. 7-5 or 7-6      |     840 |      20.7 |                77.7
+(12 rows)
+
+                            ending                            | matches | share_pct | first_match | last_match 
+--------------------------------------------------------------+---------+-----------+-------------+------------
+ a. finished                                                  |   26480 |      94.1 | 2026-05-09  | 2026-10-10
+ b. did not finish, match market paid the player who advanced |    1058 |       3.8 | 2026-05-11  | 2026-10-10
+ c. did not finish, match market settled 50-50                |     608 |       2.2 | 2026-05-13  | 2026-10-10
+(3 rows)
+
+SELECT 42454
+ matches | set2_winner_pct | total_sets_pct | set_handicap_pct | total_games_pct | set1_games_pct | completed_match_pct 
+---------+-----------------+----------------+------------------+-----------------+----------------+---------------------
+   20777 |            59.6 |           95.6 |             80.9 |            97.3 |           96.8 |                69.8
+(1 row)
+

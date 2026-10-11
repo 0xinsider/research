@@ -1,0 +1,19 @@
+kept the 8928 markets of the October 10 run; dropped 1 market(s):
+  month 2026-06: 0x1f5cd4d1a23c11229b2781303dd39fb60ec6ee369dd173cedef8a7f7a1a27298 (18 sells)
+  sport Soccer: 0x1f5cd4d1a23c11229b2781303dd39fb60ec6ee369dd173cedef8a7f7a1a27298 (18 sells)
+
+== by sport and month  (5000 draws, seed 20260913, resampled over markets)
+group                       trades  markets  edge_pts   95% CI
+month 2026-04                20313     4066      0.76   [-0.70, +2.15]
+month 2026-05                 5243     1646      1.78   [-0.61, +4.24]
+month 2026-06                 9092     1929      0.32   [-2.65, +3.75]
+month 2026-07                 2951      759      1.10   [-4.77, +7.88]
+month 2026-08                  722      455      0.30   [-3.63, +4.35]
+month 2026-09                  280      189      8.64   [+3.22, +13.86]
+sport Baseball                2337      959     -0.55   [-3.18, +1.90]
+sport Cricket                 1566      137      3.73   [+0.34, +6.71]
+sport Esports                 5252     1857      0.20   [-1.45, +1.83]
+sport Hockey                  1125      242      3.18   [-0.97, +7.53]
+sport NBA                     7233      588     -1.20   [-4.05, +1.35]
+sport Soccer                 15068     2919      1.61   [-0.93, +4.44]
+sport Tennis                  5195     2020      1.40   [-0.13, +2.91]
