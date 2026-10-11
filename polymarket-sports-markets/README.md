@@ -6,8 +6,10 @@ Published 2026-09-12 on the site (issue 0xinsider/0xinsider#13181, PR #13183):
 - https://0xinsider.com/research/sharp-money-polymarket-sports
 - https://0xinsider.com/research/when-large-sports-bets-land
 
-One dataset: every `whale_alerts` buy of $1,000 or more on a sports-category Polymarket
-market, joined to `market_outcomes` with `resolved_at > traded_at`, price 2c to 98c.
+One dataset: every `whale_alerts` buy on a sports-category Polymarket market, joined to
+`market_outcomes` with `resolved_at > traded_at`, price 2c to 98c. No query filters on stake: the
+smallest recorded buy was $2,996 until 2026-07-02 and $10,000 from that day. This line said "$1,000 or
+more" until 2026-10-11, when issue 0xinsider/0xinsider#23716 re-read each study's universe by month.
 Read-only runs against production, 03:27 to 03:29 UTC.
 
 ## Correction, 2026-10-07: grades at the trade (issue 0xinsider/0xinsider#22191)
@@ -201,6 +203,46 @@ queries alone. Every statement was read-only.
   margins count above missed the tie until `spreads-nfl-margins-2026-10-11.py` read this CSV too: 571 games, and no
   share from 1 to 14 points moved at one decimal.
 
+## Wallet census re-run, 2026-10-11 (issue 0xinsider/0xinsider#23716)
+
+https://0xinsider.com/research/how-many-polymarket-sports-bettors-are-profitable now states this run and carries
+a dated correction section. `wallet-census-2026-10-11.sql` and `-output.txt` re-run `wallet-census.sql`'s
+queries 1 to 9 on the same table, `trader_category_stats`, read-only on the production read replica at 14:01
+UTC, with five new queries: 7b and 7c (the grade the site shows, `traders.latest_grade`), 10 (wallets still
+trading against wallets that stopped), 11 (how many settled markets the entry price and edge read) and 12.
+
+The table changed between the runs. From 2026-09-24/25 (0xinsider/0xinsider#17655) it admits settled positions known only from
+Polymarket's own position data; from 2026-10-07 (0xinsider/0xinsider#22353) P&L, wins, losses and the market count include
+markets a wallet bought on both sides, while entry price and edge stay one-sided (75.3% of the population's
+settled markets).
+
+| Figure | 2026-09-13 | 2026-10-11 |
+|---|---:|---:|
+| Wallets with 20+ settled sports markets | 36,149 | 49,118 |
+| In profit | 48.8% (+/- 0.52) | 43.7% (+/- 0.44) |
+| Median wallet | -$8 | -$46 |
+| Top 1%'s share of gross profit | 68.0% (362 wallets) | 77.7% (492 wallets) |
+| Highest sport (1,000+ wallets) | cricket 57.4% | MMA 55.4% |
+| In profit, 20-49 / 100-499 / 2,000+ markets | 47.4% / 48.9% / 57.1% | 43.4% / 40.9% / 59.6% |
+| In profit, edge > 0 / edge <= 0 | 65.6% / 22.6% | 60.5% / 20.8% |
+
+Three conclusions changed: the share in profit no longer rises with experience until 2,000 settled markets;
+the five largest sports all sit below half; and the top 1% won $640.1M against the bottom 10%'s -$448.5M,
+where September had the two ends close to even. The edge split held. The September row in the Series 2
+table below is the published record.
+
+## Large-trade floor, 2026-10-11 (issue 0xinsider/0xinsider#23716)
+
+The studies here described their sample as buys "of $1,000 or more". No query filters on stake: the sample is
+whatever `whale_alerts` recorded. `large-trade-floor-2026-10-11.sql` and `-output.txt` re-read each study's own
+universe by month, read-only on the production read replica (14:12 to 14:19 UTC, then 14:29 to 14:40 UTC):
+calibration, both teams to score, point spreads, soccer draws, sharp money, fading the crowd (and its September 21
+to October 10 window), over/under, home-field advantage (US moneylines and club soccer) and the timing study's
+quoted-spread subset. In every universe the smallest buy is $2,996, the last buy under $10,000 landed on 2026-07-02
+(13:12:20 UTC at the latest), and no buy in August or September is under $10,000. The all-category minimum of
+$1,000 (query 10 of `calibration-2026-10-10.sql`) is not the floor of any sports sample. The articles now say
+"about $3,000 until July 2, 2026 and $10,000 after".
+
 ## Headlines
 
 | Study | Sample | Finding |
@@ -216,7 +258,7 @@ queries alone. Every statement was read-only.
 
 | Study | Sample | Finding |
 |---|---:|---|
-| Wallet census (snapshot 2026-09-13 16:13 UTC) | 36,149 wallets with 20+ settled sports markets, $149.5M net | 48.8% in profit (half-width 0.52 pts), median -$8. Top 1% (362 wallets) hold $395.1M = 68% of gross profit; bottom 10% -$401.1M. Profitable half wins 64.1% at 55.2c (edge +6.15), the rest 49.1% at 53.0c (-1.13). By sport 48.1% (soccer) to 57.4% (cricket). |
+| Wallet census (snapshot 2026-09-13 16:13 UTC; superseded by the 2026-10-11 re-run above) | 36,149 wallets with 20+ settled sports markets, $149.5M net | 48.8% in profit (half-width 0.52 pts), median -$8. Top 1% (362 wallets) hold $395.1M = 68% of gross profit; bottom 10% -$401.1M. Profitable half wins 64.1% at 55.2c (edge +6.15), the rest 49.1% at 53.0c (-1.13). By sport 48.1% (soccer) to 57.4% (cricket). |
 | Fading the crowd (Jun 1 to Sep 12, pre-kickoff) | 71,543 buys, 7,966 markets, $1.42B | When 90%+ of D/F money sat on one side (844 markets), that side paid 67.3c and won 63.6%: -3.68 pts [-6.71, -0.69]; flat fade +16.4%, follow -6.0%. S/A/B 90%+ lean is priced in: -0.28 [-2.81, +2.34]. Crowd on a favorite -4.20 [-7.45, -1.05]; on an underdog -1.25 [-9.05, +6.71]. |
 
 The census reads `trader_category_stats`, the per-wallet, per-category read model (one row per wallet
@@ -228,7 +270,7 @@ other side's buyers actually paid).
 
 Part 2 (issue 0xinsider/0xinsider#13691): https://0xinsider.com/research/over-under-polymarket-sports.
 Game totals (`sports_market_type = 'totals'`, Over/Under), April 2 to September 13, run 16:51 UTC:
-45,662 buys of $1,000+ on 7,120 markets, $810.0M, and 82,080 settled totals counted once. The Under
+45,662 large buys on 7,120 markets, $810.0M, and 82,080 settled totals counted once. The Under
 settled 52.7% (+/- 0.34 pts; soccer 54.3%, esports 55.3%, NBA 44.7%, MMA 37.8%); every lined total is
 a half point. Under buyers paid 58.4c and won 57.9% (-0.50 [-3.17, +2.23]); Over buyers 56.4c, 55.8%
 (-0.61 [-3.37, +2.21]). No sport, soccer line, phase or grade cohort clears zero (soccer Over -2.11
@@ -420,6 +462,7 @@ lines write the market-level CSVs the bootstrap reads.
 
 NBA pricing: `nba-pricing*` (see the 2026-10-11 section above for which file is which).
 
-Series 2: `wallet-census.sql`, `fade-crowd.sql` with their `-output.txt`;
+Series 2: `wallet-census.sql`, `fade-crowd.sql` with their `-output.txt`; the census re-run
+`wallet-census-2026-10-11.sql` and its `-output.txt`;
 `fade-crowd-market-edge.csv`; `bootstrap-2026-09-13.py` (seed 20260913) and
 `bootstrap-2026-09-13-output.txt`.
