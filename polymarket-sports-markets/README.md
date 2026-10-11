@@ -88,9 +88,10 @@ number those charts draw is in an output file here; four files are new.
 - `football-families-2026-10-11.sql` and `-output.txt` (run 12:23 UTC): the same split for NFL and college
   football by market family. Everything past the moneyline, spread and total drew 1.6% of NFL and 1.7% of
   college volume.
-- `spreads-nfl-margins-2026-10-11.py` and `-output.txt`: final margins of the 570 NFL games in
-  `football-scoreboard.csv` (regular season and playoffs, none tied). 15.1% were decided by exactly 3
-  points and 8.1% by exactly 7.
+- `spreads-nfl-margins-2026-10-11.py` and `-output.txt`: final margins of 571 NFL regular-season and
+  playoff games, the 570 in `football-scoreboard.csv` and one tie from `spreads-nfl-ties-2026-10-11.csv`.
+  15.1% were decided by exactly 3 points and 8.1% by exactly 7. This line said 570 games, none tied, until
+  issue 0xinsider/0xinsider#23724: the scoreboard file cannot hold a tie (see that section below).
 - `football-charts-2026-10-11.py` and `-output.txt`: underdogs by league and season, and games by dollars
   traded on the moneyline before kickoff, from the football CSVs above with no new read. The median NFL
   moneyline traded $244,614 before kickoff and the median college one $20,071; 202 college games traded
@@ -151,6 +152,54 @@ The esports first-map study and the NBA pricing study gained a chart under each 
   intervals (5,000 draws, seed 20260914). `nba-pricing-example-game.sql` and `-output.txt` break down one
   game's 119 markets (nba-nyk-sas-2026-06-13; the moneyline drew 18.77M of 23.79M in volume), and
   `nba-pricing-example-game-result-2026-10-11.txt` is the Gamma read of its result (Knicks).
+
+## Section charts, 2026-10-11 (issue 0xinsider/0xinsider#23724)
+
+The calibration, sharp money, fading the crowd, timing, NRFI, NBA, over/under, soccer draws and both teams to score
+studies gained a chart under each section on 2026-10-11 (0xinsider/0xinsider#23664, 0xinsider/0xinsider#23678,
+0xinsider/0xinsider#23665). The runs behind those charts join this folder. References inside them use this folder's
+file names; the timing, NRFI and NBA files print each query above its output, so each also gets a `.sql` of its
+queries alone. Every statement was read-only.
+
+- `calibration-charts-2026-10-11.sql` and `-output.txt` (read replica, 12:36 UTC): sports buys at 80 to 98 cents
+  from February to May 2026 by month and by the `outcome_index` the alert table stored, the defect that starts
+  every window here on April 2. Stored as outcome 0, those favorites won 57.8% in February and 51.8% in March,
+  against 89.1% and 88.7% as outcome 1; from April both win within about two points of their price. The output also
+  quotes Polymarket's fee page (read 12:14 UTC): sports takers pay `0.05 x p x (1 - p)` per share.
+- `sharp-money-charts-2026-10-11.sql`, `-output.txt`, `-concentration.py` and `-concentration.csv` (read replica,
+  12:37 to 12:55 UTC): how many ranking rows carried a grade each month (none before June 2026), the large-trade
+  feed's sports trades from September 21 to October 10 by the grade at the fill, and how concentrated the S, A and
+  B cohort is. The CSV has one row per S, A or B wallet and date chunk (a 12-character md5 prefix of the wallet's
+  internal id, never its address); `python3 sharp-money-charts-2026-10-11-concentration.py
+  sharp-money-charts-2026-10-11-concentration.csv` adds it up with no database: 1,495 wallets and 51,873 buys,
+  32.8% of them from one wallet (query F names it: swisstony).
+- `fade-crowd-charts-2026-10-11.sql` and `-output.txt` (read replica, 12:37 UTC): pre-kickoff sports buys from
+  September 21 to October 10, by how one-sided each cohort's money was on a market: D and F wallets put 90% or more
+  on one side of 220 markets, S, A and B wallets of 179, out of 1,409 markets with a pre-kickoff buy.
+- `timing-charts-2026-10-11.sql` and `-output.txt` (read replica, 13:22 to 13:23 UTC): the timing study's universe
+  by month and stake (the smallest buy was $2,996 through July and $10,000 from August; the last buy under $10,000
+  landed at 13:12 UTC on 2026-07-02), and what the feed carried on sports games in the 30 days to 2026-10-11: 11,238
+  buys, 42.9% in play.
+- `nrfi-charts-2026-10-11.sql` and `-output.txt` (read replica, 13:20 UTC): NRFI since the study, 226 games from
+  2026-09-13 at 48.2% no run (+/- 6.51), settlement read from the database without the linescore check; and the
+  large-trade buys on MLB game markets by family from April 2 to the study's run (NRFI 73 of 45,999).
+- `nba-pricing-size-bands-2026-10-11.sql` and `-output.txt` (read replica, 13:21 UTC): the NBA pricing study's
+  63,037 buys by size, with market-clustered 95% half-widths. No size band's edge clears zero: $100,000 and up
+  +1.03 (+/- 3.01), $10,000 to $25,000 -1.46 (+/- 2.00). These charts are on
+  https://0xinsider.com/research/nba-betting-polymarket-whale-data.
+- `over-under-charts-2026-10-11.sql`, `soccer-draws-charts-2026-10-11.sql`, `btts-charts-2026-10-11.sql` and their
+  `-output.txt` (one Neon child branch of production forked about 12:11 UTC, 12:29 to 12:44 UTC): each study's
+  definitions on kickoffs from 2026-09-14 to 2026-10-09, after its window, plus what the feed carried in the 30 days
+  to the run. Soccer games went Under 2.5 in 44.5% of 1,986; draws came in on 23.3% of 1,857 matches; both teams
+  scored in 52.7% of 1,620. The draws run also splits home, draw and away in the European cups against the big five
+  leagues; the BTTS run counts how the study window's markets settled (33 refunded 50-50). Its query 4 matched no
+  rows and no chart reads it.
+- `spreads-nfl-ties-2026-10-11.py`, `-output.txt` and `.csv` (ESPN's public scoreboard, then Polymarket's Gamma API,
+  14:28 UTC): every NFL regular-season and postseason game from 2024-09-05 to 2026-09-11, 574 completed, one tied:
+  Packers 40 at Cowboys 40 in overtime on 2025-09-28. Its moneyline settled 0.5/0.5 and all five Packers spreads,
+  -3.5 to -10.5, paid the Cowboys. `football-scoreboard.csv` keeps only moneylines that settled to one team, so the
+  margins count above missed the tie until `spreads-nfl-margins-2026-10-11.py` read this CSV too: 571 games, and no
+  share from 1 to 14 points moved at one decimal.
 
 ## Headlines
 

@@ -1,0 +1,263 @@
+0xinsider #23678 (epic #23652, slice R2) -- section charts for /research/when-large-sports-bets-land.
+
+Read-only against the production READ REPLICA through ./scripts/prod-read.sh (every
+statement runs inside BEGIN READ ONLY ... ROLLBACK with a 60 s statement
+timeout) on 2026-10-11. No row was written. Each query below is the file the run read, followed by its
+output verbatim (psql's BEGIN/SET/ROLLBACK tags removed). The run-time reads bracket the run.
+
+Queries 1 and 2 re-read the timing study's own universe (timing-2026-10-10.sql, view sports_buys:
+Polymarket buys in whale_alerts on the sports categories from 2026-04-02 to 2026-09-11, settled 0 or 1
+after the trade, 2c to 98c, kickoff on record). The study ran on a child branch forked at 11:19:48 UTC on
+2026-10-10; markets settled since add a few hundred buys here (401,482 there). The one-statement
+version of query 1 timed out at 60 s on the replica, so it runs one calendar month per statement.
+
+Query 3 is what the large-trade feed carried on sports games in the 30 days to 00:00 UTC on 2026-10-11,
+unscored: every Polymarket buy on the same categories whose market carries a kickoff time.
+
+-- ===== run time =====
+select now() as run_at_utc
+
+          run_at_utc           
+-------------------------------
+ 2026-10-11 13:22:24.367025+00
+(1 row)
+
+
+-- ===== 1-month-2026-04 =====
+-- 1.04 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-04-02 to before 2026-05-01 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-04-02' and w.traded_at < date '2026-05-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month |  buys  | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+--------+-----------+--------------+---------------+---------
+ 2026-04     | 175741 |     82003 |        93738 |          2996 |   93726
+(1 row)
+
+
+-- ===== 1-month-2026-05 =====
+-- 1.05 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-05-01 to before 2026-06-01 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-05-01' and w.traded_at < date '2026-06-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month | buys  | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+-------+-----------+--------------+---------------+---------
+ 2026-05     | 70291 |     55392 |        14899 |          2996 |   32437
+(1 row)
+
+
+-- ===== 1-month-2026-06 =====
+-- 1.06 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-06-01 to before 2026-07-01 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-06-01' and w.traded_at < date '2026-07-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month |  buys  | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+--------+-----------+--------------+---------------+---------
+ 2026-06     | 112307 |     86001 |        26306 |          2996 |   49236
+(1 row)
+
+
+-- ===== 1-month-2026-07 =====
+-- 1.07 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-07-01 to before 2026-08-01 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-07-01' and w.traded_at < date '2026-08-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month | buys  | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+-------+-----------+--------------+---------------+---------
+ 2026-07     | 29311 |      5645 |        23666 |          2996 |   13049
+(1 row)
+
+
+-- ===== 1-month-2026-08 =====
+-- 1.08 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-08-01 to before 2026-09-01 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-08-01' and w.traded_at < date '2026-09-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month | buys  | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+-------+-----------+--------------+---------------+---------
+ 2026-08     | 10059 |         0 |        10059 |         10000 |    4957
+(1 row)
+
+
+-- ===== 1-month-2026-09 =====
+-- 1.09 The timing study's universe (timing-2026-10-10.sql, view sports_buys), trades from 2026-09-01 to before 2026-09-12 (UTC),
+-- by stake: under $10,000 or $10,000 and up. One month per statement to stay inside the replica's 60 s timeout.
+select to_char(w.traded_at at time zone 'UTC', 'YYYY-MM') trade_month,
+       count(*) buys,
+       count(*) filter (where w.usdc_notional_num < 10000) under_10k,
+       count(*) filter (where w.usdc_notional_num >= 10000) at_least_10k,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-09-01' and w.traded_at < date '2026-09-12'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+group by 1 order by 1
+
+ trade_month | buys | under_10k | at_least_10k | min_stake_usd | in_play 
+-------------+------+-----------+--------------+---------------+---------
+ 2026-09     | 4107 |         0 |         4107 |         10000 |    1890
+(1 row)
+
+
+-- ===== 2-last-buy-under-10k =====
+-- 2. When the last buy under $10,000 landed: the same universe, July 2026.
+select max(w.traded_at) filter (where w.usdc_notional_num < 10000) last_under_10k, min(w.traded_at) filter (where w.usdc_notional_num < 10000) first_under_10k_in_july,
+       count(*) buys
+from whale_alerts w
+join market_outcomes mo on mo.condition_id = w.condition_id
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= date '2026-07-01' and w.traded_at < date '2026-08-01'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and mo.winning_outcome in (0, 1) and mo.resolved_at > w.traded_at
+  and w.price_num between 0.02 and 0.98
+  and m.game_start_time is not null
+
+     last_under_10k     | first_under_10k_in_july | buys  
+------------------------+-------------------------+-------
+ 2026-07-02 13:12:20+00 | 2026-07-01 00:00:50+00  | 29311
+(1 row)
+
+
+-- ===== 3-feed-last-30-days =====
+-- 3. What the large-trade feed carried on sports games in the 30 days to the run: every Polymarket buy in
+-- whale_alerts on the timing study's sports categories with a kickoff time on its market, by category and by
+-- whether it landed before kickoff or in play (traded at or after the scheduled start). No settlement filter:
+-- this is what a reader saw on the feed, not a scored sample.
+select w.category,
+       count(*) buys,
+       count(*) filter (where m.game_start_time > w.traded_at) before_kickoff,
+       count(*) filter (where m.game_start_time <= w.traded_at) in_play,
+       round(100.0*count(*) filter (where m.game_start_time <= w.traded_at)/count(*),1) in_play_pct,
+       round(min(w.usdc_notional_num)) min_stake_usd,
+       min(w.traded_at) first_trade, max(w.traded_at) last_trade
+from whale_alerts w
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0
+  and w.traded_at >= timestamptz '2026-09-11 00:00:00+00' and w.traded_at < timestamptz '2026-10-11 00:00:00+00'
+  and w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket',
+                     'MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis',
+                     'NBA Summer League','CFL','Sports','Big Game','Pickleball')
+  and m.game_start_time is not null
+group by rollup(w.category) order by buys desc
+
+  category  | buys  | before_kickoff | in_play | in_play_pct | min_stake_usd |      first_trade       |       last_trade       
+------------+-------+----------------+---------+-------------+---------------+------------------------+------------------------
+            | 11238 |           6416 |    4822 |        42.9 |         10000 | 2026-09-11 00:00:37+00 | 2026-10-10 23:59:30+00
+ NFL        |  2745 |           1665 |    1080 |        39.3 |         10000 | 2026-09-11 00:03:24+00 | 2026-10-10 23:59:30+00
+ Soccer     |  2133 |           1766 |     367 |        17.2 |         10000 | 2026-09-11 02:13:15+00 | 2026-10-10 23:35:03+00
+ Esports    |  2062 |           1023 |    1039 |        50.4 |         10000 | 2026-09-11 05:58:15+00 | 2026-10-10 20:20:48+00
+ Tennis     |  1476 |            274 |    1202 |        81.4 |         10000 | 2026-09-11 00:19:15+00 | 2026-10-10 18:55:00+00
+ NCAAF      |  1247 |            669 |     578 |        46.4 |         10000 | 2026-09-11 00:00:37+00 | 2026-10-10 23:59:09+00
+ Baseball   |  1186 |            800 |     386 |        32.5 |         10000 | 2026-09-11 13:39:36+00 | 2026-10-10 19:13:00+00
+ Hockey     |   136 |            111 |      25 |        18.4 |         10000 | 2026-09-23 07:21:40+00 | 2026-10-10 22:59:28+00
+ MMA        |   130 |             50 |      80 |        61.5 |         10000 | 2026-09-11 14:57:25+00 | 2026-10-10 23:00:28+00
+ WNBA       |    88 |             51 |      37 |        42.0 |         10000 | 2026-09-17 23:08:03+00 | 2026-10-10 03:45:30+00
+ Cricket    |    19 |              2 |      17 |        89.5 |         10000 | 2026-09-11 11:16:42+00 | 2026-10-09 19:05:43+00
+ NBA        |    12 |              3 |       9 |        75.0 |         10000 | 2026-10-06 01:56:31+00 | 2026-10-10 02:14:50+00
+ Formula 1  |     2 |              1 |       1 |        50.0 |         10589 | 2026-10-03 14:35:35+00 | 2026-10-04 07:33:22+00
+ Boxing     |     1 |              0 |       1 |       100.0 |         34989 | 2026-09-13 00:49:22+00 | 2026-09-13 00:49:22+00
+ Basketball |     1 |              1 |       0 |         0.0 |         13400 | 2026-10-08 17:59:53+00 | 2026-10-08 17:59:53+00
+(15 rows)
+
+
+-- ===== run end =====
+          run_at_utc           
+-------------------------------
+ 2026-10-11 13:23:41.526857+00
+(1 row)
+

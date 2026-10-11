@@ -1,0 +1,59 @@
+            run_at             | latest_alert_on_branch 
+-------------------------------+------------------------
+ 2026-10-11 12:44:01.396006+00 | 2026-10-11 12:09:16+00
+(1 row)
+
+SELECT 15341
+ winning_outcome  | markets 
+------------------+---------
+ 0                |    7430
+ 1                |    6231
+ -1               |      33
+ (no outcome row) |      12
+(4 rows)
+
+ kickoff_month | markets | yes_pct 
+---------------+---------+---------
+ 2025-10       |      51 |    52.9
+ 2025-11       |     474 |    56.1
+ 2025-12       |     371 |    56.9
+ 2026-01       |     896 |    54.5
+ 2026-02       |     976 |    54.8
+ 2026-03       |    1161 |    52.8
+ 2026-04       |    2003 |    53.3
+ 2026-05       |    1654 |    55.3
+ 2026-06       |     385 |    54.5
+ 2026-07       |     989 |    52.9
+ 2026-08       |    3253 |    54.6
+ 2026-09       |    1448 |    55.2
+(12 rows)
+
+ listed | settled | yes_pct | half_width_pts 
+--------+---------+---------+----------------
+   1635 |    1620 |    52.7 |           2.43
+(1 row)
+
+ btts | matches | over25 | under25 
+------+---------+--------+---------
+      |       0 |      0 |       0
+(1 row)
+
+SELECT 898255
+             family              | matches 
+---------------------------------+---------
+ moneyline                       |    3083
+ soccer_halftime_result          |    3009
+ both_teams_to_score             |    2919
+ soccer_team_totals              |    2919
+ spreads                         |    2919
+ totals                          |    2919
+ first_half_totals               |    2848
+ both_teams_to_score_first_half  |    2847
+ soccer_first_half_team_totals   |    2847
+ both_teams_to_score_second_half |    2789
+ second_half_totals              |    2789
+ soccer_second_half_team_totals  |    2789
+ first_half_spreads              |     194
+ second_half_spreads             |     194
+(14 rows)
+

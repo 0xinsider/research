@@ -1,0 +1,18 @@
+-- #23664: output of fade-crowd-charts-2026-10-11.sql
+-- scripts/prod-read.sh, production read replica, read-only transaction, statement_timeout 60s.
+-- band: a90 = 90% or more of the cohort's money on one side; b70 = 70% to 90%; c = under 70%.
+
+D. started 2026-10-11T12:37:56Z
+ cohort |              band              | markets | games | avg_wallets 
+--------+--------------------------------+---------+-------+-------------
+ all    | markets with a pre-kickoff buy |    1409 |   887 |            
+ df     | a90                            |     220 |   188 |         1.9
+ df     | b70                            |      85 |    72 |         3.1
+ df     | c                              |      82 |    77 |         3.3
+ sab    | a90                            |     179 |   155 |         1.8
+ sab    | b70                            |      40 |    36 |         3.3
+ sab    | c                              |      48 |    43 |         2.7
+(7 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=7 stdout_bytes=692 max_rows=5000

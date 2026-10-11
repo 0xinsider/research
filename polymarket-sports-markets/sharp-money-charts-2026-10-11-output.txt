@@ -1,0 +1,167 @@
+-- #23664: output of sharp-money-charts-2026-10-11.sql
+-- scripts/prod-read.sh, production read replica, read-only transaction, statement_timeout 60s.
+
+B, 2026-04-01..2026-05-01, started 2026-10-11T12:38:38Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-04 |   29 |               52 |                  0 |              0 |              0
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B, 2026-05-01..2026-06-01, started 2026-10-11T12:38:26Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-05 |   31 |              238 |                  0 |              0 |              0
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B, 2026-06-01..2026-07-01, started 2026-10-11T12:38:41Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-06 |   30 |            18461 |              17144 |              0 |          80905
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B, 2026-07-01..2026-08-01, started 2026-10-11T12:39:24Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-07 |   31 |            18575 |              16669 |           8587 |          27577
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B, 2026-08-01..2026-09-01, started 2026-10-11T12:39:42Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-08 |   31 |             3755 |               3300 |            614 |           7070
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B, 2026-09-01..2026-10-01, started 2026-10-11T12:39:54Z: canceled by the 60s statement timeout; see B2
+
+B, 2026-10-01..2026-10-11, started 2026-10-11T12:40:57Z
+   mo    | days | avg_rows_per_day | avg_graded_per_day | min_graded_day | max_graded_day 
+---------+------+------------------+--------------------+----------------+----------------
+ 2026-10 |   10 |            50596 |              36120 |          27660 |          62654
+(1 row)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=1 stdout_bytes=304 max_rows=5000
+
+B2, 2026-09-01..2026-09-11, started 2026-10-11T12:41:57Z
+    date    |  n   | graded 
+------------+------+--------
+ 2026-09-01 | 1646 |   1534
+ 2026-09-02 | 1589 |   1438
+ 2026-09-03 | 2171 |   1939
+ 2026-09-04 | 2432 |   2229
+ 2026-09-05 | 2909 |   2557
+ 2026-09-06 | 2370 |   2146
+ 2026-09-07 | 6373 |   5893
+ 2026-09-08 | 7631 |   7454
+ 2026-09-09 | 5791 |   5598
+ 2026-09-10 | 5434 |   5169
+(10 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=10 stdout_bytes=372 max_rows=5000
+
+B2, 2026-09-11..2026-09-21, started 2026-10-11T12:42:03Z
+    date    |   n    | graded 
+------------+--------+--------
+ 2026-09-11 |   7837 |   7523
+ 2026-09-12 | 127545 | 120189
+ 2026-09-13 | 158231 |  76429
+ 2026-09-14 | 117741 |  54600
+ 2026-09-15 | 175042 |  89271
+ 2026-09-16 | 186184 | 122168
+ 2026-09-17 | 130385 |  57020
+ 2026-09-18 | 123991 |  59790
+ 2026-09-19 | 117999 |  65724
+ 2026-09-20 | 181923 |  85269
+(10 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=10 stdout_bytes=396 max_rows=5000
+
+B2, 2026-09-21..2026-10-01, started 2026-10-11T12:42:14Z
+    date    |   n    | graded 
+------------+--------+--------
+ 2026-09-21 | 130577 |  76531
+ 2026-09-22 | 170814 |  73747
+ 2026-09-23 | 143645 |  87024
+ 2026-09-24 | 226118 | 104730
+ 2026-09-25 | 119189 |  80401
+ 2026-09-26 | 163798 |  80923
+ 2026-09-27 |  98994 |  55834
+ 2026-09-28 | 171145 | 105501
+ 2026-09-29 | 147160 |  65322
+ 2026-09-30 | 102461 |  94703
+(10 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=10 stdout_bytes=396 max_rows=5000
+
+C, first run with the window from 2026-09-11, started 2026-10-11T12:37:26Z (superseded: before the at-fill
+history completed on 2026-09-20, 3,456 of 11,768 trades had no proven grade at the fill):
+  grade_at_fill  | trades | buys | musd  
+-----------------+--------+------+-------
+ A               |   1108 | 1045 | 27.40
+ B               |    757 |  720 | 19.42
+ C               |    267 |  254 |  5.20
+ D               |    258 |  240 |  6.89
+ F               |   3450 | 3301 | 85.39
+ S               |   1748 | 1719 | 47.06
+ no grade        |    724 |  690 | 29.52
+ unknown history |   3456 | 3304 | 97.82
+(8 rows)
+
+C, window from 2026-09-21 as committed, started 2026-10-11T12:37:41Z
+  grade_at_fill  | trades | buys | musd  
+-----------------+--------+------+-------
+ A               |    967 |  914 | 23.24
+ B               |    635 |  603 | 16.34
+ C               |    242 |  230 |  4.47
+ D               |    252 |  236 |  6.80
+ F               |   3078 | 2939 | 76.11
+ S               |   1539 | 1513 | 40.80
+ no grade        |    694 |  660 | 28.76
+ unknown history |     65 |   60 |  1.75
+(8 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=8 stdout_bytes=445 max_rows=5000
+
+E, four chunks, started 2026-10-11T12:53:29Z (2026-08-01..2026-09-12, 422 rows, 13.7 s),
+12:53:49Z (2026-07-01..2026-08-01, 919 rows), 12:54:07Z (2026-06-16..2026-07-01, 555 rows),
+12:54:27Z (2026-06-01..2026-06-16, 364 rows). Rows: the -concentration.csv beside this file.
+python3 -I sharp-money-charts-2026-10-11-concentration.py sharp-money-charts-2026-10-11-concentration.csv:
+wallets 1495  buys 51873  dollars_musd 908.3
+most_buys_wallet 6d316ffe7475  buys 17017  dollars_musd 158.4
+most_buys_wallet_buy_share_pct 32.8
+most_buys_wallet_dollar_share_pct 17.4
+most_dollars_wallet 6d316ffe7475
+top10_by_buys_buy_share_pct 51.0
+top10_by_buys_dollar_share_pct 44.5
+top10_by_dollars_dollar_share_pct 47.2
+top10_buys [17017, 3457, 2120, 979, 632, 608, 428, 411, 404, 392]
+
+F. started 2026-10-11T12:55:33Z
+    wallet    |                  address                   |      username       
+--------------+--------------------------------------------+---------------------
+ a7681a0edd3e | 0x2c335066fe58fe9237c3d3dc7b275c2a034a0563 | Substantial-Service
+ 6d316ffe7475 | 0x204f72f35326db932158cba6adff0b9a1da95e14 | swisstony
+(2 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=2 stdout_bytes=349 max_rows=5000
+Note: the 2026-10-07 run counted 51,797 S, A and B buys in the same window; this read counts 51,873, as markets kept settling. The shares match that run's published 51.0% and 47.2%.

@@ -1,0 +1,56 @@
+-- 0xinsider #23678 (epic #23652, slice R2) -- section charts for /research/nrfi-polymarket.
+--
+-- Read-only against the production READ REPLICA through ./scripts/prod-read.sh (every
+-- statement runs inside BEGIN READ ONLY ... ROLLBACK with a 60 s statement
+-- timeout) on 2026-10-11. No row was written. Each query below is the file the run read, followed by its
+-- output verbatim (psql's BEGIN/SET/ROLLBACK tags removed). The run-time reads bracket the run.
+--
+-- Query 1 is the study's universe (nrfi.sql: sports_market_type 'nrfi', event slug
+-- 'mlb-%', each market read by its own description, settled 0 or 1) split at the study's cutoff, games
+-- before 00:00 UTC on 2026-09-13 and games from then to the run. Settlement is read from 0xinsider's
+-- database; the September study also checked every settlement against MLB's linescores, and this read
+-- does not.
+--
+-- Query 2 counts large-trade buys on MLB game markets by market family over the study's large-trade
+-- window, April 2, 2026 to the study's run at 22:28:55 UTC on 2026-09-13. Its NRFI row is query 8 of the
+-- study read again: 73 buys then, 73 now.
+--
+-- The queries only, extracted from nrfi-charts-2026-10-11-output.txt, which holds each one followed by its output.
+
+-- ===== run time =====
+select now() as run_at_utc;
+
+-- ===== 1-since-the-study =====
+-- 1. NRFI since the study: the study's universe (nrfi.sql, tables nrfi_all and nrfi), each market
+-- read by its own description, settled 0 or 1, for games that started from 00:00 UTC on September 13, 2026 to the run.
+with nrfi_all as (
+  select m.condition_id, m.game_start_time, mo.winning_outcome w,
+         case when m.description ~ 'resolve to ["“]Yes( Run)?["”] if no runs are scored' then 'yes_is_no_run'
+              when m.description ~ 'resolve to ["“]Yes( Run)?["”] if at least one run is scored' then 'yes_is_run' end fmt
+  from markets m left join market_outcomes mo on mo.condition_id = m.condition_id
+  where m.sports_market_type = 'nrfi' and m.event_slug like 'mlb-%'
+), nrfi as (
+  select *, case when fmt = 'yes_is_no_run' then (w = 0)::int when fmt = 'yes_is_run' then (w = 1)::int end no_run
+  from nrfi_all where w in (0, 1) and fmt is not null
+)
+select case when game_start_time < timestamptz '2026-09-13' then 'a. study, to 2026-09-12' else 'b. since, 2026-09-13 on' end period,
+       count(*) games, sum(no_run) no_run_games, round(100.0*avg(no_run),1) no_run_pct,
+       round(100*1.959964*sqrt(avg(no_run)::numeric*(1-avg(no_run)::numeric)/count(*)),2) half_width_pts,
+       min(game_start_time)::date first_game, max(game_start_time)::date last_game,
+       (select count(*) from nrfi_all where game_start_time >= timestamptz '2026-09-13' and game_start_time < now() and (w is null or w not in (0,1))) since_unsettled_or_other
+from nrfi group by 1 order by 1;
+
+-- ===== 2-feed-by-market-family =====
+-- 2. Large-trade buys on MLB game markets (event slug 'mlb-%') from April 2, 2026 to the NRFI study's run
+-- (22:28:55 UTC on September 13, 2026), by the market's sports_market_type. The NRFI row reproduces query 8
+-- of nrfi.sql (73 buys) when read over the same markets.
+select coalesce(m.sports_market_type, '(none)') market_type,
+       count(*) buys, count(distinct w.condition_id) markets,
+       round(sum(w.usdc_notional_num)/1e6, 2) notional_musd,
+       round(min(w.usdc_notional_num)) min_stake_usd
+from whale_alerts w
+join markets m on m.condition_id = w.condition_id
+where w.platform = 'polymarket' and w.side = 0 and w.outcome_index in (0, 1)
+  and w.traded_at >= timestamptz '2026-04-02 00:00:00+00' and w.traded_at < timestamptz '2026-09-13 22:28:55+00'
+  and m.event_slug like 'mlb-%'
+group by 1 order by 2 desc;

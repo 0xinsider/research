@@ -1,0 +1,30 @@
+-- #23664: output of calibration-charts-2026-10-11.sql
+-- scripts/prod-read.sh, production read replica, read-only transaction, statement_timeout 60s.
+
+A. started 2026-10-11T12:36:46Z
+   mo    | outcome_index |   n   | won_pct | avg_price_c 
+---------+---------------+-------+---------+-------------
+ 2026-02 |             0 |  7367 |    57.8 |        87.6
+ 2026-02 |             1 |  1700 |    89.1 |        88.3
+ 2026-03 |             0 | 18802 |    51.8 |        88.3
+ 2026-03 |             1 |  3959 |    88.7 |        89.0
+ 2026-04 |             0 | 16471 |    88.0 |        88.7
+ 2026-04 |             1 | 21502 |    88.7 |        88.8
+ 2026-05 |             0 |  6044 |    88.6 |        88.7
+ 2026-05 |             1 |  6300 |    86.5 |        88.3
+(8 rows)
+
+[prod-read] target=replica timeout=60s
+[prod-read] rows=8 stdout_bytes=605 max_rows=5000
+
+Polymarket fee schedule, read 2026-10-11T12:14:17Z from https://docs.polymarket.com/trading/fees (the page's text, quoted):
+
+  Fees are calculated using the following formula: fee = C × feeRate × p × (1 - p)
+  Where C = number of shares traded and p = price of the shares.
+  Makers are never charged fees. Only takers pay fees.
+  Category | Taker Fee Rate | Maker Fee Rate | Maker Rebate
+  Sports   | 0.05           | 0              | 15%
+
+  As a share of the stake (C × p): feeRate × (1 - p). At a bucket's average price of 74.54c that is 1.27%;
+  at 84.70c, 0.77%; at 93.48c, 0.33%. The page states today's schedule; it does not say which rate applied
+  on each day from April 2 to September 11, 2026, and the alert table does not record whether a buy was a taker.

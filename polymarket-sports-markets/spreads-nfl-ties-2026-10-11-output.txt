@@ -1,0 +1,11 @@
+== ESPN NFL games completed from 2024-09-05 to 2026-09-11 (ESPN start, UTC)
+regular season 546, postseason 28, total 574
+== ties: 1
+2025-09-29T00:20Z espn_id 401772921 regular season: Green Bay Packers 40 at Dallas Cowboys 40 (Final/OT)
+  Polymarket nfl-gb-dal-2025-09-28: 1 event(s), read 2026-10-11T14:28:15Z
+  moneyline Packers vs. Cowboys: Packers 0.5, Cowboys 0.5, closed True, reported volume 4,134,659 shares
+  spreads   Spread: Packers (-3.5): Packers 0, Cowboys 1, closed True, reported volume 4,957 shares
+  spreads   Spread: Packers (-4.5): Packers 0, Cowboys 1, closed True, reported volume 1,517 shares
+  spreads   Spread: Packers (-6.5): Packers 0, Cowboys 1, closed True, reported volume 607,805 shares
+  spreads   Spread: Packers (-7.5): Packers 0, Cowboys 1, closed True, reported volume 42,312 shares
+  spreads   Spread: Packers (-10.5): Packers 0, Cowboys 1, closed True, reported volume 14,796 shares
