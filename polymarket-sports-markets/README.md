@@ -96,6 +96,33 @@ number those charts draw is in an output file here; four files are new.
   moneyline traded $244,614 before kickoff and the median college one $20,071; 202 college games traded
   under $1,000.
 
+## Section charts, 2026-10-11 (issue 0xinsider/0xinsider#23679)
+
+The cash-out and tennis first-set studies gained a chart under each section. Both runs used one Neon child
+branch of production forked at 13:03:53 UTC on 2026-10-11, read-only statements only.
+
+- `cash-out-charts-2026-10-11.sql` and `-output.txt` (run 13:33 UTC): the study's universe re-built a day
+  later (38,619 sells, exit edge -0.88; the 18 new sells are on one June soccer market), September's 280
+  sells by sport (170 tennis sells at 70.2c won 80.0%, 94.1% in play), shares and cash on the ten markets
+  with the most sells under 20c (selling Spain cost $15.36M against holding; selling the other nine saved
+  $11.56M), the size floor the large-trade table applied (smallest sell $2,957.75; about $3,000 until
+  2026-07-02, $10,000 from that day), the sells the void correction left out (476 on 174 markets), and
+  every large sports trade in the 30 days to 2026-10-11 by sport and side (495 sells of 11,768; tennis 187
+  of 1,667).
+- `cash-out-charts-2026-10-11-market-edge.csv`, `cash-out-charts-2026-10-11-bootstrap.py` and
+  `-bootstrap-output.txt`: market-clustered intervals by sport and by month (5,000 draws, seed 20260913).
+  The script keeps only the markets in `cash-out-2026-10-10-market-edge.csv`, so its point estimates equal
+  the October 10 run: `python3 cash-out-charts-2026-10-11-bootstrap.py cash-out-2026-10-10-market-edge.csv
+  cash-out-charts-2026-10-11-market-edge.csv`. Only cricket clears zero by sport, value given up +3.73
+  [+0.34, +6.71]; by month only September, +8.64 [+3.22, +13.86]. The output reports value given up; the
+  article negates it.
+- `tennis-sets-charts-2026-10-11.sql` and `-output.txt` (run 13:34 UTC): the study window re-built (20,777
+  matches with a first set where `tennis-sets-output.txt` has 12,640; 6,437 of the 8,137 added are ITF;
+  the first-set winner won 82.3%, and 85.1% of 6,123 matches since 2026-09-14), set 1 against set 2 on the
+  same 11,852 best-of-three matches (82.6% against 84.8%), the first set's score from the Set 1 Games O/U
+  lines (6-2 or wider 87.6%, 7-5 or 7-6 77.1%), and how 28,146 matches with a Completed Match market ended
+  (94.1% finished, 3.8% retired after the start, 2.2% walkovers settled 50-50).
+
 ## Headlines
 
 | Study | Sample | Finding |
@@ -300,8 +327,9 @@ Series 9 (issue 0xinsider/0xinsider#13943):
   large share of buys (80c+ buys tagged outcome 0 "won" 53 to 56% in Feb and Mar; outcome 1
   won 84 to 89%; both about 88% from April 2). Filed as #13182. An early pass read a 25-point
   reverse favorite-longshot bias that was this defect.
-- Grades from 2026-06-01 (coverage widened that month). Alert floor $1,000 through July,
-  $10,000 from August. Book quotes end 2026-07-31.
+- Grades from 2026-06-01 (coverage widened that month). Alert floor about $3,000 until
+  2026-07-02 and $10,000 from that day (`cash-out-charts-2026-10-11-output.txt`, query 4; this
+  line said $1,000 through July until 2026-10-11). Book quotes end 2026-07-31.
 - The 10-20c bucket's +27.6% return is one market: Spain to win the World Cup at 15.2c,
   490 buys, +$41.31M against a bucket total of +$25.89M. Market-clustered intervals catch it.
 - MMA 70c+ (-19 pts) is mostly Strickland vs Chimaev and Gaethje vs Topuria.
