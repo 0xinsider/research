@@ -1,0 +1,190 @@
+            run_at            
+------------------------------
+ 2026-10-11 15:29:28.70654+00
+(1 row)
+
+SELECT 450407
+ANALYZE
+SET
+SELECT 446658
+RESET
+SELECT 450407
+ANALYZE
+SELECT 37231
+SELECT 45780
+SELECT 37179
+SELECT 27345
+SELECT 54690
+ANALYZE
+     win      | matches_with_set_markets | with_set1_mapped | set1_unmapped | best_of_5_with_set1 | first_match | last_match 
+--------------+--------------------------+------------------+---------------+---------------------+-------------+------------
+ a. published |                    21222 |            20777 |             0 |                 532 | 2025-11-09  | 2026-09-13
+ b. extension |                     6123 |             6123 |             0 |                   0 | 2026-09-14  | 2026-10-10
+ c. all       |                    27345 |            26900 |             0 |                 532 | 2025-11-09  | 2026-10-10
+(3 rows)
+
+     win      | singles_match_markets 
+--------------+-----------------------
+ a. published |                 30192
+ b. extension |                  7039
+              |                 37231
+(3 rows)
+
+     win      | matches | set1_winner_won_pct | half_width_pts 
+--------------+---------+---------------------+----------------
+ a. published |   20777 |                82.3 |           0.52
+ b. extension |    6123 |                85.1 |           0.89
+ c. all       |   26900 |                82.9 |           0.45
+(3 rows)
+
+     win      | tour_fmt | matches | share_pct | set1_winner_won_pct | half_width_pts |                          latest_match                          
+--------------+----------+---------+-----------+---------------------+----------------+----------------------------------------------------------------
+ a. published | atp3     |    7197 |      34.6 |                80.5 |           0.92 | Seville: Facundo Acosta vs Dusan Lajovic
+ a. published | atp5     |     532 |       2.6 |                74.6 |           3.70 | US Open ATP: Alexander Zverev vs Ben Shelton
+ a. published | itf      |    8672 |      41.7 |                84.6 |           0.76 | W15 Viserba di Rimini: Marta Lombardini vs Eva Marie Voracek
+ a. published | wta      |    4376 |      21.1 |                81.6 |           1.15 | Guadalajara Open Akron: Cristina Bucsa vs Bianca Andreescu
+ b. extension | atp3     |     934 |      15.3 |                79.6 |           2.59 | Palermo: Francesco Passaro vs Yanaki Milev
+ b. extension | itf      |    4621 |      75.5 |                86.7 |           0.98 | W15 Sharm ElSheikh: Ustiniya Lekomtseva vs Andrea Lola Popovic
+ b. extension | wta      |     568 |       9.3 |                81.2 |           3.22 | Samsun: Lucrezia Stefanini vs Anna Blinkova
+ c. all       | atp3     |    8131 |      30.2 |                80.4 |           0.86 | Palermo: Francesco Passaro vs Yanaki Milev
+ c. all       | atp5     |     532 |       2.0 |                74.6 |           3.70 | US Open ATP: Alexander Zverev vs Ben Shelton
+ c. all       | itf      |   13293 |      49.4 |                85.3 |           0.60 | W15 Sharm ElSheikh: Ustiniya Lekomtseva vs Andrea Lola Popovic
+ c. all       | wta      |    4944 |      18.4 |                81.6 |           1.08 | Samsun: Lucrezia Stefanini vs Anna Blinkova
+(11 rows)
+
+     win      | at_published_mix_pct | at_own_mix_pct | matches 
+--------------+----------------------+----------------+---------
+ a. published |                 82.5 |           82.5 |   20245
+ b. extension |                 82.9 |           85.1 |    6123
+(2 rows)
+
+     mo     | tour_group  | matches | set1_winner_won_pct 
+------------+-------------+---------+---------------------
+ 2025-11-01 | ATP and WTA |      11 |                90.9
+ 2025-12-01 | ATP and WTA |      18 |                72.2
+ 2026-01-01 | ATP and WTA |     947 |                83.3
+ 2026-02-01 | ATP and WTA |    1084 |                82.4
+ 2026-03-01 | ATP and WTA |    1432 |                81.3
+ 2026-04-01 | ATP and WTA |    1468 |                80.9
+ 2026-05-01 | ATP and WTA |    1534 |                80.6
+ 2026-06-01 | ATP and WTA |    1767 |                79.8
+ 2026-06-01 | ITF         |    2403 |                85.3
+ 2026-07-01 | ATP and WTA |    1760 |                80.1
+ 2026-07-01 | ITF         |    3304 |                83.8
+ 2026-08-01 | ATP and WTA |    1400 |                78.3
+ 2026-08-01 | ITF         |    1561 |                84.0
+ 2026-09-01 | ATP and WTA |    1647 |                80.6
+ 2026-09-01 | ITF         |    4667 |                86.4
+ 2026-10-01 | ATP and WTA |     539 |                79.2
+ 2026-10-01 | ITF         |    1358 |                86.6
+(17 rows)
+
+     win      | matches | straight_sets_pct | straight_sets_half_width_pts | of_those_won_match_pct | went_to_decider | set1_winner_won_decider_match_pct | decider_half_width_pts | set1_winner_won_pct | set2_winner_won_pct 
+--------------+---------+-------------------+------------------------------+------------------------+-----------------+-----------------------------------+------------------------+---------------------+---------------------
+ a. published |   11852 |              67.5 |                         0.84 |                  100.0 |            3854 |                              46.6 |                   1.57 |                82.6 |                84.8
+ b. extension |    5974 |              72.6 |                         1.13 |                  100.0 |            1636 |                              44.7 |                   2.41 |                84.9 |                87.7
+ c. all       |   17826 |              69.2 |                         0.68 |                  100.0 |            5490 |                              46.1 |                   1.32 |                83.4 |                85.8
+(3 rows)
+
+     win      | tour_group  | matches | decider_pct | set1_winner_won_decider_match_pct 
+--------------+-------------+---------+-------------+-----------------------------------
+ a. published | ATP and WTA |    4308 |        37.7 |                              45.9
+ a. published | ITF         |    7544 |        29.6 |                              47.2
+ b. extension | ATP and WTA |    1471 |        35.3 |                              43.0
+ b. extension | ITF         |    4503 |        24.8 |                              45.6
+ c. all       | ATP and WTA |    5779 |        37.1 |                              45.2
+ c. all       | ITF         |   12047 |        27.8 |                              46.6
+(6 rows)
+
+     win      | matches | set1_winner_won_pct | won_sets_1_and_2_then_match_pct | won_first_two | split_first_two_set1_winner_won_pct | split_first_two 
+--------------+---------+---------------------+---------------------------------+---------------+-------------------------------------+-----------------
+ a. published |     245 |                69.4 |                            92.0 |           137 |                                40.7 |             108
+ c. all       |     245 |                69.4 |                            92.0 |           137 |                                40.7 |             108
+(2 rows)
+
+  quarter   | matches | set1_winner_won_pct | itf_share_pct 
+------------+---------+---------------------+---------------
+ 2025-10-01 |      29 |                79.3 |           0.0
+ 2026-01-01 |    3463 |                82.2 |           0.0
+ 2026-04-01 |    7172 |                82.1 |          33.5
+ 2026-07-01 |   14339 |                83.3 |          66.5
+ 2026-10-01 |    1897 |                84.5 |          71.6
+(5 rows)
+
+                 tournament                 | matches | first_match | last_match 
+--------------------------------------------+---------+-------------+------------
+ US Open ATP                                |     126 | 2026-08-30  | 2026-09-13
+ Wimbledon ATP                              |     126 | 2026-06-29  | 2026-07-12
+ Roland Garros ATP                          |     123 | 2026-05-24  | 2026-06-07
+ Australian Open Men's                      |     122 | 2026-01-18  | 2026-02-01
+ Wimbledon, Qualification ATP               |      16 | 2026-06-25  | 2026-06-25
+ Next Gen ATP Finals, Group B               |       8 | 2025-12-17  | 2025-12-19
+ Next Gen ATP Finals, Group A               |       6 | 2025-12-17  | 2025-12-19
+ Next Gen ATP Finals, Final Stage           |       3 | 2025-12-20  | 2025-12-21
+ ATP World Tour Finals, Jimmy Connors Group |       1 | 2025-11-11  | 2025-11-11
+ ATP World Tour Finals, Bjorn Borg Group    |       1 | 2025-11-12  | 2025-11-12
+(10 rows)
+
+SELECT 26712
+     win      | line |    fmt    | markets | over_pct | half_width_pts 
+--------------+------+-----------+---------+----------+----------------
+ a. published | 2.5  | best of 3 |   19762 |     33.1 |           0.66
+ a. published | 2.5  | best of 5 |     128 |    100.0 |           0.00
+ a. published | 3.5  | best of 5 |     509 |     55.0 |           4.32
+ a. published | 4.5  | best of 5 |     331 |     23.9 |           4.59
+ b. extension | 2.5  | best of 3 |    5975 |     27.4 |           1.13
+ c. all       | 2.5  | best of 3 |   25737 |     31.8 |           0.57
+ c. all       | 2.5  | best of 5 |     128 |    100.0 |           0.00
+ c. all       | 3.5  | best of 5 |     509 |     55.0 |           4.32
+ c. all       | 4.5  | best of 5 |     331 |     23.9 |           4.59
+(9 rows)
+
+     win      | tour | markets | over_pct | half_width_pts 
+--------------+------+---------+----------+----------------
+ a. published | all  |   19762 |     33.1 |           0.66
+ a. published | atp  |    6890 |     36.9 |           1.14
+ a. published | itf  |    8619 |     29.2 |           0.96
+ a. published | wta  |    4253 |     35.0 |           1.43
+ b. extension | all  |    5975 |     27.4 |           1.13
+ b. extension | atp  |     914 |     36.0 |           3.11
+ b. extension | itf  |    4504 |     24.8 |           1.26
+ b. extension | wta  |     557 |     34.1 |           3.94
+ c. all       | all  |   25737 |     31.8 |           0.57
+ c. all       | atp  |    7804 |     36.8 |           1.07
+ c. all       | itf  |   13123 |     27.7 |           0.77
+ c. all       | wta  |    4810 |     34.9 |           1.35
+(12 rows)
+
+ matches | agreement_pct 
+---------+---------------
+   17486 |         100.0
+(1 row)
+
+SELECT 29663
+SELECT 27345
+           set1_class            | matches | set1_winner_won_pct | half_width_pts 
+---------------------------------+---------+---------------------+----------------
+ (lines missing or inconsistent) |    1669 |                81.1 |           1.88
+ a. 6-0, 6-1 or 6-2              |    8813 |                88.5 |           0.67
+ b. 6-3                          |    5528 |                83.0 |           0.99
+ c. 6-4                          |    5486 |                79.9 |           1.06
+ d. 7-5 or 7-6                   |    5404 |                77.4 |           1.12
+                                 |   26900 |                82.9 |           0.45
+(6 rows)
+
+ tour |     set1_class     | matches | share_pct | set1_winner_won_pct 
+------+--------------------+---------+-----------+---------------------
+ atp  | a. 6-0, 6-1 or 6-2 |    1995 |      26.3 |                85.1
+ atp  | b. 6-3             |    1734 |      22.8 |                81.8
+ atp  | c. 6-4             |    1827 |      24.1 |                78.9
+ atp  | d. 7-5 or 7-6      |    2035 |      26.8 |                76.1
+ itf  | a. 6-0, 6-1 or 6-2 |    5053 |      40.2 |                90.8
+ itf  | b. 6-3             |    2691 |      21.4 |                84.7
+ itf  | c. 6-4             |    2538 |      20.2 |                81.6
+ itf  | d. 7-5 or 7-6      |    2278 |      18.1 |                78.5
+ wta  | a. 6-0, 6-1 or 6-2 |    1654 |      35.8 |                86.6
+ wta  | b. 6-3             |     992 |      21.5 |                80.9
+ wta  | c. 6-4             |    1018 |      22.0 |                78.5
+ wta  | d. 7-5 or 7-6      |     953 |      20.6 |                77.8
+(12 rows)
+

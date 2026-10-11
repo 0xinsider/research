@@ -243,6 +243,53 @@ quoted-spread subset. In every universe the smallest buy is $2,996, the last buy
 $1,000 (query 10 of `calibration-2026-10-10.sql`) is not the floor of any sports sample. The articles now say
 "about $3,000 until July 2, 2026 and $10,000 after".
 
+## Soccer draws price-sum check, 2026-10-11 (issue 0xinsider/0xinsider#23731)
+
+The soccer draws study prices large buys at their fill price (`whale_alerts.price_num`, before or after
+kickoff), not at a price-history point, so a stale quote can only reach it through the match a buy sits on.
+`soccer-draws-price-sum-filter-2026-10-11.sql` and `-output.txt` (read-only, a Neon child branch of
+production, run 15:08 UTC) add up each match's three result prices (draw, home, away) at the last
+`outcome_price_snapshots` point before kickoff, within 36 hours and with the three legs within 2 hours of
+each other, and drop the matches whose sum falls outside 95c to 105c. The tolerance comes from the
+distribution: per-cent counts fall to the tail floor at 5c either side of $1.
+
+- 10,436 complete matches; 8,992 could be checked, 260 (2.9%) fell outside, median sum 119.8c. Their draw
+  quote was 36.0c against 25.1c, and they drew 25.4% against 26.0%: the quote was noise.
+- 2,718 matches carry a large buy in the study window; 4 of them, with 4 buys, are outside the band and 711
+  could not be checked (kept). Every leg, side and phase moves by 0.03 pts or less. Pre-kickoff draw Yes:
+  +3.66 [-5.27, +12.79] on all, +3.63 [-5.14, +12.78] kept (`soccer-draws-price-sum-filter-2026-10-11-
+  market-edge.csv`, `python3 bootstrap-2026-09-13.py` on it, `-bootstrap-output.txt`). Counted once per match,
+  353 draws at 27.6c drew 28.9%; kept, 352 at 27.5c drew 28.7%. Sensitivity: a 2c band gives +3.22; keeping
+  only checked matches gives +6.12, inside the published interval. No conclusion moves, so the article states
+  the check without a correction.
+- The same run applies the filter to both teams to score, over/under, the favorite-longshot buckets and
+  fading the crowd (soccer rows): none moves by more than 0.03 pts, and most lose no buy at all.
+
+## Tennis first set re-run, 2026-10-11 (issue 0xinsider/0xinsider#23731)
+
+https://0xinsider.com/research/tennis-first-set-winner-polymarket and the tennis guide now state this run
+and only this run. `tennis-sets-rerun-2026-10-11.sql` and `-output.txt` (read-only, Neon child branch,
+run 15:29 UTC) repeat `tennis-sets.sql` on two windows, the published one (2025-11-09 to 2026-09-13,
+rebuilt) and a dated extension (2026-09-14 to 2026-10-10), split by tour throughout, with a mix query
+(3b), a month-by-tour-group query (3c) and the first-set score from the Set 1 Games O/U lines (10).
+
+| Figure | 2026-09-13 run | Published window, rebuilt | Extension | All |
+|---|---:|---:|---:|---:|
+| Matches with a mapped first set | 12,640 | 20,777 | 6,123 | 26,900 |
+| First-set winner won the match | 80.7% (+/- 0.69) | 82.3% (+/- 0.52) | 85.1% (+/- 0.89) | 82.9% (+/- 0.45) |
+| ITF share of matches | 17.7% | 41.7% | 75.5% | 49.4% |
+| ITF / WTA / ATP best of 3 | 83.1 / 81.1 / 80.0 | 84.6 / 81.6 / 80.5 | 86.7 / 81.2 / 79.6 | 85.3 / 81.6 / 80.4 |
+| Best of 5 | 74.3% (522) | 74.6% (532) | none | 74.6% (532) |
+| Third set, best of 3 | 36.9% | 33.1% | 27.4% | 31.8% |
+
+The rise is mostly the mix: on best of three, the extension is 85.1% at its own mix of tours and 82.9% at
+the published window's, against 82.5% before. The ATP and WTA together ran 78.3% to 83.3% a month from
+January with no rise; the ITF, which enters the sample in June 2026, rose from 84.6% to 86.7%, outside
+both half-widths. The conclusions hold: about four in five, the ITF highest and best of five lowest, and
+the second-set winner takes 53.9% of deciders (46.1% +/- 1.32 to the first-set winner, 17,826 matches).
+The Set 2 sample no longer runs closer than the rest (third sets 30.8% against 31.8%). The 2026-09-13 run
+stays the record of what the page first published.
+
 ## Headlines
 
 | Study | Sample | Finding |
@@ -461,6 +508,9 @@ Series 9 (issue 0xinsider/0xinsider#13943):
 lines write the market-level CSVs the bootstrap reads.
 
 NBA pricing: `nba-pricing*` (see the 2026-10-11 section above for which file is which).
+
+Re-runs under 0xinsider/0xinsider#23731: `soccer-draws-price-sum-filter-2026-10-11*` and
+`tennis-sets-rerun-2026-10-11*` (see their 2026-10-11 sections above).
 
 Series 2: `wallet-census.sql`, `fade-crowd.sql` with their `-output.txt`; the census re-run
 `wallet-census-2026-10-11.sql` and its `-output.txt`;
