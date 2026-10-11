@@ -1,0 +1,41 @@
+== Counted universe: 9501 of 9504 series
+
+== 1. Counted series by month (UTC, listed start) and game
+month       cs2  dota2    lol  valorant  total
+2025-11      72     54      0        23    149
+2025-12     167    155     36        14    372
+2026-01     571    283    157       212   1223
+2026-02     921    165    127       302   1515
+2026-03     249     50     30        44    373
+2026-04     562    192    332       261   1347
+2026-05     558    158    298       169   1183
+2026-06     310    132     34       102    578
+2026-07     452     78    148       185    863
+2026-08     703    168    349       169   1389
+2026-09     389     55     21        44    509
+
+== Priced series: 9161 of 9501
+  left out: no price in the 24h window                 190
+  left out: price more than 60 minutes before start    8
+  left out: priced exactly 50-50                       142
+
+== 2. The favorite's series win rate after it took or dropped Map/Game 1
+All four games   series  9161  favorite price  67.98c  took map 1:  5849, won series  87.2% +/- 0.86   dropped map 1:  3312, won series  34.3% +/- 1.62  (underdog that took map 1 won the series  65.7%)
+CS2              series  4710  favorite price  66.57c  took map 1:  2967, won series  87.2% +/- 1.20   dropped map 1:  1743, won series  33.0% +/- 2.21  (underdog that took map 1 won the series  67.0%)
+Dota 2           series  1433  favorite price  68.97c  took map 1:   938, won series  86.9% +/- 2.16   dropped map 1:   495, won series  37.8% +/- 4.27  (underdog that took map 1 won the series  62.2%)
+LoL              series  1526  favorite price  72.66c  took map 1:  1041, won series  89.8% +/- 1.84   dropped map 1:   485, won series  37.5% +/- 4.31  (underdog that took map 1 won the series  62.5%)
+Valorant         series  1492  favorite price  66.72c  took map 1:   903, won series  84.4% +/- 2.37   dropped map 1:   589, won series  32.6% +/- 3.79  (underdog that took map 1 won the series  67.4%)
+
+== 3. The same, by the favorite's starting-price band, pooled across the four games
+Favorite 50c to 60c series  2863  favorite price  54.97c  took map 1:  1550, won series  79.8% +/- 2.00   dropped map 1:  1313, won series  24.9% +/- 2.34  (underdog that took map 1 won the series  75.1%)
+Favorite 60c to 70c series  2604  favorite price  64.78c  took map 1:  1572, won series  84.5% +/- 1.79   dropped map 1:  1032, won series  34.5% +/- 2.90  (underdog that took map 1 won the series  65.5%)
+Favorite 70c to 80c series  1970  favorite price  74.49c  took map 1:  1333, won series  89.7% +/- 1.63   dropped map 1:   637, won series  42.4% +/- 3.84  (underdog that took map 1 won the series  57.6%)
+Favorite 80c to 90c series  1232  favorite price  84.38c  took map 1:   951, won series  94.6% +/- 1.43   dropped map 1:   281, won series  53.0% +/- 5.84  (underdog that took map 1 won the series  47.0%)
+Favorite 90c and up series   492  favorite price  93.50c  took map 1:   443, won series  98.4% +/- 1.16   dropped map 1:    49, won series  71.4% +/- 12.65  (underdog that took map 1 won the series  28.6%)
+
+== 4. Minutes between the starting price's point and the listed start, priced series
+median 0.80  p90 0.90  max 50.80
+  under 1 minute      9100   99.3%
+  1 to 5 minutes        50    0.5%
+  5 to 15 minutes        2    0.0%
+  15 to 60 minutes       9    0.1%
