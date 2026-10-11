@@ -76,6 +76,26 @@ The sports market is still calibrated to within a quarter of a point; the longsh
 whose interval now reaches zero; early money still loses one to seven days out; and the rest of Polymarket's
 "six to ten points against the buyer" was mostly void markets.
 
+## Section charts, 2026-10-11 (issue 0xinsider/0xinsider#23663)
+
+The point spreads, home advantage and football underdogs studies gained a chart under each section. Every
+number those charts draw is in an output file here; four files are new.
+
+- `spreads-home-volume-by-league-2026-10-11.sql` and `-output.txt` (read-only, run 12:20 UTC on 2026-10-11):
+  moneyline, spread and total shares of the volume on games from September 10 to October 10, 2026, by
+  league, markets with 1,000 or more in Polymarket's reported volume (counted in shares). Spreads took 29.9%
+  of NFL game volume, 26.2% of college football and 6.1% of soccer; moneylines took 54.1% to 75.3%.
+- `football-families-2026-10-11.sql` and `-output.txt` (run 12:23 UTC): the same split for NFL and college
+  football by market family. Everything past the moneyline, spread and total drew 1.6% of NFL and 1.7% of
+  college volume.
+- `spreads-nfl-margins-2026-10-11.py` and `-output.txt`: final margins of the 570 NFL games in
+  `football-scoreboard.csv` (regular season and playoffs, none tied). 15.1% were decided by exactly 3
+  points and 8.1% by exactly 7.
+- `football-charts-2026-10-11.py` and `-output.txt`: underdogs by league and season, and games by dollars
+  traded on the moneyline before kickoff, from the football CSVs above with no new read. The median NFL
+  moneyline traded $244,614 before kickoff and the median college one $20,071; 202 college games traded
+  under $1,000.
+
 ## Headlines
 
 | Study | Sample | Finding |
