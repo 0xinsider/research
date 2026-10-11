@@ -1,0 +1,31 @@
+            run_at             
+-------------------------------
+ 2026-10-11 12:23:50.430318+00
+(1 row)
+
+[prod-read] rows=1 stdout_bytes=127 max_rows=5000
+ league |        family        | games | markets |  volume   | share_pct 
+--------+----------------------+-------+---------+-----------+-----------
+ cfb    | (all)                |   546 |    4641 | 178123459 |     100.0
+ cfb    | moneyline            |   521 |     521 | 106029404 |      59.5
+ cfb    | spreads              |   388 |    2418 |  46611800 |      26.2
+ cfb    | totals               |   382 |    1444 |  22387007 |      12.6
+ cfb    | q1_spreads           |    11 |      11 |    800815 |       0.4
+ cfb    | first_half_totals    |    19 |      22 |    704404 |       0.4
+ cfb    | (other families)     |    28 |      42 |    667682 |       0.4
+ cfb    | team_totals          |    42 |      48 |    444955 |       0.2
+ cfb    | first_half_spreads   |    87 |     124 |    426639 |       0.2
+ cfb    | first_half_moneyline |    11 |      11 |     50754 |       0.0
+ nfl    | (all)                |    65 |    3061 | 399798614 |     100.0
+ nfl    | moneyline            |    65 |      65 | 216184642 |      54.1
+ nfl    | spreads              |    65 |    1230 | 119396243 |      29.9
+ nfl    | totals               |    65 |    1093 |  57686140 |      14.4
+ nfl    | (other families)     |    53 |     411 |   2983239 |       0.7
+ nfl    | first_half_spreads   |    54 |     130 |   1333459 |       0.3
+ nfl    | team_totals          |    33 |      49 |   1027916 |       0.3
+ nfl    | first_half_moneyline |    27 |      27 |    813954 |       0.2
+ nfl    | first_half_totals    |    32 |      41 |    319000 |       0.1
+ nfl    | q1_spreads           |    12 |      15 |     54022 |       0.0
+(20 rows)
+
+[prod-read] rows=20 stdout_bytes=1642 max_rows=5000

@@ -1,0 +1,28 @@
+== NFL final margins: 570 regular-season and postseason games, 2024-09-06 to 2026-09-11 (ESPN start, UTC)
+ties 0
+margin  1  games   29  share   5.1%
+margin  2  games   31  share   5.4%
+margin  3  games   86  share  15.1%
+margin  4  games   27  share   4.7%
+margin  5  games   29  share   5.1%
+margin  6  games   40  share   7.0%
+margin  7  games   46  share   8.1%
+margin  8  games   21  share   3.7%
+margin  9  games    8  share   1.4%
+margin 10  games   24  share   4.2%
+margin 11  games    5  share   0.9%
+margin 12  games   12  share   2.1%
+margin 13  games   16  share   2.8%
+margin 14  games   18  share   3.2%
+margin 15  games    7  share   1.2%
+margin 16  games   11  share   1.9%
+margin 17  games   26  share   4.6%
+margin 18  games   12  share   2.1%
+margin 19  games    9  share   1.6%
+margin 20  games   10  share   1.8%
+margin 21  games   12  share   2.1%
+margin 22+ games   91  share  16.0%
+won by more than 2.5: 510 games, 89.5% of all games
+won by more than 3.5: 424 games, 74.4% of all games
+won by more than 6.5: 328 games, 57.5% of all games
+won by more than 7.5: 282 games, 49.5% of all games
