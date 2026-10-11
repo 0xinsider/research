@@ -123,6 +123,35 @@ branch of production forked at 13:03:53 UTC on 2026-10-11, read-only statements 
   lines (6-2 or wider 87.6%, 7-5 or 7-6 77.1%), and how 28,146 matches with a Completed Match market ended
   (94.1% finished, 3.8% retired after the start, 2.2% walkovers settled 50-50).
 
+## Section charts, 2026-10-11 (issue 0xinsider/0xinsider#23687)
+
+The esports first-map study and the NBA pricing study gained a chart under each section.
+
+- `esports-map1-charts-2026-10-11.py` and `-output.txt`: new cuts of the same two CSVs, no database
+  (`python3 esports-map1-charts-2026-10-11.py`). Priced series by month and game; the favorite's series win
+  rate after taking Map/Game 1 (87.2% +/- 0.86 of 5,849) and after dropping it (34.3% +/- 1.62 of 3,312), so
+  an underdog that took Map 1 won the series 65.7% of the time; the same by starting-price band (an 80-90c
+  favorite that dropped Map 1 won 53.0% +/- 5.84 of 281); and how far before the listed start the price was
+  read (median 0.8 minutes, 99.3% within a minute). The site said until 2026-10-11 that an underdog a map up
+  lost four times in five; it wins about two in three.
+- `esports-map1-recent-2026-10-11.sql` and `-output.txt` (read replica, read-only, 13:37 UTC): the four
+  games' series with a start from 2026-09-11 to 2026-10-10 (1,936; 1,469 best-of-three) and their volume by
+  market family. Volume is Polymarket's reported volume, counted in shares (0xinsider/0xinsider#22291): map
+  and game winners drew 50.7%, the series market 45.4% (Dota 2 68.6% on map and game winners). The
+  large-trade feed's esports buys in the same window: 2,062, $44.12M, 659 on a map or game winner.
+- The NBA pricing study (https://0xinsider.com/research/nba-betting-polymarket-sports, published 2026-09-14)
+  joins this folder. `nba-pricing.sql`, `-output.txt`, `-market-edge.csv`, `nba-pricing-bootstrap.py` and
+  `nba-pricing-bootstrap-output.txt` are the September 14 run; the `nba-pricing-2026-10-10` files are the
+  void-corrected re-run (same child branch as the other 2026-10-10 runs): 63,037 large NBA buys, April 2 to
+  July 24, paid 59.5c, won 59.2%, -0.26 pts [-1.79, +1.17]; under 30c +3.78 [-4.16, +12.20], 70c and up
+  -1.62 [-7.41, +3.54]; no market type or game phase clears zero. Query 2 is the 10-cent buckets the charts
+  draw (30-40c buys made +$30.48M held to settlement, the other nine buckets -$11.4M together); query 11
+  is the feed's smallest and median NBA buy by month ($2,996 to $3,172 smallest through July, $10,000 or
+  more after). `python3 nba-pricing-bootstrap.py nba-pricing-2026-10-10-market-edge.csv` reproduces the
+  intervals (5,000 draws, seed 20260914). `nba-pricing-example-game.sql` and `-output.txt` break down one
+  game's 119 markets (nba-nyk-sas-2026-06-13; the moneyline drew 18.77M of 23.79M in volume), and
+  `nba-pricing-example-game-result-2026-10-11.txt` is the Gamma read of its result (Knicks).
+
 ## Headlines
 
 | Study | Sample | Finding |
@@ -339,6 +368,8 @@ Series 9 (issue 0xinsider/0xinsider#13943):
 `calibration.sql`, `sharp-money.sql`, `timing.sql` with their `-output.txt`;
 `bootstrap.py` (numpy, 5,000 draws, seed 20260912) and `bootstrap-output.txt`. The `\copy`
 lines write the market-level CSVs the bootstrap reads.
+
+NBA pricing: `nba-pricing*` (see the 2026-10-11 section above for which file is which).
 
 Series 2: `wallet-census.sql`, `fade-crowd.sql` with their `-output.txt`;
 `fade-crowd-market-edge.csv`; `bootstrap-2026-09-13.py` (seed 20260913) and

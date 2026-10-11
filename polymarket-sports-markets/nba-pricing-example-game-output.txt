@@ -1,0 +1,31 @@
+            run_at
+-------------------------------
+ 2026-09-14 17:30:26.053569+00
+(1 row)
+
+ total_markets | total_volume_musd
+---------------+-------------------
+           119 |             23.79
+(1 row)
+
+          market_type           | n  | volume_musd
+--------------------------------+----+-------------
+ spreads                        | 41 |        3.67
+ totals                         | 25 |        1.11
+ points                         | 10 |        0.06
+ first_half_totals              | 10 |        0.03
+ rebounds                       | 10 |        0.02
+ assists                        | 10 |        0.02
+ first_half_spreads             |  9 |        0.05
+ basketball_team_to_score_first |  1 |        0.00
+ first_half_moneyline           |  1 |        0.06
+ moneyline                      |  1 |       18.77
+ basketball_odd_even            |  1 |        0.00
+(11 rows)
+
+ market_type | n
+-------------+----
+ assists     | 10
+ points      | 10
+ rebounds    | 10
+(3 rows)

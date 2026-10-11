@@ -1,0 +1,10 @@
+
+== nba-pricing-2026-10-10-market-edge.csv  (5000 draws, seed 20260914, resampled over markets)
+group                       trades  markets  edge_pts   95% CI
+all                          63037     1841     -0.26   [-1.79, +1.17]
+band_30_70c                  41419     1598      0.03   [-1.25, +1.25]
+band_70c_plus                18427      732     -1.62   [-7.41, +3.54]
+band_under30c                 3191      277      3.78   [-4.16, +12.20]
+moneyline                    37771      187     -0.48   [-2.84, +1.75]
+spreads                      13458      673      0.50   [-0.85, +1.82]
+totals                        7845      709      1.13   [-0.58, +2.82]

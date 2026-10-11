@@ -1,0 +1,35 @@
+# The result of the NBA example game (0xinsider/0xinsider#23687)
+
+nba-pricing-example-game.sql and its output list the markets and volume on
+nba-nyk-sas-2026-06-13 but not who won. This is that read.
+
+Public Polymarket Gamma API, read 13:54 UTC on 2026-10-11:
+
+$ curl -s "https://gamma-api.polymarket.com/events?slug=nba-nyk-sas-2026-06-13" \
+  | jq '.[0] | {slug, title, seriesSlug: (.series[0].slug // .seriesSlug), closed, volume,
+        markets: (.markets|length),
+        moneyline: [.markets[] | select(.sportsMarketType=="moneyline")
+          | {question, outcomes, outcomePrices, umaResolutionStatus, closed, volume}]}'
+{
+  "slug": "nba-nyk-sas-2026-06-13",
+  "title": "Knicks vs. Spurs",
+  "seriesSlug": "nba-2026",
+  "closed": true,
+  "volume": 23787414.493110273,
+  "markets": 119,
+  "moneyline": [
+    {
+      "question": "Knicks vs. Spurs",
+      "outcomes": "[\"Knicks\", \"Spurs\"]",
+      "outcomePrices": "[\"1\", \"0\"]",
+      "umaResolutionStatus": "resolved",
+      "closed": true,
+      "volume": "18768516.955810275"
+    }
+  ]
+}
+
+Reading: the moneyline resolved to the Knicks (outcome price 1). The event's
+119 markets and its 23.79 million in reported volume (shares traded, #22291)
+match the totals row of the September 14 example-game output; the moneyline's
+18.77 million matches that output's moneyline row.
