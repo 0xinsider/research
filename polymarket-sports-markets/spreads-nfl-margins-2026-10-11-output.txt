@@ -1,5 +1,6 @@
-== NFL final margins: 570 regular-season and postseason games, 2024-09-06 to 2026-09-11 (ESPN start, UTC)
-ties 0
+tie added: 2025-09-29T00:20Z Green Bay Packers 40 at Dallas Cowboys 40, Polymarket nfl-gb-dal-2025-09-28 settled 0.5/0.5
+== NFL final margins: 571 regular-season and postseason games, 2024-09-06 to 2026-09-11 (ESPN start, UTC)
+ties 1
 margin  1  games   29  share   5.1%
 margin  2  games   31  share   5.4%
 margin  3  games   86  share  15.1%
@@ -21,8 +22,8 @@ margin 18  games   12  share   2.1%
 margin 19  games    9  share   1.6%
 margin 20  games   10  share   1.8%
 margin 21  games   12  share   2.1%
-margin 22+ games   91  share  16.0%
-won by more than 2.5: 510 games, 89.5% of all games
-won by more than 3.5: 424 games, 74.4% of all games
-won by more than 6.5: 328 games, 57.5% of all games
-won by more than 7.5: 282 games, 49.5% of all games
+margin 22+ games   91  share  15.9%
+won by more than 2.5: 510 games, 89.3% of all games
+won by more than 3.5: 424 games, 74.3% of all games
+won by more than 6.5: 328 games, 57.4% of all games
+won by more than 7.5: 282 games, 49.4% of all games
