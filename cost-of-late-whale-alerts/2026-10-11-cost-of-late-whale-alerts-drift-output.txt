@@ -1,0 +1,22 @@
+# #23694: output of 2026-10-11-cost-of-late-whale-alerts-drift.py, run 2026-10-11 from 14:00 UTC over the cohort of query E
+# (1,588 buys; per-buy prices in 2026-10-11-cost-of-late-whale-alerts-cohort.csv). Cents per share of the outcome bought;
+# +- is the 95% half-width of the mean, clustered by outcome token.
+
+== every buy in the cohort: 1588 buys
+   h1 minus 5m: priced 1588, missing 0, outcome tokens 584; median +0.00c, mean +0.20c +-0.14, mean absolute 0.85c; dearer 429, cheaper 311, unchanged 848
+   h6 minus 5m: priced 1588, missing 0, outcome tokens 584; median +0.00c, mean +0.30c +-0.27, mean absolute 1.61c; dearer 599, cheaper 451, unchanged 538
+   h24 minus 5m: priced 1585, missing 3, outcome tokens 583; median +0.00c, mean +1.12c +-0.80, mean absolute 4.52c; dearer 736, cheaper 540, unchanged 309
+   h24 bands: cheaper by 5c or more 107; cheaper by 1c to 5c 355; within 1c 492; dearer by 1c to 5c 404; dearer by 5c or more 227
+   the large buy's fill minus the price just before it: priced 1588, median +0.50c, mean +1.37c
+== sports: 404 buys
+   h1 minus 5m: priced 404, missing 0, outcome tokens 278; median +0.00c, mean +0.03c +-0.15, mean absolute 0.37c; dearer 53, cheaper 50, unchanged 301
+   h6 minus 5m: priced 404, missing 0, outcome tokens 278; median +0.00c, mean +0.10c +-0.26, mean absolute 0.79c; dearer 101, cheaper 84, unchanged 219
+   h24 minus 5m: priced 402, missing 2, outcome tokens 277; median +0.00c, mean +1.65c +-1.70, mean absolute 6.99c; dearer 170, cheaper 118, unchanged 114
+   h24 bands: cheaper by 5c or more 24; cheaper by 1c to 5c 85; within 1c 135; dearer by 1c to 5c 105; dearer by 5c or more 53
+   the large buy's fill minus the price just before it: priced 404, median +0.50c, mean +0.76c
+== everything else: 1184 buys
+   h1 minus 5m: priced 1184, missing 0, outcome tokens 306; median +0.00c, mean +0.26c +-0.18, mean absolute 1.01c; dearer 376, cheaper 261, unchanged 547
+   h6 minus 5m: priced 1184, missing 0, outcome tokens 306; median +0.00c, mean +0.37c +-0.34, mean absolute 1.88c; dearer 498, cheaper 367, unchanged 319
+   h24 minus 5m: priced 1183, missing 1, outcome tokens 306; median +0.00c, mean +0.94c +-0.93, mean absolute 3.67c; dearer 566, cheaper 422, unchanged 195
+   h24 bands: cheaper by 5c or more 83; cheaper by 1c to 5c 270; within 1c 357; dearer by 1c to 5c 299; dearer by 5c or more 174
+   the large buy's fill minus the price just before it: priced 1184, median +0.50c, mean +1.58c

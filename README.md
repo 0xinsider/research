@@ -73,6 +73,18 @@ reproduces that too.
 
 Published: <https://0xinsider.com/research/use-0xinsider-for-kalshi-draftkings>
 
+### [cost-of-late-whale-alerts](cost-of-late-whale-alerts) — what a late large-trade alert costs
+
+13,218 Polymarket large trades recorded from 2026-09-10 to 2026-10-09, read 2026-10-11. 11,114 of the
+11,530 on sports (96.4%) settled within 24 hours of the fill, against 145 of the 1,688 elsewhere (8.6%).
+On the 1,588 buys whose market was still open a day later, the price 24 hours after the fill was 1.12
+cents above the price five minutes after it on average (± 0.80, clustered by outcome token, on the 1,585
+priced at both marks), with a median of zero and a mean absolute move of 4.52 cents. The cohort file
+carries each buy's five price marks, so the summary recomputes with no database; the script re-reads
+Polymarket's public price history with no key.
+
+Published: <https://0xinsider.com/research/cost-of-late-whale-alerts>
+
 ## Reproducing
 
 Each study directory holds its SQL, the raw `psql` output of the run the figures
