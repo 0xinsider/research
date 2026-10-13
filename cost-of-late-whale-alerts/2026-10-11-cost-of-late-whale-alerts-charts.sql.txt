@@ -1,0 +1,147 @@
+-- #23694 (epic #23652, slice R7): section charts for /research/cost-of-late-whale-alerts.
+-- Read-only. Run through scripts/prod-read.sh against the production READ REPLICA: one statement per call, inside
+-- BEGIN READ ONLY with statement_timeout 60s, results through a capped cursor. Output: the -output.txt beside this file.
+--
+-- Universe, every query: every Polymarket large trade the feed recorded (whale_alerts) from 2026-09-10 00:00 to
+-- 2026-10-10 00:00 UTC, 30 days. The feed's floor in that window is $10,000 ($1,000 on an earnings market; one such fill).
+-- Read on 2026-10-11 from about 14:10 UTC, so every fill had at least 38 hours to settle before the read.
+--
+-- Settle clock. A market counts as settled when market_outcomes holds a result (winning_outcome 0, 1, or -1 void;
+-- -2 is the unresolved placeholder and its resolved_at means nothing). Its settle time is the provider's
+-- (resolved_at when resolved_at_source names Polymarket, else market_resolution_clocks.provider_closed_at), and
+-- otherwise our write time (rows written before #22710). Where both exist in this window they agree: none of the
+-- 2,365 trades with both differed by more than an hour, median 2 minutes (exploratory read, 2026-10-11 13:53 UTC).
+-- Query A's last column counts the trades whose settle time is the write time.
+--
+-- Sports = the category list the sports studies use (2026-10-11-fading-the-crowd-polymarket-sports-charts.sql.txt).
+
+-- A. When each large trade's market settled, measured from the fill.
+with w as (
+  select w.id, w.traded_at, w.inserted_at, w.side, w.category, w.price_num, w.usdc_notional_num, w.outcome_index, w.condition_id,
+         case when w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball') then 'sports' else 'other' end grp,
+         case when mo.winning_outcome in (0, 1, -1) then
+           case when mo.resolved_at_source in ('polymarket_resolution', 'polymarket_gamma_closed_time') then mo.resolved_at
+                when mrc.provider_closed_at is not null then mrc.provider_closed_at
+                else mo.resolved_at end end settle_at,
+         (mo.winning_outcome in (0, 1, -1) and coalesce(mo.resolved_at_source, '') not in ('polymarket_resolution', 'polymarket_gamma_closed_time')
+            and mrc.provider_closed_at is null) write_clock
+  from whale_alerts w
+  left join market_outcomes mo on mo.condition_id = w.condition_id
+  left join market_resolution_clocks mrc on mrc.condition_id = w.condition_id
+  where w.platform = 'polymarket'
+    and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00')
+select coalesce(grp, 'all') grp, count(*) trades,
+  count(*) filter (where settle_at <= traded_at) settled_at_or_before_fill,
+  count(*) filter (where settle_at > traded_at and settle_at <= traded_at + interval '1 hour') within_1h,
+  count(*) filter (where settle_at > traded_at + interval '1 hour' and settle_at <= traded_at + interval '6 hours') h1_to_6,
+  count(*) filter (where settle_at > traded_at + interval '6 hours' and settle_at <= traded_at + interval '24 hours') h6_to_24,
+  count(*) filter (where settle_at > traded_at + interval '24 hours' and settle_at <= traded_at + interval '7 days') d1_to_7,
+  count(*) filter (where settle_at > traded_at + interval '7 days') after_7d,
+  count(*) filter (where settle_at is null) not_settled_at_read,
+  count(*) filter (where write_clock) settle_clock_is_write_time
+from w group by rollup(grp) order by grp nulls last;
+
+-- B. The same by category, categories with 100 or more large trades.
+with w as (
+  select w.id, w.traded_at, w.inserted_at, w.side, w.category, w.price_num, w.usdc_notional_num, w.outcome_index, w.condition_id,
+         case when w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball') then 'sports' else 'other' end grp,
+         case when mo.winning_outcome in (0, 1, -1) then
+           case when mo.resolved_at_source in ('polymarket_resolution', 'polymarket_gamma_closed_time') then mo.resolved_at
+                when mrc.provider_closed_at is not null then mrc.provider_closed_at
+                else mo.resolved_at end end settle_at,
+         (mo.winning_outcome in (0, 1, -1) and coalesce(mo.resolved_at_source, '') not in ('polymarket_resolution', 'polymarket_gamma_closed_time')
+            and mrc.provider_closed_at is null) write_clock
+  from whale_alerts w
+  left join market_outcomes mo on mo.condition_id = w.condition_id
+  left join market_resolution_clocks mrc on mrc.condition_id = w.condition_id
+  where w.platform = 'polymarket'
+    and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00')
+select category, count(*) trades,
+  count(*) filter (where settle_at > traded_at and settle_at <= traded_at + interval '24 hours') settled_within_24h,
+  round(100.0 * count(*) filter (where settle_at > traded_at and settle_at <= traded_at + interval '24 hours') / count(*), 1) pct_within_24h,
+  round((percentile_cont(0.5) within group (order by extract(epoch from settle_at - traded_at) / 3600.0) filter (where settle_at > traded_at))::numeric, 2) median_hours_to_settle_if_settled
+from w group by 1 having count(*) >= 100 order by 2 desc;
+
+-- C. Fill to record: seconds from the fill (traded_at, the block time) to the large-trade row the feed reads
+-- (inserted_at). The column exists from 2026-09-26 14:23 UTC, so this covers the rows that carry it.
+with w as (
+  select w.id, w.traded_at, w.inserted_at, w.side, w.category, w.price_num, w.usdc_notional_num, w.outcome_index, w.condition_id,
+         case when w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball') then 'sports' else 'other' end grp,
+         case when mo.winning_outcome in (0, 1, -1) then
+           case when mo.resolved_at_source in ('polymarket_resolution', 'polymarket_gamma_closed_time') then mo.resolved_at
+                when mrc.provider_closed_at is not null then mrc.provider_closed_at
+                else mo.resolved_at end end settle_at,
+         (mo.winning_outcome in (0, 1, -1) and coalesce(mo.resolved_at_source, '') not in ('polymarket_resolution', 'polymarket_gamma_closed_time')
+            and mrc.provider_closed_at is null) write_clock
+  from whale_alerts w
+  left join market_outcomes mo on mo.condition_id = w.condition_id
+  left join market_resolution_clocks mrc on mrc.condition_id = w.condition_id
+  where w.platform = 'polymarket'
+    and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00')
+select coalesce(grp, 'all') grp, count(*) trades, min(traded_at) first_fill_with_insert_time,
+  round((percentile_cont(0.1) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p10_s,
+  round((percentile_cont(0.25) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p25_s,
+  round((percentile_cont(0.5) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p50_s,
+  round((percentile_cont(0.75) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p75_s,
+  round((percentile_cont(0.9) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p90_s,
+  round((percentile_cont(0.99) within group (order by extract(epoch from inserted_at - traded_at)))::numeric, 2) p99_s,
+  count(*) filter (where inserted_at - traded_at <= interval '10 seconds') within_10s,
+  count(*) filter (where inserted_at - traded_at <= interval '60 seconds') within_60s
+from w where inserted_at is not null group by rollup(grp) order by grp nulls last;
+
+-- D. The cohort a delay can be measured on: buys, priced 2c to 98c, on a market still open 24 hours after the fill.
+with w as (
+  select w.id, w.traded_at, w.inserted_at, w.side, w.category, w.price_num, w.usdc_notional_num, w.outcome_index, w.condition_id,
+         case when w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball') then 'sports' else 'other' end grp,
+         case when mo.winning_outcome in (0, 1, -1) then
+           case when mo.resolved_at_source in ('polymarket_resolution', 'polymarket_gamma_closed_time') then mo.resolved_at
+                when mrc.provider_closed_at is not null then mrc.provider_closed_at
+                else mo.resolved_at end end settle_at,
+         (mo.winning_outcome in (0, 1, -1) and coalesce(mo.resolved_at_source, '') not in ('polymarket_resolution', 'polymarket_gamma_closed_time')
+            and mrc.provider_closed_at is null) write_clock
+  from whale_alerts w
+  left join market_outcomes mo on mo.condition_id = w.condition_id
+  left join market_resolution_clocks mrc on mrc.condition_id = w.condition_id
+  where w.platform = 'polymarket'
+    and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00')
+select coalesce(grp, 'all') grp, count(*) trades,
+  count(*) filter (where side = 0) buys,
+  count(*) filter (where side = 0 and price_num between 0.02 and 0.98) buys_2_to_98c,
+  count(*) filter (where side = 0 and price_num between 0.02 and 0.98 and (settle_at is null or settle_at > traded_at + interval '24 hours')) buys_open_24h_later
+from w group by rollup(grp) order by grp nulls last;
+
+-- E. That cohort row by row, with the outcome token bought (CSV: 2026-10-11-cost-of-late-whale-alerts-cohort.csv).
+-- 2026-10-11-cost-of-late-whale-alerts-drift.py fetches Polymarket's price history for each row and measures the delay.
+with w as (
+  select w.id, w.traded_at, w.inserted_at, w.side, w.category, w.price_num, w.usdc_notional_num, w.outcome_index, w.condition_id,
+         case when w.category in ('Soccer','NBA','Esports','Tennis','Baseball','Hockey','Basketball','Cricket','MMA','NFL','Golf','WNBA','Formula 1','Boxing','NCAAF','NCAAB','Table Tennis','NBA Summer League','CFL','Sports','Big Game','Pickleball') then 'sports' else 'other' end grp,
+         case when mo.winning_outcome in (0, 1, -1) then
+           case when mo.resolved_at_source in ('polymarket_resolution', 'polymarket_gamma_closed_time') then mo.resolved_at
+                when mrc.provider_closed_at is not null then mrc.provider_closed_at
+                else mo.resolved_at end end settle_at,
+         (mo.winning_outcome in (0, 1, -1) and coalesce(mo.resolved_at_source, '') not in ('polymarket_resolution', 'polymarket_gamma_closed_time')
+            and mrc.provider_closed_at is null) write_clock
+  from whale_alerts w
+  left join market_outcomes mo on mo.condition_id = w.condition_id
+  left join market_resolution_clocks mrc on mrc.condition_id = w.condition_id
+  where w.platform = 'polymarket'
+    and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00')
+select w.id, extract(epoch from w.traded_at)::bigint fill_ts, w.grp, w.category, w.price_num fill_price, round(w.usdc_notional_num, 2) usd,
+       case when w.outcome_index = 0 then m.token_id_yes else m.token_id_no end token_id,
+       case when w.settle_at is null then null else extract(epoch from w.settle_at)::bigint end settle_ts
+from w join markets m on m.condition_id = w.condition_id
+where w.side = 0 and w.price_num between 0.02 and 0.98 and (w.settle_at is null or w.settle_at > w.traded_at + interval '24 hours')
+order by w.id;
+
+-- F. Two cohort buys the article names: the largest (12270210) and the largest sports buy (12264557). Their price
+-- marks are in the cohort CSV; this read adds the market, the outcome bought, the wallet and the stored result
+-- (winning_outcome: 0 or 1 is the outcome that won, null is no result yet).
+select w.id, w.traded_at, w.category, w.side, w.price_num, round(w.usdc_notional_num, 2) usd, w.outcome_index,
+       m.title, m.slug, case when w.outcome_index = 0 then m.outcome_yes else m.outcome_no end outcome_bought, t.username,
+       mo.winning_outcome
+from whale_alerts w
+join markets m on m.condition_id = w.condition_id
+left join traders t on t.id = w.trader_id
+left join market_outcomes mo on mo.condition_id = w.condition_id
+where w.id in (12270210, 12264557)
+  and w.traded_at >= timestamptz '2026-09-10 00:00:00+00' and w.traded_at < timestamptz '2026-10-10 00:00:00+00';
