@@ -1,7 +1,8 @@
 > **Superseded on 2026-10-07.** This is the 2026-09-12 version, kept as the record; only this
 > note is added. Its grade lookup read ranking rows rewritten after the trade (look-ahead), and its
 > universe scored void and unresolved markets as losses. The S, A and B result below does not hold.
-> The corrected study is `../README.md`.
+> The corrected run of 2026-10-07 is `../2026-10-07-all-markets/README.md`; the current run is
+> `../README.md`.
 
 # Do wallet grades predict Polymarket outcomes?
 
