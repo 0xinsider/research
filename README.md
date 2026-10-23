@@ -11,16 +11,22 @@ page has a bug worth an issue.
 
 ### [grade-vs-price](grade-vs-price) — do wallet grades predict outcomes?
 
-79,580 Polymarket buys of $10,000 or more between 2026-06-01 and 2026-10-06, each
-scored against the settled outcome using the grade the wallet held at the trade.
-Run 2026-10-07.
+81,855 Polymarket buys of $10,000 or more on sports and esports markets between 2026-06-01 and
+2026-10-22, each scored against the settled outcome using the grade the wallet held at the trade.
+Run 2026-10-23.
 
 | Grade | Buys | Won | Price paid | Edge | 95% interval |
 |---|---:|---:|---:|---:|---|
-| S | 14,048 | 69.24% | 67.51c | **+1.73 pts** | +0.41 to +3.06 |
-| A | 7,167 | 66.25% | 65.13c | +1.12 pts | -0.44 to +2.67 |
-| B | 12,254 | 60.21% | 61.12c | -0.91 pts | -2.39 to +0.56 |
-| D and F | 25,161 | 58.05% | 58.45c | -0.40 pts | -1.58 to +0.78 |
+| S | 15,195 | 68.24% | 66.46c | **+1.78 pts** | +0.54 to +3.02 |
+| A | 7,353 | 64.55% | 63.91c | +0.64 pts | -0.88 to +2.16 |
+| B | 12,295 | 59.10% | 60.02c | -0.92 pts | -2.39 to +0.55 |
+| D and F | 26,750 | 57.41% | 57.99c | -0.58 pts | -1.65 to +0.49 |
+
+**Sports and esports only, from 2026-10-23.** 0xinsider grades wallets on sports and esports
+markets only since 2026-10-22, so the study now scores those buys only. Nearly every buy in the
+window carries the grade of its time, computed on every market; 197 came after the switch, too few
+to read. The 2026-10-07 run on every market (79,580 buys, S +1.73 [+0.41, +3.06]) is in
+`grade-vs-price/2026-10-07-all-markets/`.
 
 **Corrected 2026-10-07.** The 2026-09-12 run reported S/A/B +1.57 [+0.32, +2.82]. Its
 query took the ranking row dated on or before the trade day, which the backend
@@ -102,9 +108,9 @@ and into `results.md`:
 
 ```
 design|bucket|buys|edge_pts|ci_half|lo|hi
-headline|S|14048|+1.73|1.32|+0.41|+3.06
-headline|A|7167|+1.12|1.55|-0.44|+2.67
-headline|B|12254|-0.91|1.48|-2.39|+0.56
+headline|S|15195|+1.78|1.24|+0.54|+3.02
+headline|A|7353|+0.64|1.52|-0.88|+2.16
+headline|B|12295|-0.92|1.47|-2.39|+0.55
 ```
 
 The sports bootstrap takes the market-level CSVs the `\copy` lines in each
