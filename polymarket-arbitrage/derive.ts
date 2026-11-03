@@ -1,14 +1,12 @@
-// Turns the scan outputs into the figures the article prints. Reads arb-scan.json (arb-scan.ts)
-// and cross-venue.json (cross-venue-scan.ts) from the paths given, writes one JSON object.
-// Run: node derive.ts arb-scan.json cross-venue.json
+// Turns the scan output into the figures the article prints. Reads arb-scan.json (arb-scan.ts) from
+// the path given and writes one JSON object.
+// Run: node derive.ts arb-scan.json
 import { readFileSync } from "node:fs";
 
 interface Depth { cost: number; fee: number }
 interface Row { event: string; league: string; kickoff: string; state: string; asks: number[]; bids: number[]; sumAsks: number; sumBids: number; feeAtBest: number; depth: Record<string, Depth | null> }
-interface Cross { event: string; title: string; state: string; series: string; pmSumAsks: number; kalshiSumAsks: number; crossSumAsks: number; crossAllIn: number; crossSumBids: number; midGapPts: number; legs: { side: string; pmAsk: number; kAsk: number; cheaper: string }[] }
 
 const arb = JSON.parse(readFileSync(process.argv[2] ?? "arb-scan.json", "utf8")) as { readAt: string; rows: Row[] };
-const cross = JSON.parse(readFileSync(process.argv[3] ?? "cross-venue.json", "utf8")) as { readAt: string; rows: Cross[] };
 
 const median = (xs: number[]) => {
   const s = [...xs].sort((a, b) => a - b);
@@ -43,17 +41,11 @@ const depth = {
   fillable: Object.fromEntries(sizes.map((s) => [s, rows.filter((r) => r.depth[s] !== null).length])),
 };
 
-// Cross-venue: buckets of the cheaper-venue sum, and the sets under $1.
-const crossBuckets = [{ label: "under 1.00", test: (c: number) => c < 100 }, ...Array.from({ length: 5 }, (_, i) => ({ label: (1 + i / 100).toFixed(2), test: (c: number) => c === 100 + i })), { label: "1.05 and up", test: (c: number) => c >= 105 }];
-const crossCents = (x: number) => Math.round(x * 1000) / 10;
-const crossHistogram = crossBuckets.map((b) => ({ label: b.label, games: cross.rows.filter((r) => b.test(Math.floor(crossCents(r.crossSumAsks) + 1e-6))).length }));
-const under1 = cross.rows.filter((r) => r.crossSumAsks < 1).map((r) => ({ event: r.event, title: r.title, state: r.state, crossSumAsks: r.crossSumAsks, crossAllIn: r.crossAllIn, legs: r.legs }));
 
 console.log(JSON.stringify({
-  arbReadAt: arb.readAt, crossReadAt: cross.readAt,
+  arbReadAt: arb.readAt,
   sets: rows.length, histogram, byLeague, cheapest, depth,
   medianFeeAtBest: r4(median(rows.map((r) => r.feeAtBest))),
   medianSpreadOfSet: r4(median(rows.map((r) => r.sumAsks - r.sumBids))),
   realBooks: real.length,
-  cross: { games: cross.rows.length, histogram: crossHistogram, under1, medianPm: median(cross.rows.map((r) => r.pmSumAsks)), medianKalshi: median(cross.rows.map((r) => r.kalshiSumAsks)), medianCross: median(cross.rows.map((r) => r.crossSumAsks)), medianAllIn: r4(median(cross.rows.map((r) => r.crossAllIn))), allInUnder1: cross.rows.filter((r) => r.crossAllIn < 1).length, maxBids: Math.max(...cross.rows.map((r) => r.crossSumBids)), medianMidGap: median(cross.rows.map((r) => r.midGapPts)), midGapWithin1: cross.rows.filter((r) => r.midGapPts <= 1 + 1e-9).length },
 }, null, 1));

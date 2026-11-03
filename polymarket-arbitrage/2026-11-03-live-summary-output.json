@@ -307,56 +307,6 @@
    "medianSumBids": 0.99
   }
  },
- "cross": {
-  "first": "2026-11-03T20:12:01.990Z",
-  "last": "2026-11-03T21:54:40.950Z",
-  "games": 14,
-  "polls": 7185,
-  "goals": 36,
-  "under1": 340,
-  "under1Pct": 4.7321,
-  "minCross": 0.47,
-  "medianCross": 1.01,
-  "under98": 40,
-  "under97": 28,
-  "under1InGoalWindow": 19,
-  "pmAloneUnder1": 21,
-  "kalshiAloneUnder1": 39,
-  "runs": {
-   "count": 219,
-   "single": 154,
-   "longest": 9,
-   "median": 1
-  },
-  "staleVenue": {
-   "kalshi": 93,
-   "polymarket": 56,
-   "both": 59,
-   "open": 130,
-   "noLater": 2
-  },
-  "readLagMs": {
-   "median": -354,
-   "max": -84
-  },
-  "under1AfterPolymarketFee": 144,
-  "gamesUnder1": {
-   "elc-pne-she-2026-11-03": 25,
-   "elc-wat-lin-2026-11-03": 30,
-   "ucl-mnu-rom-2026-11-03": 51,
-   "elc-bbr-sto-2026-11-03": 38,
-   "elc-por-swa-2026-11-03": 50,
-   "ucl-fcb-ast-2026-11-03": 11,
-   "elc-wba-sot-2026-11-03": 26,
-   "elc-bir-mil-2026-11-03": 17,
-   "ucl-atm-bay-2026-11-03": 26,
-   "elc-der-nor-2026-11-03": 4,
-   "ucl-bog-lil-2026-11-03": 26,
-   "ucl-lin2-sba-2026-11-03": 4,
-   "ucl-fey-int-2026-11-03": 8,
-   "elc-cha-bol-2026-11-03": 24
-  }
- },
  "sale": {
   "first": "2026-11-03T20:33:23.452Z",
   "last": "2026-11-03T21:54:05.006Z",

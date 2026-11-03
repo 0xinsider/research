@@ -1,11 +1,11 @@
 # Emits ARB_IN_PLAY for web/src/lib/research-evidence/polymarket-arbitrage-bot.ts from live-summary output.
 # Run: jq -rn --slurpfile s live-summary.json -f gen-in-play.jq
-($s[0]) as $x | ($x.polymarket) as $p | ($x.cross) as $c | ($x.sale) as $l |
+($s[0]) as $x | ($x.polymarket) as $p | ($x.sale) as $l |
 "/**
- * In play (live-summary output over the live-arb-poll, cross-live-poll and live-sale-poll logs). Polymarket
- * books every 5 seconds on the Champions League games; Polymarket and Kalshi every 10 seconds on
- * Champions League and EFL Championship games; only polls the 0xinsider games API called live count.
- * After-fee figures carry Polymarket's taker fee only.
+ * In play (live-summary output over the live-arb-poll and live-sale-poll logs): Polymarket books every
+ * 5 seconds on the Champions League games, and best bids with their sizes on Champions League and EFL
+ * Championship games from 20:33 UTC. Only polls the 0xinsider games API called live count, and a set only
+ * when all three legs had a price. After-fee figures carry Polymarket's taker fee.
  */
 export const ARB_IN_PLAY = {
   polymarket: {
@@ -28,27 +28,14 @@ export const ARB_IN_PLAY = {
     ],
     goalWindowMedianSumAsks: " + ($p.goalWindow.medianSumAsks | tostring) + ",
     goalWindowMaxSumAsks: " + ($p.goalWindow.maxSumAsks | tostring) + ",
+    /** Reads where a leg had no bid at all, so no set could be sold; left out of every bids figure. */
+    missingBid: " + ($p.missingBid | tostring) + ",
     bidsOver1: " + ($p.bidsOver1 | tostring) + ",
     maxSellAfterFee: " + ($p.afterFee.maxSell | tostring) + ",
     /** `scoreReadS`: seconds to the nearest score change the 0xinsider list showed in that game, within 5 minutes (negative: the score read came first), or null. */
     sellOver1AfterFee: [
 " + ($p.afterFee.sellOver1 | map("      { at: \"\(.at)\", slug: \"\(.slug)\", score: \"\(.score)\", bids: [\(.bids | map(tostring) | join(", "))], net: \(.net), scoreReadS: \(.scoreReadS) },") | join("\n")) + "
     ],
-  },
-  cross: {
-    first: \"" + $c.first + "\",
-    last: \"" + $c.last + "\",
-    games: " + ($c.games | tostring) + ",
-    polls: " + ($c.polls | tostring) + ",
-    goals: " + ($c.goals | tostring) + ",
-    under1: " + ($c.under1 | tostring) + ",
-    under1Pct: " + ($c.under1Pct | tostring) + ",
-    minCross: " + ($c.minCross | tostring) + ",
-    medianCross: " + ($c.medianCross | tostring) + ",
-    under1AfterPolymarketFee: " + ($c.under1AfterPolymarketFee | tostring) + ",
-    under1InGoalWindow: " + ($c.under1InGoalWindow | tostring) + ",
-    runs: { count: " + ($c.runs.count | tostring) + ", single: " + ($c.runs.single | tostring) + ", longest: " + ($c.runs.longest | tostring) + " },
-    staleVenue: { kalshi: " + ($c.staleVenue.kalshi | tostring) + ", polymarket: " + ($c.staleVenue.polymarket | tostring) + ", both: " + ($c.staleVenue.both | tostring) + ", open: " + ($c.staleVenue.open | tostring) + ", noLater: " + ($c.staleVenue.noLater | tostring) + " },
   },
   sale: {
     first: \"" + $l.first + "\",
