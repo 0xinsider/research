@@ -102,6 +102,28 @@ public APIs with no key, plus one that reads the 0xinsider large-trade feed.
 
 Published: <https://0xinsider.com/research/polymarket-market-making-sports>
 
+### [polymarket-arbitrage](polymarket-arbitrage) — soccer complete sets against the $1 payout
+
+Every three-way soccer game on Polymarket, 760 of them, read 2026-11-03 19:43 UTC: buying home, draw
+and away at the best asks never cost under $1 (minimum $1.00, median $1.04), and none came under after the
+taker fee or at size. Against Kalshi's quotes for 135 of the same games, 2 sets came under $1 and 1 after
+Polymarket's fee. In play that night, 8 of 7,576 Polymarket reads of the Champions League books cost under
+$1 after the fee, none for 100 shares; the cross-venue set dipped under $1 on 4.7% of reads, most for a
+single 10-second read. TypeScript scanners and watchers, the night's logs, and the summary that turns them
+into the article's figures.
+
+Published: <https://0xinsider.com/research/polymarket-arbitrage-bot>
+
+### [polymarket-live-in-play](polymarket-live-in-play) — Polymarket sports books from kickoff to the final whistle
+
+One evening of live soccer books, 2026-11-03: nine books lost a median 88% of their resting dollars at the
+first read after the start, when Polymarket cancels resting sports orders; depth near the price fell to a
+median 17% of normal 90 seconds before a goal reached the score feed; and the book moved a median 105
+seconds before the 0xinsider live list showed a goal and 204 before Gamma did. Also `secondsDelay` on 1,413
+open sports moneylines and whether 5-cent jumps held over the next hour. Watchers, logs and summaries.
+
+Published: <https://0xinsider.com/research/polymarket-live-in-play-markets>
+
 ## Reproducing
 
 Each study directory holds its SQL, the raw `psql` output of the run the figures

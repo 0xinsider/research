@@ -1,0 +1,402 @@
+{
+ "polymarket": {
+  "first": "2026-11-03T20:04:01.140Z",
+  "last": "2026-11-03T21:57:27.437Z",
+  "games": [
+   {
+    "slug": "ucl-mnu-rom-2026-11-03",
+    "polls": 1312,
+    "goals": 5,
+    "finalScore": "3-2",
+    "missingAsk": 34,
+    "minSumAsks": 0.97,
+    "medianSumAsks": 1.0194999999999999,
+    "maxSumAsks": 1.089,
+    "maxSumBids": 1.052,
+    "min1000": 0.996
+   },
+   {
+    "slug": "ucl-vil-psg-2026-11-03",
+    "polls": 1264,
+    "goals": 8,
+    "finalScore": "0-6",
+    "missingAsk": 531,
+    "minSumAsks": 1,
+    "medianSumAsks": 1.002,
+    "maxSumAsks": 1.04,
+    "maxSumBids": 1.003,
+    "min1000": 1
+   },
+   {
+    "slug": "ucl-atm-bay-2026-11-03",
+    "polls": 1264,
+    "goals": 2,
+    "finalScore": "0-2",
+    "missingAsk": 35,
+    "minSumAsks": 0.97,
+    "medianSumAsks": 1.01,
+    "maxSumAsks": 1.059,
+    "maxSumBids": 1.01,
+    "min1000": 0.99
+   },
+   {
+    "slug": "ucl-fey-int-2026-11-03",
+    "polls": 1306,
+    "goals": 3,
+    "finalScore": "0-3",
+    "missingAsk": 175,
+    "minSumAsks": 0.99,
+    "medianSumAsks": 1.012,
+    "maxSumAsks": 1.05,
+    "maxSumBids": 1.001,
+    "min1000": 1
+   },
+   {
+    "slug": "ucl-fcb-ast-2026-11-03",
+    "polls": 1276,
+    "goals": 3,
+    "finalScore": "3-0",
+    "missingAsk": 183,
+    "minSumAsks": 1,
+    "medianSumAsks": 1.01,
+    "maxSumAsks": 1.05,
+    "maxSumBids": 1,
+    "min1000": 1
+   },
+   {
+    "slug": "ucl-bog-lil-2026-11-03",
+    "polls": 1216,
+    "goals": 0,
+    "finalScore": "0-0",
+    "missingAsk": 26,
+    "minSumAsks": 1,
+    "medianSumAsks": 1.02,
+    "maxSumAsks": 1.06,
+    "maxSumBids": 1.03,
+    "min1000": 1.0028
+   },
+   {
+    "slug": "ucl-lin2-sba-2026-11-03",
+    "polls": 1276,
+    "goals": 4,
+    "finalScore": "4-0",
+    "missingAsk": 354,
+    "minSumAsks": 1,
+    "medianSumAsks": 1.006,
+    "maxSumAsks": 1.05,
+    "maxSumBids": 1,
+    "min1000": 1.0027
+   }
+  ],
+  "polls": 8914,
+  "goals": 25,
+  "missingAsk": 1338,
+  "missingBid": 2470,
+  "under1": 29,
+  "at1": 278,
+  "bidsOver1": 32,
+  "afterFee": {
+   "minBuy": 0.9922,
+   "buyUnder1": 8,
+   "buyUnder1Rows": [
+    {
+     "at": "2026-11-03T21:06:56.395Z",
+     "slug": "ucl-fey-int-2026-11-03",
+     "score": "0-2",
+     "asks": [
+      0.021,
+      0.06,
+      0.91
+     ],
+     "net": 0.9989,
+     "cost100": 1.0106,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:13:01.766Z",
+     "slug": "ucl-atm-bay-2026-11-03",
+     "score": "0-0",
+     "asks": [
+      0.07,
+      0.21,
+      0.69
+     ],
+     "net": 0.9922,
+     "cost100": 0.9811,
+     "scoreReadS": 60
+    },
+    {
+     "at": "2026-11-03T21:13:26.502Z",
+     "slug": "ucl-atm-bay-2026-11-03",
+     "score": "0-0",
+     "asks": [
+      0.08,
+      0.26,
+      0.63
+     ],
+     "net": 0.995,
+     "cost100": 0.9775,
+     "scoreReadS": 35
+    },
+    {
+     "at": "2026-11-03T21:33:16.869Z",
+     "slug": "ucl-fey-int-2026-11-03",
+     "score": "0-3",
+     "asks": [
+      0.001,
+      0.005,
+      0.993
+     ],
+     "net": 0.9996,
+     "cost100": 1,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:33:21.887Z",
+     "slug": "ucl-fey-int-2026-11-03",
+     "score": "0-3",
+     "asks": [
+      0.001,
+      0.005,
+      0.993
+     ],
+     "net": 0.9996,
+     "cost100": 1,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:33:26.840Z",
+     "slug": "ucl-fey-int-2026-11-03",
+     "score": "0-3",
+     "asks": [
+      0.001,
+      0.005,
+      0.993
+     ],
+     "net": 0.9996,
+     "cost100": 1,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:40:16.994Z",
+     "slug": "ucl-fey-int-2026-11-03",
+     "score": "0-3",
+     "asks": [
+      0.001,
+      0.004,
+      0.993
+     ],
+     "net": 0.9986,
+     "cost100": 1.0018,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:42:27.038Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "1-2",
+     "asks": [
+      0.23,
+      0.6,
+      0.14
+     ],
+     "net": 0.9969,
+     "cost100": 0.9857,
+     "scoreReadS": 95
+    }
+   ],
+   "buyUnder1At100": 0,
+   "maxSell": 1.0403,
+   "sellOver1": [
+    {
+     "at": "2026-11-03T20:26:55.661Z",
+     "slug": "ucl-vil-psg-2026-11-03",
+     "score": "0-4",
+     "bids": [
+      0.001,
+      0.005,
+      0.995
+     ],
+     "net": 1.0005,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T20:27:05.734Z",
+     "slug": "ucl-vil-psg-2026-11-03",
+     "score": "0-4",
+     "bids": [
+      0.001,
+      0.005,
+      0.996
+     ],
+     "net": 1.0015,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:14:26.527Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "0-2",
+     "bids": [
+      0.08,
+      0.19,
+      0.76
+     ],
+     "net": 1.0095,
+     "scoreReadS": null
+    },
+    {
+     "at": "2026-11-03T21:16:26.599Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "0-2",
+     "bids": [
+      0.08,
+      0.17,
+      0.8
+     ],
+     "net": 1.0313,
+     "scoreReadS": 215
+    },
+    {
+     "at": "2026-11-03T21:50:37.239Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "3-2",
+     "bids": [
+      0.9,
+      0.11,
+      0.001
+     ],
+     "net": 1.0016,
+     "scoreReadS": -155
+    },
+    {
+     "at": "2026-11-03T21:50:57.246Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "3-2",
+     "bids": [
+      0.89,
+      0.16,
+      0.002
+     ],
+     "net": 1.0403,
+     "scoreReadS": -175
+    },
+    {
+     "at": "2026-11-03T21:51:22.399Z",
+     "slug": "ucl-mnu-rom-2026-11-03",
+     "score": "3-2",
+     "bids": [
+      0.85,
+      0.17,
+      0.003
+     ],
+     "net": 1.0094,
+     "scoreReadS": -200
+    }
+   ]
+  },
+  "minSumAsks": 0.97,
+  "medianSumAsks": 1.01,
+  "goalWindow": {
+   "polls": 561,
+   "medianSumAsks": 1.01,
+   "maxSumAsks": 1.04,
+   "medianSumBids": 0.99
+  },
+  "calm": {
+   "polls": 8353,
+   "medianSumAsks": 1.01,
+   "medianSumBids": 0.99
+  }
+ },
+ "cross": {
+  "first": "2026-11-03T20:12:01.990Z",
+  "last": "2026-11-03T21:54:40.950Z",
+  "games": 14,
+  "polls": 7185,
+  "goals": 36,
+  "under1": 340,
+  "under1Pct": 4.7321,
+  "minCross": 0.47,
+  "medianCross": 1.01,
+  "under98": 40,
+  "under97": 28,
+  "under1InGoalWindow": 19,
+  "pmAloneUnder1": 21,
+  "kalshiAloneUnder1": 39,
+  "runs": {
+   "count": 219,
+   "single": 154,
+   "longest": 9,
+   "median": 1
+  },
+  "staleVenue": {
+   "kalshi": 93,
+   "polymarket": 56,
+   "both": 59,
+   "open": 130,
+   "noLater": 2
+  },
+  "readLagMs": {
+   "median": -354,
+   "max": -84
+  },
+  "under1AfterPolymarketFee": 144,
+  "gamesUnder1": {
+   "elc-pne-she-2026-11-03": 25,
+   "elc-wat-lin-2026-11-03": 30,
+   "ucl-mnu-rom-2026-11-03": 51,
+   "elc-bbr-sto-2026-11-03": 38,
+   "elc-por-swa-2026-11-03": 50,
+   "ucl-fcb-ast-2026-11-03": 11,
+   "elc-wba-sot-2026-11-03": 26,
+   "elc-bir-mil-2026-11-03": 17,
+   "ucl-atm-bay-2026-11-03": 26,
+   "elc-der-nor-2026-11-03": 4,
+   "ucl-bog-lil-2026-11-03": 26,
+   "ucl-lin2-sba-2026-11-03": 4,
+   "ucl-fey-int-2026-11-03": 8,
+   "elc-cha-bol-2026-11-03": 24
+  }
+ },
+ "sale": {
+  "first": "2026-11-03T20:33:23.452Z",
+  "last": "2026-11-03T21:54:05.006Z",
+  "polls": 9987,
+  "games": 15,
+  "grossOver1": 33,
+  "maxNet": 1.3315,
+  "netOver1": [
+   {
+    "at": "2026-11-03T21:34:24.579Z",
+    "slug": "elc-bbr-sto-2026-11-03",
+    "bids": [
+     0.002,
+     0.55,
+     0.8
+    ],
+    "bidSizes": [
+     10.45,
+     5,
+     7
+    ],
+    "net": 1.3315,
+    "sets": 5
+   },
+   {
+    "at": "2026-11-03T21:44:44.874Z",
+    "slug": "ucl-mnu-rom-2026-11-03",
+    "bids": [
+     0.49,
+     0.64,
+     0.06
+    ],
+    "bidSizes": [
+     2749,
+     45.21,
+     1500
+    ],
+    "net": 1.1632,
+    "sets": 45.21
+   }
+  ]
+ }
+}

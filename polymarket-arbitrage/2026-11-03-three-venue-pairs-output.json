@@ -1,0 +1,71 @@
+{
+ "games": 81,
+ "gapBins": {
+  "0.0": 57,
+  "0.1": 3,
+  "0.5": 5,
+  "1.0": 15,
+  "2.0": 1
+ },
+ "bestPair": {
+  "min": 99,
+  "median": 101,
+  "below100": 1,
+  "at100": 15
+ },
+ "bestPairWithPmFee": {
+  "min": 100.2495,
+  "median": 101.6375,
+  "below100": 0
+ },
+ "pmBoth": {
+  "min": 100.5,
+  "median": 101
+ },
+ "kalBoth": {
+  "min": 101,
+  "median": 101
+ },
+ "cheapest": [
+  {
+   "game": "Wyoming at C Michigan",
+   "gap": 2,
+   "bestPair": 99,
+   "bestPairWithPmFee": 100.2495,
+   "pmBoth": 101,
+   "kalBoth": 101
+  },
+  {
+   "game": "Houston at Texas Tech",
+   "gap": 1,
+   "bestPair": 100,
+   "bestPairWithPmFee": 100.962,
+   "pmBoth": 101,
+   "kalBoth": 101
+  },
+  {
+   "game": "Coastal at Delaware",
+   "gap": 1,
+   "bestPair": 100,
+   "bestPairWithPmFee": 101.1375,
+   "pmBoth": 101,
+   "kalBoth": 101
+  },
+  {
+   "game": "North Carolina at Clemson",
+   "gap": 1,
+   "bestPair": 100,
+   "bestPairWithPmFee": 101.2,
+   "pmBoth": 101,
+   "kalBoth": 101
+  },
+  {
+   "game": "SMU at Louisville",
+   "gap": 1,
+   "bestPair": 100,
+   "bestPairWithPmFee": 101.24549999999999,
+   "pmBoth": 101,
+   "kalBoth": 101
+  }
+ ]
+}

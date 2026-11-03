@@ -1,0 +1,689 @@
+{
+ "first": "2026-11-03T20:06:35.410Z",
+ "last": "2026-11-03T21:57:02.023Z",
+ "games": 15,
+ "books": 45,
+ "bookPolls": 7312,
+ "oneSidedPolls": 1274,
+ "delays": {
+  "1": 9360
+ },
+ "delayByState": {
+  "live|1": 8586,
+  "not-live|1": 774
+ },
+ "goals": [
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "at": "2026-11-03T20:14:05.749Z",
+   "clock": "1H 13",
+   "from": "0-0",
+   "to": "0-1"
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "at": "2026-11-03T20:19:35.518Z",
+   "clock": "1H 18",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "at": "2026-11-03T21:20:01.634Z",
+   "clock": "2H 61",
+   "from": "0-2",
+   "to": "1-2"
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "at": "2026-11-03T21:44:01.855Z",
+   "clock": "2H 85",
+   "from": "1-2",
+   "to": "2-2"
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "at": "2026-11-03T21:48:02.215Z",
+   "clock": "2H 88",
+   "from": "2-2",
+   "to": "3-2"
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "at": "2026-11-03T20:10:35.264Z",
+   "clock": "1H 9",
+   "from": "0-0",
+   "to": "1-0"
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "at": "2026-11-03T21:14:01.562Z",
+   "clock": "2H 54",
+   "from": "1-0",
+   "to": "2-0"
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "at": "2026-11-03T21:26:31.660Z",
+   "clock": "2H 66",
+   "from": "2-0",
+   "to": "3-0"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T20:13:05.343Z",
+   "clock": "1H 12",
+   "from": "0-0",
+   "to": "0-1"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T20:14:05.749Z",
+   "clock": "1H 13",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T20:15:35.559Z",
+   "clock": "1H 14",
+   "from": "0-2",
+   "to": "0-3"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T20:19:05.789Z",
+   "clock": "1H 18",
+   "from": "0-3",
+   "to": "0-4"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T21:10:31.879Z",
+   "clock": "2H 51",
+   "from": "0-4",
+   "to": "0-5"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T21:11:31.594Z",
+   "clock": "2H 52",
+   "from": "0-5",
+   "to": "0-4"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T21:12:01.638Z",
+   "clock": "2H 52",
+   "from": "0-4",
+   "to": "0-5"
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "at": "2026-11-03T21:39:31.875Z",
+   "clock": "2H 80",
+   "from": "0-5",
+   "to": "0-6"
+  },
+  {
+   "slug": "ucl-atm-bay-2026-11-03",
+   "at": "2026-11-03T21:14:01.562Z",
+   "clock": "2H 55",
+   "from": "0-0",
+   "to": "0-1"
+  },
+  {
+   "slug": "ucl-atm-bay-2026-11-03",
+   "at": "2026-11-03T21:34:31.701Z",
+   "clock": "2H 76",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "at": "2026-11-03T20:12:05.228Z",
+   "clock": "1H 10",
+   "from": "0-0",
+   "to": "0-1"
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "at": "2026-11-03T20:45:01.482Z",
+   "clock": "1H 43",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "at": "2026-11-03T21:16:31.750Z",
+   "clock": "2H 56",
+   "from": "0-2",
+   "to": "0-3"
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "at": "2026-11-03T20:21:05.464Z",
+   "clock": "1H 20",
+   "from": "0-0",
+   "to": "1-0"
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "at": "2026-11-03T20:45:01.482Z",
+   "clock": "1H 44",
+   "from": "1-0",
+   "to": "2-0"
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "at": "2026-11-03T20:47:31.732Z",
+   "clock": "1H 45",
+   "from": "2-0",
+   "to": "3-0"
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "at": "2026-11-03T21:09:01.839Z",
+   "clock": "2H 49",
+   "from": "3-0",
+   "to": "4-0"
+  },
+  {
+   "slug": "elc-bbr-sto-2026-11-03",
+   "at": "2026-11-03T20:29:05.592Z",
+   "clock": "1H 44",
+   "from": "0-0",
+   "to": "0-1"
+  },
+  {
+   "slug": "elc-bbr-sto-2026-11-03",
+   "at": "2026-11-03T21:14:31.702Z",
+   "clock": "2H 70",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "elc-bbr-sto-2026-11-03",
+   "at": "2026-11-03T21:34:01.701Z",
+   "clock": "2H 89",
+   "from": "0-2",
+   "to": "1-2"
+  },
+  {
+   "slug": "elc-der-nor-2026-11-03",
+   "at": "2026-11-03T20:14:35.457Z",
+   "clock": "1H 30",
+   "from": "0-1",
+   "to": "0-2"
+  },
+  {
+   "slug": "elc-der-nor-2026-11-03",
+   "at": "2026-11-03T21:11:31.594Z",
+   "clock": "2H 67",
+   "from": "0-3",
+   "to": "0-4"
+  },
+  {
+   "slug": "elc-pne-she-2026-11-03",
+   "at": "2026-11-03T20:13:35.300Z",
+   "clock": "1H 28",
+   "from": "1-0",
+   "to": "1-1"
+  },
+  {
+   "slug": "elc-pne-she-2026-11-03",
+   "at": "2026-11-03T20:23:05.535Z",
+   "clock": "1H 38",
+   "from": "1-1",
+   "to": "1-2"
+  },
+  {
+   "slug": "elc-pne-she-2026-11-03",
+   "at": "2026-11-03T21:24:01.706Z",
+   "clock": "2H 78",
+   "from": "1-3",
+   "to": "2-3"
+  },
+  {
+   "slug": "elc-por-swa-2026-11-03",
+   "at": "2026-11-03T20:22:35.414Z",
+   "clock": "1H 38",
+   "from": "0-0",
+   "to": "1-0"
+  },
+  {
+   "slug": "elc-por-swa-2026-11-03",
+   "at": "2026-11-03T21:30:31.992Z",
+   "clock": "2H 86",
+   "from": "1-0",
+   "to": "1-1"
+  },
+  {
+   "slug": "elc-por-swa-2026-11-03",
+   "at": "2026-11-03T21:39:01.919Z",
+   "clock": "2H 90",
+   "from": "1-1",
+   "to": "2-1"
+  },
+  {
+   "slug": "elc-por-swa-2026-11-03",
+   "at": "2026-11-03T21:43:31.805Z",
+   "clock": "2H 90",
+   "from": "2-1",
+   "to": "3-1"
+  },
+  {
+   "slug": "elc-wat-lin-2026-11-03",
+   "at": "2026-11-03T20:49:01.458Z",
+   "clock": "2H 47",
+   "from": "0-0",
+   "to": "1-0"
+  },
+  {
+   "slug": "elc-bir-mil-2026-11-03",
+   "at": "2026-11-03T20:18:05.236Z",
+   "clock": "1H 18",
+   "from": "1-0",
+   "to": "2-0"
+  },
+  {
+   "slug": "elc-bir-mil-2026-11-03",
+   "at": "2026-11-03T20:30:06.294Z",
+   "clock": "1H 30",
+   "from": "2-0",
+   "to": "3-0"
+  },
+  {
+   "slug": "elc-wba-sot-2026-11-03",
+   "at": "2026-11-03T20:24:05.802Z",
+   "clock": "1H 23",
+   "from": "0-0",
+   "to": "1-0"
+  },
+  {
+   "slug": "elc-wba-sot-2026-11-03",
+   "at": "2026-11-03T21:15:31.838Z",
+   "clock": "2H 56",
+   "from": "1-0",
+   "to": "1-1"
+  }
+ ],
+ "calm": {
+  "polls": 6902,
+  "medianSpreadC": 1,
+  "medianUsd2c": 5414
+ },
+ "goalPolls": {
+  "polls": 410,
+  "medianSpreadC": 1,
+  "medianUsd2c": 2764
+ },
+ "goalVsBefore": {
+  "books": 105,
+  "medianRatio": 0.939,
+  "under25pct": 25,
+  "under50pct": 38,
+  "medianSpreadAtGoalC": 1
+ },
+ "profileGoals": 31,
+ "goalProfile": [
+  {
+   "offsetS": -300,
+   "books": 92,
+   "medianShare": 0.986
+  },
+  {
+   "offsetS": -270,
+   "books": 92,
+   "medianShare": 1
+  },
+  {
+   "offsetS": -240,
+   "books": 92,
+   "medianShare": 0.883
+  },
+  {
+   "offsetS": -210,
+   "books": 92,
+   "medianShare": 1.026
+  },
+  {
+   "offsetS": -180,
+   "books": 92,
+   "medianShare": 0.977
+  },
+  {
+   "offsetS": -150,
+   "books": 92,
+   "medianShare": 0.736
+  },
+  {
+   "offsetS": -120,
+   "books": 92,
+   "medianShare": 0.503
+  },
+  {
+   "offsetS": -90,
+   "books": 91,
+   "medianShare": 0.168
+  },
+  {
+   "offsetS": -60,
+   "books": 90,
+   "medianShare": 0.269
+  },
+  {
+   "offsetS": -30,
+   "books": 87,
+   "medianShare": 0.418
+  },
+  {
+   "offsetS": 0,
+   "books": 86,
+   "medianShare": 0.51
+  },
+  {
+   "offsetS": 30,
+   "books": 82,
+   "medianShare": 0.514
+  },
+  {
+   "offsetS": 60,
+   "books": 81,
+   "medianShare": 0.506
+  },
+  {
+   "offsetS": 90,
+   "books": 78,
+   "medianShare": 0.488
+  },
+  {
+   "offsetS": 120,
+   "books": 77,
+   "medianShare": 0.661
+  },
+  {
+   "offsetS": 150,
+   "books": 77,
+   "medianShare": 0.602
+  },
+  {
+   "offsetS": 180,
+   "books": 76,
+   "medianShare": 0.622
+  },
+  {
+   "offsetS": 210,
+   "books": 76,
+   "medianShare": 0.624
+  },
+  {
+   "offsetS": 240,
+   "books": 76,
+   "medianShare": 0.501
+  },
+  {
+   "offsetS": 270,
+   "books": 74,
+   "medianShare": 0.42
+  },
+  {
+   "offsetS": 300,
+   "books": 76,
+   "medianShare": 0.511
+  }
+ ],
+ "byLeagueMinute": [
+  {
+   "league": "ucl",
+   "books": 21,
+   "bins": [
+    {
+     "from": 0,
+     "to": 15,
+     "polls": 354,
+     "medianSpreadC": 1,
+     "medianUsd2c": 16985
+    },
+    {
+     "from": 15,
+     "to": 30,
+     "polls": 826,
+     "medianSpreadC": 1,
+     "medianUsd2c": 9035
+    },
+    {
+     "from": 30,
+     "to": 46,
+     "polls": 168,
+     "medianSpreadC": 1,
+     "medianUsd2c": 8364
+    },
+    {
+     "from": 46,
+     "to": 60,
+     "polls": 402,
+     "medianSpreadC": 1,
+     "medianUsd2c": 9917
+    },
+    {
+     "from": 60,
+     "to": 75,
+     "polls": 411,
+     "medianSpreadC": 1,
+     "medianUsd2c": 14402
+    },
+    {
+     "from": 75,
+     "to": 90,
+     "polls": 248,
+     "medianSpreadC": 1,
+     "medianUsd2c": 9154
+    },
+    {
+     "from": 90,
+     "to": 200,
+     "polls": 48,
+     "medianSpreadC": 1,
+     "medianUsd2c": 1317
+    }
+   ],
+   "halftime": {
+    "polls": 656,
+    "medianSpreadC": 1,
+    "medianUsd2c": 19774
+   }
+  },
+  {
+   "league": "elc",
+   "books": 24,
+   "bins": [
+    {
+     "from": 0,
+     "to": 15,
+     "polls": 102,
+     "medianSpreadC": 1,
+     "medianUsd2c": 3939
+    },
+    {
+     "from": 15,
+     "to": 30,
+     "polls": 438,
+     "medianSpreadC": 1,
+     "medianUsd2c": 4568
+    },
+    {
+     "from": 30,
+     "to": 46,
+     "polls": 651,
+     "medianSpreadC": 1,
+     "medianUsd2c": 4717
+    },
+    {
+     "from": 46,
+     "to": 60,
+     "polls": 581,
+     "medianSpreadC": 1,
+     "medianUsd2c": 2644
+    },
+    {
+     "from": 60,
+     "to": 75,
+     "polls": 616,
+     "medianSpreadC": 1,
+     "medianUsd2c": 2761
+    },
+    {
+     "from": 75,
+     "to": 90,
+     "polls": 549,
+     "medianSpreadC": 1,
+     "medianUsd2c": 1531
+    },
+    {
+     "from": 90,
+     "to": 200,
+     "polls": 160,
+     "medianSpreadC": 1.55,
+     "medianUsd2c": 114
+    }
+   ],
+   "halftime": {
+    "polls": 689,
+    "medianSpreadC": 1,
+    "medianUsd2c": 5748
+   }
+  }
+ ],
+ "pregame": {
+  "readAt": "2026-11-03T19:19:59.406Z",
+  "books": 12,
+  "medianPregameUsd2c": 201388,
+  "medianInPlayUsd2c": 26809,
+  "medianRatio": 0.098,
+  "medianEarlyUsd2c": 34027,
+  "medianEarlyRatio": 0.143,
+  "rows": [
+   {
+    "market": "ucl-mnu-rom-2026-11-03-mnu",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 178538,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 4705,
+    "inPlayPolls": 182,
+    "earlyUsd2c": 39469,
+    "earlyPolls": 15
+   },
+   {
+    "market": "ucl-fcb-ast-2026-11-03-fcb",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 254770,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 55789,
+    "inPlayPolls": 162,
+    "earlyUsd2c": 57855,
+    "earlyPolls": 17
+   },
+   {
+    "market": "ucl-mnu-rom-2026-11-03-rom",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 79474,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 38446,
+    "inPlayPolls": 176,
+    "earlyUsd2c": 28584,
+    "earlyPolls": 15
+   },
+   {
+    "market": "ucl-vil-psg-2026-11-03-psg",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 501405,
+    "inPlaySpreadC": 0.1,
+    "inPlayUsd2c": 50477,
+    "inPlayPolls": 98,
+    "earlyUsd2c": 52286,
+    "earlyPolls": 13
+   },
+   {
+    "market": "ucl-bog-lil-2026-11-03-bog",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 289090,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 27788,
+    "inPlayPolls": 189,
+    "earlyUsd2c": 53894,
+    "earlyPolls": 18
+   },
+   {
+    "market": "ucl-fey-int-2026-11-03-int",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 180060,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 44858,
+    "inPlayPolls": 166,
+    "earlyUsd2c": 44760,
+    "earlyPolls": 17
+   },
+   {
+    "market": "ucl-atm-bay-2026-11-03-bay",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 534931,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 58997,
+    "inPlayPolls": 186,
+    "earlyUsd2c": 43539,
+    "earlyPolls": 19
+   },
+   {
+    "market": "ucl-fcb-ast-2026-11-03-ast",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 77368,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 3485,
+    "inPlayPolls": 151,
+    "earlyUsd2c": 4908,
+    "earlyPolls": 17
+   },
+   {
+    "market": "ucl-vil-psg-2026-11-03-vil",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 85153,
+    "inPlaySpreadC": 0.1,
+    "inPlayUsd2c": 75,
+    "inPlayPolls": 32,
+    "earlyUsd2c": 10320,
+    "earlyPolls": 13
+   },
+   {
+    "market": "ucl-vil-psg-2026-11-03-draw",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 222715,
+    "inPlaySpreadC": 0.2,
+    "inPlayUsd2c": 295,
+    "inPlayPolls": 100,
+    "earlyUsd2c": 14301,
+    "earlyPolls": 13
+   },
+   {
+    "market": "ucl-atm-bay-2026-11-03-atm",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 330450,
+    "inPlaySpreadC": 1,
+    "inPlayUsd2c": 10780,
+    "inPlayPolls": 164,
+    "earlyUsd2c": 23877,
+    "earlyPolls": 19
+   },
+   {
+    "market": "ucl-lin2-sba-2026-11-03-lin2",
+    "pregameSpreadC": 1,
+    "pregameUsd2c": 143027,
+    "inPlaySpreadC": 0.35,
+    "inPlayUsd2c": 25829,
+    "inPlayPolls": 128,
+    "earlyUsd2c": 23702,
+    "earlyPolls": 19
+   }
+  ]
+ }
+}

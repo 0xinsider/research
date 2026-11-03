@@ -1,0 +1,751 @@
+{
+  "readAt": "2026-11-03T20:16:01.845Z",
+  "events": 2100,
+  "moneylines": 1413,
+  "twoSided": 1409,
+  "delayCounts": {
+    "0": 30,
+    "1": 1383,
+    "null": 0
+  },
+  "byBucket": [
+    {
+      "bucket": "in-play",
+      "books": 90,
+      "medianSpreadC": 1,
+      "p90SpreadC": 7,
+      "medianUsd2c": 2792,
+      "medianUsd5c": 10074
+    },
+    {
+      "bucket": "<1h",
+      "books": 17,
+      "medianSpreadC": 1,
+      "p90SpreadC": 4,
+      "medianUsd2c": 2953,
+      "medianUsd5c": 10872
+    },
+    {
+      "bucket": "1-3h",
+      "books": 21,
+      "medianSpreadC": 1,
+      "p90SpreadC": 2,
+      "medianUsd2c": 1050,
+      "medianUsd5c": 8602
+    },
+    {
+      "bucket": "3-6h",
+      "books": 71,
+      "medianSpreadC": 1,
+      "p90SpreadC": 3,
+      "medianUsd2c": 485,
+      "medianUsd5c": 1476
+    },
+    {
+      "bucket": "6-24h",
+      "books": 337,
+      "medianSpreadC": 6,
+      "p90SpreadC": 94,
+      "medianUsd2c": 0,
+      "medianUsd5c": 53
+    },
+    {
+      "bucket": "1-3d",
+      "books": 271,
+      "medianSpreadC": 1,
+      "p90SpreadC": 5.8,
+      "medianUsd2c": 702,
+      "medianUsd5c": 2179
+    },
+    {
+      "bucket": "3-7d",
+      "books": 492,
+      "medianSpreadC": 2,
+      "p90SpreadC": 5,
+      "medianUsd2c": 306,
+      "medianUsd5c": 662
+    },
+    {
+      "bucket": "7d+",
+      "books": 110,
+      "medianSpreadC": 11,
+      "p90SpreadC": 58,
+      "medianUsd2c": 0,
+      "medianUsd5c": 0
+    }
+  ],
+  "delayByLeague": [
+    {
+      "league": "cfb-2026",
+      "delay": "1",
+      "markets": 64
+    },
+    {
+      "league": "itf",
+      "delay": "1",
+      "markets": 62
+    },
+    {
+      "league": "setkameua-games",
+      "delay": "1",
+      "markets": 60
+    },
+    {
+      "league": "europa-conference-league",
+      "delay": "1",
+      "markets": 51
+    },
+    {
+      "league": "ucl-2025",
+      "delay": "1",
+      "markets": 48
+    },
+    {
+      "league": "atp",
+      "delay": "1",
+      "markets": 48
+    },
+    {
+      "league": "uel-2025",
+      "delay": "1",
+      "markets": 45
+    },
+    {
+      "league": "primera-divisin-argentina",
+      "delay": "1",
+      "markets": 42
+    },
+    {
+      "league": "efl-championship",
+      "delay": "1",
+      "markets": 36
+    },
+    {
+      "league": "soccer-unl",
+      "delay": "1",
+      "markets": 36
+    },
+    {
+      "league": "la-liga-2025",
+      "delay": "1",
+      "markets": 33
+    },
+    {
+      "league": "setkamecz-games",
+      "delay": "1",
+      "markets": 33
+    },
+    {
+      "league": "counter-strike",
+      "delay": "1",
+      "markets": 32
+    },
+    {
+      "league": "saudi-professional-league",
+      "delay": "1",
+      "markets": 30
+    },
+    {
+      "league": "nba-2026",
+      "delay": "0",
+      "markets": 30
+    },
+    {
+      "league": "premier-league-2025",
+      "delay": "1",
+      "markets": 30
+    },
+    {
+      "league": "brazil-serie-a",
+      "delay": "1",
+      "markets": 30
+    },
+    {
+      "league": "copa-del-rey",
+      "delay": "1",
+      "markets": 30
+    },
+    {
+      "league": "nhl-2026",
+      "delay": "1",
+      "markets": 29
+    },
+    {
+      "league": "serie-a-2025",
+      "delay": "1",
+      "markets": 27
+    },
+    {
+      "league": "bundesliga-2025",
+      "delay": "1",
+      "markets": 27
+    },
+    {
+      "league": "ncaa-cbb",
+      "delay": "1",
+      "markets": 26
+    },
+    {
+      "league": "soccer-el1",
+      "delay": "1",
+      "markets": 24
+    },
+    {
+      "league": "setkamemd-games",
+      "delay": "1",
+      "markets": 24
+    },
+    {
+      "league": "ufc",
+      "delay": "1",
+      "markets": 23
+    },
+    {
+      "league": "wta",
+      "delay": "1",
+      "markets": 22
+    },
+    {
+      "league": "primera-a",
+      "delay": "1",
+      "markets": 21
+    },
+    {
+      "league": "ligue-1-2025",
+      "delay": "1",
+      "markets": 18
+    },
+    {
+      "league": "mex-2025",
+      "delay": "1",
+      "markets": 18
+    },
+    {
+      "league": "switzerland-super-league",
+      "delay": "1",
+      "markets": 18
+    }
+  ],
+  "bucketLeagues": {
+    "in-play": [
+      {
+        "league": "efl-championship",
+        "books": 27,
+        "medianSpreadC": 1,
+        "medianUsd2c": 5027
+      },
+      {
+        "league": "ucl-2025",
+        "books": 21,
+        "medianSpreadC": 1,
+        "medianUsd2c": 16082
+      },
+      {
+        "league": "counter-strike",
+        "books": 11,
+        "medianSpreadC": 3.8,
+        "medianUsd2c": 12
+      },
+      {
+        "league": "atp",
+        "books": 7,
+        "medianSpreadC": 1,
+        "medianUsd2c": 5296
+      },
+      {
+        "league": "soccer-el1",
+        "books": 6,
+        "medianSpreadC": 2,
+        "medianUsd2c": 1831
+      },
+      {
+        "league": "dota-2",
+        "books": 3,
+        "medianSpreadC": 3,
+        "medianUsd2c": 249
+      },
+      {
+        "league": "wta",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 35618
+      },
+      {
+        "league": "liga-1",
+        "books": 3,
+        "medianSpreadC": 6,
+        "medianUsd2c": 0
+      }
+    ],
+    "<1h": [
+      {
+        "league": "atp",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 2953
+      },
+      {
+        "league": "itf",
+        "books": 3,
+        "medianSpreadC": 2,
+        "medianUsd2c": 129
+      },
+      {
+        "league": "soccer-gtm",
+        "books": 3,
+        "medianSpreadC": 2,
+        "medianUsd2c": 116
+      },
+      {
+        "league": "primera-a",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 6216
+      },
+      {
+        "league": "ecu1-games",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 5478
+      },
+      {
+        "league": "wta",
+        "books": 1,
+        "medianSpreadC": 1,
+        "medianUsd2c": 9564
+      },
+      {
+        "league": "lnb",
+        "books": 1,
+        "medianSpreadC": 4,
+        "medianUsd2c": 104
+      }
+    ],
+    "1-3h": [
+      {
+        "league": "atp",
+        "books": 7,
+        "medianSpreadC": 1,
+        "medianUsd2c": 2334
+      },
+      {
+        "league": "brazil-serie-a",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 7481
+      },
+      {
+        "league": "par1-games",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 228
+      },
+      {
+        "league": "bknbb-games",
+        "books": 2,
+        "medianSpreadC": 1.5,
+        "medianUsd2c": 576
+      },
+      {
+        "league": "league-of-legends",
+        "books": 1,
+        "medianSpreadC": 1,
+        "medianUsd2c": 704152
+      },
+      {
+        "league": "counter-strike",
+        "books": 1,
+        "medianSpreadC": 2,
+        "medianUsd2c": 188
+      },
+      {
+        "league": "dota-2",
+        "books": 1,
+        "medianSpreadC": 5,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "ncaa-cbb",
+        "books": 1,
+        "medianSpreadC": 0.7,
+        "medianUsd2c": 60
+      }
+    ],
+    "3-6h": [
+      {
+        "league": "itf",
+        "books": 19,
+        "medianSpreadC": 2,
+        "medianUsd2c": 71
+      },
+      {
+        "league": "nhl-2026",
+        "books": 11,
+        "medianSpreadC": 1,
+        "medianUsd2c": 109292
+      },
+      {
+        "league": "ncaa-cbb",
+        "books": 11,
+        "medianSpreadC": 0.8,
+        "medianUsd2c": 262
+      },
+      {
+        "league": "soccer-fpd",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 779
+      },
+      {
+        "league": "atp",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 3541
+      },
+      {
+        "league": "brazil-serie-a",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 6674
+      },
+      {
+        "league": "primera-a",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 1138
+      },
+      {
+        "league": "ven1-games",
+        "books": 3,
+        "medianSpreadC": 1,
+        "medianUsd2c": 165
+      }
+    ],
+    "6-24h": [
+      {
+        "league": "setkameua-games",
+        "books": 60,
+        "medianSpreadC": 94,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "itf",
+        "books": 40,
+        "medianSpreadC": 5.5,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "setkamecz-games",
+        "books": 33,
+        "medianSpreadC": 94,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "ucl-2025",
+        "books": 27,
+        "medianSpreadC": 1,
+        "medianUsd2c": 14967
+      },
+      {
+        "league": "atp",
+        "books": 26,
+        "medianSpreadC": 1,
+        "medianUsd2c": 1229
+      },
+      {
+        "league": "setkamemd-games",
+        "books": 24,
+        "medianSpreadC": 94,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "copa-del-rey",
+        "books": 18,
+        "medianSpreadC": 2.5,
+        "medianUsd2c": 91
+      },
+      {
+        "league": "acl2-games",
+        "books": 15,
+        "medianSpreadC": 2,
+        "medianUsd2c": 84
+      }
+    ],
+    "1-3d": [
+      {
+        "league": "europa-conference-league",
+        "books": 51,
+        "medianSpreadC": 1,
+        "medianUsd2c": 979
+      },
+      {
+        "league": "uel-2025",
+        "books": 42,
+        "medianSpreadC": 1,
+        "medianUsd2c": 2755
+      },
+      {
+        "league": "saudi-professional-league",
+        "books": 18,
+        "medianSpreadC": 2.25,
+        "medianUsd2c": 67
+      },
+      {
+        "league": "brazil-serie-a",
+        "books": 18,
+        "medianSpreadC": 1,
+        "medianUsd2c": 1549
+      },
+      {
+        "league": "nba-2026",
+        "books": 16,
+        "medianSpreadC": 1,
+        "medianUsd2c": 806
+      },
+      {
+        "league": "nhl-2026",
+        "books": 12,
+        "medianSpreadC": 1,
+        "medianUsd2c": 759
+      },
+      {
+        "league": "primera-divisin-argentina",
+        "books": 9,
+        "medianSpreadC": 3,
+        "medianUsd2c": 47
+      },
+      {
+        "league": "cfb-2026",
+        "books": 6,
+        "medianSpreadC": 1,
+        "medianUsd2c": 26504
+      }
+    ],
+    "3-7d": [
+      {
+        "league": "cfb-2026",
+        "books": 56,
+        "medianSpreadC": 2,
+        "medianUsd2c": 5950
+      },
+      {
+        "league": "primera-divisin-argentina",
+        "books": 33,
+        "medianSpreadC": 3,
+        "medianUsd2c": 47
+      },
+      {
+        "league": "premier-league-2025",
+        "books": 27,
+        "medianSpreadC": 1,
+        "medianUsd2c": 5781
+      },
+      {
+        "league": "la-liga-2025",
+        "books": 27,
+        "medianSpreadC": 1,
+        "medianUsd2c": 2537
+      },
+      {
+        "league": "serie-a-2025",
+        "books": 24,
+        "medianSpreadC": 1,
+        "medianUsd2c": 2333
+      },
+      {
+        "league": "bundesliga-2025",
+        "books": 24,
+        "medianSpreadC": 1,
+        "medianUsd2c": 1249
+      },
+      {
+        "league": "mex-2025",
+        "books": 18,
+        "medianSpreadC": 3,
+        "medianUsd2c": 352
+      },
+      {
+        "league": "switzerland-super-league",
+        "books": 18,
+        "medianSpreadC": 4,
+        "medianUsd2c": 13
+      }
+    ],
+    "7d+": [
+      {
+        "league": "soccer-unl",
+        "books": 36,
+        "medianSpreadC": 4,
+        "medianUsd2c": 125
+      },
+      {
+        "league": "soccer-el1",
+        "books": 15,
+        "medianSpreadC": 8,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "ufc",
+        "books": 9,
+        "medianSpreadC": 2,
+        "medianUsd2c": 48
+      },
+      {
+        "league": "soccer-el2",
+        "books": 9,
+        "medianSpreadC": 57,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "counter-strike",
+        "books": 8,
+        "medianSpreadC": 7.3,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "fifa-friendly",
+        "books": 6,
+        "medianSpreadC": 44,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "copa-del-rey",
+        "books": 6,
+        "medianSpreadC": 16.9,
+        "medianUsd2c": 0
+      },
+      {
+        "league": "soccer-enl",
+        "books": 3,
+        "medianSpreadC": 7.2,
+        "medianUsd2c": 0
+      }
+    ]
+  },
+  "soccerByBucket": [
+    {
+      "bucket": "in-play",
+      "books": 66,
+      "medianSpreadC": 1,
+      "medianUsd2c": 4470,
+      "medianUsd5c": 12568
+    },
+    {
+      "bucket": "<1h",
+      "books": 9,
+      "medianSpreadC": 1,
+      "medianUsd2c": 4768,
+      "medianUsd5c": 11474
+    },
+    {
+      "bucket": "1-3h",
+      "books": 6,
+      "medianSpreadC": 1,
+      "medianUsd2c": 2640,
+      "medianUsd5c": 8280
+    },
+    {
+      "bucket": "3-6h",
+      "books": 18,
+      "medianSpreadC": 1,
+      "medianUsd2c": 821,
+      "medianUsd5c": 1377
+    },
+    {
+      "bucket": "6-24h",
+      "books": 99,
+      "medianSpreadC": 1,
+      "medianUsd2c": 682,
+      "medianUsd5c": 1990
+    },
+    {
+      "bucket": "1-3d",
+      "books": 195,
+      "medianSpreadC": 1,
+      "medianUsd2c": 981,
+      "medianUsd5c": 2844
+    },
+    {
+      "bucket": "3-7d",
+      "books": 384,
+      "medianSpreadC": 2,
+      "medianUsd2c": 192,
+      "medianUsd5c": 364
+    },
+    {
+      "bucket": "7d+",
+      "books": 90,
+      "medianSpreadC": 12.05,
+      "medianUsd2c": 0,
+      "medianUsd5c": 0
+    }
+  ],
+  "inPlayByLeague": [
+    {
+      "league": "efl-championship",
+      "books": 27,
+      "medianSpreadC": 1,
+      "medianUsd2c": 5027
+    },
+    {
+      "league": "ucl-2025",
+      "books": 21,
+      "medianSpreadC": 1,
+      "medianUsd2c": 16082
+    },
+    {
+      "league": "counter-strike",
+      "books": 11,
+      "medianSpreadC": 3.8,
+      "medianUsd2c": 12
+    },
+    {
+      "league": "atp",
+      "books": 7,
+      "medianSpreadC": 1,
+      "medianUsd2c": 5296
+    },
+    {
+      "league": "soccer-el1",
+      "books": 6,
+      "medianSpreadC": 2,
+      "medianUsd2c": 1831
+    },
+    {
+      "league": "dota-2",
+      "books": 3,
+      "medianSpreadC": 3,
+      "medianUsd2c": 249
+    },
+    {
+      "league": "wta",
+      "books": 3,
+      "medianSpreadC": 1,
+      "medianUsd2c": 35618
+    },
+    {
+      "league": "liga-1",
+      "books": 3,
+      "medianSpreadC": 6,
+      "medianUsd2c": 0
+    },
+    {
+      "league": "soccer-el2",
+      "books": 3,
+      "medianSpreadC": 2,
+      "medianUsd2c": 1184
+    },
+    {
+      "league": "la-liga-2025",
+      "books": 3,
+      "medianSpreadC": 4,
+      "medianUsd2c": 40
+    },
+    {
+      "league": "ukraine-premier-liha",
+      "books": 3,
+      "medianSpreadC": 39,
+      "medianUsd2c": 0
+    }
+  ]
+}

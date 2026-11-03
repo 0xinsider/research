@@ -1,0 +1,1484 @@
+{
+ "books": 11,
+ "watchedAcrossStart": 11,
+ "droppedUnderHalf": 11,
+ "medianShareAt2s": 0.132,
+ "medianShareAt60s": 0.193,
+ "medianShareAt600s": 0.838,
+ "rows": [
+  {
+   "book": "col1-dep-cdt-2026-11-03|Deportivo Pereira",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 41,
+    "resting": 71846,
+    "usd2c": 4405
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.117,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 41,
+     "resting": 71846,
+     "shareOfBefore": 1,
+     "usd2c": 4405,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 23,
+     "resting": 8389,
+     "shareOfBefore": 0.117,
+     "usd2c": 497,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 24,
+     "resting": 8446,
+     "shareOfBefore": 0.118,
+     "usd2c": 779,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 24,
+     "resting": 8585,
+     "shareOfBefore": 0.119,
+     "usd2c": 779,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 26,
+     "resting": 9896,
+     "shareOfBefore": 0.138,
+     "usd2c": 1624,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 37,
+     "resting": 7861,
+     "shareOfBefore": 0.109,
+     "usd2c": 1037,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 36,
+     "resting": 13858,
+     "shareOfBefore": 0.193,
+     "usd2c": 359,
+     "bid": 0.15,
+     "ask": 0.17
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 40,
+     "resting": 16596,
+     "shareOfBefore": 0.231,
+     "usd2c": 1714,
+     "bid": 0.16,
+     "ask": 0.17
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 49,
+     "resting": 13799,
+     "shareOfBefore": 0.192,
+     "usd2c": 85,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 54,
+     "resting": 18158,
+     "shareOfBefore": 0.253,
+     "usd2c": 1814,
+     "bid": 0.18,
+     "ask": 0.19
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 42,
+     "resting": 77375,
+     "shareOfBefore": 1.077,
+     "usd2c": 3294,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 42,
+     "resting": 71286,
+     "shareOfBefore": 0.992,
+     "usd2c": 1987,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 41,
+     "resting": 71846,
+     "shareOfBefore": 1,
+     "usd2c": 4405,
+     "bid": 0.17,
+     "ask": 0.19
+    }
+   }
+  },
+  {
+   "book": "col1-dep-cdt-2026-11-03|Draw (Deportivo Pereira vs. CD Tolima)",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 34,
+    "resting": 80000,
+    "usd2c": 4390
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.12,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 34,
+     "resting": 80000,
+     "shareOfBefore": 1,
+     "usd2c": 4390,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 22,
+     "resting": 9585,
+     "shareOfBefore": 0.12,
+     "usd2c": 1916,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 21,
+     "resting": 12979,
+     "shareOfBefore": 0.162,
+     "usd2c": 789,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 25,
+     "resting": 10477,
+     "shareOfBefore": 0.131,
+     "usd2c": 488,
+     "bid": 0.26,
+     "ask": 0.28
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 26,
+     "resting": 14144,
+     "shareOfBefore": 0.177,
+     "usd2c": 630,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 37,
+     "resting": 9670,
+     "shareOfBefore": 0.121,
+     "usd2c": 1195,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 40,
+     "resting": 13093,
+     "shareOfBefore": 0.164,
+     "usd2c": 0,
+     "bid": 0.16,
+     "ask": 0.27
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 47,
+     "resting": 47506,
+     "shareOfBefore": 0.594,
+     "usd2c": 2924,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 49,
+     "resting": 14332,
+     "shareOfBefore": 0.179,
+     "usd2c": 1550,
+     "bid": 0.26,
+     "ask": 0.28
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 59,
+     "resting": 50552,
+     "shareOfBefore": 0.632,
+     "usd2c": 4052,
+     "bid": 0.27,
+     "ask": 0.29
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 36,
+     "resting": 84759,
+     "shareOfBefore": 1.059,
+     "usd2c": 8151,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 34,
+     "resting": 79606,
+     "shareOfBefore": 0.995,
+     "usd2c": 4434,
+     "bid": 0.26,
+     "ask": 0.27
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 34,
+     "resting": 79998,
+     "shareOfBefore": 1,
+     "usd2c": 4388,
+     "bid": 0.26,
+     "ask": 0.27
+    }
+   }
+  },
+  {
+   "book": "col1-dep-cdt-2026-11-03|CD Tolima",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 46,
+    "resting": 140299,
+    "usd2c": 5755
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.195,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 46,
+     "resting": 140299,
+     "shareOfBefore": 1,
+     "usd2c": 5755,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 23,
+     "resting": 27323,
+     "shareOfBefore": 0.195,
+     "usd2c": 4458,
+     "bid": 0.55,
+     "ask": 0.57
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 26,
+     "resting": 18823,
+     "shareOfBefore": 0.134,
+     "usd2c": 2290,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 31,
+     "resting": 20950,
+     "shareOfBefore": 0.149,
+     "usd2c": 125,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 31,
+     "resting": 25905,
+     "shareOfBefore": 0.185,
+     "usd2c": 2325,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 40,
+     "resting": 20198,
+     "shareOfBefore": 0.144,
+     "usd2c": 2584,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 48,
+     "resting": 15339,
+     "shareOfBefore": 0.109,
+     "usd2c": 68,
+     "bid": 0.56,
+     "ask": 0.6
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 56,
+     "resting": 77697,
+     "shareOfBefore": 0.554,
+     "usd2c": 4674,
+     "bid": 0.57,
+     "ask": 0.58
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 63,
+     "resting": 31161,
+     "shareOfBefore": 0.222,
+     "usd2c": 131,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 64,
+     "resting": 85164,
+     "shareOfBefore": 0.607,
+     "usd2c": 6603,
+     "bid": 0.53,
+     "ask": 0.54
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 47,
+     "resting": 144435,
+     "shareOfBefore": 1.029,
+     "usd2c": 8807,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 46,
+     "resting": 141777,
+     "shareOfBefore": 1.011,
+     "usd2c": 5897,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 46,
+     "resting": 141656,
+     "shareOfBefore": 1.01,
+     "usd2c": 5755,
+     "bid": 0.55,
+     "ask": 0.56
+    }
+   }
+  },
+  {
+   "book": "ecu1-mur-man-2026-11-03|Mushuc Runa SC",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 41,
+    "resting": 85301,
+    "usd2c": 5546
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.386,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 41,
+     "resting": 85301,
+     "shareOfBefore": 1,
+     "usd2c": 5546,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 20,
+     "resting": 32917,
+     "shareOfBefore": 0.386,
+     "usd2c": 7899,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 21,
+     "resting": 28246,
+     "shareOfBefore": 0.331,
+     "usd2c": 3030,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 24,
+     "resting": 34323,
+     "shareOfBefore": 0.402,
+     "usd2c": 3975,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 23,
+     "resting": 32654,
+     "shareOfBefore": 0.383,
+     "usd2c": 3975,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 23,
+     "resting": 32654,
+     "shareOfBefore": 0.383,
+     "usd2c": 3975,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 27,
+     "resting": 89380,
+     "shareOfBefore": 1.048,
+     "usd2c": 6707,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 29,
+     "resting": 16693,
+     "shareOfBefore": 0.196,
+     "usd2c": 2138,
+     "bid": 0.58,
+     "ask": 0.62
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 20,
+     "resting": 1348,
+     "shareOfBefore": 0.016,
+     "usd2c": 0,
+     "bid": 0.66,
+     "ask": 0.79
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 31,
+     "resting": 87028,
+     "shareOfBefore": 1.02,
+     "usd2c": 6555,
+     "bid": 0.54,
+     "ask": 0.56
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 46,
+     "resting": 103986,
+     "shareOfBefore": 1.219,
+     "usd2c": 13402,
+     "bid": 0.57,
+     "ask": 0.59
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 42,
+     "resting": 82785,
+     "shareOfBefore": 0.971,
+     "usd2c": 2472,
+     "bid": 0.58,
+     "ask": 0.59
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 41,
+     "resting": 85235,
+     "shareOfBefore": 0.999,
+     "usd2c": 5480,
+     "bid": 0.57,
+     "ask": 0.59
+    }
+   }
+  },
+  {
+   "book": "ecu1-mur-man-2026-11-03|Draw (Mushuc Runa SC vs. Manta FC)",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 33,
+    "resting": 73874,
+    "usd2c": 1205
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.126,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 33,
+     "resting": 73874,
+     "shareOfBefore": 1,
+     "usd2c": 1205,
+     "bid": 0.24,
+     "ask": 0.25
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 21,
+     "resting": 9289,
+     "shareOfBefore": 0.126,
+     "usd2c": 1625,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 21,
+     "resting": 13901,
+     "shareOfBefore": 0.188,
+     "usd2c": 972,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 22,
+     "resting": 14891,
+     "shareOfBefore": 0.202,
+     "usd2c": 1726,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 23,
+     "resting": 15159,
+     "shareOfBefore": 0.205,
+     "usd2c": 1726,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 23,
+     "resting": 15159,
+     "shareOfBefore": 0.205,
+     "usd2c": 1726,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 25,
+     "resting": 18655,
+     "shareOfBefore": 0.253,
+     "usd2c": 2332,
+     "bid": 0.23,
+     "ask": 0.25
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 26,
+     "resting": 11653,
+     "shareOfBefore": 0.158,
+     "usd2c": 732,
+     "bid": 0.21,
+     "ask": 0.25
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 20,
+     "resting": 1965,
+     "shareOfBefore": 0.027,
+     "usd2c": 0,
+     "bid": 0.12,
+     "ask": 0.33
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 30,
+     "resting": 71312,
+     "shareOfBefore": 0.965,
+     "usd2c": 2788,
+     "bid": 0.26,
+     "ask": 0.28
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 35,
+     "resting": 88873,
+     "shareOfBefore": 1.203,
+     "usd2c": 4789,
+     "bid": 0.24,
+     "ask": 0.25
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 33,
+     "resting": 74794,
+     "shareOfBefore": 1.012,
+     "usd2c": 2276,
+     "bid": 0.24,
+     "ask": 0.25
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 32,
+     "resting": 86235,
+     "shareOfBefore": 1.167,
+     "usd2c": 1205,
+     "bid": 0.24,
+     "ask": 0.25
+    }
+   }
+  },
+  {
+   "book": "ecu1-mur-man-2026-11-03|Manta FC",
+   "start": "2026-11-03 20:30:00+00",
+   "reads": 375,
+   "first": -89,
+   "last": 659.7,
+   "before": {
+    "s": -0.9,
+    "levels": 40,
+    "resting": 72133,
+    "usd2c": 3332
+   },
+   "droppedAt": 1.1,
+   "droppedShare": 0.114,
+   "marks": {
+    "0": {
+     "s": -0.9,
+     "levels": 40,
+     "resting": 72133,
+     "shareOfBefore": 1,
+     "usd2c": 3332,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 18,
+     "resting": 8211,
+     "shareOfBefore": 0.114,
+     "usd2c": 2736,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "5": {
+     "s": 5.1,
+     "levels": 18,
+     "resting": 12820,
+     "shareOfBefore": 0.178,
+     "usd2c": 897,
+     "bid": 0.16,
+     "ask": 0.19
+    },
+    "10": {
+     "s": 9.1,
+     "levels": 19,
+     "resting": 13370,
+     "shareOfBefore": 0.185,
+     "usd2c": 985,
+     "bid": 0.16,
+     "ask": 0.19
+    },
+    "20": {
+     "s": 19.2,
+     "levels": 20,
+     "resting": 8299,
+     "shareOfBefore": 0.115,
+     "usd2c": 1193,
+     "bid": 0.16,
+     "ask": 0.18
+    },
+    "30": {
+     "s": 29.1,
+     "levels": 20,
+     "resting": 11555,
+     "shareOfBefore": 0.16,
+     "usd2c": 1374,
+     "bid": 0.16,
+     "ask": 0.18
+    },
+    "60": {
+     "s": 59.2,
+     "levels": 21,
+     "resting": 15455,
+     "shareOfBefore": 0.214,
+     "usd2c": 3085,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "120": {
+     "s": 119.2,
+     "levels": 25,
+     "resting": 16930,
+     "shareOfBefore": 0.235,
+     "usd2c": 160,
+     "bid": 0.14,
+     "ask": 0.17
+    },
+    "300": {
+     "s": 299.4,
+     "levels": 22,
+     "resting": 1080,
+     "shareOfBefore": 0.015,
+     "usd2c": 0,
+     "bid": 0.07,
+     "ask": 0.14
+    },
+    "600": {
+     "s": 599.6,
+     "levels": 24,
+     "resting": 60451,
+     "shareOfBefore": 0.838,
+     "usd2c": 2795,
+     "bid": 0.17,
+     "ask": 0.19
+    },
+    "-60": {
+     "s": -60.9,
+     "levels": 39,
+     "resting": 74212,
+     "shareOfBefore": 1.029,
+     "usd2c": 4721,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "-10": {
+     "s": -10.9,
+     "levels": 40,
+     "resting": 72232,
+     "shareOfBefore": 1.001,
+     "usd2c": 3417,
+     "bid": 0.17,
+     "ask": 0.18
+    },
+    "-2": {
+     "s": -2.9,
+     "levels": 40,
+     "resting": 72133,
+     "shareOfBefore": 1,
+     "usd2c": 3332,
+     "bid": 0.17,
+     "ask": 0.18
+    }
+   }
+  },
+  {
+   "book": "gtm-xel-mrq-2026-11-03|CSD Xelajú MC",
+   "start": "2026-11-03 21:00:00+00",
+   "reads": 375,
+   "first": -89.4,
+   "last": 659.3,
+   "before": {
+    "s": -1.3,
+    "levels": 20,
+    "resting": 5325,
+    "usd2c": 0
+   },
+   "droppedAt": 0.7,
+   "droppedShare": 0,
+   "marks": {
+    "0": {
+     "s": 0.7,
+     "levels": 0,
+     "resting": 0,
+     "shareOfBefore": 0,
+     "usd2c": null,
+     "bid": null,
+     "ask": null
+    },
+    "2": {
+     "s": 2.6,
+     "levels": 6,
+     "resting": 703,
+     "shareOfBefore": 0.132,
+     "usd2c": 0,
+     "bid": 0.22,
+     "ask": 0.9
+    },
+    "5": {
+     "s": 4.7,
+     "levels": 7,
+     "resting": 723,
+     "shareOfBefore": 0.136,
+     "usd2c": 0,
+     "bid": 0.22,
+     "ask": 0.88
+    },
+    "10": {
+     "s": 10.7,
+     "levels": 9,
+     "resting": 912,
+     "shareOfBefore": 0.171,
+     "usd2c": 0,
+     "bid": 0.22,
+     "ask": 0.88
+    },
+    "20": {
+     "s": 20.7,
+     "levels": 11,
+     "resting": 841,
+     "shareOfBefore": 0.158,
+     "usd2c": 0,
+     "bid": 0.62,
+     "ask": 0.67
+    },
+    "30": {
+     "s": 30.7,
+     "levels": 11,
+     "resting": 841,
+     "shareOfBefore": 0.158,
+     "usd2c": 0,
+     "bid": 0.62,
+     "ask": 0.67
+    },
+    "60": {
+     "s": 60.7,
+     "levels": 10,
+     "resting": 730,
+     "shareOfBefore": 0.137,
+     "usd2c": 0,
+     "bid": 0.62,
+     "ask": 0.67
+    },
+    "120": {
+     "s": 120.8,
+     "levels": 16,
+     "resting": 964,
+     "shareOfBefore": 0.181,
+     "usd2c": 547,
+     "bid": 0.62,
+     "ask": 0.64
+    },
+    "300": {
+     "s": 299,
+     "levels": 12,
+     "resting": 1671,
+     "shareOfBefore": 0.314,
+     "usd2c": 0,
+     "bid": 0.62,
+     "ask": 0.67
+    },
+    "600": {
+     "s": 599.2,
+     "levels": 14,
+     "resting": 1582,
+     "shareOfBefore": 0.297,
+     "usd2c": 0,
+     "bid": 0.25,
+     "ask": 0.89
+    },
+    "-60": {
+     "s": -59.4,
+     "levels": 25,
+     "resting": 7657,
+     "shareOfBefore": 1.438,
+     "usd2c": 0,
+     "bid": 0.63,
+     "ask": 0.68
+    },
+    "-10": {
+     "s": -9.3,
+     "levels": 20,
+     "resting": 5325,
+     "shareOfBefore": 1,
+     "usd2c": 0,
+     "bid": 0.63,
+     "ask": 0.68
+    },
+    "-2": {
+     "s": -1.3,
+     "levels": 20,
+     "resting": 5325,
+     "shareOfBefore": 1,
+     "usd2c": 0,
+     "bid": 0.63,
+     "ask": 0.68
+    }
+   }
+  },
+  {
+   "book": "gtm-xel-mrq-2026-11-03|Draw (CSD Xelajú MC vs. CD Marquense)",
+   "start": "2026-11-03 21:00:00+00",
+   "reads": 375,
+   "first": -89.4,
+   "last": 659.3,
+   "before": {
+    "s": -1.3,
+    "levels": 20,
+    "resting": 3297,
+    "usd2c": 167
+   },
+   "droppedAt": 0.7,
+   "droppedShare": 0,
+   "marks": {
+    "0": {
+     "s": 0.7,
+     "levels": 0,
+     "resting": 0,
+     "shareOfBefore": 0,
+     "usd2c": null,
+     "bid": null,
+     "ask": null
+    },
+    "2": {
+     "s": 2.6,
+     "levels": 9,
+     "resting": 947,
+     "shareOfBefore": 0.287,
+     "usd2c": 0,
+     "bid": 0.07,
+     "ask": 0.74
+    },
+    "5": {
+     "s": 4.7,
+     "levels": 10,
+     "resting": 976,
+     "shareOfBefore": 0.296,
+     "usd2c": 0,
+     "bid": 0.08,
+     "ask": 0.73
+    },
+    "10": {
+     "s": 10.7,
+     "levels": 13,
+     "resting": 810,
+     "shareOfBefore": 0.246,
+     "usd2c": 0,
+     "bid": 0.08,
+     "ask": 0.73
+    },
+    "20": {
+     "s": 20.7,
+     "levels": 16,
+     "resting": 772,
+     "shareOfBefore": 0.234,
+     "usd2c": 0,
+     "bid": 0.2,
+     "ask": 0.26
+    },
+    "30": {
+     "s": 30.7,
+     "levels": 14,
+     "resting": 616,
+     "shareOfBefore": 0.187,
+     "usd2c": 0,
+     "bid": 0.2,
+     "ask": 0.26
+    },
+    "60": {
+     "s": 60.7,
+     "levels": 13,
+     "resting": 462,
+     "shareOfBefore": 0.14,
+     "usd2c": 0,
+     "bid": 0.21,
+     "ask": 0.26
+    },
+    "120": {
+     "s": 120.8,
+     "levels": 13,
+     "resting": 424,
+     "shareOfBefore": 0.129,
+     "usd2c": 200,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "300": {
+     "s": 299,
+     "levels": 12,
+     "resting": 453,
+     "shareOfBefore": 0.137,
+     "usd2c": 198,
+     "bid": 0.24,
+     "ask": 0.26
+    },
+    "600": {
+     "s": 599.2,
+     "levels": 13,
+     "resting": 697,
+     "shareOfBefore": 0.211,
+     "usd2c": 0,
+     "bid": 0.18,
+     "ask": 0.76
+    },
+    "-60": {
+     "s": -59.4,
+     "levels": 24,
+     "resting": 4643,
+     "shareOfBefore": 1.408,
+     "usd2c": 167,
+     "bid": 0.23,
+     "ask": 0.24
+    },
+    "-10": {
+     "s": -9.3,
+     "levels": 20,
+     "resting": 3297,
+     "shareOfBefore": 1,
+     "usd2c": 167,
+     "bid": 0.23,
+     "ask": 0.24
+    },
+    "-2": {
+     "s": -1.3,
+     "levels": 20,
+     "resting": 3297,
+     "shareOfBefore": 1,
+     "usd2c": 167,
+     "bid": 0.23,
+     "ask": 0.24
+    }
+   }
+  },
+  {
+   "book": "gtm-xel-mrq-2026-11-03|CD Marquense",
+   "start": "2026-11-03 21:00:00+00",
+   "reads": 375,
+   "first": -89.4,
+   "last": 659.3,
+   "before": {
+    "s": -1.3,
+    "levels": 26,
+    "resting": 3101,
+    "usd2c": 75
+   },
+   "droppedAt": 0.7,
+   "droppedShare": 0,
+   "marks": {
+    "0": {
+     "s": 0.7,
+     "levels": 0,
+     "resting": 0,
+     "shareOfBefore": 0,
+     "usd2c": null,
+     "bid": null,
+     "ask": null
+    },
+    "2": {
+     "s": 2.6,
+     "levels": 5,
+     "resting": 270,
+     "shareOfBefore": 0.087,
+     "usd2c": 0,
+     "bid": 0.04,
+     "ask": 0.69
+    },
+    "5": {
+     "s": 4.7,
+     "levels": 4,
+     "resting": 250,
+     "shareOfBefore": 0.081,
+     "usd2c": null,
+     "bid": null,
+     "ask": 0.67
+    },
+    "10": {
+     "s": 10.7,
+     "levels": 9,
+     "resting": 568,
+     "shareOfBefore": 0.183,
+     "usd2c": 0,
+     "bid": 0.01,
+     "ask": 0.65
+    },
+    "20": {
+     "s": 20.7,
+     "levels": 12,
+     "resting": 678,
+     "shareOfBefore": 0.219,
+     "usd2c": 0,
+     "bid": 0.09,
+     "ask": 0.14
+    },
+    "30": {
+     "s": 30.7,
+     "levels": 12,
+     "resting": 641,
+     "shareOfBefore": 0.207,
+     "usd2c": 0,
+     "bid": 0.09,
+     "ask": 0.14
+    },
+    "60": {
+     "s": 60.7,
+     "levels": 10,
+     "resting": 568,
+     "shareOfBefore": 0.183,
+     "usd2c": 0,
+     "bid": 0.09,
+     "ask": 0.14
+    },
+    "120": {
+     "s": 120.8,
+     "levels": 10,
+     "resting": 605,
+     "shareOfBefore": 0.195,
+     "usd2c": 99,
+     "bid": 0.11,
+     "ask": 0.14
+    },
+    "300": {
+     "s": 299,
+     "levels": 14,
+     "resting": 667,
+     "shareOfBefore": 0.215,
+     "usd2c": 103,
+     "bid": 0.1,
+     "ask": 0.14
+    },
+    "600": {
+     "s": 599.2,
+     "levels": 15,
+     "resting": 3113,
+     "shareOfBefore": 1.004,
+     "usd2c": 0,
+     "bid": 0.03,
+     "ask": 0.61
+    },
+    "-60": {
+     "s": -59.4,
+     "levels": 28,
+     "resting": 6283,
+     "shareOfBefore": 2.026,
+     "usd2c": 75,
+     "bid": 0.1,
+     "ask": 0.13
+    },
+    "-10": {
+     "s": -9.3,
+     "levels": 26,
+     "resting": 3101,
+     "shareOfBefore": 1,
+     "usd2c": 75,
+     "bid": 0.1,
+     "ask": 0.13
+    },
+    "-2": {
+     "s": -1.3,
+     "levels": 26,
+     "resting": 3101,
+     "shareOfBefore": 1,
+     "usd2c": 75,
+     "bid": 0.1,
+     "ask": 0.13
+    }
+   }
+  },
+  {
+   "book": "itf-tomas1-mckenn1-2026-11-03|M25 Guadalajara: Ian Lucca Cervantes Tomas vs Maxwell McKennon",
+   "start": "2026-11-03 21:00:00+00",
+   "reads": 375,
+   "first": -89.4,
+   "last": 659.3,
+   "before": {
+    "s": -1.3,
+    "levels": 19,
+    "resting": 1523,
+    "usd2c": 12
+   },
+   "droppedAt": 0.7,
+   "droppedShare": 0.359,
+   "marks": {
+    "0": {
+     "s": 0.7,
+     "levels": 7,
+     "resting": 546,
+     "shareOfBefore": 0.359,
+     "usd2c": 0,
+     "bid": 0.02,
+     "ask": 0.39
+    },
+    "2": {
+     "s": 2.6,
+     "levels": 20,
+     "resting": 1380,
+     "shareOfBefore": 0.906,
+     "usd2c": 0,
+     "bid": 0.28,
+     "ask": 0.36
+    },
+    "5": {
+     "s": 4.7,
+     "levels": 17,
+     "resting": 1280,
+     "shareOfBefore": 0.84,
+     "usd2c": 0,
+     "bid": 0.27,
+     "ask": 0.36
+    },
+    "10": {
+     "s": 10.7,
+     "levels": 20,
+     "resting": 1109,
+     "shareOfBefore": 0.728,
+     "usd2c": 0,
+     "bid": 0.28,
+     "ask": 0.36
+    },
+    "20": {
+     "s": 20.7,
+     "levels": 23,
+     "resting": 1096,
+     "shareOfBefore": 0.72,
+     "usd2c": 0,
+     "bid": 0.29,
+     "ask": 0.36
+    },
+    "30": {
+     "s": 30.7,
+     "levels": 22,
+     "resting": 1309,
+     "shareOfBefore": 0.859,
+     "usd2c": 0,
+     "bid": 0.29,
+     "ask": 0.36
+    },
+    "60": {
+     "s": 60.7,
+     "levels": 24,
+     "resting": 1207,
+     "shareOfBefore": 0.793,
+     "usd2c": 0,
+     "bid": 0.29,
+     "ask": 0.35
+    },
+    "120": {
+     "s": 120.8,
+     "levels": 22,
+     "resting": 1175,
+     "shareOfBefore": 0.772,
+     "usd2c": 0,
+     "bid": 0.29,
+     "ask": 0.35
+    },
+    "300": {
+     "s": 299,
+     "levels": 22,
+     "resting": 1117,
+     "shareOfBefore": 0.733,
+     "usd2c": 3,
+     "bid": 0.29,
+     "ask": 0.32
+    },
+    "600": {
+     "s": 599.2,
+     "levels": 20,
+     "resting": 1322,
+     "shareOfBefore": 0.868,
+     "usd2c": 42,
+     "bid": 0.29,
+     "ask": 0.32
+    },
+    "-60": {
+     "s": -59.4,
+     "levels": 17,
+     "resting": 1368,
+     "shareOfBefore": 0.898,
+     "usd2c": 30,
+     "bid": 0.29,
+     "ask": 0.31
+    },
+    "-10": {
+     "s": -9.3,
+     "levels": 19,
+     "resting": 1417,
+     "shareOfBefore": 0.93,
+     "usd2c": 12,
+     "bid": 0.29,
+     "ask": 0.32
+    },
+    "-2": {
+     "s": -1.3,
+     "levels": 19,
+     "resting": 1523,
+     "shareOfBefore": 1,
+     "usd2c": 12,
+     "bid": 0.29,
+     "ask": 0.32
+    }
+   }
+  },
+  {
+   "book": "atp-galarne-milavsk-2026-11-03|Charlottesville: Alexis Galarneau vs Daniel Milavsky",
+   "start": "2026-11-03 21:05:00+00",
+   "reads": 375,
+   "first": -89.1,
+   "last": 659.6,
+   "before": {
+    "s": -1,
+    "levels": 48,
+    "resting": 114140,
+    "usd2c": 11008
+   },
+   "droppedAt": 21,
+   "droppedShare": 0.377,
+   "marks": {
+    "0": {
+     "s": -1,
+     "levels": 48,
+     "resting": 114140,
+     "shareOfBefore": 1,
+     "usd2c": 11008,
+     "bid": 0.54,
+     "ask": 0.55
+    },
+    "2": {
+     "s": 1.1,
+     "levels": 48,
+     "resting": 116198,
+     "shareOfBefore": 1.018,
+     "usd2c": 11090,
+     "bid": 0.54,
+     "ask": 0.55
+    },
+    "5": {
+     "s": 5,
+     "levels": 50,
+     "resting": 117659,
+     "shareOfBefore": 1.031,
+     "usd2c": 937,
+     "bid": 0.53,
+     "ask": 0.55
+    },
+    "10": {
+     "s": 9,
+     "levels": 48,
+     "resting": 118979,
+     "shareOfBefore": 1.042,
+     "usd2c": 1027,
+     "bid": 0.53,
+     "ask": 0.55
+    },
+    "20": {
+     "s": 21,
+     "levels": 45,
+     "resting": 43009,
+     "shareOfBefore": 0.377,
+     "usd2c": 15425,
+     "bid": 0.51,
+     "ask": 0.52
+    },
+    "30": {
+     "s": 31,
+     "levels": 43,
+     "resting": 135847,
+     "shareOfBefore": 1.19,
+     "usd2c": 25705,
+     "bid": 0.51,
+     "ask": 0.52
+    },
+    "60": {
+     "s": 59,
+     "levels": 50,
+     "resting": 139438,
+     "shareOfBefore": 1.222,
+     "usd2c": 29442,
+     "bid": 0.53,
+     "ask": 0.54
+    },
+    "120": {
+     "s": 119.1,
+     "levels": 41,
+     "resting": 141230,
+     "shareOfBefore": 1.237,
+     "usd2c": 33449,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "300": {
+     "s": 299.2,
+     "levels": 50,
+     "resting": 125719,
+     "shareOfBefore": 1.101,
+     "usd2c": 2137,
+     "bid": 0.55,
+     "ask": 0.56
+    },
+    "600": {
+     "s": 599.5,
+     "levels": 32,
+     "resting": 125854,
+     "shareOfBefore": 1.103,
+     "usd2c": 23882,
+     "bid": 0.48,
+     "ask": 0.49
+    },
+    "-60": {
+     "s": -59,
+     "levels": 47,
+     "resting": 120700,
+     "shareOfBefore": 1.057,
+     "usd2c": 1359,
+     "bid": 0.54,
+     "ask": 0.55
+    },
+    "-10": {
+     "s": -9,
+     "levels": 47,
+     "resting": 122395,
+     "shareOfBefore": 1.072,
+     "usd2c": 18951,
+     "bid": 0.54,
+     "ask": 0.55
+    },
+    "-2": {
+     "s": -1,
+     "levels": 48,
+     "resting": 114140,
+     "shareOfBefore": 1,
+     "usd2c": 11008,
+     "bid": 0.54,
+     "ask": 0.55
+    }
+   }
+  }
+ ]
+}

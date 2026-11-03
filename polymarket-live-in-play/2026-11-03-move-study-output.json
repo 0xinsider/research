@@ -1,0 +1,153 @@
+{
+  "readAt": "2026-11-03T20:10:16.006Z",
+  "windowStart": "2026-11-02T20:10:16.006Z",
+  "closedEvents": 1986,
+  "marketsStudied": 375,
+  "historiesRead": 375,
+  "summary": [
+    {
+      "phase": "pregame",
+      "jumps": 285,
+      "games": 50,
+      "medianSizeC": 8,
+      "reversedNextMinutePct": 11.9,
+      "with60": 283,
+      "medianKept60": 0.8,
+      "keptHalfPct": 58,
+      "reversedFullyPct": 28.3
+    },
+    {
+      "phase": "in-play",
+      "jumps": 3848,
+      "games": 247,
+      "medianSizeC": 8,
+      "reversedNextMinutePct": 11.1,
+      "with60": 3147,
+      "medianKept60": 1.17,
+      "keptHalfPct": 55.4,
+      "reversedFullyPct": 40.6
+    }
+  ],
+  "byLeague": [
+    {
+      "league": "atp",
+      "phase": "in-play",
+      "jumps": 793,
+      "reversedNextMinutePct": 10
+    },
+    {
+      "league": "wta",
+      "phase": "in-play",
+      "jumps": 494,
+      "reversedNextMinutePct": 9.5
+    },
+    {
+      "league": "itf",
+      "phase": "in-play",
+      "jumps": 398,
+      "reversedNextMinutePct": 11.6
+    },
+    {
+      "league": "counter-strike",
+      "phase": "in-play",
+      "jumps": 261,
+      "reversedNextMinutePct": 7.3
+    },
+    {
+      "league": "nba-2026",
+      "phase": "in-play",
+      "jumps": 204,
+      "reversedNextMinutePct": 6.4
+    },
+    {
+      "league": "ncaa-cbb",
+      "phase": "in-play",
+      "jumps": 180,
+      "reversedNextMinutePct": 11.1
+    },
+    {
+      "league": "japan-j2-league",
+      "phase": "in-play",
+      "jumps": 178,
+      "reversedNextMinutePct": 11.8
+    },
+    {
+      "league": "afc-champions-league-elite-2026",
+      "phase": "in-play",
+      "jumps": 142,
+      "reversedNextMinutePct": 7.7
+    },
+    {
+      "league": "itf",
+      "phase": "pregame",
+      "jumps": 135,
+      "reversedNextMinutePct": 16.3
+    },
+    {
+      "league": "ja3-games",
+      "phase": "in-play",
+      "jumps": 118,
+      "reversedNextMinutePct": 24.6
+    },
+    {
+      "league": "cba",
+      "phase": "in-play",
+      "jumps": 107,
+      "reversedNextMinutePct": 9.3
+    },
+    {
+      "league": "dota-2",
+      "phase": "in-play",
+      "jumps": 100,
+      "reversedNextMinutePct": 9
+    },
+    {
+      "league": "acl2-games",
+      "phase": "in-play",
+      "jumps": 73,
+      "reversedNextMinutePct": 32.9
+    },
+    {
+      "league": "counter-strike",
+      "phase": "pregame",
+      "jumps": 56,
+      "reversedNextMinutePct": 8.9
+    },
+    {
+      "league": "brazil-serie-b",
+      "phase": "in-play",
+      "jumps": 55,
+      "reversedNextMinutePct": 14.5
+    },
+    {
+      "league": "primera-divisin-argentina",
+      "phase": "in-play",
+      "jumps": 49,
+      "reversedNextMinutePct": 4.1
+    },
+    {
+      "league": "soccer-gtm",
+      "phase": "in-play",
+      "jumps": 47,
+      "reversedNextMinutePct": 29.8
+    },
+    {
+      "league": "ned2-games",
+      "phase": "in-play",
+      "jumps": 45,
+      "reversedNextMinutePct": 6.7
+    },
+    {
+      "league": "col2-games",
+      "phase": "in-play",
+      "jumps": 42,
+      "reversedNextMinutePct": 26.2
+    },
+    {
+      "league": "primera-division",
+      "phase": "in-play",
+      "jumps": 36,
+      "reversedNextMinutePct": 16.7
+    }
+  ]
+}
