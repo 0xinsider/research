@@ -36,7 +36,7 @@ is left out of that horizon.
 - `mm-scan.ts`: reads that snapshot, CLOB `POST /books`, CLOB `/rewards/markets/multi`, Data API
   `/v2/trades` and CLOB `/prices-history`, and prints every table above.
 - `kill-switch.ts`: reads `/api/v1/large-trades?condition_id=` for the same 40 markets and marks each
-  trade at 30 minutes. Its exported `watch()` polls for S or A trades of $5,000 or more and calls the
+  trade at 30 minutes. Its exported `watch()` polls for S or A trades of $10,000 or more (the feed's floor) and calls the
   cancel function you pass it. It places no orders.
 - `2026-11-03-mm-scan-output.json`, `2026-11-03-kill-switch-output.json`: the runs the article cites.
   The kill-switch run read its key from `OXI_API_KEY`; the committed script reads
