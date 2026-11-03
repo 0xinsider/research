@@ -17,7 +17,7 @@ busiest moneylines priced from 10 to 90 cents. Polymarket's public APIs only, no
 |---|---|---|
 | Open sports events and markets paged | 2,100 events (Gamma answered 422 at offset 2,100), 62,342 markets, 57,957 accepting orders | `universe` |
 | Median moneyline spread | 2 cents on 1,430 quoted markets; 39.5% at 1 cent or less | `byType` |
-| Taker markout on one-cent moneyline books | -0.38c at 1 minute, -0.38c at 5, -0.45c at 30, on 14,394 fills in 38 markets | `markouts.byWidth` |
+| Taker markout on moneylines a cent wide at the read (width not recorded per fill) | -0.38c at 1 minute, -0.38c at 5, -0.45c at 30, on 14,394 fills in 38 markets | `markouts.byWidth` |
 | Median dollars within 2 cents of the mid, busiest books | sports $53,725 (39 books), esports $16,077 (18 books) | `books` |
 | Fee schedules | every one taker-only; 41,532 markets at rate 0.05 and rebate 15%; 14,249 NFL and college football markets at 0.03 | `feeSchedules`, `feeTypes` |
 | Funded sports liquidity rewards | 3,955 markets, $20,135 a day, median $4, top $476 | `rewards` |
