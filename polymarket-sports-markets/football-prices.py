@@ -1,6 +1,6 @@
 """Kickoff prices for every settled Polymarket NFL and college football moneyline, from the public CLOB price history.
 
-Input: football-games.csv (the read-only export) and football-scoreboard.csv
+Input: football-games.csv (the export) and football-scoreboard.csv
 (the ESPN game each market settled on). The cutoff is the earlier of the market's scheduled start and ESPN's listed
 start, or the market's start when ESPN has no match: a price read after kickoff already carries part of the game.
 For each game it reads

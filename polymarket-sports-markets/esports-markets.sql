@@ -1,5 +1,5 @@
 -- Study 15 (#13943) supplement: where the money goes on a CS2/Valorant/Dota 2/LoL esports series on
--- Polymarket, for the guide at /learn/how-to-bet-on-esports-polymarket. Read-only, a read-only role.
+-- Polymarket, for the guide at /learn/how-to-bet-on-esports-polymarket. Runs as a database role that cannot write.
 --   psql "$DATABASE_URL" -X -f esports-markets.sql
 select now() as run_at;
 

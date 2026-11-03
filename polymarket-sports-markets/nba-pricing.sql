@@ -1,4 +1,4 @@
--- NBA favorite-longshot pricing study (#14060). Read-only, posthog_readonly, Neon branch main.
+-- NBA favorite-longshot pricing study (#14060). Runs as posthog_readonly, Neon branch main.
 -- SUPERSEDED FOR OUTCOME SCORING (#22294, 2026-10-10). This file keeps a market once it has any settlement row
 -- (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1) or
 -- unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is nba-pricing-2026-10-10.sql.

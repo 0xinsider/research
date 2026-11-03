@@ -1,5 +1,5 @@
 -- Study 10: the first set in Polymarket tennis. How often does the first-set winner win the match?
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f tennis-sets.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f tennis-sets.sql
 -- Market results only (no alert-table rows), so no April 2 boundary. A tennis match on Polymarket is an event with
 -- a match market (outcomes are full player names) and set markets, "Set 1 Winner: <A> vs <B>" and
 -- "Set N Winner: ..." (outcomes are surnames). A set outcome is mapped to a match outcome when the match

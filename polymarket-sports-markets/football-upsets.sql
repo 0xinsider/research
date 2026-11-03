@@ -1,5 +1,5 @@
 -- Study 14: football upsets on Polymarket. How often NFL and college football underdogs win, and the game-level
--- export the kickoff price and scoreboard scripts read. Read-only, a read-only role against production.
+-- export the kickoff price and scoreboard scripts read. Runs as a database role that cannot write, against production.
 --   psql "$DATABASE_URL" -X -f football-upsets.sql
 -- Universe: one settled full-game moneyline per NFL or college football game (slug prefixes nfl, cfb) whose title
 -- lists its two outcomes in outcome order, "<outcome 0> vs. <outcome 1>", settled 0 or 1 (a tie or cancellation

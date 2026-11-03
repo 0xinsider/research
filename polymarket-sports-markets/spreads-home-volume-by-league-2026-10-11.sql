@@ -1,6 +1,6 @@
 -- Section charts for /research/point-spreads-polymarket and /research/home-field-advantage-polymarket (#23663, epic
 -- #23652): how the volume on recent games split between the moneyline, spreads and totals, by league.
--- Read-only, against the production read replica through scripts/prod-read.sh:
+-- Runs against the production read replica through scripts/prod-read.sh:
 --   ./scripts/prod-read.sh docs/research-articles/verification/2026-10-11-sports-volume-by-league-charts.sql.txt   (in the 0xinsider repository)
 -- Universe: game markets that started from 00:00 UTC on September 10 to 00:00 UTC on October 11, 2026 (the first 31 days
 -- of the 2026 NFL season), with a 0xinsider page and 1,000 or more in Polymarket's reported volume. The predicate is the

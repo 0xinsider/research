@@ -15,7 +15,7 @@
 -- 'b. extension': 2026-09-14 to 2026-10-10. 'c. all': both, the current reading.
 --
 -- WHERE IT RAN. On a Neon child branch of production (claude-18-23731-reruns, forked 14:56 UTC on 2026-10-11,
--- deleted after the runs) through ./scripts/neon-child-branch.sh query, read-only against production; the temp
+-- deleted after the runs) through ./scripts/neon-child-branch.sh query, against production; the temp
 -- tables live only in the session. Output: 2026-10-11-sports-tennis-sets-rerun-output.txt beside this file.
 select now() as run_at;
 

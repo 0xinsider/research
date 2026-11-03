@@ -1,7 +1,7 @@
 -- #22294: the corrected over/under buy-level edges, clustered by game, the step query 4 of
 -- over-under-by-game.sql ran for the September export. It joins each market of
 -- over-under-2026-10-10-market-edge.csv (the corrected run, void and unresolvable markets left out) to its
--- game so over-under-game-bootstrap-2026-10-10.py can resample games instead of markets. Read-only; the temp
+-- game so over-under-game-bootstrap-2026-10-10.py can resample games instead of markets. The temp
 -- table lives only in this session. Ran on the same Neon child branch as over-under-2026-10-10.sql:
 --   ./scripts/neon-child-branch.sh query --name <branch> -f over-under-game-edge-2026-10-10.sql
 select now() as run_at;

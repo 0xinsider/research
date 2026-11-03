@@ -7,7 +7,7 @@ dollars (#22291). This script keeps a game by the dollars traded on its moneylin
 football-pregame-volume-2026-10-10.py. Everything else is the September rule, on the same three inputs.
 
 Inputs, published beside this script:
-  football-games.csv          the read-only export of settled NFL and college football moneylines
+  football-games.csv          the export of settled NFL and college football moneylines
   football-scoreboard.csv     each game matched to ESPN's final score, season type and venue
   football-prices.csv         the away team's last price before kickoff, from the public CLOB
   football-pregame-volume-2026-10-10.csv the dollars of taker trades on the moneyline at or before the cutoff

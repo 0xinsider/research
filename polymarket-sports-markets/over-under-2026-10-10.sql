@@ -13,7 +13,7 @@
 -- output stay beside this one as the record of what was published.
 --
 -- Study 6: over/under. Do Polymarket bettors overpay for the Over, and which way do totals settle?
--- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f over-under-2026-10-10.sql
+-- Where this run ran is in the header above.  psql "$CONN" -X -f over-under-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2). Grades from 2026-06-01.
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market whose
 -- sports_market_type is 'totals' with outcomes Over/Under (the game total), settled after the trade, 2c-98c.

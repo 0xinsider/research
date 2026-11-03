@@ -1,6 +1,6 @@
 -- Section charts for /research/esports-first-map-winner-polymarket (#23687, epic #23652): what the four esports
 -- boards' games held over the 30 days before the run, and what the large-trade feed caught on them.
--- Read-only, against the production read replica through scripts/prod-read.sh (BEGIN READ ONLY, statement_timeout
+-- Runs against the production read replica through scripts/prod-read.sh (BEGIN READ ONLY, statement_timeout
 -- 60s, ROLLBACK), one statement per call, on 2026-10-11 from 13:37:20 to 13:37:29 UTC. No row was written.
 --   ./scripts/prod-read.sh <one statement below>
 -- Window: games whose listed start fell from 00:00 UTC on September 11 to 00:00 UTC on October 11, 2026.

@@ -1,5 +1,5 @@
 -- Study 12: home advantage on Polymarket. How often home teams win, by league, and what large bets on the home and
--- away sides paid. Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f home-advantage.sql
+-- away sides paid. Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f home-advantage.sql
 -- Home team. US leagues (NFL, NBA, MLB, NHL, WNBA, college football) title a game "<away> vs. <home>" with the away
 -- team as the first outcome; the Gamma API marked the second outcome as home in 281 of 300 sampled events and the
 -- first in none (the other 19 carry no ordering): see home-ordering-output.txt; 200 of 200 soccer matches sampled the same way agree. Soccer titles a

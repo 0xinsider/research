@@ -1,5 +1,5 @@
 -- #23694 (epic #23652, slice R7): section charts for /research/cost-of-late-whale-alerts.
--- Read-only. Run through scripts/prod-read.sh against the production READ REPLICA: one statement per call, inside
+-- Run through scripts/prod-read.sh against the production READ REPLICA: one statement per call, inside
 -- BEGIN READ ONLY with statement_timeout 60s, results through a capped cursor. Output: the -output.txt beside this file.
 --
 -- Universe, every query: every Polymarket large trade the feed recorded (whale_alerts) from 2026-09-10 00:00 to

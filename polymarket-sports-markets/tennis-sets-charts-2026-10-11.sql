@@ -2,7 +2,7 @@
 --
 -- WHERE IT RAN. On a Neon child branch of production forked at 13:03:53 UTC on 2026-10-11
 -- (claude18-23679-charts, deleted after the runs), through
--- ./scripts/neon-child-branch.sh query --name claude18-23679-charts -f <this file>, read-only statements only.
+-- ./scripts/neon-child-branch.sh query --name claude18-23679-charts -f <this file>; no statement changes data.
 -- The run_at line of the committed -output.txt beside this file is the start of the run.
 --
 -- The study is tennis-sets.sql. This file re-builds its universe with the same rules

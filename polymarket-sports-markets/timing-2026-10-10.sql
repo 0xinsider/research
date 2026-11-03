@@ -13,7 +13,7 @@
 -- output stay beside this one as the record of what was published.
 --
 -- Study 3: when large sports bets land relative to kickoff, and which timing wins.
--- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f timing-2026-10-10.sql
+-- Where this run ran is in the header above.  psql "$CONN" -X -f timing-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-11 (see study 1 for why April 2). Grades from 2026-06-01.
 -- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest
 -- trader_rankings row dated on or before the trade day. 0xinsider updates a wallet's latest ranking row in

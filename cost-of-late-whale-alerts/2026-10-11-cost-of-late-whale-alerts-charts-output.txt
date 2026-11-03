@@ -1,5 +1,5 @@
 -- #23694: output of 2026-10-11-cost-of-late-whale-alerts-charts.sql.txt (queries A to D and F; E is the cohort CSV).
--- scripts/prod-read.sh, production read replica, read-only transaction, statement_timeout 60s.
+-- scripts/prod-read.sh, production read replica, statement_timeout 60s.
 
 A. started 2026-10-11T14:06:33Z
 [prod-read] target=replica timeout=60s

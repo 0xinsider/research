@@ -1,5 +1,5 @@
 -- Study 4: how many Polymarket sports bettors are profitable?
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f wallet-census.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f wallet-census.sql
 -- Source: trader_category_stats, the per-wallet, per-category read model. One row per (wallet, canonical
 -- category) with at least 5 settled Polymarket markets in that category where the wallet had $20 or more at
 -- stake and a valid entry price on the side it held. total_pnl_category = realized P&L summed over those

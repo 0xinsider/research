@@ -1,7 +1,7 @@
 # Grade vs price paid: raw output, run of 2026-10-23
 
 Every table below is the unedited output of `aggregate.py` (queries 4 and 5) or of `queries.sql`
-(query 6), read-only against the production read replica. The exports ran between 13:42 and 13:45
+(query 6), run against the production read replica. The exports ran between 13:42 and 13:45
 UTC on 2026-10-23; query 6 ran at 14:01 UTC, from the committed text, and returned
 197 buys, the count the page cites. Edge and interval columns are percentage points. `ci` is the 95% half-width,
 the wider of the market and wallet clusterings. The 2026-10-07 all-market output is in

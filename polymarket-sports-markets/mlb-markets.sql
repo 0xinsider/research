@@ -1,5 +1,5 @@
 -- MLB guide: what Polymarket lists for an MLB game in 2026, where the money goes, and each market family's rules.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f mlb-markets.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f mlb-markets.sql
 -- Universe: markets under a regular MLB game slug (mlb-<away>-<home>-<date>, derivative slugs such as
 -- -first-five-winner included) for games from March 25 to September 12, 2026. Volume is Polymarket's reported
 -- lifetime volume for each market, in USDC.

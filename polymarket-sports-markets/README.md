@@ -10,7 +10,7 @@ One dataset: every `whale_alerts` buy on a sports-category Polymarket market, jo
 `market_outcomes` with `resolved_at > traded_at`, price 2c to 98c. No query filters on stake: the
 smallest recorded buy was $2,996 until 2026-07-02 and $10,000 from that day. This line said "$1,000 or
 more" until 2026-10-11, when issue 0xinsider/0xinsider#23716 re-read each study's universe by month.
-Read-only runs against production, 03:27 to 03:29 UTC.
+Runs against production, 03:27 to 03:29 UTC.
 
 ## Correction, 2026-10-07: grades at the trade (issue 0xinsider/0xinsider#22191)
 
@@ -83,7 +83,7 @@ whose interval now reaches zero; early money still loses one to seven days out; 
 The point spreads, home advantage and football underdogs studies gained a chart under each section. Every
 number those charts draw is in an output file here; four files are new.
 
-- `spreads-home-volume-by-league-2026-10-11.sql` and `-output.txt` (read-only, run 12:20 UTC on 2026-10-11):
+- `spreads-home-volume-by-league-2026-10-11.sql` and `-output.txt` (run 12:20 UTC on 2026-10-11):
   moneyline, spread and total shares of the volume on games from September 10 to October 10, 2026, by
   league, markets with 1,000 or more in Polymarket's reported volume (counted in shares). Spreads took 29.9%
   of NFL game volume, 26.2% of college football and 6.1% of soccer; moneylines took 54.1% to 75.3%.
@@ -102,7 +102,7 @@ number those charts draw is in an output file here; four files are new.
 ## Section charts, 2026-10-11 (issue 0xinsider/0xinsider#23679)
 
 The cash-out and tennis first-set studies gained a chart under each section. Both runs used one Neon child
-branch of production forked at 13:03:53 UTC on 2026-10-11, read-only statements only.
+branch of production forked at 13:03:53 UTC on 2026-10-11; no statement changed any data.
 
 - `cash-out-charts-2026-10-11.sql` and `-output.txt` (run 13:33 UTC): the study's universe re-built a day
   later (38,619 sells, exit edge -0.88; the 18 new sells are on one June soccer market), September's 280
@@ -137,7 +137,7 @@ The esports first-map study and the NBA pricing study gained a chart under each 
   favorite that dropped Map 1 won 53.0% +/- 5.84 of 281); and how far before the listed start the price was
   read (median 0.8 minutes, 99.3% within a minute). The site said until 2026-10-11 that an underdog a map up
   lost four times in five; it wins about two in three.
-- `esports-map1-recent-2026-10-11.sql` and `-output.txt` (read replica, read-only, 13:37 UTC): the four
+- `esports-map1-recent-2026-10-11.sql` and `-output.txt` (read replica, 13:37 UTC): the four
   games' series with a start from 2026-09-11 to 2026-10-10 (1,936; 1,469 best-of-three) and their volume by
   market family. Volume is Polymarket's reported volume, counted in shares (0xinsider/0xinsider#22291): map
   and game winners drew 50.7%, the series market 45.4% (Dota 2 68.6% on map and game winners). The
@@ -161,7 +161,7 @@ The calibration, sharp money, fading the crowd, timing, NRFI, NBA, over/under, s
 studies gained a chart under each section on 2026-10-11 (0xinsider/0xinsider#23664, 0xinsider/0xinsider#23678,
 0xinsider/0xinsider#23665). The runs behind those charts join this folder. References inside them use this folder's
 file names; the timing, NRFI and NBA files print each query above its output, so each also gets a `.sql` of its
-queries alone. Every statement was read-only.
+queries alone. No statement changed any data.
 
 - `calibration-charts-2026-10-11.sql` and `-output.txt` (read replica, 12:36 UTC): sports buys at 80 to 98 cents
   from February to May 2026 by month and by the `outcome_index` the alert table stored, the defect that starts
@@ -207,7 +207,7 @@ queries alone. Every statement was read-only.
 
 https://0xinsider.com/research/how-many-polymarket-sports-bettors-are-profitable now states this run and carries
 a dated correction section. `wallet-census-2026-10-11.sql` and `-output.txt` re-run `wallet-census.sql`'s
-queries 1 to 9 on the same table, `trader_category_stats`, read-only on the production read replica at 14:01
+queries 1 to 9 on the same table, `trader_category_stats`, on the production read replica at 14:01
 UTC, with five new queries: 7b and 7c (the grade the site shows, `traders.latest_grade`), 10 (wallets still
 trading against wallets that stopped), 11 (how many settled markets the entry price and edge read) and 12.
 
@@ -235,7 +235,7 @@ table below is the published record.
 
 The studies here described their sample as buys "of $1,000 or more". No query filters on stake: the sample is
 whatever `whale_alerts` recorded. `large-trade-floor-2026-10-11.sql` and `-output.txt` re-read each study's own
-universe by month, read-only on the production read replica (14:12 to 14:19 UTC, then 14:29 to 14:40 UTC):
+universe by month, on the production read replica (14:12 to 14:19 UTC, then 14:29 to 14:40 UTC):
 calibration, both teams to score, point spreads, soccer draws, sharp money, fading the crowd (and its September 21
 to October 10 window), over/under, home-field advantage (US moneylines and club soccer) and the timing study's
 quoted-spread subset. In every universe the smallest buy is $2,996, the last buy under $10,000 landed on 2026-07-02
@@ -247,7 +247,7 @@ $1,000 (query 10 of `calibration-2026-10-10.sql`) is not the floor of any sports
 
 The soccer draws study prices large buys at their fill price (`whale_alerts.price_num`, before or after
 kickoff), not at a price-history point, so a stale quote can only reach it through the match a buy sits on.
-`soccer-draws-price-sum-filter-2026-10-11.sql` and `-output.txt` (read-only, a Neon child branch of
+`soccer-draws-price-sum-filter-2026-10-11.sql` and `-output.txt` (a Neon child branch of
 production, run 15:08 UTC) add up each match's three result prices (draw, home, away) at the last
 `outcome_price_snapshots` point before kickoff, within 36 hours and with the three legs within 2 hours of
 each other, and drop the matches whose sum falls outside 95c to 105c. The tolerance comes from the
@@ -268,7 +268,7 @@ distribution: per-cent counts fall to the tail floor at 5c either side of $1.
 ## Tennis first set re-run, 2026-10-11 (issue 0xinsider/0xinsider#23731)
 
 https://0xinsider.com/research/tennis-first-set-winner-polymarket and the tennis guide now state this run
-and only this run. `tennis-sets-rerun-2026-10-11.sql` and `-output.txt` (read-only, Neon child branch,
+and only this run. `tennis-sets-rerun-2026-10-11.sql` and `-output.txt` (Neon child branch,
 run 15:29 UTC) repeat `tennis-sets.sql` on two windows, the published one (2025-11-09 to 2026-09-13,
 rebuilt) and a dated extension (2026-09-14 to 2026-10-10), split by tour throughout, with a mix query
 (3b), a month-by-tour-group query (3c) and the first-set score from the Set 1 Games O/U lines (10).

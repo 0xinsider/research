@@ -1,6 +1,6 @@
 """First-pitch prices for every settled Polymarket NRFI market, from the public CLOB price history.
 
-Input: nrfi-markets.csv (the read-only export of settled NRFI markets) and nrfi-linescores.csv (the
+Input: nrfi-markets.csv (the export of settled NRFI markets) and nrfi-linescores.csv (the
 MLB game each market settled on). The cutoff is the earlier of the market's scheduled start and MLB's
 listed start for that game: on some games Polymarket lists a start after MLB's, and a price read at
 the later time can already carry the first inning. For each market it reads

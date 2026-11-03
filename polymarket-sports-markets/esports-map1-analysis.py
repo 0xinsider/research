@@ -2,7 +2,7 @@
 often the series is swept 2-0, and what the series price at the start says about it.
 
 Inputs, published beside this script:
-  esports-map1-series.csv  the read-only export: 9,504 settled BO3 series (CS2, Valorant,
+  esports-map1-series.csv  the export: 9,504 settled BO3 series (CS2, Valorant,
                                               Dota 2, LoL) with a settled Map/Game 1, Map/Game 2 and Games
                                               Total market on the same event, moneyline volume $100 or more
   esports-map1-prices.csv  each series' starting price (team0's), from the public CLOB

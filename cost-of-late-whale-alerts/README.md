@@ -7,7 +7,7 @@ Measured 2026-10-11 for the site (issue 0xinsider/0xinsider#23694) and added to 
 
 One dataset: every Polymarket large trade the 0xinsider feed recorded (`whale_alerts`) from 2026-09-10
 00:00 to 2026-10-10 00:00 UTC, 30 days, 13,218 trades. No query filters on stake; the feed's floor in that
-window was $10,000, or $1,000 on an earnings market (one such fill). Read-only runs against a production
+window was $10,000, or $1,000 on an earnings market (one such fill). Runs against a production
 read replica on 2026-10-11: queries A to D started between 14:06:33 and 14:06:55 UTC and query F at
 14:18:46 UTC, at least 38 hours after the last fill.
 
@@ -87,7 +87,7 @@ day. A run on 2026-10-13 from 12:29 UTC returned the committed report line for l
 prices for all 1,588 buys. Polymarket decides how long it serves minute-level history, so a later run can
 differ.
 
-You cannot run the SQL against our database. It reads internal tables through a read-only role, and is
+You cannot run the SQL against our database. It reads internal tables through a role that can query them but cannot change them, and is
 published so the method can be read and argued with.
 
 ## Definitions

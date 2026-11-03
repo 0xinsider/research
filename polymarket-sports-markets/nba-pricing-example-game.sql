@@ -1,5 +1,5 @@
 -- NBA favorite-longshot pricing study (#14060): the one-game breakdown used verbatim in the
--- article and the how-to-bet guide as NBA_EXAMPLE_GAME. Read-only, posthog_readonly, Neon
+-- article and the how-to-bet guide as NBA_EXAMPLE_GAME. Runs as posthog_readonly, Neon
 -- branch main. Direct query on markets.event_slug, not the nba_buys view in
 -- nba-pricing.sql -- this counts every listed market for the event
 -- (moneyline/spreads/totals/props), not large trades against them.

@@ -1,5 +1,5 @@
--- Home advantage recount (#13887): the game and per-buy exports behind the corrected study. Read-only, a read-only
--- role against production.  psql "$DATABASE_URL" -X -f home-advantage-recount.sql
+-- Home advantage recount (#13887): the game and per-buy exports behind the corrected study. Runs as a database role that cannot write,
+-- against production.  psql "$DATABASE_URL" -X -f home-advantage-recount.sql
 -- The game and buy definitions are the #13781 study's, unchanged (home-advantage.sql): one
 -- settled full-game moneyline per US league event, club soccer matches with all three result markets settled, and
 -- every large-trade alert buy on those markets from April 2, 2026, settled after the trade, 2 to 98 cents. What

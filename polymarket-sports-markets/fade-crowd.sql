@@ -4,7 +4,7 @@
 -- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is grade-at-trade-2026-10-07.sql (section 4, attribution pit).
 -- The output beside this file is the record of what was first published.
 -- before kickoff, how does that side do?
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f fade-crowd.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f fade-crowd.sql
 -- Window 2026-06-01 .. 2026-09-12 (grade coverage widened June 2026; see the sharp money study).
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market, settled after the
 -- trade, 2c-98c, on a moneyline, child moneyline, spread or total (or an untyped market), placed BEFORE the

@@ -1,5 +1,5 @@
 -- Study 7: draws on Polymarket soccer. How often do matches draw, and do large bettors price the draw right?
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f soccer-draws.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f soccer-draws.sql
 -- Window: kickoffs and trades 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2).
 -- A Polymarket soccer match is three binary markets under one event: "Will <home> win?", "Will <away> win?"
 -- and "Will <home> vs. <away> end in a draw?". Legs are sports_market_type 'moneyline' with Yes/No outcomes;

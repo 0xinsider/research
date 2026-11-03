@@ -13,7 +13,7 @@
 -- output stay beside this one as the record of what was published.
 --
 -- Study 8: cashing out. When a large Polymarket sports bettor sells before settlement, is the exit price fair?
--- Read-only; where this run ran is in the header above.  psql "$CONN" -X -f cash-out-2026-10-10.sql
+-- Where this run ran is in the header above.  psql "$CONN" -X -f cash-out-2026-10-10.sql
 -- Window 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2). Grades from 2026-06-01, point-in-time.
 -- Universe: every large-trade alert for a Polymarket SELL (side = 1) on a sports-category market, 2c-98c,
 -- on a market that settled after the trade. A sell of outcome X at price p gives up a share that pays $1 if X

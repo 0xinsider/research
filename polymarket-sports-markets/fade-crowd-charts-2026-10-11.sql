@@ -1,5 +1,5 @@
 -- #23664 (epic #23652, slice R1): section charts for /research/fading-the-crowd-polymarket-sports.
--- Read-only. Run through scripts/prod-read.sh against the production READ REPLICA: one statement per call, inside
+-- Run through scripts/prod-read.sh against the production READ REPLICA: one statement per call, inside
 -- BEGIN READ ONLY with statement_timeout 60s, results through a capped cursor. Output: the -output.txt beside this file.
 -- The article's other charts read the 2026-10-07 run (grade-at-trade-2026-10-07.sql, section 4).
 
