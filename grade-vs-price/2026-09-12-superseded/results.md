@@ -1,6 +1,6 @@
 # Raw output
 
-One run of `psql -X -f queries.sql` against production through a read-only role, **2026-09-12T02:25:45Z**. Every figure in `README.md` and on the published page comes from this run.
+One run of `psql -X -f queries.sql` against production through a role that cannot change data, **2026-09-12T02:25:45Z**. Every figure in `README.md` and on the published page comes from this run.
 
 The sample is not fixed. It requires `winning_outcome IS NOT NULL`, so it grows as open markets settle: three runs about ninety minutes apart on this day returned 67,516, 67,517 and 67,531 trades. The conclusions did not move. See the reproducibility section in `README.md`.
 

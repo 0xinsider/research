@@ -129,7 +129,7 @@ The sports bootstrap takes the market-level CSVs the `\copy` lines in each
 published figures come from.
 
 You cannot run the SQL against our database. It reads internal tables through a
-read-only role. The SQL is published so the method can be read and argued with,
+role that can query those tables but cannot change them. The SQL is published so the method can be read and argued with,
 and so anyone holding comparable Polymarket data can run the same test.
 
 ## What the numbers mean
