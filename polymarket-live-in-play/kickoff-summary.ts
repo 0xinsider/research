@@ -1,6 +1,8 @@
 // Summarizes kickoff-clear-poll.ts output: for each book, the reads around its gameStartTime in seconds
 // from the start, and the resting dollars (bid plus ask, price times size) as a share of the last read
 // before the start, so a book cleared at the start shows its resting dollars falling and rebuilding.
+// `firstAfter`, `reopen` and `settled` come from every read, not the marks: the first read after the start,
+// the first after it with both a bid and an ask, and the first with them 5 cents apart or less.
 // Run: node kickoff-summary.ts kickoff.jsonl
 import { readFileSync } from "node:fs";
 
@@ -28,10 +30,16 @@ const rows = books.map((k) => {
   };
   // The first read at or after the start whose resting dollars are under half the last pre-start read.
   const firstDrop = rel.find((r) => r.s >= 0 && (share(r) ?? 1) < 0.5);
+  const after = rel.filter((r) => r.s > 0);
+  const quote = (r: (typeof rel)[number] | undefined) => (r ? { s: round(r.s, 1), resting: Math.round(r.resting), bid: r.bid, ask: r.ask } : null);
+  const quoted = after.filter((r) => r.bid !== null && r.ask !== null);
   return {
     book: k, start: ls[0]!.start, reads: ls.length, first: round(rel[0]?.s ?? null, 1), last: round(rel.at(-1)?.s ?? null, 1),
     before: before ? { s: round(before.s, 1), levels: before.bidLevels + before.askLevels, resting: Math.round(before.resting), usd2c: before.usd2c === null ? null : Math.round(before.usd2c) } : null,
     droppedAt: firstDrop ? round(firstDrop.s, 1) : null, droppedShare: firstDrop ? round(share(firstDrop)) : null,
+    firstAfter: quote(after[0]),
+    reopen: quote(quoted[0]),
+    settled: quote(quoted.find((r) => r.ask! - r.bid! <= 0.0501)),
     marks: Object.fromEntries(marks.map((m) => [m, at(m)])),
   };
 });
