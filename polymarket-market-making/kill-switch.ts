@@ -109,13 +109,16 @@ console.log(JSON.stringify({ readAt: new Date().toISOString(), universeReadAt: s
 // pullQuotes is yours to write against your own Polymarket client's cancel call.
 export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) => void, everyMs = 10_000) {
   const seen = new Set<string>();
+  // Only trades after the watcher starts count: the feed returns market history, and an old trade
+  // must not cancel quotes you place now.
+  const startedAt = Date.now();
   for (;;) {
     for (const cid of conditionIds) {
       const q = new URLSearchParams({ condition_id: cid, min_grade: "A", min_size: "10000", sort: "recent", limit: "20" });
       for (const t of (await oxi<{ data: LargeTrade[] }>(`/large-trades?${q}`)).data) {
         if (!seen.has(t.id)) {
           seen.add(t.id);
-          pullQuotes(t);
+          if (Date.parse(t.traded_at) >= startedAt) pullQuotes(t);
         }
       }
     }
