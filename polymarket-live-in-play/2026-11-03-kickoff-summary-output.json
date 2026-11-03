@@ -20,6 +20,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.117,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 8389,
+    "bid": 0.17,
+    "ask": 0.18
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 8389,
+    "bid": 0.17,
+    "ask": 0.18
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 8389,
+    "bid": 0.17,
+    "ask": 0.18
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -154,6 +172,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.12,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 9585,
+    "bid": 0.26,
+    "ask": 0.27
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 9585,
+    "bid": 0.26,
+    "ask": 0.27
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 9585,
+    "bid": 0.26,
+    "ask": 0.27
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -288,6 +324,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.195,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 27323,
+    "bid": 0.55,
+    "ask": 0.57
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 27323,
+    "bid": 0.55,
+    "ask": 0.57
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 27323,
+    "bid": 0.55,
+    "ask": 0.57
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -422,6 +476,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.386,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 32917,
+    "bid": 0.57,
+    "ask": 0.59
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 32917,
+    "bid": 0.57,
+    "ask": 0.59
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 32917,
+    "bid": 0.57,
+    "ask": 0.59
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -556,6 +628,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.126,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 9289,
+    "bid": 0.24,
+    "ask": 0.26
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 9289,
+    "bid": 0.24,
+    "ask": 0.26
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 9289,
+    "bid": 0.24,
+    "ask": 0.26
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -690,6 +780,24 @@
    },
    "droppedAt": 1.1,
    "droppedShare": 0.114,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 8211,
+    "bid": 0.17,
+    "ask": 0.19
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 8211,
+    "bid": 0.17,
+    "ask": 0.19
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 8211,
+    "bid": 0.17,
+    "ask": 0.19
+   },
    "marks": {
     "0": {
      "s": -0.9,
@@ -824,6 +932,24 @@
    },
    "droppedAt": 0.7,
    "droppedShare": 0,
+   "firstAfter": {
+    "s": 0.7,
+    "resting": 0,
+    "bid": null,
+    "ask": null
+   },
+   "reopen": {
+    "s": 2.6,
+    "resting": 703,
+    "bid": 0.22,
+    "ask": 0.9
+   },
+   "settled": {
+    "s": 14.7,
+    "resting": 841,
+    "bid": 0.62,
+    "ask": 0.67
+   },
    "marks": {
     "0": {
      "s": 0.7,
@@ -958,6 +1084,24 @@
    },
    "droppedAt": 0.7,
    "droppedShare": 0,
+   "firstAfter": {
+    "s": 0.7,
+    "resting": 0,
+    "bid": null,
+    "ask": null
+   },
+   "reopen": {
+    "s": 2.6,
+    "resting": 947,
+    "bid": 0.07,
+    "ask": 0.74
+   },
+   "settled": {
+    "s": 60.7,
+    "resting": 462,
+    "bid": 0.21,
+    "ask": 0.26
+   },
    "marks": {
     "0": {
      "s": 0.7,
@@ -1092,6 +1236,24 @@
    },
    "droppedAt": 0.7,
    "droppedShare": 0,
+   "firstAfter": {
+    "s": 0.7,
+    "resting": 0,
+    "bid": null,
+    "ask": null
+   },
+   "reopen": {
+    "s": 2.6,
+    "resting": 270,
+    "bid": 0.04,
+    "ask": 0.69
+   },
+   "settled": {
+    "s": 14.7,
+    "resting": 671,
+    "bid": 0.09,
+    "ask": 0.14
+   },
    "marks": {
     "0": {
      "s": 0.7,
@@ -1226,6 +1388,24 @@
    },
    "droppedAt": 0.7,
    "droppedShare": 0.359,
+   "firstAfter": {
+    "s": 0.7,
+    "resting": 546,
+    "bid": 0.02,
+    "ask": 0.39
+   },
+   "reopen": {
+    "s": 0.7,
+    "resting": 546,
+    "bid": 0.02,
+    "ask": 0.39
+   },
+   "settled": {
+    "s": 176.9,
+    "resting": 1345,
+    "bid": 0.29,
+    "ask": 0.34
+   },
    "marks": {
     "0": {
      "s": 0.7,
@@ -1360,6 +1540,24 @@
    },
    "droppedAt": 21,
    "droppedShare": 0.377,
+   "firstAfter": {
+    "s": 1.1,
+    "resting": 116198,
+    "bid": 0.54,
+    "ask": 0.55
+   },
+   "reopen": {
+    "s": 1.1,
+    "resting": 116198,
+    "bid": 0.54,
+    "ask": 0.55
+   },
+   "settled": {
+    "s": 1.1,
+    "resting": 116198,
+    "bid": 0.54,
+    "ask": 0.55
+   },
    "marks": {
     "0": {
      "s": -1,
