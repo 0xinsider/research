@@ -1,0 +1,207 @@
+{
+ "goals": 18,
+ "measured": 11,
+ "medianLagS": 116,
+ "minLagS": 75,
+ "maxLagS": 190,
+ "rows": [
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "scoreAt": "2026-11-03T20:14:01.079Z",
+   "from": "0-0",
+   "to": "0-1",
+   "side": "away",
+   "movedAt": "2026-11-03T20:12:20.475Z",
+   "lagS": 101,
+   "askBefore": 0.32,
+   "askAtScore": 0.52
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "scoreAt": "2026-11-03T20:19:31.242Z",
+   "from": "0-1",
+   "to": "0-2",
+   "side": "away",
+   "movedAt": "2026-11-03T20:17:25.565Z",
+   "lagS": 126,
+   "askBefore": 0.52,
+   "askAtScore": 0.74
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "scoreAt": "2026-11-03T21:20:01.940Z",
+   "from": "0-2",
+   "to": "1-2",
+   "side": "home",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.11,
+   "askAtScore": 0.14
+  },
+  {
+   "slug": "ucl-mnu-rom-2026-11-03",
+   "scoreAt": "2026-11-03T21:44:02.308Z",
+   "from": "1-2",
+   "to": "2-2",
+   "side": "home",
+   "movedAt": "2026-11-03T21:42:02.435Z",
+   "lagS": 120,
+   "askBefore": 0.07,
+   "askAtScore": 0.24
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "scoreAt": "2026-11-03T20:11:00.759Z",
+   "from": "0-0",
+   "to": "1-0",
+   "side": "home",
+   "movedAt": "2026-11-03T20:09:05.238Z",
+   "lagS": 116,
+   "askBefore": 0.76,
+   "askAtScore": 0.85
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "scoreAt": "2026-11-03T21:14:01.757Z",
+   "from": "1-0",
+   "to": "2-0",
+   "side": "home",
+   "movedAt": "2026-11-03T21:12:31.751Z",
+   "lagS": 90,
+   "askBefore": 0.81,
+   "askAtScore": 0.94
+  },
+  {
+   "slug": "ucl-fcb-ast-2026-11-03",
+   "scoreAt": "2026-11-03T21:26:32.098Z",
+   "from": "2-0",
+   "to": "3-0",
+   "side": "home",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.95,
+   "askAtScore": 0.996
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "scoreAt": "2026-11-03T20:13:00.837Z",
+   "from": "0-0",
+   "to": "0-1",
+   "side": "away",
+   "movedAt": "2026-11-03T20:09:50.384Z",
+   "lagS": 190,
+   "askBefore": 0.56,
+   "askAtScore": 0.88
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "scoreAt": "2026-11-03T21:10:31.775Z",
+   "from": "0-4",
+   "to": "0-5",
+   "side": "away",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.997,
+   "askAtScore": null
+  },
+  {
+   "slug": "ucl-vil-psg-2026-11-03",
+   "scoreAt": "2026-11-03T21:39:32.245Z",
+   "from": "0-5",
+   "to": "0-6",
+   "side": "away",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": null,
+   "askAtScore": null
+  },
+  {
+   "slug": "ucl-atm-bay-2026-11-03",
+   "scoreAt": "2026-11-03T21:14:01.757Z",
+   "from": "0-0",
+   "to": "0-1",
+   "side": "away",
+   "movedAt": "2026-11-03T21:12:31.751Z",
+   "lagS": 90,
+   "askBefore": 0.52,
+   "askAtScore": 0.75
+  },
+  {
+   "slug": "ucl-atm-bay-2026-11-03",
+   "scoreAt": "2026-11-03T21:34:32.149Z",
+   "from": "0-1",
+   "to": "0-2",
+   "side": "away",
+   "movedAt": "2026-11-03T21:32:46.845Z",
+   "lagS": 105,
+   "askBefore": 0.79,
+   "askAtScore": 0.97
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "scoreAt": "2026-11-03T20:12:00.842Z",
+   "from": "0-0",
+   "to": "0-1",
+   "side": "away",
+   "movedAt": "2026-11-03T20:10:00.897Z",
+   "lagS": 120,
+   "askBefore": 0.56,
+   "askAtScore": 0.74
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "scoreAt": "2026-11-03T20:45:01.359Z",
+   "from": "0-1",
+   "to": "0-2",
+   "side": "away",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.9,
+   "askAtScore": 0.9
+  },
+  {
+   "slug": "ucl-fey-int-2026-11-03",
+   "scoreAt": "2026-11-03T21:16:31.994Z",
+   "from": "0-2",
+   "to": "0-3",
+   "side": "away",
+   "movedAt": "2026-11-03T21:14:31.786Z",
+   "lagS": 120,
+   "askBefore": 0.92,
+   "askAtScore": 0.986
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "scoreAt": "2026-11-03T20:21:01.053Z",
+   "from": "0-0",
+   "to": "1-0",
+   "side": "home",
+   "movedAt": "2026-11-03T20:19:45.613Z",
+   "lagS": 75,
+   "askBefore": 0.72,
+   "askAtScore": 0.86
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "scoreAt": "2026-11-03T20:45:01.359Z",
+   "from": "1-0",
+   "to": "2-0",
+   "side": "home",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.96,
+   "askAtScore": 0.98
+  },
+  {
+   "slug": "ucl-lin2-sba-2026-11-03",
+   "scoreAt": "2026-11-03T21:09:01.670Z",
+   "from": "3-0",
+   "to": "4-0",
+   "side": "home",
+   "movedAt": null,
+   "lagS": null,
+   "askBefore": 0.991,
+   "askAtScore": 0.998
+  }
+ ]
+}

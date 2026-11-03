@@ -1,0 +1,341 @@
+{
+ "arbReadAt": "2026-11-03T19:43:14.705Z",
+ "crossReadAt": "2026-11-03T19:53:17.693Z",
+ "sets": 760,
+ "histogram": [
+  {
+   "label": "1.00",
+   "sets": 1
+  },
+  {
+   "label": "1.01",
+   "sets": 30
+  },
+  {
+   "label": "1.02",
+   "sets": 101
+  },
+  {
+   "label": "1.03",
+   "sets": 101
+  },
+  {
+   "label": "1.04",
+   "sets": 149
+  },
+  {
+   "label": "1.05",
+   "sets": 108
+  },
+  {
+   "label": "1.06",
+   "sets": 70
+  },
+  {
+   "label": "1.07",
+   "sets": 42
+  },
+  {
+   "label": "1.08",
+   "sets": 16
+  },
+  {
+   "label": "1.09",
+   "sets": 3
+  },
+  {
+   "label": "1.10",
+   "sets": 2
+  },
+  {
+   "label": "1.11-1.15",
+   "sets": 6
+  },
+  {
+   "label": "over 1.15",
+   "sets": 131
+  }
+ ],
+ "byLeague": [
+  {
+   "league": "efa",
+   "sets": 38,
+   "medianSumAsks": 1.04,
+   "medianSumBids": 0.935,
+   "minSumAsks": 1,
+   "maxSumBids": 0.98
+  },
+  {
+   "league": "elc",
+   "sets": 23,
+   "medianSumAsks": 1.02,
+   "medianSumBids": 0.98,
+   "minSumAsks": 1.01,
+   "maxSumBids": 1
+  },
+  {
+   "league": "uel",
+   "sets": 18,
+   "medianSumAsks": 1.02,
+   "medianSumBids": 0.985,
+   "minSumAsks": 1.01,
+   "maxSumBids": 0.99
+  },
+  {
+   "league": "uecl",
+   "sets": 18,
+   "medianSumAsks": 1.02,
+   "medianSumBids": 0.98,
+   "minSumAsks": 1.007,
+   "maxSumBids": 0.991
+  },
+  {
+   "league": "ucl",
+   "sets": 16,
+   "medianSumAsks": 1.02,
+   "medianSumBids": 0.99,
+   "minSumAsks": 1.01,
+   "maxSumBids": 1
+  },
+  {
+   "league": "ligaprofesional",
+   "sets": 15,
+   "medianSumAsks": 1.04,
+   "medianSumBids": 0.96,
+   "minSumAsks": 1.02,
+   "maxSumBids": 0.98
+  },
+  {
+   "league": "mls",
+   "sets": 15,
+   "medianSumAsks": 1.04,
+   "medianSumBids": 0.96,
+   "minSumAsks": 1.02,
+   "maxSumBids": 0.98
+  },
+  {
+   "league": "bra2",
+   "sets": 10,
+   "medianSumAsks": 1.05,
+   "medianSumBids": 0.95,
+   "minSumAsks": 1.04,
+   "maxSumBids": 0.97
+  }
+ ],
+ "cheapest": [
+  {
+   "event": "efa-alt-not1-2026-11-07",
+   "asks": [
+    0.22,
+    0.23,
+    0.55
+   ],
+   "sumAsks": 1,
+   "feeAtBest": 0.0298,
+   "allIn": 1.0298
+  },
+  {
+   "event": "col-ata-kai-2026-11-05",
+   "asks": [
+    0.83,
+    0.12,
+    0.057
+   ],
+   "sumAsks": 1.007,
+   "feeAtBest": 0.015,
+   "allIn": 1.022
+  },
+  {
+   "event": "efa-bur3-rdm-2026-11-07",
+   "asks": [
+    0.9,
+    0.08,
+    0.028
+   ],
+   "sumAsks": 1.008,
+   "feeAtBest": 0.0095,
+   "allIn": 1.0175
+  },
+  {
+   "event": "uel-ben-lep-2026-11-05",
+   "asks": [
+    0.85,
+    0.11,
+    0.05
+   ],
+   "sumAsks": 1.01,
+   "feeAtBest": 0.0136,
+   "allIn": 1.0236
+  },
+  {
+   "event": "par1-nac-ssl-2026-11-08",
+   "asks": [
+    0.76,
+    0.17,
+    0.08
+   ],
+   "sumAsks": 1.01,
+   "feeAtBest": 0.0199,
+   "allIn": 1.0299
+  },
+  {
+   "event": "ucl-fcb-ast-2026-11-03",
+   "asks": [
+    0.76,
+    0.14,
+    0.11
+   ],
+   "sumAsks": 1.01,
+   "feeAtBest": 0.02,
+   "allIn": 1.03
+  }
+ ],
+ "depth": {
+  "sets": 217,
+  "atBest": 1.02,
+  "bySize": [
+   {
+    "shares": 100,
+    "medianCost": 1.029,
+    "medianFee": 0.0308,
+    "medianAllIn": 1.0542
+   },
+   {
+    "shares": 500,
+    "medianCost": 1.03,
+    "medianFee": 0.0309,
+    "medianAllIn": 1.0593
+   },
+   {
+    "shares": 1000,
+    "medianCost": 1.0311,
+    "medianFee": 0.0308,
+    "medianAllIn": 1.0617
+   },
+   {
+    "shares": 5000,
+    "medianCost": 1.0776,
+    "medianFee": 0.0304,
+    "medianAllIn": 1.1075
+   }
+  ],
+  "fillable": {
+   "100": 759,
+   "500": 756,
+   "1000": 747,
+   "5000": 217
+  }
+ },
+ "medianFeeAtBest": 0.0309,
+ "medianSpreadOfSet": 0.11,
+ "realBooks": 629,
+ "cross": {
+  "games": 135,
+  "histogram": [
+   {
+    "label": "under 1.00",
+    "games": 2
+   },
+   {
+    "label": "1.00",
+    "games": 18
+   },
+   {
+    "label": "1.01",
+    "games": 48
+   },
+   {
+    "label": "1.02",
+    "games": 50
+   },
+   {
+    "label": "1.03",
+    "games": 8
+   },
+   {
+    "label": "1.04",
+    "games": 1
+   },
+   {
+    "label": "1.05 and up",
+    "games": 8
+   }
+  ],
+  "under1": [
+   {
+    "event": "uel-mil1-ftc-2026-11-05",
+    "title": "AC Milan vs. Ferencvárosi TC",
+    "state": "scheduled",
+    "crossSumAsks": 0.99,
+    "crossAllIn": 1,
+    "legs": [
+     {
+      "side": "home",
+      "pmAsk": 0.72,
+      "pmBid": 0.71,
+      "kAsk": 0.73,
+      "kBid": 0.72,
+      "cheaper": "polymarket"
+     },
+     {
+      "side": "draw",
+      "pmAsk": 0.18,
+      "pmBid": 0.17,
+      "kAsk": 0.17,
+      "kBid": 0.16,
+      "cheaper": "kalshi"
+     },
+     {
+      "side": "away",
+      "pmAsk": 0.11,
+      "pmBid": 0.1,
+      "kAsk": 0.1,
+      "kBid": 0.09,
+      "cheaper": "kalshi"
+     }
+    ]
+   },
+   {
+    "event": "elc-der-nor-2026-11-03",
+    "title": "Derby County FC vs. Norwich City FC",
+    "state": "live",
+    "crossSumAsks": 0.98,
+    "crossAllIn": 0.9933,
+    "legs": [
+     {
+      "side": "home",
+      "pmAsk": 0.12,
+      "pmBid": 0.1,
+      "kAsk": 0.15,
+      "kBid": 0.12,
+      "cheaper": "polymarket"
+     },
+     {
+      "side": "draw",
+      "pmAsk": 0.2,
+      "pmBid": 0.18,
+      "kAsk": 0.22,
+      "kBid": 0.18,
+      "cheaper": "polymarket"
+     },
+     {
+      "side": "away",
+      "pmAsk": 0.68,
+      "pmBid": 0.67,
+      "kAsk": 0.66,
+      "kBid": 0.6,
+      "cheaper": "kalshi"
+     }
+    ]
+   }
+  ],
+  "medianPm": 1.02,
+  "medianKalshi": 1.02,
+  "medianCross": 1.014,
+  "medianAllIn": 1.02,
+  "allInUnder1": 1,
+  "maxBids": 1,
+  "medianMidGap": 1,
+  "midGapWithin1": 117
+ }
+}
