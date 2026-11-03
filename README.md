@@ -91,6 +91,17 @@ Polymarket's public price history with no key.
 
 Published: <https://0xinsider.com/research/cost-of-late-whale-alerts>
 
+### [polymarket-market-making](polymarket-market-making) — market making on Polymarket sports
+
+One snapshot of 62,342 open Polymarket sports markets, read 2026-11-03 19:19 UTC, with the CLOB books,
+the funded liquidity rewards and 24 hours of taker fills on the 40 busiest moneylines priced from 10 to
+90 cents. On one-cent books the taker was 0.38 cents a share behind a minute after the fill and 0.45
+behind after 30 minutes, over 14,394 fills. Every fee schedule was taker-only; 3,955 sports markets
+shared $20,135 a day in rewards, nearly all of them season-long. Three TypeScript scripts, Polymarket
+public APIs with no key, plus one that reads the 0xinsider large-trade feed.
+
+Published: <https://0xinsider.com/research/polymarket-market-making-sports>
+
 ## Reproducing
 
 Each study directory holds its SQL, the raw `psql` output of the run the figures

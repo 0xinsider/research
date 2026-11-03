@@ -1,0 +1,81 @@
+{
+ "readAt": "2026-11-03T19:20:37.521Z",
+ "universeReadAt": "2026-11-03T19:19:58.902Z",
+ "windowStart": "2026-11-02T19:20:27.000Z",
+ "markets": 40,
+ "trades": 53,
+ "summary": [
+  {
+   "grade": "S/A",
+   "phase": "pregame",
+   "trades": 19,
+   "usd": 399200,
+   "marked": 13,
+   "markout30mC": -0.12,
+   "movedTheirWayPct": 38.5
+  },
+  {
+   "grade": "S/A",
+   "phase": "in-play",
+   "trades": 4,
+   "usd": 88267,
+   "marked": 0,
+   "markout30mC": null,
+   "movedTheirWayPct": null
+  },
+  {
+   "grade": "B/C",
+   "phase": "pregame",
+   "trades": 7,
+   "usd": 371976,
+   "marked": 5,
+   "markout30mC": -0.46,
+   "movedTheirWayPct": 20
+  },
+  {
+   "grade": "B/C",
+   "phase": "in-play",
+   "trades": 0,
+   "usd": 0,
+   "marked": 0,
+   "markout30mC": null,
+   "movedTheirWayPct": null
+  },
+  {
+   "grade": "D/F",
+   "phase": "pregame",
+   "trades": 18,
+   "usd": 371333,
+   "marked": 17,
+   "markout30mC": 0.01,
+   "movedTheirWayPct": 52.9
+  },
+  {
+   "grade": "D/F",
+   "phase": "in-play",
+   "trades": 2,
+   "usd": 25616,
+   "marked": 0,
+   "markout30mC": null,
+   "movedTheirWayPct": null
+  },
+  {
+   "grade": "ungraded",
+   "phase": "pregame",
+   "trades": 3,
+   "usd": 62985,
+   "marked": 0,
+   "markout30mC": null,
+   "movedTheirWayPct": null
+  },
+  {
+   "grade": "ungraded",
+   "phase": "in-play",
+   "trades": 0,
+   "usd": 0,
+   "marked": 0,
+   "markout30mC": null,
+   "movedTheirWayPct": null
+  }
+ ]
+}
