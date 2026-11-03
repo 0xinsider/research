@@ -50,7 +50,7 @@ VENUES = [
 ]
 
 # The four venues the page scores head to head. The equal-cents DraftKings price
-# is carried as a robustness read only: it is the same line with the margin
+# is carried as a robustness check only: it is the same line with the margin
 # removed a different way, so it is not a fourth opinion.
 HEADLINE = ["pm", "kalshi", "dk"]
 

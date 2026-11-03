@@ -1,5 +1,5 @@
 -- Study 11: point spreads on Polymarket. Laying points against taking points, and how often games are decided by one.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f spreads.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f spreads.sql
 -- A Polymarket spread market is titled "Spread: <team> (-X.5)" with outcomes <team> / <other team>. Outcome 0
 -- wins when the named team wins by more than X.5, so outcome 0 is laying the points and outcome 1 taking them.
 -- Polymarket lists a ladder of alternate lines for both teams (the Bills-Texans NFL game on 2026-09-13 carried 35,

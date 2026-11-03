@@ -1,5 +1,5 @@
 -- Section charts for /research/both-teams-to-score-polymarket (#23665, epic #23652).
--- Read-only. Run on a Neon child branch of production (claude-18-23665-charts, forked about 12:11 UTC on
+-- Run on a Neon child branch of production (claude-18-23665-charts, forked about 12:11 UTC on
 -- 2026-10-11) through scripts/neon-child-branch.sh, so the scans never touched the production compute:
 --   ./scripts/neon-child-branch.sh query --name claude-18-23665-charts --statement-timeout 20min \
 --     -f btts-charts-2026-10-11.sql

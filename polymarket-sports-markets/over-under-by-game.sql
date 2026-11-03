@@ -2,7 +2,7 @@
 -- settled totals market as one trial. Polymarket lists a ladder of total lines on most games, and every line on a
 -- game settles on the same final score, so this run keeps the game on every row and exports one row per game for
 -- over-under-by-game.py, which resamples games.
--- Read-only, a read-only role against production.
+-- Runs as a database role that cannot write, against production.
 --   psql "$DATABASE_URL" -X -f over-under-by-game.sql
 -- Universe: the first run's markets universe. A market counts when its sports_market_type is totals, its outcomes
 -- are Over (outcome 0) and Under (outcome 1), its kickoff falls from 2026-04-02 to 2026-09-13 inclusive, and it

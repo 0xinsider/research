@@ -1,5 +1,5 @@
 -- Study 13: NRFI on Polymarket. How often no run scores in the first inning of an MLB game, how the market's two
--- formats resolve, and the market-level export the price and linescore scripts read. Read-only, a read-only role
+-- formats resolve, and the market-level export the price and linescore scripts read. Runs as a database role that cannot write,
 -- against production.  psql "$DATABASE_URL" -X -f nrfi.sql
 -- Universe: every MLB first-inning run market (sports_market_type 'nrfi', event slug 'mlb-...'), settled 0 or 1, for
 -- games that started before 00:00 UTC on September 13, 2026. A canceled game settles 50-50 and is left out.

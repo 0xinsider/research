@@ -1,7 +1,7 @@
 """NRFI study analysis: first-inning splits, teams, and first-pitch prices against results.
 
 Inputs, all published beside this script:
-  nrfi-markets.csv     the read-only export of settled NRFI markets (query 9)
+  nrfi-markets.csv     the export of settled NRFI markets (query 9)
   nrfi-linescores.csv  the MLB game each market settled on, with first-inning runs
   nrfi-prices.csv      the no-run price before first pitch, from the public CLOB
 Output: the tables below on stdout, and nrfi-games.csv (one row per game).

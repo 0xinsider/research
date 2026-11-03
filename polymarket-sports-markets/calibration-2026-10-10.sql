@@ -15,7 +15,7 @@
 -- Study 1: favorite-longshot bias on Polymarket sports markets.
 -- Window starts 2026-04-02: before that day whale_alerts.outcome_index was a defaulted 0 for a large
 -- share of buys (80c+ buys tagged outcome 0 won 53-56% in Feb-Mar, outcome 1 won 84-89%; both ~88% from Apr 2).
--- Read-only; where this run ran is in the header above.
+-- Where this run ran is in the header above.
 --   psql "$CONN" -X -f calibration-2026-10-10.sql
 select now() as run_at;
 

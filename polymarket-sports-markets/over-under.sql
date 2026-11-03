@@ -3,7 +3,7 @@
 -- settlement row (`winning_outcome IS NOT NULL`) and scores won = (outcome_index = winning_outcome), so a void (-1)
 -- or unresolvable (-2) market counts as a loss. The corrected run, `winning_outcome IN (0, 1)`, is over-under-2026-10-10.sql.
 -- The output beside this file is the record of what was first published.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f over-under.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f over-under.sql
 -- Window 2026-04-02 .. 2026-09-13 (see the calibration study for why April 2). Grades from 2026-06-01.
 -- Universe: every large-trade alert for a Polymarket BUY on a sports-category market whose
 -- sports_market_type is 'totals' with outcomes Over/Under (the game total), settled after the trade, 2c-98c.

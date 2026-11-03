@@ -3,7 +3,7 @@
 --
 -- Grade vs price paid, Polymarket large buys. Corrected run, 2026-10-07.
 --
--- Read-only, against the production read replica (0xinsider's scripts/prod-read.sh wraps each
+-- Runs against the production read replica (0xinsider's scripts/prod-read.sh wraps each
 -- statement in BEGIN READ ONLY ... ROLLBACK with a 60 s statement timeout). Every statement below
 -- is the text that produced results.md. Nothing is written.
 --

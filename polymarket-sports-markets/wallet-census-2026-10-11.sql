@@ -1,5 +1,5 @@
 -- Study 4 re-run: how many Polymarket sports bettors are profitable? (0xinsider/0xinsider#23716)
--- Read-only. Read-only role against the production read replica, 2026-10-11, 14:01 to 14:12 UTC; every
+-- Runs as a database role that cannot write, against the production read replica, 2026-10-11, 14:01 to 14:12 UTC; every
 -- statement ran alone inside BEGIN READ ONLY ... ROLLBACK with a 60 s statement timeout.
 --   psql "$DATABASE_URL" -X -f wallet-census-2026-10-11.sql
 -- Queries 1 to 9 are wallet-census.sql's queries 1 to 9 on the same table, trader_category_stats, as it stood

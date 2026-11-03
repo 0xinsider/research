@@ -1,4 +1,4 @@
-// Market-making scan of open Polymarket sports markets. Public data, read-only, places no orders.
+// Market-making scan of open Polymarket sports markets. Public data only; places no orders.
 // Input: the snapshot sports-universe.ts writes. Output (stdout, JSON):
 //   1. spreads by sportsMarketType, by league, moneylines sports vs esports;
 //   2. fee schedules, liquidity-reward settings, tick sizes and in-play delays as Gamma lists them,

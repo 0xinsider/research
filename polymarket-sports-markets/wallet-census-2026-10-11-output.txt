@@ -1,4 +1,4 @@
-Output of wallet-census-2026-10-11.sql (0xinsider/0xinsider#23716), read-only, production read replica, 2026-10-11.
+Output of wallet-census-2026-10-11.sql (0xinsider/0xinsider#23716), production read replica, 2026-10-11.
 Each block is the query's label and its psql output verbatim; the run-time reads bracket the run (queries 7b, 7c and 12 ran
 right after queries 1 to 11, by 14:12:37 UTC).
 -- ===== 00-run-start =====

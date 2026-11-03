@@ -1,5 +1,5 @@
 -- Study 9: both teams to score and halftime results on Polymarket soccer.
--- Read-only. Read-only role against production.  psql "$DATABASE_URL" -X -f btts-halftime.sql
+-- Runs as a database role that cannot write, against production.  psql "$DATABASE_URL" -X -f btts-halftime.sql
 -- Outcome counts use every settled market with a kickoff on record; they are market results, which the April 2
 -- alert-table defect does not touch. The pricing query uses large-trade alert buys from 2026-04-02.
 -- Soccer side markets live under the match's event slug plus a suffix: "-more-markets" for both teams to score

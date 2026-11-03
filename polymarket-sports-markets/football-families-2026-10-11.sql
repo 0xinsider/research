@@ -1,6 +1,6 @@
 -- Section charts for /research/football-underdogs-polymarket (#23663, epic #23652): what the NFL and college football
 -- boards carried in the first 31 days of the 2026 NFL season, and how a game's volume splits across market families.
--- Read-only, against the production read replica through scripts/prod-read.sh:
+-- Runs against the production read replica through scripts/prod-read.sh:
 --   ./scripts/prod-read.sh docs/research-articles/verification/2026-10-11-football-underdogs-polymarket-charts.sql.txt   (in the 0xinsider repository)
 -- Universe: NFL and college football game markets that started from 00:00 UTC on September 10 to 00:00 UTC on
 -- October 11, 2026, with a 0xinsider page and 1,000 or more in Polymarket's reported volume (the predicate of

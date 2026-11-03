@@ -1,6 +1,6 @@
 """Starting prices for every counted Polymarket esports BO3 series moneyline, from the public CLOB price history.
 
-Input: esports-map1-series.csv (the read-only export, 9,504 series across CS2, Valorant,
+Input: esports-map1-series.csv (the export, 9,504 series across CS2, Valorant,
 Dota 2 and LoL). The cutoff is the series moneyline's own `game_start_time` (Polymarket's listed match start).
 For each series it reads
   GET https://clob.polymarket.com/prices-history?market=<token>&startTs=<cutoff - 24h>&endTs=<cutoff>&fidelity=1

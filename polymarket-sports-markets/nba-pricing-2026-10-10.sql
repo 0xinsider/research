@@ -12,7 +12,7 @@
 -- settled after the September run are in, so the sample is larger than September's. The September file and its
 -- output stay beside this one as the record of what was published.
 --
--- NBA favorite-longshot pricing study (#14060). Read-only; where this run ran is in the header above.
+-- NBA favorite-longshot pricing study (#14060). Where this run ran is in the header above.
 -- Window starts 2026-04-02: before that day whale_alerts.outcome_index was a defaulted 0 for a large
 -- share of buys (0xinsider/0xinsider#13182).
 -- CORRECTED 2026-10-07 (issue 0xinsider/0xinsider#22191). The grade lookup in this file took the latest

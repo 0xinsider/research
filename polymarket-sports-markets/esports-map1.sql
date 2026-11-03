@@ -1,7 +1,7 @@
 -- Study 15 (#13943): esports first-map winners on Polymarket. How often the winner of Map 1 (CS2, Valorant) or
 -- Game 1 (LoL, Dota 2) of a best-of-three series goes on to win the series, how often the series is swept 2-0,
--- and what a settlement cross-check between three independent markets on the same series shows. Read-only,
--- against production as a read-only role.
+-- and what a settlement cross-check between three independent markets on the same series shows. Runs
+-- against production as a database role that cannot write.
 --   psql "$DATABASE_URL" -X -f esports-map1.sql
 --
 -- A series is Polymarket's `moneyline` market whose title carries "(BO3)", for event slugs prefixed cs2, val,

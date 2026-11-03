@@ -1,6 +1,6 @@
 """Cross-check every settled Polymarket NRFI market against MLB's official linescore.
 
-Input: nrfi-markets.csv (the read-only export of settled NRFI markets; columns condition_id,
+Input: nrfi-markets.csv (the export of settled NRFI markets; columns condition_id,
 event_slug, matchup, fmt, token_id_yes, token_id_no, game_start_utc, winning_outcome).
 For each game date (US Eastern) it reads the public MLB Stats API schedule with linescores,
 matches each market to the game between the same two teams whose listed start is nearest the

@@ -5,7 +5,7 @@
 -- The output beside this file is the record of what was first published.
 -- Window starts 2026-04-02: before that day whale_alerts.outcome_index was a defaulted 0 for a large
 -- share of buys (80c+ buys tagged outcome 0 won 53-56% in Feb-Mar, outcome 1 won 84-89%; both ~88% from Apr 2).
--- Read-only. Runs against production through a read-only role.
+-- Runs against production through a database role that cannot write.
 --   psql "$DATABASE_URL" -X -f 01_calibration.sql
 select now() as run_at;
 

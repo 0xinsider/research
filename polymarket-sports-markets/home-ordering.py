@@ -6,7 +6,7 @@ prefixed "soccer:"): 20 settled draw markets per competition, with the away team
 draw market title) first and the home team (first named) second.
 For each event, read the Gamma event's teams[] and its `ordering` field, match the home team to the two
 names, and count how often the SECOND name is the home team.
-Read-only public API. Usage: python3 home-ordering.py home-ordering-sample.tsv
+Public API only; it changes nothing. Usage: python3 home-ordering.py home-ordering-sample.tsv
 """
 import json, sys, time, unicodedata, urllib.request, collections
 

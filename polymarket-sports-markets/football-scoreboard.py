@@ -1,6 +1,6 @@
 """Match every settled Polymarket NFL and college football moneyline to ESPN's final score.
 
-Input: football-games.csv (the read-only export of settled football moneylines; columns
+Input: football-games.csv (the export of settled football moneylines; columns
 condition_id, event_slug, league, away, home, away_token, home_token, game_start_utc, winning_outcome, volume_usd).
 For each game date (US Eastern, plus or minus a day) it reads ESPN's public scoreboard
 (site.api.espn.com/apis/site/v2/sports/football/{nfl|college-football}/scoreboard, college football for the FBS

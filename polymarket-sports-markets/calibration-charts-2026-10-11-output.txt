@@ -1,5 +1,5 @@
 -- #23664: output of calibration-charts-2026-10-11.sql
--- scripts/prod-read.sh, production read replica, read-only transaction, statement_timeout 60s.
+-- scripts/prod-read.sh, production read replica, statement_timeout 60s.
 
 A. started 2026-10-11T12:36:46Z
    mo    | outcome_index |   n   | won_pct | avg_price_c 

@@ -6,7 +6,7 @@ it counts the trading during the game, which nobody choosing a game before kicko
 in shares, not dollars (Gamma's `volumeNum` is the sum of taker `size`, #22291). This script measures what a
 bettor could have known at the cutoff: the dollars that changed hands on the moneyline before it.
 
-Input: football-games.csv (the read-only export) and football-prices.csv
+Input: football-games.csv (the export) and football-prices.csv
 (its `cutoff_utc` is the earlier of the market's scheduled start and ESPN's listed start, the same instant the
 kickoff price is read at).
 For each game it reads every taker trade at or before the cutoff:

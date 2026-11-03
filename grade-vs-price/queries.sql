@@ -1,6 +1,6 @@
 -- Grade vs price paid, Polymarket large sports and esports buys. Run of 2026-10-23.
 --
--- Read-only, against the production read replica (0xinsider's scripts/prod-read.sh wraps each
+-- Runs against the production read replica (0xinsider's scripts/prod-read.sh wraps each
 -- statement in BEGIN READ ONLY ... ROLLBACK with a 60 s statement timeout; query 5 ran with
 -- --heavy, which skips only its plan-cost gate). Every statement below is the text that produced
 -- results.md. Nothing is written.

@@ -1,6 +1,6 @@
 -- 0xinsider/0xinsider#23716 -- the stake floor of the sports studies' large-trade samples, by month.
 --
--- Read-only against the production READ REPLICA through ./scripts/prod-read.sh (every statement runs inside
+-- Runs against the production READ REPLICA through ./scripts/prod-read.sh (every statement runs inside
 -- BEGIN READ ONLY ... ROLLBACK with a 60 s statement timeout, results through a capped cursor) on 2026-10-11.
 -- No row was written. Each query below is the file the run read, followed by its output verbatim (psql's
 -- BEGIN/SET/ROLLBACK tags and the script's stderr lines removed). The run-time reads bracket the run; the

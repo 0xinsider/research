@@ -1,5 +1,5 @@
 -- Grade vs price paid, Polymarket large buys.
--- Run 2026-09-12 against production through a read-only role.
+-- Run 2026-09-12 against production through a database role that cannot write.
 -- Reads only. Creates temp views in the session and writes nothing.
 --
 --   psql "$DATABASE_URL" -X -f queries.sql

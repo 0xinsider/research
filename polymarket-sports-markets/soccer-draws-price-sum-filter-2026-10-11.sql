@@ -27,7 +27,7 @@
 -- (2026-10-07-sports-grade-at-trade.sql section 4, 'pit' grades, soccer only).
 --
 -- WHERE IT RAN. On a Neon child branch of production (claude-18-23731-reruns, forked 14:56 UTC on 2026-10-11,
--- deleted after the runs) through ./scripts/neon-child-branch.sh query, read-only against production. The temp
+-- deleted after the runs) through ./scripts/neon-child-branch.sh query, against production. The temp
 -- tables live only in the session. Output: 2026-10-11-soccer-draws-price-sum-filter-output.txt; the market-level
 -- export for the bootstrap: 2026-10-11-soccer-draws-price-sum-filter-market-edge.csv, and its intervals,
 -- 2026-10-11-soccer-draws-price-sum-filter-bootstrap-output.txt (2026-09-13-sports-bootstrap.py, seed 20260913).

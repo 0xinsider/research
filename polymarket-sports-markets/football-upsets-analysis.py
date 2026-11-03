@@ -1,7 +1,7 @@
 """Football upsets on Polymarket: how often the team priced below 50 cents at kickoff won.
 
 Inputs, published beside this script:
-  football-games.csv       the read-only export of settled NFL and college football moneylines
+  football-games.csv       the export of settled NFL and college football moneylines
   football-scoreboard.csv  each game matched to ESPN's final score, season type and venue
   football-prices.csv      the away team's last price before kickoff, from the public CLOB
 Output: the tables below on stdout, and football-upsets-games.csv (one row per counted game).

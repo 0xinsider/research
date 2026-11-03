@@ -1,5 +1,5 @@
 -- College football guide: what Polymarket lists for a college football game in the 2026 season, where the money goes,
--- and each main market family's rules. Read-only, a read-only role against production.
+-- and each main market family's rules. Runs as a database role that cannot write, against production.
 --   psql "$DATABASE_URL" -X -f cfb-markets.sql
 -- Universe: markets under a college football game slug (cfb-<away>-<home>-<date>, derivative slugs included) for games
 -- from August 20 to 04:00 UTC on September 13, 2026. Volume is Polymarket's reported lifetime volume per market, USDC.
