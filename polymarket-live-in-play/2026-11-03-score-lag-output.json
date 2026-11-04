@@ -165,8 +165,8 @@
    "from": "0-2",
    "to": "0-3",
    "side": "away",
-   "movedAt": "2026-11-03T21:14:31.786Z",
-   "lagS": 120,
+   "movedAt": "2026-11-03T21:14:26.527Z",
+   "lagS": 125,
    "askBefore": 0.92,
    "askAtScore": 0.986
   },

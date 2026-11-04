@@ -1,0 +1,153 @@
+{
+ "readAt": "2026-11-04T11:33:48.147Z",
+ "windowStart": "2026-11-03T11:33:48.147Z",
+ "closedEvents": 1691,
+ "marketsStudied": 341,
+ "historiesRead": 341,
+ "summary": [
+  {
+   "phase": "pregame",
+   "jumps": 214,
+   "games": 49,
+   "medianSizeC": 7.5,
+   "reversedNextMinutePct": 8.4,
+   "with60": 211,
+   "medianKept60": 0.77,
+   "keptHalfPct": 57.8,
+   "reversedFullyPct": 30.3
+  },
+  {
+   "phase": "in-play",
+   "jumps": 3586,
+   "games": 238,
+   "medianSizeC": 8,
+   "reversedNextMinutePct": 11.5,
+   "with60": 2958,
+   "medianKept60": 1.39,
+   "keptHalfPct": 57.3,
+   "reversedFullyPct": 39.2
+  }
+ ],
+ "byLeague": [
+  {
+   "league": "atp",
+   "phase": "in-play",
+   "jumps": 890,
+   "reversedNextMinutePct": 12.1
+  },
+  {
+   "league": "itf",
+   "phase": "in-play",
+   "jumps": 508,
+   "reversedNextMinutePct": 11.4
+  },
+  {
+   "league": "wta",
+   "phase": "in-play",
+   "jumps": 506,
+   "reversedNextMinutePct": 11.1
+  },
+  {
+   "league": "counter-strike",
+   "phase": "in-play",
+   "jumps": 346,
+   "reversedNextMinutePct": 5.8
+  },
+  {
+   "league": "dota-2",
+   "phase": "in-play",
+   "jumps": 156,
+   "reversedNextMinutePct": 7.1
+  },
+  {
+   "league": "afc-champions-league-elite-2026",
+   "phase": "in-play",
+   "jumps": 124,
+   "reversedNextMinutePct": 9.7
+  },
+  {
+   "league": "efl-championship",
+   "phase": "in-play",
+   "jumps": 112,
+   "reversedNextMinutePct": 1.8
+  },
+  {
+   "league": "cba",
+   "phase": "in-play",
+   "jumps": 110,
+   "reversedNextMinutePct": 10
+  },
+  {
+   "league": "ven1-games",
+   "phase": "in-play",
+   "jumps": 91,
+   "reversedNextMinutePct": 19.8
+  },
+  {
+   "league": "counter-strike",
+   "phase": "pregame",
+   "jumps": 87,
+   "reversedNextMinutePct": 4.6
+  },
+  {
+   "league": "nhl-2026",
+   "phase": "in-play",
+   "jumps": 77,
+   "reversedNextMinutePct": 5.2
+  },
+  {
+   "league": "ucl-2025",
+   "phase": "in-play",
+   "jumps": 77,
+   "reversedNextMinutePct": 13
+  },
+  {
+   "league": "acl2-games",
+   "phase": "in-play",
+   "jumps": 75,
+   "reversedNextMinutePct": 33.3
+  },
+  {
+   "league": "ncaa-cbb",
+   "phase": "in-play",
+   "jumps": 68,
+   "reversedNextMinutePct": 13.2
+  },
+  {
+   "league": "itf",
+   "phase": "pregame",
+   "jumps": 67,
+   "reversedNextMinutePct": 16.4
+  },
+  {
+   "league": "col2-games",
+   "phase": "in-play",
+   "jumps": 53,
+   "reversedNextMinutePct": 22.6
+  },
+  {
+   "league": "par1-games",
+   "phase": "in-play",
+   "jumps": 49,
+   "reversedNextMinutePct": 16.3
+  },
+  {
+   "league": "ja3-games",
+   "phase": "in-play",
+   "jumps": 46,
+   "reversedNextMinutePct": 21.7
+  },
+  {
+   "league": "liga-1",
+   "phase": "in-play",
+   "jumps": 45,
+   "reversedNextMinutePct": 13.3
+  },
+  {
+   "league": "brazil-serie-a",
+   "phase": "in-play",
+   "jumps": 40,
+   "reversedNextMinutePct": 2.5
+  }
+ ]
+}
