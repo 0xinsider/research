@@ -104,8 +104,10 @@ const summary = ["S/A", "B/C", "D/F", "ungraded"].flatMap((grade) =>
 );
 console.log(JSON.stringify({ readAt: new Date().toISOString(), universeReadAt: snap.readAt, windowStart: new Date(since * 1000).toISOString(), markets: markets.length, trades: rows.length, summary }, null, 1));
 
-// The kill switch. Poll the markets you quote; on a fresh S or A trade of $10,000 or more (the large-trade
-// feed records fills from $10,000 up, so a lower min_size finds nothing more), pull quotes.
+// The kill switch. Poll the markets you quote; on a fresh trade of $10,000 or more (the large-trade feed
+// records fills from $10,000 up, so a lower min_size finds nothing more) by a wallet graded S or A at the
+// trade, pull quotes. min_grade_at_trade is the grade the study above buckets by; min_grade would read the
+// wallet's grade now, which can have moved since the fill.
 // pullQuotes is yours to write against your own Polymarket client's cancel call.
 export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) => void, everyMs = 10_000) {
   const seen = new Set<string>();
@@ -114,7 +116,7 @@ export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) 
   const startedAt = Date.now();
   for (;;) {
     for (const cid of conditionIds) {
-      const q = new URLSearchParams({ condition_id: cid, min_grade: "A", min_size: "10000", sort: "recent", limit: "20" });
+      const q = new URLSearchParams({ condition_id: cid, min_grade_at_trade: "A", min_size: "10000", sort: "recent", limit: "20" });
       for (const t of (await oxi<{ data: LargeTrade[] }>(`/large-trades?${q}`)).data) {
         if (!seen.has(t.id)) {
           seen.add(t.id);
