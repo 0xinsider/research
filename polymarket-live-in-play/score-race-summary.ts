@@ -49,8 +49,9 @@ for (const slug of [...new Set(race.map((r) => r.slug))]) {
       const [prev, cur] = [ls[i - 1]!, ls[i]!];
       if (goalsOf(cur.score) !== goalsOf(prev.score) + 1) continue;
       const c = changes.get(cur.score) ?? { from: prev.score };
-      if (source === "gamma") c.gamma = cur;
-      else c.ours = cur;
+      // The first sighting stands: a feed that rolls a score back and restores it shows it again later.
+      if (source === "gamma") c.gamma ??= cur;
+      else c.ours ??= cur;
       changes.set(cur.score, c);
     }
   }

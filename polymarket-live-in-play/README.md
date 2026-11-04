@@ -23,7 +23,7 @@ and one section compares that list with Gamma; the frozen score feed it records 
 | Champions League books within 2 cents of the mid, minutes 0 to 15 against 40 minutes before | median 14.3% ($201,388 to $34,027), 12 books | `depth-summary` |
 | Soccer moneylines within 2 cents of the mid by time to start | in play $4,470 (66 books); 3 to 7 days out $192 (384 books) | `depth-by-kickoff` |
 | `secondsDelay` on open moneylines | 1 on 1,383 of 1,413; 0 on 30, all NBA | `depth-by-kickoff` |
-| 5-cent jumps fully undone an hour later | in play 40.6%, before the start 28.3% | `move-study` |
+| 5-cent jumps fully undone an hour later, of the jumps with a full hour of price after them | in play 40.6% of 3,147 (of 3,848 jumps), before the start 28.3% of 283 (of 285) | `move-study` |
 | Depth within 2 cents of the mid around a goal, against the book's own level 4 to 8 minutes earlier | median 17% 90 seconds before the score read, 51% at the score read; 31 goals | `depth-summary` + `gen-live-evidence.jq` |
 | Gamma's score against the 0xinsider live list, read every 10 seconds | 26 goals both caught cleanly: the 0xinsider list first 25 times, Gamma never, by a median 125 seconds | `score-race-summary` |
 | Score feeds after the book, 12 goals with a book time | 0xinsider list a median 104.5 seconds, Gamma 204 | `score-race-summary` |
