@@ -11,7 +11,10 @@ const GAMMA = "https://gamma-api.polymarket.com";
 const CLOB = "https://clob.polymarket.com";
 const HOURS = Number(process.env.HOURS ?? 24);
 const MIN_VOLUME = Number(process.env.MIN_VOLUME ?? 5000);
-const JUMP = 0.05;
+// Prices compare in whole hundredths of a cent, which every Polymarket tick converts to exactly: in
+// floating point 0.97 - 0.92 is 0.04999999999999993, so a 5-cent jump tested in dollars falls short.
+const units = (price: number) => Math.round(price * 10_000);
+const JUMP = 500;
 const WINDOW = 5;
 const TAIL_MIN = 15;
 
@@ -57,27 +60,27 @@ const markets = events
     return [{ event: e.slug, league: e.series?.[0]?.slug ?? "", token: (JSON.parse(m.clobTokenIds) as string[])[0]!, start, close }];
   }));
 
-type Jump = { phase: "pregame" | "in-play"; event: string; league: string; size: number; reversedNextMinute: boolean; kept60: number | null };
+type Jump = { phase: "pregame" | "in-play"; event: string; league: string; size: number /* hundredths of a cent */; reversedNextMinute: boolean; kept60: number | null };
 const jumps: Jump[] = [];
 let read = 0;
 async function study(m: (typeof markets)[number]) {
   const q = new URLSearchParams({ market: m.token, startTs: String(Math.floor((m.start - 6 * 3_600_000) / 1000)), endTs: String(Math.floor(m.close / 1000)), fidelity: "1" });
   const { history } = await getJson<{ history: { t: number; p: number }[] }>(`${CLOB}/prices-history?${q}`);
   read++;
-  const pts = history.map((h) => ({ t: h.t * 1000, p: h.p })).sort((a, b) => a.t - b.t);
+  const pts = history.map((h) => ({ t: h.t * 1000, u: units(h.p) })).sort((a, b) => a.t - b.t);
   const at = (t: number) => {
     // The last point at or before t: the price a trader would have seen.
     let lo = 0, hi = pts.length - 1, found = -1;
     while (lo <= hi) { const mid = (lo + hi) >> 1; if (pts[mid]!.t <= t) { found = mid; lo = mid + 1; } else hi = mid - 1; }
-    return found < 0 ? null : pts[found]!.p;
+    return found < 0 ? null : pts[found]!.u;
   };
   const end = m.close - TAIL_MIN * 60_000;
   for (let i = 0; i < pts.length; i++) {
     const cur = pts[i]!;
-    if (cur.t >= end || cur.p < 0.05 || cur.p > 0.95) continue;
+    if (cur.t >= end || cur.u < 500 || cur.u > 9_500) continue;
     const base = at(cur.t - WINDOW * 60_000);
-    if (base === null || Math.abs(cur.p - base) < JUMP) continue;
-    const move = cur.p - base;
+    if (base === null || Math.abs(cur.u - base) < JUMP) continue;
+    const move = cur.u - base;
     const next = at(cur.t + 60_000);
     const later = cur.t + 60 * 60_000 < end ? at(cur.t + 60 * 60_000) : null;
     jumps.push({
@@ -85,7 +88,7 @@ async function study(m: (typeof markets)[number]) {
       event: m.event,
       league: m.league,
       size: Math.abs(move),
-      reversedNextMinute: next !== null && Math.sign(move) * (next - cur.p) <= -Math.abs(move) / 2,
+      reversedNextMinute: next !== null && 2 * Math.sign(move) * (next - cur.u) <= -Math.abs(move),
       kept60: later === null ? null : (later - base) / move,
     });
     // Skip ahead so one move is counted once.
@@ -107,7 +110,7 @@ const summary = (["pregame", "in-play"] as const).map((phase) => {
     phase,
     jumps: js.length,
     games: new Set(js.map((j) => j.event)).size,
-    medianSizeC: Number(((median(js.map((j) => j.size)) ?? 0) * 100).toFixed(1)),
+    medianSizeC: Number(((median(js.map((j) => j.size)) ?? 0) / 100).toFixed(1)),
     reversedNextMinutePct: js.length ? Number(((100 * js.filter((j) => j.reversedNextMinute).length) / js.length).toFixed(1)) : null,
     with60: kept.length,
     medianKept60: kept.length ? Number(median(kept)!.toFixed(2)) : null,

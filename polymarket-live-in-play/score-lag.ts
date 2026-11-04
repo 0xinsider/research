@@ -16,6 +16,10 @@ const median = (xs: number[]) => {
   const s = [...xs].sort((a, b) => a - b);
   return s.length === 0 ? null : s.length % 2 ? s[(s.length - 1) / 2]! : (s[s.length / 2 - 1]! + s[s.length / 2]!) / 2;
 };
+// Prices compare in whole hundredths of a cent, which every Polymarket tick converts to exactly: in
+// floating point 0.97 - 0.92 is 0.04999999999999993, so a 5-cent move tested in dollars falls short.
+const units = (price: number) => Math.round(price * 10_000);
+const FIVE_CENTS = 500;
 const goals: { slug: string; scoreAt: string; from: string; to: string; side: "home" | "away"; movedAt: string | null; lagS: number | null; askBefore: number | null; askAtScore: number | null }[] = [];
 for (const slug of new Set(lines.map((l) => l.slug))) {
   const ls = lines.filter((l) => l.slug === slug && l.state === "live" && /^\d+-\d+$/.test(l.score));
@@ -40,7 +44,7 @@ for (const slug of new Set(lines.map((l) => l.slug))) {
       // The earliest poll from which the ask stays 5 cents or more above the base through the score read.
       for (let j = window.length - 1; j >= 0; j--) {
         const a = window[j]!.asks[leg];
-        if (a === null || a - baseAsk < 0.05) break;
+        if (a === null || units(a) - units(baseAsk) < FIVE_CENTS) break;
         movedAt = window[j]!.at;
       }
     }

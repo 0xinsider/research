@@ -7,7 +7,7 @@
  "medianOursMinusGammaS": -125,
  "withBook": 12,
  "medianGammaAfterBookS": 204,
- "medianOursAfterBookS": 104.5,
+ "medianOursAfterBookS": 107.5,
  "rows": [
   {
    "slug": "elc-bbr-sto-2026-11-03",
@@ -29,15 +29,15 @@
    "from": "0-1",
    "to": "0-2",
    "bookEveryS": 30,
-   "bookAt": "2026-11-03T21:13:02.033Z",
+   "bookAt": "2026-11-03T21:12:31.608Z",
    "gammaAt": "2026-11-03T21:18:56.003Z",
    "oursAt": "2026-11-03T21:14:26.107Z",
    "oursObservedAt": "2026-11-03T21:14:18Z",
    "gammaFailed": false,
    "oursFailed": false,
    "oursMinusGammaS": -270,
-   "gammaAfterBookS": 354,
-   "oursAfterBookS": 84
+   "gammaAfterBookS": 384,
+   "oursAfterBookS": 114
   },
   {
    "slug": "elc-bbr-sto-2026-11-03",
@@ -419,15 +419,15 @@
    "from": "0-2",
    "to": "0-3",
    "bookEveryS": 5,
-   "bookAt": "2026-11-03T21:14:31.786Z",
+   "bookAt": "2026-11-03T21:14:26.527Z",
    "gammaAt": "2026-11-03T21:17:05.995Z",
    "oursAt": "2026-11-03T21:16:26.140Z",
    "oursObservedAt": "2026-11-03T21:16:19Z",
    "gammaFailed": false,
    "oursFailed": false,
    "oursMinusGammaS": -40,
-   "gammaAfterBookS": 154,
-   "oursAfterBookS": 114
+   "gammaAfterBookS": 159,
+   "oursAfterBookS": 120
   }
  ]
 }

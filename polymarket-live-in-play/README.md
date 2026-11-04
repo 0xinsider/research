@@ -1,11 +1,11 @@
 # Polymarket live (in-play) markets
 
-Measured 2026-11-03 for the site (issue 0xinsider/0xinsider#32523):
+Measured 2026-11-03, with the jump study read again 2026-11-04, for the site (issue 0xinsider/0xinsider#32523):
 
 - https://0xinsider.com/research/polymarket-live-in-play-markets
 
 One evening of Polymarket sports books: a snapshot of every open sports moneyline at 20:16 UTC, one-minute
-price history for the games that closed in the 24 hours before 20:10 UTC, nine soccer books read every 2
+price history for the games that closed in the 24 hours before 11:33 UTC on November 4, nine soccer books read every 2
 seconds across their start, and the night's 7 Champions League and 8 EFL Championship games read every
 30 seconds from before kickoff to the final whistle, with Gamma's score and the 0xinsider live games list
 read every 10 seconds beside them.
@@ -23,10 +23,10 @@ and one section compares that list with Gamma; the frozen score feed it records 
 | Champions League books within 2 cents of the mid, minutes 0 to 15 against 40 minutes before | median 14.3% ($201,388 to $34,027), 12 books | `depth-summary` |
 | Soccer moneylines within 2 cents of the mid by time to start | in play $4,470 (66 books); 3 to 7 days out $192 (384 books) | `depth-by-kickoff` |
 | `secondsDelay` on open moneylines | 1 on 1,383 of 1,413; 0 on 30, all NBA | `depth-by-kickoff` |
-| 5-cent jumps fully undone an hour later, of the jumps with a full hour of price after them | in play 40.6% of 3,147 (of 3,848 jumps), before the start 28.3% of 283 (of 285) | `move-study` |
+| 5-cent jumps fully undone an hour later, of the jumps with a full hour of price after them | in play 39.2% of 2,958 (of 3,586 jumps), before the start 30.3% of 211 (of 214) | `move-study` |
 | Depth within 2 cents of the mid around a goal, against the book's own level 4 to 8 minutes earlier | median 17% 90 seconds before the score read, 51% at the score read; 31 goals | `depth-summary` + `gen-live-evidence.jq` |
 | Gamma's score against the 0xinsider live list, read every 10 seconds | 26 goals both caught cleanly: the 0xinsider list first 25 times, Gamma never, by a median 125 seconds | `score-race-summary` |
-| Score feeds after the book, 12 goals with a book time | 0xinsider list a median 104.5 seconds, Gamma 204 | `score-race-summary` |
+| Score feeds after the book, 12 goals with a book time | 0xinsider list a median 107.5 seconds, Gamma 204 | `score-race-summary` |
 | Scoring side's 5-cent jump to the score read, Champions League, 5-second books | median 116 seconds over 11 goals, never under 75 | `score-lag` |
 
 ## Files
@@ -52,6 +52,11 @@ and one section compares that list with Gamma; the frozen score feed it records 
 - `gen-live-evidence.jq`: emits the goal and score figures from the three summaries.
 - `2026-11-03-*`: the logs and outputs the article cites. The kickoff log keeps the reads from 90
   seconds before to 11 minutes after each listed start; its summary is the same as the full log's.
+- `2026-11-04-move-study-output.json`: the jump study as cited, read at 11:33:48 UTC on November 4.
+  `move-study.ts`, `score-race-summary.ts` and `score-lag.ts` compare prices in whole hundredths of a
+  cent: in floating point 0.97 - 0.92 is 0.04999999999999993, so a 5-cent move tested in dollars fell
+  short of 0.05. The 2026-11-03 jump read, which compared dollars, cannot be read again: Gamma's 24-hour
+  volume on games closed a day earlier has decayed, so the same window now selects other markets.
 
 None of the scripts places an order.
 
@@ -73,4 +78,4 @@ jq -r -f gen-kickoff.jq kickoff-summary.json
 jq -rn --slurpfile d depth-summary.json --slurpfile r score-race-summary.json --slurpfile l score-lag.json -f gen-live-evidence.jq
 ```
 
-`live-arb.jsonl` is the log of `../polymarket-arbitrage/live-arb-poll.ts` over the same games; that night's is `../polymarket-arbitrage/2026-11-03-live-arb-poll-output.jsonl`. The watchers read the night you run them, so a rerun gives a new evening's numbers, not these. Run the summaries on the `2026-11-03-*` logs to get these.
+`live-arb.jsonl` is the log of `../polymarket-arbitrage/live-arb-poll.ts` over the same games; that night's is `../polymarket-arbitrage/2026-11-03-live-arb-poll-output.jsonl`. The watchers read the night you run them, so a rerun gives a new evening's numbers, not these. Run the summaries on the `2026-11-03-*` logs to get these; `move-study.ts` reads live data, so its rerun reads a new day.
