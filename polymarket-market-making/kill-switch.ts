@@ -108,8 +108,9 @@ console.log(JSON.stringify({ readAt: new Date().toISOString(), universeReadAt: s
 // records fills from $10,000 up, so a lower min_size finds nothing more) by a wallet graded S or A at the
 // trade, pull quotes. min_grade_at_trade is the grade the study above buckets by; min_grade would read the
 // wallet's grade now, which can have moved since the fill.
-// pullQuotes is yours to write against your own Polymarket client's cancel call.
-export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) => void, everyMs = 10_000) {
+// pullQuotes is yours to write against your own Polymarket client's cancel call. watch() awaits it, so a
+// cancel that fails ends watch() with that error, for the caller to act on while the quotes may still be live.
+export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) => void | Promise<void>, everyMs = 10_000) {
   const seen = new Set<string>();
   // Only trades after the watcher starts count: the feed returns market history, and an old trade
   // must not cancel quotes you place now.
@@ -119,8 +120,8 @@ export async function watch(conditionIds: string[], pullQuotes: (t: LargeTrade) 
       const q = new URLSearchParams({ condition_id: cid, min_grade_at_trade: "A", min_size: "10000", sort: "recent", limit: "20" });
       for (const t of (await oxi<{ data: LargeTrade[] }>(`/large-trades?${q}`)).data) {
         if (!seen.has(t.id)) {
+          if (Date.parse(t.traded_at) >= startedAt) await pullQuotes(t);
           seen.add(t.id);
-          if (Date.parse(t.traded_at) >= startedAt) pullQuotes(t);
         }
       }
     }

@@ -37,8 +37,8 @@ is left out of that horizon.
   `/v2/trades` and CLOB `/prices-history`, and prints every table above.
 - `kill-switch.ts`: reads `/api/v1/large-trades?condition_id=` for the same 40 markets and marks each
   trade at 30 minutes. Its exported `watch()` polls for trades of $10,000 or more (the feed's floor) by wallets graded
-  S or A at the trade (`min_grade_at_trade`, the basis the study buckets by) and calls the cancel function you pass it.
-  It places no orders.
+  S or A at the trade (`min_grade_at_trade`, the basis the study buckets by) and awaits the cancel function you pass
+  it, so a cancel that fails ends `watch()` with that error. It places no orders.
 - `2026-11-03-mm-scan-output.json`, `2026-11-03-kill-switch-output.json`: the runs the article cites.
   The kill-switch run read its key from `OXI_API_KEY`; the committed script reads
   `OXINSIDER_API_KEY`, the only change, and ran clean at 19:32 UTC.
